@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">IZRandom</string>
+    <string name="bottom_nav_label_1">Ngẫu nhiên</string>
+    <string name="bottom_nav_label_2">Gợi ý</string>
+    <string name="bottom_nav_label_3">Cùng chơi</string>
+    <string name="bottom_nav_label_4">Cài đặt</string>
 </resources>
