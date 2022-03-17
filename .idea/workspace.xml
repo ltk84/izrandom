@@ -28,10 +28,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/home/HomeActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/home/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/BasePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/BasePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/home/MainActivity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +67,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
@@ -72,7 +75,7 @@
     <property name="project.structure.last.edited" value="SDK Location" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="settings.saveactions" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -171,6 +174,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="407" y="294" key="#Custom_Plugin_Repositories" timestamp="1647486188449">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="407" y="294" key="#Custom_Plugin_Repositories/0.0.1366.768@0.0.1366.768" timestamp="1647486188449" />
+    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser" timestamp="1647499172272">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1647499172272" />
     <state x="96" y="111" width="857" height="568" key="AVDManager" timestamp="1647336180374">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -205,13 +216,18 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647310713472" />
+    <state x="29" y="40" key="SettingsEditor" timestamp="1647486414658">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="29" y="40" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1647486414658" />
     <state x="584" y="186" key="chooseDestDirectoryDialog" timestamp="1647307361368">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="584" y="186" key="chooseDestDirectoryDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647307361368" />
-    <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1647259828206">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="383" y="129" width="672" height="639" key="search.everywhere.popup" timestamp="1647484149709">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="383" y="129" width="672" height="639" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1647484149709" />
     <state x="431" y="137" width="672" height="678" key="search.everywhere.popup/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647259828206" />
   </component>
 </project>
