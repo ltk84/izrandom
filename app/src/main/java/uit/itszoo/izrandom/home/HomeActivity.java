@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random.RandomFragment;
 
 public class HomeActivity extends AppCompatActivity implements HomeContract.View {
     HomeContract.Presenter presenter;
@@ -23,6 +24,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnItemSelectedListener(item -> presenter.onFragmentChanged(item, getSupportFragmentManager()));
+
+        presenter.loadFragment(getSupportFragmentManager(), new RandomFragment());
     }
 
 

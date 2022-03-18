@@ -49,7 +49,7 @@ public class HomePresenter implements HomeContract.Presenter {
         return false;
     }
 
-    private void loadFragment(FragmentManager fragmentManager, Fragment fragment) {
+    public void loadFragment(FragmentManager fragmentManager, Fragment fragment) {
         // load fragment
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frame_container, fragment);
