@@ -4,10 +4,13 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import uit.itszoo.izrandom.R;
 
 public class HomeActivity extends AppCompatActivity implements HomeContract.View {
     HomeContract.Presenter presenter;
+    BottomNavigationView bottomNavigationView;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +19,10 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
         HomePresenter presenter = new HomePresenter(this);
         setPresenter(presenter);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> presenter.onFragmentChanged(item, getSupportFragmentManager()));
     }
 
 

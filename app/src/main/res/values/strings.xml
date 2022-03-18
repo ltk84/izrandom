@@ -4,4 +4,6 @@
     <string name="bottom_nav_label_2">Gợi ý</string>
     <string name="bottom_nav_label_3">Cùng chơi</string>
     <string name="bottom_nav_label_4">Cài đặt</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
