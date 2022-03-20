@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,6 +23,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
     ViewGroup layout;
     Animation rotateAnimation;
     ImageView arrowView;
+    TextView textGuide;
 
     float lastPosition = 0f;
 
@@ -41,6 +43,8 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         backButton = findViewById(R.id.back_button);
         layout = findViewById(R.id.layout_random_direction);
         arrowView = findViewById(R.id.im_arrow);
+        textGuide = findViewById(R.id.txt_guide);
+
     }
 
     public void setListenerForView() {
@@ -65,6 +69,8 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
                 return false;
             }
         });
+
+
     }
 
     @Override
@@ -84,5 +90,22 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         arrowView.startAnimation(rotateAnimation);
 
         lastPosition = randomValue;
+
+        rotateAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                textGuide.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                textGuide.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 }
