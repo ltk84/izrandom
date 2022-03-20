@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IZRandom">
         <activity android:name=".random_direction_custom.RandomDirectionCustomActivity"></activity>
+        <activity android:name=".lucky_wheel.LuckyWheelActivity"></activity>
+        <activity android:name=".random_integer.RandomIntegerActivity" />
+        <activity android:name=".roll_dice.RollDiceActivity" />
         <activity android:name=".random_direction.RandomDirectionActivity" />
         <activity
             android:name=".home.HomeActivity"

@@ -53,8 +53,7 @@ public class HomePresenter implements HomeContract.Presenter {
         // load fragment
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setReorderingAllowed(true);
-        transaction.add(R.id.fragment_random_container, fragment, null);
-        transaction.addToBackStack(null);
+        transaction.replace(R.id.fragment_random_container, fragment, null);
         transaction.commit();
     }
 }

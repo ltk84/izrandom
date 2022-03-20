@@ -24,9 +24,10 @@
 
                 <androidx.cardview.widget.CardView
                     app:cardCornerRadius="5dp"
-                    android:id="@+id/randomCardView"
+                    android:id="@+id/cv_random_direction"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+
                     android:layout_width="146dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="48dp"
@@ -67,6 +68,7 @@
 
                     <androidx.cardview.widget.CardView
                         app:cardCornerRadius="5dp"
+                        android:id="@+id/cv_roll_dice"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
                         android:layout_width="match_parent"
@@ -105,6 +107,7 @@
                         android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
                         app:contentPadding="8dp"
+                        android:id="@+id/cv_flip_coin"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="12dp"
@@ -143,6 +146,7 @@
                 android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
+                android:id="@+id/cv_lucky_wheel"
                 android:layout_marginHorizontal="48dp"
                 android:layout_marginVertical="12dp"
                 app:contentPadding="28dp"
@@ -180,6 +184,7 @@
                     android:clickable="true"
                     app:contentPadding="12dp"
                     android:layout_width="146dp"
+                    android:id="@+id/cv_random_number"
                     android:layout_height="match_parent"
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="12dp"
@@ -217,6 +222,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="12dp"
+                    android:id="@+id/cv_random_list"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="48dp"
                     android:layout_marginBottom="24dp"
