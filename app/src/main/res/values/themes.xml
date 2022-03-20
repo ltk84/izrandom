@@ -8,6 +8,7 @@
         <!-- Customize your theme here. -->
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
         <item name="toolbarStyle">@style/ToolBarStyle</item>
+        <item name="fontFamily">@font/be_vietnam_pro</item>
     </style>
 
     <!-- Bottom Navigation Bar Style. -->
