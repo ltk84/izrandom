@@ -11,4 +11,6 @@ public class RandomDirectionPresenter implements RandomDirectionContract.Present
     public void start() {
 
     }
+
+    
 }

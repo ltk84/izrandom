@@ -46,7 +46,7 @@ public class RandomFragment extends Fragment {
     CardView randomNumberCardView;
     CardView randomListCardView;
     ImageView imageView;
-    RotateAnimation rotateAnimation;
+    Animation rotateAnimation;
 
     public RandomFragment() {
         // Required empty public constructor
@@ -87,10 +87,10 @@ public class RandomFragment extends Fragment {
         initView(view);
         setListenerForView();
 
-        rotateAnimation = new RotateAnimation(0.0f, 360.0f,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-                0.5f);
-        
+        performAnimation();
+    }
+
+    public void performAnimation() {
         rotateAnimation.setDuration(800);
         rotateAnimation.setInterpolator(new AnticipateOvershootInterpolator());
 
@@ -105,6 +105,8 @@ public class RandomFragment extends Fragment {
         randomNumberCardView = view.findViewById(R.id.cv_random_number);
         randomListCardView = view.findViewById(R.id.cv_random_list);
         imageView = view.findViewById(R.id.imageView);
+        rotateAnimation = new RotateAnimation(0f, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+
     }
 
     public void setListenerForView() {

@@ -9,5 +9,6 @@ public interface RandomDirectionContract {
     }
 
     interface View extends BaseView<Presenter> {
+        void executeSpin();
     }
 }

@@ -2,7 +2,7 @@ package uit.itszoo.izrandom.random_integer;
 
 import uit.itszoo.izrandom.random_direction.RandomDirectionContract;
 
-public class RandomIntegerPresenter implements RandomDirectionContract.Presenter {
+public class RandomIntegerPresenter implements RandomIntegerContract.Presenter {
     private final RandomDirectionContract.View view;
 
     public RandomIntegerPresenter(RandomDirectionContract.View view) {

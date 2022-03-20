@@ -1,16 +1,88 @@
 package uit.itszoo.izrandom.random_direction;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Random;
+
 import uit.itszoo.izrandom.R;
 
-public class RandomDirectionActivity extends AppCompatActivity {
+public class RandomDirectionActivity extends AppCompatActivity implements RandomDirectionContract.View {
+
+    ImageButton backButton;
+    RandomDirectionContract.Presenter randDirPresenter;
+    ViewGroup layout;
+    Animation rotateAnimation;
+    ImageView arrowView;
+
+    float lastPosition = 0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_direction);
+
+        initView();
+        setListenerForView();
+
+        randDirPresenter = new RandomDirectionPresenter(this);
+        setPresenter(randDirPresenter);
+    }
+
+    public void initView() {
+        backButton = findViewById(R.id.back_button);
+        layout = findViewById(R.id.layout_random_direction);
+        arrowView = findViewById(R.id.im_arrow);
+    }
+
+    public void setListenerForView() {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                executeSpin();
+            }
+        });
+
+        layout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+//                executeSpin();
+                return false;
+            }
+        });
+    }
+
+    @Override
+    public void setPresenter(RandomDirectionContract.Presenter presenter) {
+        this.randDirPresenter = presenter;
+    }
+
+    @Override
+    public void executeSpin() {
+        Random rand = new Random();
+        int randomValue = rand.nextInt(361);
+
+        rotateAnimation = new RotateAnimation(lastPosition, 360 * 10 + randomValue, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotateAnimation.setDuration(3500);
+        rotateAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
+        rotateAnimation.setFillAfter(true);
+        arrowView.startAnimation(rotateAnimation);
+
+        lastPosition = randomValue;
     }
 }
