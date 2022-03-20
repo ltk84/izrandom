@@ -14,7 +14,10 @@ import androidx.fragment.app.Fragment;
 import org.jetbrains.annotations.NotNull;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.lucky_wheel.LuckyWheelActivity;
 import uit.itszoo.izrandom.random_direction.RandomDirectionActivity;
+import uit.itszoo.izrandom.random_integer.RandomIntegerActivity;
+import uit.itszoo.izrandom.roll_dice.RollDiceActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +36,11 @@ public class RandomFragment extends Fragment {
     private String mParam2;
 
     CardView randomDirectionCardView;
+    CardView rollDiceCardView;
+    CardView flipCoinCardView;
+    CardView luckyWheelCardView;
+    CardView randomNumberCardView;
+    CardView randomListCardView;
 
     public RandomFragment() {
         // Required empty public constructor
@@ -70,12 +78,49 @@ public class RandomFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        randomDirectionCardView = view.findViewById(R.id.randomCardView);
+        initView(view);
+        setListenerForView();
+    }
+
+    public void initView(@NonNull @NotNull View view) {
+        randomDirectionCardView = view.findViewById(R.id.cv_random_direction);
+        rollDiceCardView = view.findViewById(R.id.cv_roll_dice);
+        flipCoinCardView = view.findViewById(R.id.cv_flip_coin);
+        luckyWheelCardView = view.findViewById(R.id.cv_lucky_wheel);
+        randomNumberCardView = view.findViewById(R.id.cv_random_number);
+        randomListCardView = view.findViewById(R.id.cv_random_list);
+    }
+
+    public void setListenerForView() {
         randomDirectionCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentToRandom = new Intent(getContext(), RandomDirectionActivity.class);
-                startActivity(intentToRandom);
+                Intent intentToRandomDirection = new Intent(getContext(), RandomDirectionActivity.class);
+                startActivity(intentToRandomDirection);
+            }
+        });
+
+        rollDiceCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToRollDice = new Intent(getContext(), RollDiceActivity.class);
+                startActivity(intentToRollDice);
+            }
+        });
+
+        randomNumberCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToRandomNumber = new Intent(getContext(), RandomIntegerActivity.class);
+                startActivity(intentToRandomNumber);
+            }
+        });
+
+        luckyWheelCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToLuckyWheel = new Intent(getContext(), LuckyWheelActivity.class);
+                startActivity(intentToLuckyWheel);
             }
         });
     }
