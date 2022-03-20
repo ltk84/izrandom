@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:damping="1.8">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,6 +24,7 @@
 
                 <androidx.cardview.widget.CardView
                     app:cardCornerRadius="5dp"
+                    android:id="@+id/randomCardView"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
                     android:layout_width="146dp"
@@ -32,11 +34,13 @@
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="12dp"
                     app:contentPadding="28dp"
-                    app:cardElevation="2dp" >
+                    app:cardElevation="2dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
+
                         <ImageView
                             android:id="@+id/imageView"
                             android:layout_width="60dp"
@@ -46,12 +50,13 @@
                             android:src="@drawable/ic_random_direction"
                             app:tint="@color/randomElementBlack"
                             android:contentDescription="@string/random_direction_description" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="bottom|center_horizontal"
                             android:textColor="@color/blueLightColorOnBackground"
-                            android:text="@string/random_direction_label"/>
+                            android:text="@string/random_direction_label" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -71,24 +76,27 @@
                         android:layout_marginTop="24dp"
                         android:layout_marginEnd="48dp"
                         android:layout_marginBottom="12dp"
-                        app:cardElevation="2dp" >
+                        app:cardElevation="2dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
+
                             <ImageView
                                 android:id="@+id/imageView2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="32dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/ic_random_dice"
-                                android:contentDescription="@string/roll_a_dice_description"/>
+                                android:contentDescription="@string/roll_a_dice_description" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="bottom|center_horizontal"
                                 android:textColor="@color/blueLightColorOnBackground"
-                                android:text="@string/random_dice_label"/>
+                                android:text="@string/random_dice_label" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -103,25 +111,27 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="48dp"
                         android:layout_marginBottom="12dp"
-                        app:cardElevation="2dp" >
+                        app:cardElevation="2dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
+
                             <ImageView
                                 android:id="@+id/imageView3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="32dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/ic_random_coin"
-                                android:contentDescription="@string/toss_a_dice_description"/>
+                                android:contentDescription="@string/toss_a_dice_description" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="bottom|center_horizontal"
                                 android:textColor="@color/blueLightColorOnBackground"
-                                android:text="@string/random_coin_label"/>
+                                android:text="@string/random_coin_label" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
@@ -136,7 +146,7 @@
                 android:layout_marginHorizontal="48dp"
                 android:layout_marginVertical="12dp"
                 app:contentPadding="28dp"
-                app:cardElevation="2dp" >
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -148,14 +158,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:src="@drawable/ic_random_wheel"
-                        android:contentDescription="@string/spin_a_wheel_description"/>
+                        android:contentDescription="@string/spin_a_wheel_description" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="bottom|center_horizontal"
                         android:textColor="@color/blueLightColorOnBackground"
-                        android:text="@string/random_wheel_label"/>
+                        android:text="@string/random_wheel_label" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -176,6 +186,7 @@
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="24dp"
                     app:cardElevation="2dp">
+
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -187,13 +198,14 @@
                             android:layout_height="32dp"
                             android:src="@drawable/ic_random_number"
                             app:tint="@color/randomElementRed"
-                            android:contentDescription="@string/random_numbers_description"/>
+                            android:contentDescription="@string/random_numbers_description" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="bottom|center_horizontal"
                             android:textColor="@color/blueLightColorOnBackground"
-                            android:text="@string/random_number_label"/>
+                            android:text="@string/random_number_label" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -214,19 +226,21 @@
                         android:layout_width="match_parent"
                         android:orientation="vertical"
                         android:layout_height="match_parent">
+
                         <ImageView
                             android:id="@+id/imageView6"
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:src="@drawable/ic_random_list"
                             app:tint="@color/randomElementBlue"
-                            android:contentDescription="@string/random_list_description"/>
+                            android:contentDescription="@string/random_list_description" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="bottom|center_horizontal"
                             android:textColor="@color/blueLightColorOnBackground"
-                            android:text="@string/random_list_label"/>
+                            android:text="@string/random_list_label" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

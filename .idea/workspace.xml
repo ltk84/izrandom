@@ -5,6 +5,9 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
@@ -28,23 +31,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_direction/RandomDirectionActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_random_direction.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/home/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/home/HomeActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/home/HomePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/home/HomePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random/RandomFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random/RandomFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\kiaco\.android\avd\Pixel_2_API_28.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@00cc99090904]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -82,6 +89,9 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="android.template.-1672636025">
+      <recent name="uit.itszoo.izrandom.random_direction" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Projects\izrandom\app\src\main\res\drawable" />
     </key>
@@ -181,10 +191,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="407" y="294" key="#Custom_Plugin_Repositories/0.0.1366.768@0.0.1366.768" timestamp="1647486188449" />
+    <state x="275" y="39" width="816" height="729" key="#Intentions" timestamp="1647739066866">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="275" y="39" width="816" height="729" key="#Intentions/0.0.1366.768@0.0.1366.768" timestamp="1647739066866" />
     <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser" timestamp="1647499172272">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1647499172272" />
+    <state x="412" y="174" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1647742931826">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="412" y="174" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1647742931826" />
+    <state x="258" y="142" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1647738634864">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="258" y="142" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1647738634864" />
     <state x="96" y="111" width="857" height="568" key="AVDManager" timestamp="1647336180374">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -207,21 +229,25 @@
     </state>
     <state x="722" y="146" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1647390358707" />
     <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647620976415" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1647621768248">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1321" height="150" key="GridCell.Tab.0.bottom" timestamp="1647742765597">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state width="1321" height="150" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1647742765597" />
     <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647621768248" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1647621768248">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1321" height="150" key="GridCell.Tab.0.center" timestamp="1647742765597">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state width="1321" height="150" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1647742765597" />
     <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647621768248" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1647621768248">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1321" height="150" key="GridCell.Tab.0.left" timestamp="1647742765597">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state width="1321" height="150" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1647742765597" />
     <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647621768248" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1647621768248">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1321" height="150" key="GridCell.Tab.0.right" timestamp="1647742765597">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state width="1321" height="150" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1647742765597" />
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647621768248" />
     <state x="29" y="40" key="SettingsEditor" timestamp="1647486414658">
       <screen x="0" y="0" width="1366" height="768" />
@@ -231,6 +257,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="584" y="186" key="chooseDestDirectoryDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647307361368" />
+    <state x="383" y="141" key="refactoring.ChangeSignatureDialog" timestamp="1647741633517">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="383" y="141" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1647741633517" />
     <state x="425" y="185" key="run.anything.popup" timestamp="1647623008650">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

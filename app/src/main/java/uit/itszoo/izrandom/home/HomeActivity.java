@@ -12,7 +12,7 @@ import uit.itszoo.izrandom.random.RandomFragment;
 public class HomeActivity extends AppCompatActivity implements HomeContract.View {
     HomeContract.Presenter presenter;
     BottomNavigationView bottomNavigationView;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +25,10 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
         bottomNavigationView.setOnItemSelectedListener(item -> presenter.onFragmentChanged(item, getSupportFragmentManager()));
 
-        presenter.loadFragment(getSupportFragmentManager(), new RandomFragment());
+        if (savedInstanceState == null) {
+            presenter.loadFragment(getSupportFragmentManager(), new RandomFragment());
+        }
+
     }
 
 
@@ -33,5 +36,4 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     public void setPresenter(HomeContract.Presenter presenter) {
         this.presenter = presenter;
     }
-
 }
