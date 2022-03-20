@@ -1,16 +1,20 @@
 package uit.itszoo.izrandom.random_direction;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MotionEventCompat;
 
 import java.util.Random;
 
@@ -39,6 +43,27 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         setPresenter(randDirPresenter);
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        int action = MotionEventCompat.getActionMasked(event);
+
+        switch (action) {
+            case (MotionEvent.ACTION_DOWN):
+                System.out.println("Down");
+                executeSpinForever();
+
+                return true;
+
+            case (MotionEvent.ACTION_UP):
+                executeSpin();
+                return true;
+
+            default:
+                return super.onTouchEvent(event);
+        }
+    }
+
     public void initView() {
         backButton = findViewById(R.id.back_button);
         layout = findViewById(R.id.layout_random_direction);
@@ -55,22 +80,6 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
             }
         });
 
-        layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                executeSpin();
-            }
-        });
-
-        layout.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-//                executeSpin();
-                return false;
-            }
-        });
-
-
     }
 
     @Override
@@ -85,7 +94,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
 
         rotateAnimation = new RotateAnimation(lastPosition, 360 * 10 + randomValue, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotateAnimation.setDuration(3500);
-        rotateAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
+        rotateAnimation.setInterpolator(new DecelerateInterpolator());
         rotateAnimation.setFillAfter(true);
         arrowView.startAnimation(rotateAnimation);
 
@@ -104,8 +113,17 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
 
             @Override
             public void onAnimationRepeat(Animation animation) {
-
             }
         });
+    }
+
+    @Override
+    public void executeSpinForever() {
+        rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_animation);
+        rotateAnimation.setRepeatCount(Animation.INFINITE);
+        rotateAnimation.setDuration(300);
+        rotateAnimation.setInterpolator(new LinearInterpolator());
+        rotateAnimation.setFillAfter(true);
+        arrowView.startAnimation(rotateAnimation);
     }
 }
