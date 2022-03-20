@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/imageView"
+    android:layout_width="118dp"
+    android:layout_height="178dp"
+    android:contentDescription="@string/random_direction_object_description"
+    android:rotation="-45"
+    android:src="@drawable/ic_random_direction">
+
+    <!--    android:layout_width="118dp"-->
+</ImageView>

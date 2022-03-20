@@ -91,7 +91,7 @@ public class RandomFragment extends Fragment {
         });
 
         imageView = view.findViewById(R.id.imageView);
-        rotateAnimation = new RotateAnimation(0.0f, 360.0f,
+        rotateAnimation = new RotateAnimation(0.0f, 45.0f,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
                 0.5f);
         rotateAnimation.setDuration(800);

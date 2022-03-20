@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/colorBackground"
-    tools:context=".random_direction.RandomDirectionActivity">
-
+    tools:context=".random_direction_custom.RandomDirectionCustomActivity">
     <Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
@@ -39,7 +38,7 @@
             android:tint="@color/colorOnBackground" />
 
         <ImageButton
-            android:id="@+id/custom_button"
+            android:id="@+id/back_button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -49,23 +48,28 @@
             android:minWidth="60dp"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:src="@drawable/ic_change_appearance"
-            android:tint="@color/colorOnBackground" />
+            android:src="@drawable/ic_check_button"
+            android:tint="@color/colorGreen" />
     </Toolbar>
 
-
-
-    <ImageView
-        android:id="@+id/random_direction"
-        android:layout_width="118dp"
-        android:layout_height="178dp"
-        android:rotation="-45"
+    <com.jama.carouselview.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:carouselOffset="center"
+        app:enableSnapping="true"
+        app:indicatorAnimationType="worm"
+        app:indicatorPadding="5"
+        app:indicatorRadius="5"
+        app:indicatorSelectedColor="@color/colorOnBackground"
+        app:indicatorUnselectedColor="@color/colorOnBackgroundDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:srcCompat="@drawable/ic_random_direction"
-        android:contentDescription="@string/random_direction_object_description" />
+        app:scaleOnScroll="false"
+        app:setAutoPlay="false"
+        app:spacing="200" />
 
     <TextView
         android:id="@+id/textView"
@@ -73,13 +77,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingHorizontal="56dp"
-        android:text="@string/random_direction_guide"
+        android:text="@string/custom_direction_guide"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/random_direction" />
-
-
-
+        app:layout_constraintTop_toBottomOf="@+id/carouselView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
