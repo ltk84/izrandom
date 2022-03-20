@@ -55,7 +55,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="bottom|center_horizontal"
-                            android:textColor="@color/blueLightColorOnBackground"
+                            android:textColor="@color/colorOnBackground"
                             android:text="@string/random_direction_label" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -95,7 +95,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="bottom|center_horizontal"
-                                android:textColor="@color/blueLightColorOnBackground"
+                                android:textColor="@color/colorOnBackground"
                                 android:text="@string/random_dice_label" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -130,7 +130,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="bottom|center_horizontal"
-                                android:textColor="@color/blueLightColorOnBackground"
+                                android:textColor="@color/colorOnBackground"
                                 android:text="@string/random_coin_label" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -164,7 +164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="bottom|center_horizontal"
-                        android:textColor="@color/blueLightColorOnBackground"
+                        android:textColor="@color/colorOnBackground"
                         android:text="@string/random_wheel_label" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -204,7 +204,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="bottom|center_horizontal"
-                            android:textColor="@color/blueLightColorOnBackground"
+                            android:textColor="@color/colorOnBackground"
                             android:text="@string/random_number_label" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -239,7 +239,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="bottom|center_horizontal"
-                            android:textColor="@color/blueLightColorOnBackground"
+                            android:textColor="@color/colorOnBackground"
                             android:text="@string/random_list_label" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

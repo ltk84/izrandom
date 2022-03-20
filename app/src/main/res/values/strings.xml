@@ -27,4 +27,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="back_button">back to previous screen</string>
+    <string name="random_direction_guide">Chạm vào màn hình để xoay mũi tên theo hướng bất kỳ</string>
+    <string name="random_direction_object_description">Random direction object</string>
 </resources>

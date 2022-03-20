@@ -6,13 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".random_direction.RandomDirectionActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/random_direction_label"
+            android:layout_gravity="center"
+            style="@style/AppBarTextStyle"
+            android:id="@+id/toolbar_title" />
+    </Toolbar>
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:contentDescription="@string/back_button"
+        android:backgroundTint="@color/colorBackground"
+        android:minHeight="48dp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:src="@drawable/ic_back_button"
+        android:tint="@color/colorOnBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Random Direction"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
+        app:layout_constraintStart_toStartOf="@+id/toolbar2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="118dp"
+        android:layout_height="178dp"
+        android:rotation="-45"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:srcCompat="@drawable/ic_random_direction"
+        android:contentDescription="@string/random_direction_object_description" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/GuideTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="56dp"
+        android:text="@string/random_direction_guide"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
