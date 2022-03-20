@@ -5,6 +5,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnticipateInterpolator;
+import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,6 +50,8 @@ public class RandomFragment extends Fragment {
     CardView luckyWheelCardView;
     CardView randomNumberCardView;
     CardView randomListCardView;
+    ImageView imageView;
+    RotateAnimation rotateAnimation;
 
     public RandomFragment() {
         // Required empty public constructor
@@ -123,6 +134,15 @@ public class RandomFragment extends Fragment {
                 startActivity(intentToLuckyWheel);
             }
         });
+
+        imageView = view.findViewById(R.id.imageView);
+        rotateAnimation = new RotateAnimation(0.0f, 360.0f,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
+                0.5f);
+        rotateAnimation.setDuration(800);
+        rotateAnimation.setInterpolator(new AnticipateOvershootInterpolator());
+
+        imageView.startAnimation(rotateAnimation);
     }
 
 

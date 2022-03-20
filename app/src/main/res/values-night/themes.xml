@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.IZRandom" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blueLightColorPrimary</item>
-        <item name="colorPrimaryDark">@color/blueLightColorPrimaryDark</item>
-        <item name="colorAccent">@color/blueLightColorSecondary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorSecondary</item>
         <!-- Customize your theme here. -->
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
     </style>
@@ -13,7 +13,7 @@
     </style>
 
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
-        <item name="colorPrimary">@color/blueLightColorPrimary</item>
-        <item name="colorOnPrimary">@color/blueLightColorOnPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
     </style>
 </resources>
