@@ -30,7 +30,7 @@ import uit.itszoo.izrandom.random_module.random_direction.random_direction_custo
 public class RandomDirectionActivity extends AppCompatActivity implements RandomDirectionContract.View {
     ImageButton toCustomScreenButton;
     ImageButton backButton;
-    RandomDirectionContract.Presenter randDirPresenter;
+    RandomDirectionContract.Presenter presenter;
     ViewGroup layout;
     Animation rotateAnimation;
     ImageView arrowView;
@@ -45,8 +45,16 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         initView();
         setListenerForView();
 
-        randDirPresenter = new RandomDirectionPresenter(this);
-        setPresenter(randDirPresenter);
+        presenter = new RandomDirectionPresenter(getApplicationContext(), this);
+        setPresenter(presenter);
+
+//        arrowView.setImageDrawable(getDrawable(presenter.getCurrentArrow()));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        arrowView.setImageDrawable(getDrawable(presenter.getCurrentArrow()));
     }
 
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
@@ -58,6 +66,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
                         Intent data = result.getData();
                         int selectedArrow = data.getIntExtra(RandomDirectionCustomActivity.SELECTED_ARROW, 0);
                         if (selectedArrow != 0) {
+                            presenter.changeArrowAppearance(selectedArrow);
                             arrowView.setImageDrawable(getDrawable(selectedArrow));
                         }
                     }
@@ -67,9 +76,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
         int action = MotionEventCompat.getActionMasked(event);
-
         switch (action) {
             case (MotionEvent.ACTION_DOWN):
                 executeSpinForever();
@@ -111,7 +118,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
 
     @Override
     public void setPresenter(RandomDirectionContract.Presenter presenter) {
-        this.randDirPresenter = presenter;
+        this.presenter = presenter;
     }
 
     @Override

@@ -6,6 +6,9 @@ import uit.itszoo.izrandom.BaseView;
 public interface RandomDirectionContract {
     interface Presenter extends BasePresenter {
 
+        void changeArrowAppearance(int selectedArrow);
+
+        int getCurrentArrow();
     }
 
     interface View extends BaseView<Presenter> {

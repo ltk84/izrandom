@@ -1,5 +1,6 @@
 package uit.itszoo.izrandom.home;
 
+import android.content.Context;
 import android.view.MenuItem;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.database.Repository;
+import uit.itszoo.izrandom.database.UserConfiguration;
 import uit.itszoo.izrandom.play_module.PlayFragment;
 import uit.itszoo.izrandom.random_module.RandomFragment;
 import uit.itszoo.izrandom.setting_module.SettingFragment;
@@ -16,8 +19,18 @@ public class HomePresenter implements HomeContract.Presenter {
 
     private HomeContract.View view;
 
-    public HomePresenter(HomeContract.View view) {
+    private Repository repository;
+
+    private UserConfiguration userConfiguration;
+
+    public HomePresenter(Context context, HomeContract.View view) {
         this.view = view;
+        repository = Repository.getInstance(context);
+        userConfiguration = repository.getUserConfiguration();
+    }
+
+    public void showUserConfiguration() {
+        System.out.println(userConfiguration.arrow);
     }
 
     @Override
@@ -31,6 +44,7 @@ public class HomePresenter implements HomeContract.Presenter {
             case R.id.navigation_random:
                 fragment = new RandomFragment();
                 loadFragment(fragmentManager, fragment);
+                showUserConfiguration();
                 return true;
             case R.id.navigation_suggest:
                 fragment = new SuggestFragment();
