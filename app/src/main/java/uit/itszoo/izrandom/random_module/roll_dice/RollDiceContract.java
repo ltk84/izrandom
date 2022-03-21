@@ -9,5 +9,8 @@ public interface RollDiceContract {
     }
 
     interface View extends BaseView<RollDiceContract.Presenter> {
+        void executeSpin();
+
+        void executeSpinForever();
     }
 }

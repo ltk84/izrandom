@@ -32,4 +32,5 @@
     <string name="random_direction_object_description">Random direction object</string>
     <string name="action_button_description">Change Appearance</string>
     <string name="custom_direction_guide">Lướt sang trái hoặc phải để thay đổi hình dạng mũi tên</string>
+    <string name="roll_dice_guide">Chạm vào màn hình để thực hiện tung xí ngầu</string>
 </resources>
