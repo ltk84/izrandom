@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random;
+package uit.itszoo.izrandom.random_module;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +18,10 @@ import androidx.fragment.app.Fragment;
 import org.jetbrains.annotations.NotNull;
 
 import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.lucky_wheel.LuckyWheelActivity;
-import uit.itszoo.izrandom.random_direction.RandomDirectionActivity;
-import uit.itszoo.izrandom.random_integer.RandomIntegerActivity;
-import uit.itszoo.izrandom.roll_dice.RollDiceActivity;
+import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
+import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
+import uit.itszoo.izrandom.random_module.random_integer.RandomIntegerActivity;
+import uit.itszoo.izrandom.random_module.roll_dice.RollDiceActivity;
 
 /**
  * A simple {@link Fragment} subclass.

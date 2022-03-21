@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.lucky_wheel;
+package uit.itszoo.izrandom.random_module.lucky_wheel;
 
 public class LuckWheelPresenter implements LuckyWheelContract.Presenter {
     private final LuckyWheelContract.View view;

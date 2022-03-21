@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.random.RandomFragment;
+import uit.itszoo.izrandom.random_module.RandomFragment;
 
 public class HomeActivity extends AppCompatActivity implements HomeContract.View {
     HomeContract.Presenter presenter;

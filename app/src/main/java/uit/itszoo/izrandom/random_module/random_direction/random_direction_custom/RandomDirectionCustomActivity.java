@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_direction_custom;
+package uit.itszoo.izrandom.random_module.random_direction.random_direction_custom;
 
 import android.app.Activity;
 import android.content.Intent;

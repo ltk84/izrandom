@@ -1,21 +1,20 @@
-package uit.itszoo.izrandom.play;
+package uit.itszoo.izrandom.setting_module;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import uit.itszoo.izrandom.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PlayFragment#newInstance} factory method to
+ * Use the {@link SettingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PlayFragment extends Fragment {
+public class SettingFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +25,7 @@ public class PlayFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public PlayFragment() {
+    public SettingFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +35,11 @@ public class PlayFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PlayFragment.
+     * @return A new instance of fragment SettingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PlayFragment newInstance(String param1, String param2) {
-        PlayFragment fragment = new PlayFragment();
+    public static SettingFragment newInstance(String param1, String param2) {
+        SettingFragment fragment = new SettingFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +60,6 @@ public class PlayFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_play, container, false);
+        return inflater.inflate(R.layout.fragment_setting, container, false);
     }
 }

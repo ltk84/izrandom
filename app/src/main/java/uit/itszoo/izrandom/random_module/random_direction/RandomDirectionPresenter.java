@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_direction;
+package uit.itszoo.izrandom.random_module.random_direction;
 
 public class RandomDirectionPresenter implements RandomDirectionContract.Presenter {
     private final RandomDirectionContract.View view;
@@ -12,5 +12,5 @@ public class RandomDirectionPresenter implements RandomDirectionContract.Present
 
     }
 
-    
+
 }

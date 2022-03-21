@@ -7,10 +7,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.play.PlayFragment;
-import uit.itszoo.izrandom.random.RandomFragment;
-import uit.itszoo.izrandom.setting.SettingFragment;
-import uit.itszoo.izrandom.suggest.SuggestFragment;
+import uit.itszoo.izrandom.play_module.PlayFragment;
+import uit.itszoo.izrandom.random_module.RandomFragment;
+import uit.itszoo.izrandom.setting_module.SettingFragment;
+import uit.itszoo.izrandom.suggest_module.SuggestFragment;
 
 public class HomePresenter implements HomeContract.Presenter {
 

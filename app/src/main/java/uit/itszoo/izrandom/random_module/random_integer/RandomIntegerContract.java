@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_integer;
+package uit.itszoo.izrandom.random_module.random_integer;
 
 import uit.itszoo.izrandom.BasePresenter;
 import uit.itszoo.izrandom.BaseView;

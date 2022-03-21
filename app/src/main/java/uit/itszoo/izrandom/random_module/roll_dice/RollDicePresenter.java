@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.roll_dice;
+package uit.itszoo.izrandom.random_module.roll_dice;
 
 public class RollDicePresenter implements RollDiceContract.Presenter {
     private final RollDiceContract.View view;

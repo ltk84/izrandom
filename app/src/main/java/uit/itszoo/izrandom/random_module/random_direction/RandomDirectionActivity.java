@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_direction;
+package uit.itszoo.izrandom.random_module.random_direction;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -25,7 +25,7 @@ import androidx.core.view.MotionEventCompat;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.random_direction_custom.RandomDirectionCustomActivity;
+import uit.itszoo.izrandom.random_module.random_direction.random_direction_custom.RandomDirectionCustomActivity;
 
 public class RandomDirectionActivity extends AppCompatActivity implements RandomDirectionContract.View {
     ImageButton toCustomScreenButton;
@@ -35,7 +35,6 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
     Animation rotateAnimation;
     ImageView arrowView;
     TextView textGuide;
-
     float lastPosition = 0f;
 
     @Override

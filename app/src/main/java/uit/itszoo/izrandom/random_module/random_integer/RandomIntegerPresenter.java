@@ -1,6 +1,6 @@
-package uit.itszoo.izrandom.random_integer;
+package uit.itszoo.izrandom.random_module.random_integer;
 
-import uit.itszoo.izrandom.random_direction.RandomDirectionContract;
+import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionContract;
 
 public class RandomIntegerPresenter implements RandomIntegerContract.Presenter {
     private final RandomDirectionContract.View view;

@@ -6,7 +6,7 @@
     android:id="@+id/layout_random_direction"
     android:layout_height="match_parent"
     android:backgroundTint="@color/colorBackground"
-    tools:context=".random_direction.RandomDirectionActivity">
+    tools:context=".random_module.random_direction.RandomDirectionActivity">
 
     <Toolbar
         android:id="@+id/toolbar2"

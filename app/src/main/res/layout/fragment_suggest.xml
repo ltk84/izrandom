@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".suggest.SuggestFragment">
+    tools:context=".suggest_module.SuggestFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

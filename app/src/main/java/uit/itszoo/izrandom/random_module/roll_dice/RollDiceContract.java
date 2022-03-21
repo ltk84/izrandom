@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.roll_dice;
+package uit.itszoo.izrandom.random_module.roll_dice;
 
 import uit.itszoo.izrandom.BasePresenter;
 import uit.itszoo.izrandom.BaseView;
