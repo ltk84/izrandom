@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/colorBackground"
     tools:context=".random_direction_custom.RandomDirectionCustomActivity">
+
     <Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
@@ -24,7 +25,7 @@
             android:text="@string/random_direction_label" />
 
         <ImageButton
-            android:id="@+id/back_button"
+            android:id="@+id/bb_rand_dir_custom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -38,7 +39,7 @@
             android:tint="@color/colorOnBackground" />
 
         <ImageButton
-            android:id="@+id/back_button2"
+            android:id="@+id/confirm_button_rand_dir_custom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

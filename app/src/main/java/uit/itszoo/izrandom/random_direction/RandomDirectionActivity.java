@@ -1,9 +1,8 @@
 package uit.itszoo.izrandom.random_direction;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MotionEventCompat;
 
@@ -25,8 +28,7 @@ import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_direction_custom.RandomDirectionCustomActivity;
 
 public class RandomDirectionActivity extends AppCompatActivity implements RandomDirectionContract.View {
-    ImageButton customButton;
-
+    ImageButton toCustomScreenButton;
     ImageButton backButton;
     RandomDirectionContract.Presenter randDirPresenter;
     ViewGroup layout;
@@ -41,20 +43,28 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_direction);
 
-        customButton = findViewById(R.id.custom_button);
-        customButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentToRandomDirectionCustom = new Intent(getApplicationContext(), RandomDirectionCustomActivity.class);
-                startActivity(intentToRandomDirectionCustom);
-            }
-        });
         initView();
         setListenerForView();
 
         randDirPresenter = new RandomDirectionPresenter(this);
         setPresenter(randDirPresenter);
     }
+
+    ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        int selectedArrow = data.getIntExtra(RandomDirectionCustomActivity.SELECTED_ARROW, 0);
+                        if (selectedArrow != 0) {
+                            arrowView.setImageDrawable(getDrawable(selectedArrow));
+                        }
+                    }
+                }
+            });
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -63,33 +73,38 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
 
         switch (action) {
             case (MotionEvent.ACTION_DOWN):
-                System.out.println("Down");
                 executeSpinForever();
-
                 return true;
-
             case (MotionEvent.ACTION_UP):
                 executeSpin();
                 return true;
-
             default:
                 return super.onTouchEvent(event);
         }
     }
 
-    public void initView() {
-        backButton = findViewById(R.id.back_button);
+    private void initView() {
+        backButton = findViewById(R.id.bb_rand_dir);
         layout = findViewById(R.id.layout_random_direction);
         arrowView = findViewById(R.id.im_arrow);
         textGuide = findViewById(R.id.txt_guide);
-
+        toCustomScreenButton = findViewById(R.id.custom_button);
     }
+
 
     public void setListenerForView() {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        toCustomScreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToCustom = new Intent(getApplicationContext(), RandomDirectionCustomActivity.class);
+                intentLauncher.launch(intentToCustom);
             }
         });
 
@@ -113,6 +128,10 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
 
         lastPosition = randomValue;
 
+        setRotateAnimationListener();
+    }
+
+    private void setRotateAnimationListener() {
         rotateAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -138,5 +157,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         rotateAnimation.setInterpolator(new LinearInterpolator());
         rotateAnimation.setFillAfter(true);
         arrowView.startAnimation(rotateAnimation);
+
+        setRotateAnimationListener();
     }
 }
