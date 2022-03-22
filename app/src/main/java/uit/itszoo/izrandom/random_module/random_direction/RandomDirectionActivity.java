@@ -28,6 +28,8 @@ import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.random_direction.random_direction_custom.RandomDirectionCustomActivity;
 
 public class RandomDirectionActivity extends AppCompatActivity implements RandomDirectionContract.View {
+    public static final String CURRENT_ARROW = "CURRENT_ARROW";
+
     ImageButton toCustomScreenButton;
     ImageButton backButton;
     RandomDirectionContract.Presenter presenter;
@@ -48,14 +50,11 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         presenter = new RandomDirectionPresenter(getApplicationContext(), this);
         setPresenter(presenter);
 
-//        arrowView.setImageDrawable(getDrawable(presenter.getCurrentArrow()));
+        presenter.getUserConfig().observe(this, config -> {
+            arrowView.setImageDrawable(getDrawable(config.arrow));
+        });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        arrowView.setImageDrawable(getDrawable(presenter.getCurrentArrow()));
-    }
 
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -66,8 +65,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
                         Intent data = result.getData();
                         int selectedArrow = data.getIntExtra(RandomDirectionCustomActivity.SELECTED_ARROW, 0);
                         if (selectedArrow != 0) {
-                            presenter.changeArrowAppearance(selectedArrow);
-                            arrowView.setImageDrawable(getDrawable(selectedArrow));
+                            presenter.changeArrow(selectedArrow);
                         }
                     }
                 }
@@ -110,6 +108,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
             @Override
             public void onClick(View view) {
                 Intent intentToCustom = new Intent(getApplicationContext(), RandomDirectionCustomActivity.class);
+                intentToCustom.putExtra(RandomDirectionActivity.CURRENT_ARROW, presenter.getUserConfig().getValue().arrow);
                 intentLauncher.launch(intentToCustom);
             }
         });
@@ -121,7 +120,6 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         this.presenter = presenter;
     }
 
-    @Override
     public void executeSpin() {
         Random rand = new Random();
         int randomValue = rand.nextInt(361);
@@ -155,7 +153,6 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         });
     }
 
-    @Override
     public void executeSpinForever() {
         rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_animation);
         rotateAnimation.setRepeatCount(Animation.INFINITE);
@@ -165,5 +162,10 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         arrowView.startAnimation(rotateAnimation);
 
         setRotateAnimationListener();
+    }
+
+    @Override
+    public void applyChangeArrow(int arrow) {
+        arrowView.setImageDrawable(getDrawable(arrow));
     }
 }

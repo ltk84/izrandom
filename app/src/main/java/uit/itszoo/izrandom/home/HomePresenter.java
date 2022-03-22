@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.LiveData;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.database.Repository;
@@ -21,7 +22,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     private Repository repository;
 
-    private UserConfiguration userConfiguration;
+    private LiveData<UserConfiguration> userConfiguration;
 
     public HomePresenter(Context context, HomeContract.View view) {
         this.view = view;
@@ -30,7 +31,7 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     public void showUserConfiguration() {
-        System.out.println(userConfiguration.arrow);
+        System.out.println(userConfiguration);
     }
 
     @Override

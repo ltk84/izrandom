@@ -56,4 +56,7 @@ dependencies {
 
     // optional - RxJava3 support for Room
     implementation "androidx.room:room-rxjava3:$room_version"
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
 }

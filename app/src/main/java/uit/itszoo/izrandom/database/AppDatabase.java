@@ -20,8 +20,9 @@ public abstract class AppDatabase extends RoomDatabase {
     private static final String DB_NAME = "userConfig.db";
 
     private static volatile AppDatabase instance;
+    private static final int NUMBER_OF_THREADS = 4;
 
-    static final ExecutorService dbExecutor = Executors.newSingleThreadExecutor();
+    static final ExecutorService dbExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null) {
@@ -46,7 +47,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 @Override
                 public void run() {
                     UserConfiguration userConfiguration = new UserConfiguration();
-                    userConfiguration.arrow = 2131165304;
+                    userConfiguration.arrow = 2131165306;
                     instance.userConfigDAO().insertUserConfig(userConfiguration);
                 }
             });
