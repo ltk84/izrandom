@@ -32,4 +32,12 @@
     <string name="random_direction_object_description">Random direction object</string>
     <string name="action_button_description">Change Appearance</string>
     <string name="custom_direction_guide">Lướt sang trái hoặc phải để thay đổi hình dạng mũi tên</string>
+    <string name="num_random">1</string>
+    <string name="random_number_guide">Chạm vào màn hình để random số bất kì</string>
+    <string name="nums_integer">Số lượng</string>
+    <string name="number_of_integer">1</string>
+    <string name="ran_num_descript_for_min">Số nhỏ nhất:</string>
+    <string name="ran_num_descript_for_max">Số lớn nhất:</string>
+    <string name="ran_num_min">1</string>
+    <string name="ran_num_max">100</string>
 </resources>
