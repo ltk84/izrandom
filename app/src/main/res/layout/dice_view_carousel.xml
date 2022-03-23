@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.iigo.library.DiceLoadingView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dice_view_carousel"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_marginTop="80dp"
+    android:layout_marginBottom="24dp"
+    app:firstSideDiceBgColor="@color/regularColorDiceBackground"
+    app:firstSideDiceBorderColor="@color/regularColorDiceBorder"
+    app:firstSideDiceNumber="1"
+    app:firstSideDicePointColor="@color/regularColorDicePoint"
+    app:fourthSideDiceBgColor="@color/regularColorDiceBackground"
+    app:fourthSideDiceBorderColor="@color/regularColorDiceBorder"
+    app:fourthSideDiceNumber="4"
+    app:fourthSideDicePointColor="@color/regularColorDicePoint"
+    app:secondSideDiceBgColor="@color/regularColorDiceBackground"
+    app:secondSideDiceBorderColor="@color/regularColorDiceBorder"
+    app:secondSideDiceNumber="2"
+    app:secondSideDicePointColor="@color/regularColorDicePoint"
+    app:thirdSideDiceBgColor="@color/regularColorDiceBackground"
+    app:thirdSideDiceBorderColor="@color/regularColorDiceBorder"
+    app:thirdSideDiceNumber="6"
+    app:thirdSideDicePointColor="@color/regularColorDicePoint">
+
+</com.iigo.library.DiceLoadingView>

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layout_roll_dice"
-    tools:context=".random_module.roll_dice.RollDiceActivity">
+    tools:context=".random_module.roll_dice.roll_dice_custom.RollDiceCustomActivity">
     <Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -21,14 +20,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/random_dice_label" />
+            android:text="@string/random_direction_label" />
 
         <ImageButton
             android:id="@+id/bb_roll_dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:backgroundTint="@color/colorBackground"
+            android:background="@null"
             android:contentDescription="@string/back_button"
             android:minHeight="48dp"
             android:minWidth="48dp"
@@ -38,58 +37,48 @@
             android:tint="@color/colorOnBackground" />
 
         <ImageButton
-            android:id="@+id/custom_button"
+            android:id="@+id/confirm_button_roll_dice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:backgroundTint="@color/colorBackground"
+            android:background="@null"
             android:contentDescription="@string/action_button_description"
             android:minHeight="60dp"
             android:minWidth="60dp"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:src="@drawable/ic_change_appearance"
-            android:tint="@color/colorOnBackground" />
+            android:src="@drawable/ic_check_button"
+            android:tint="@color/colorGreen" />
     </Toolbar>
 
-
-    <com.iigo.library.DiceLoadingView
-        android:id="@+id/diceView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="24dp"
-        app:firstSideDiceBgColor="@android:color/white"
-        app:firstSideDiceBorderColor="@color/colorOnBackground"
-        app:firstSideDiceNumber="1"
-        app:firstSideDicePointColor="@color/colorOnBackground"
-        app:fourthSideDiceBgColor="@android:color/white"
-        app:fourthSideDiceBorderColor="@color/colorOnBackground"
-        app:fourthSideDiceNumber="4"
-        app:fourthSideDicePointColor="@color/colorOnBackground"
+    <com.jama.carouselview.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:carouselOffset="center"
+        app:enableSnapping="true"
+        app:indicatorAnimationType="worm"
+        app:indicatorPadding="5"
+        app:indicatorRadius="5"
+        app:indicatorSelectedColor="@color/colorOnBackground"
+        app:indicatorUnselectedColor="@color/colorOnBackgroundDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:secondSideDiceBgColor="@android:color/white"
-        app:secondSideDiceBorderColor="@color/colorOnBackground"
-        app:secondSideDiceNumber="2"
-        app:secondSideDicePointColor="@color/colorOnBackground"
-        app:thirdSideDiceBgColor="@android:color/white"
-        app:thirdSideDiceBorderColor="@color/colorOnBackground"
-        app:thirdSideDiceNumber="6"
-        app:thirdSideDicePointColor="@color/colorOnBackground" />
+        app:scaleOnScroll="false"
+        app:setAutoPlay="false"
+        app:spacing="200" />
     <TextView
-        android:id="@+id/txt_guide"
+        android:id="@+id/textView"
         style="@style/GuideTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingHorizontal="56dp"
-        android:text="@string/roll_dice_guide"
+        android:text="@string/custom_dice_guide"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diceView" />
-
+        app:layout_constraintTop_toBottomOf="@+id/carouselView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

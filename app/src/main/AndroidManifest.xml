@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IZRandom">
-        <activity android:name=".random_module.random_direction.random_direction_custom.RandomDirectionCustomActivity"></activity>
-        <activity android:name=".random_module.lucky_wheel.LuckyWheelActivity"></activity>
+        <activity android:name=".random_module.roll_dice.roll_dice_custom.RollDiceCustomActivity"></activity>
+        <activity android:name=".random_module.random_direction.random_direction_custom.RandomDirectionCustomActivity" />
+        <activity android:name=".random_module.lucky_wheel.LuckyWheelActivity" />
         <activity android:name=".random_module.random_integer.RandomIntegerActivity" />
         <activity android:name=".random_module.roll_dice.RollDiceActivity" />
         <activity android:name=".random_module.random_direction.RandomDirectionActivity" />

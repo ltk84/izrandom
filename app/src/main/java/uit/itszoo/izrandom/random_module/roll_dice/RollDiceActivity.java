@@ -1,5 +1,7 @@
 package uit.itszoo.izrandom.random_module.roll_dice;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -14,6 +16,10 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MotionEventCompat;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
@@ -23,6 +29,7 @@ import com.iigo.library.DiceLoadingView;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom.RollDiceCustomActivity;
 
 public class RollDiceActivity extends AppCompatActivity implements RollDiceContract.View  {
     ImageButton toCustomScreenButton;
@@ -60,11 +67,11 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         handlerHoldEvent = new Handler();
     }
 
-//    ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
-//            new ActivityResultContracts.StartActivityForResult(),
-//            new ActivityResultCallback<ActivityResult>() {
-//                @Override
-//                public void onActivityResult(ActivityResult result) {
+    ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
 //                    if (result.getResultCode() == Activity.RESULT_OK) {
 //                        Intent data = result.getData();
 //                        int selectedArrow = data.getIntExtra(RandomDirectionCustomActivity.SELECTED_ARROW, 0);
@@ -72,8 +79,8 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
 //                            arrowView.setImageDrawable(getDrawable(selectedArrow));
 //                        }
 //                    }
-//                }
-//            });
+                }
+            });
 
 
     @Override
@@ -113,13 +120,13 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
     public void setListenerForView() {
         backButton.setOnClickListener(view -> onBackPressed());
 
-//        toCustomScreenButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intentToCustom = new Intent(getApplicationContext(), RandomDirectionCustomActivity.class);
-//                intentLauncher.launch(intentToCustom);
-//            }
-//        });
+        toCustomScreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToCustom = new Intent(getApplicationContext(), RollDiceCustomActivity.class);
+                intentLauncher.launch(intentToCustom);
+            }
+        });
 
     }
 
