@@ -43,9 +43,8 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.textView.setText(listNum.get(position).toString());
-        holder.textView.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), listColor[position]));
-        float size = holder.textView.getTextSize();
+            holder.textView.setText(listNum.get(position).toString());
+            holder.textView.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), listColor[position]));
     }
 
     @Override

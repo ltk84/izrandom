@@ -9,6 +9,8 @@ public interface RandomIntegerContract {
     }
 
     interface View extends BaseView<Presenter> {
+        void executeSpin();
 
+        void executeSpinForever();
     }
 }
