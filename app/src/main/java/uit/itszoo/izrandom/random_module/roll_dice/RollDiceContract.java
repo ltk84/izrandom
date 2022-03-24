@@ -1,5 +1,9 @@
 package uit.itszoo.izrandom.random_module.roll_dice;
 
+import com.iigo.library.DiceLoadingView;
+
+import java.util.List;
+
 import uit.itszoo.izrandom.BasePresenter;
 import uit.itszoo.izrandom.BaseView;
 
@@ -9,12 +13,12 @@ public interface RollDiceContract {
     }
 
     interface View extends BaseView<RollDiceContract.Presenter> {
-        void executeRollInOne();
+        void executeRollInOne(List<DiceLoadingView> diceViewList);
 
-        void executeMoveUpAndRoll();
+        void executeMoveUpAndRoll(List<DiceLoadingView> diceViewList);
 
-        void executeMoveDown();
+        void executeMoveDown(List<DiceLoadingView> diceViewList);
 
-        void executeOnlyRoll();
+        void executeOnlyRoll(List<DiceLoadingView> diceViewList);
     }
 }

@@ -1,9 +1,14 @@
 package uit.itszoo.izrandom.random_module.roll_dice;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,29 +26,47 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.view.MotionEventCompat;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import com.iigo.library.DiceLoadingView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom.RollDiceCustomActivity;
 
 public class RollDiceActivity extends AppCompatActivity implements RollDiceContract.View  {
+
+    RollDiceContract.Presenter rollDicePresenter;
+
+    // Transition buttons
     ImageButton toCustomScreenButton;
     ImageButton backButton;
-    RollDiceContract.Presenter rollDicePresenter;
-    ViewGroup layout;
-    DiceLoadingView diceView;
-    TextView textGuide;
 
+    // Static view
+    ViewGroup layout;
+    TextView textGuide;
+    TextView textDiceCount;
+    TextView textDiceCountValue;
+    ImageButton decreaseButton;
+    ImageButton increaseButton;
+    Drawable defaultBackgroundDecreaseButton;
+    Drawable defaultBackgroundIncreaseButton;
+
+    // Dynamic view
+    DiceLoadingView initDiceView;
+    List<DiceLoadingView> diceViewList;
+
+    // Animation variables
     AnimationSet animationSet;
     Animation rotateAnimation;
     TranslateAnimation moveUpAnimation;
     TranslateAnimation moveDownAnimation;
-
     int resultNumber = 1;
     boolean isDiceFlying = false;
     Handler handlerHoldEvent;
@@ -62,7 +85,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
 
         executeHoldEvent = () -> {
             isDiceFlying = true;
-            executeMoveUpAndRoll();
+            executeMoveUpAndRoll(diceViewList);
         };
         handlerHoldEvent = new Handler();
     }
@@ -90,15 +113,15 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
 
         switch (action) {
             case (MotionEvent.ACTION_DOWN):
-                executeOnlyRoll();
+                executeOnlyRoll(diceViewList);
                 handlerHoldEvent.postDelayed(executeHoldEvent, 1000);
                 return true;
             case (MotionEvent.ACTION_UP):
                 handlerHoldEvent.removeCallbacks(executeHoldEvent);
                 if (!isDiceFlying) {
-                    executeRollInOne();
+                    executeRollInOne(diceViewList);
                 } else {
-                    executeMoveDown();
+                    executeMoveDown(diceViewList);
                 }
                 return true;
             default:
@@ -109,11 +132,25 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
     private void initView() {
         backButton = findViewById(R.id.bb_roll_dice);
         layout = findViewById(R.id.layout_roll_dice);
-        diceView = findViewById(R.id.diceView);
-        diceView.setDuration(0);
-        diceView.setRepeatCount(0);
+        initDiceView = findViewById(R.id.diceView);
+        initDiceView.setDuration(0);
+        initDiceView.setRepeatCount(0);
         textGuide = findViewById(R.id.txt_guide);
         toCustomScreenButton = findViewById(R.id.custom_button);
+        textDiceCount = findViewById(R.id.text_dice_count);
+        textDiceCountValue = findViewById(R.id.text_dice_count_value);
+
+        decreaseButton = findViewById(R.id.btn_decrease_dice_count);
+        defaultBackgroundDecreaseButton = decreaseButton.getBackground();
+        decreaseButton.setImageAlpha(75);
+
+        increaseButton = findViewById(R.id.btn_increase_dice_count);
+        defaultBackgroundIncreaseButton = increaseButton.getBackground();
+
+        decreaseButton.setBackground(null);
+        diceViewList = new ArrayList<>();
+        diceViewList.add(initDiceView);
+
     }
 
 
@@ -128,6 +165,55 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
             }
         });
 
+        increaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (diceViewList.size() + 1 < 5) {
+                    addNewDice();
+                    textDiceCountValue.setText(String.valueOf(diceViewList.size()));
+                }
+            }
+        });
+
+        decreaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (diceViewList.size() - 1 > 0) {
+                    removeADice();
+                    textDiceCountValue.setText(String.valueOf(diceViewList.size()));
+                }
+            }
+        });
+
+        textDiceCountValue.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.toString().compareTo("1") == 0) {
+                    decreaseButton.setImageAlpha(75);
+                    decreaseButton.setBackground(null);
+                } else if (charSequence.toString().compareTo("4") == 0) {
+                    increaseButton.setImageAlpha(75);
+                    increaseButton.setBackground(null);
+                } else if (charSequence.toString().compareTo("2") == 0) {
+                    decreaseButton.setImageAlpha(255);
+                    decreaseButton.setBackground(defaultBackgroundDecreaseButton);
+                } else if (charSequence.toString().compareTo("3") == 0) {
+                    increaseButton.setImageAlpha(255);
+                    increaseButton.setBackground(defaultBackgroundIncreaseButton);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
     }
 
     @Override
@@ -136,26 +222,15 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
     }
 
     @Override
-    public void executeRollInOne() {
-
-        // Set result to dice view
-        Random rand = new Random();
-        int randomValue = rand.nextInt(7);
-        resultNumber = randomValue;
-        diceView.setFirstSideDiceNumber(randomValue);
+    public void executeRollInOne(List<DiceLoadingView> diceViewList) {
 
         // Set 2D Rotate Animation
         rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF,
                 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        rotateAnimation.setRepeatCount(3);
-        rotateAnimation.setDuration(800);
+        rotateAnimation.setRepeatCount(2);
+        rotateAnimation.setDuration(400);
         rotateAnimation.setInterpolator(new LinearInterpolator());
         rotateAnimation.setFillAfter(true);
-
-        // Set 3d Rotate Animation
-        diceView.setInterpolator(new LinearInterpolator());
-        diceView.setRepeatCount(7);
-        diceView.setDuration(400);
 
         // Set Move Up Animation
         moveUpAnimation = new TranslateAnimation(0, 0, 0, -800);
@@ -164,7 +239,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         moveUpAnimation.setInterpolator(new FastOutSlowInInterpolator());
         // Set Move Down Animation
         moveDownAnimation = new TranslateAnimation(0, 0, 0, 800);
-        moveDownAnimation.setDuration(2500);
+        moveDownAnimation.setDuration(1500);
         moveDownAnimation.setFillAfter(true);
         moveDownAnimation.setInterpolator(new BounceInterpolator());
 
@@ -175,13 +250,25 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         animationSet.addAnimation(moveDownAnimation);
         animationSet.setFillAfter(true);
 
-        diceView.startAnimation(animationSet);
+        for (int i = 0; i <  diceViewList.size(); i++) {
+            // Set result to dice view
+            Random rand = new Random();
+            int randomValue = rand.nextInt(7);
+            resultNumber = randomValue;
+            diceViewList.get(i).setFirstSideDiceNumber(randomValue);
+
+            // Set 3d Rotate Animation
+            diceViewList.get(i).setInterpolator(new LinearInterpolator());
+            diceViewList.get(i).setRepeatCount(2);
+            diceViewList.get(i).setDuration(400);
+            diceViewList.get(i).startAnimation(animationSet);
+        }
 
         setRotateAnimationListener();
     }
 
     @Override
-    public void executeMoveUpAndRoll() {
+    public void executeMoveUpAndRoll(List<DiceLoadingView> diceViewList) {
 
         // Set 2D Rotate Forever Animation
         rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF,
@@ -190,11 +277,6 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         rotateAnimation.setDuration(800);
         rotateAnimation.setInterpolator(new LinearInterpolator());
         rotateAnimation.setFillAfter(true);
-
-        // Set 3d Rotate Animation.
-        diceView.setInterpolator(new LinearInterpolator());
-        diceView.setRepeatCount(Animation.INFINITE);
-        diceView.setDuration(400);
 
         // Set Move Up Animation
         moveUpAnimation = new TranslateAnimation(0, 0, 0,
@@ -203,41 +285,38 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         moveUpAnimation.setFillAfter(true);
         moveUpAnimation.setInterpolator(new FastOutSlowInInterpolator());
 
-        AnimationSet animationSet = new AnimationSet(false);
+        animationSet = new AnimationSet(false);
         animationSet.addAnimation(rotateAnimation);
         animationSet.addAnimation(moveUpAnimation);
         animationSet.setFillAfter(true);
 
-        diceView.startAnimation(animationSet);
+
+        for (int i = 0; i <  diceViewList.size(); i++) {
+            // Set 3d Rotate Animation.
+            diceViewList.get(i).setInterpolator(new LinearInterpolator());
+            diceViewList.get(i).setRepeatCount(Animation.INFINITE);
+            diceViewList.get(i).setDuration(400);
+
+            diceViewList.get(i).startAnimation(animationSet);
+        }
 
         setRotateAnimationListener();
     }
 
     @Override
-    public void executeMoveDown() {
-
-        // Set result to dice view
-        Random rand = new Random();
-        int randomValue = rand.nextInt(7);
-        resultNumber = randomValue;
-        diceView.setFirstSideDiceNumber(randomValue);
+    public void executeMoveDown(List<DiceLoadingView> diceViewList) {
 
         // Set 2D Rotate Animation
         rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF,
                 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        rotateAnimation.setRepeatCount(3);
-        rotateAnimation.setDuration(800);
+        rotateAnimation.setRepeatCount(2);
+        rotateAnimation.setDuration(400);
         rotateAnimation.setInterpolator(new LinearInterpolator());
         rotateAnimation.setFillAfter(true);
 
-        // Set 3d Rotate Animation
-        diceView.setInterpolator(new LinearInterpolator());
-        diceView.setRepeatCount(7);
-        diceView.setDuration(400);
-
         // Set Move Down Animation
         moveDownAnimation = new TranslateAnimation(0, 0, -400, 0);
-        moveDownAnimation.setDuration(2500);
+        moveDownAnimation.setDuration(1500);
         moveDownAnimation.setFillAfter(true);
         moveDownAnimation.setInterpolator(new BounceInterpolator());
 
@@ -247,28 +326,43 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         animationSet.addAnimation(moveDownAnimation);
         animationSet.setFillAfter(true);
 
-        diceView.startAnimation(animationSet);
+        for (int i = 0; i <  diceViewList.size(); i++) {
+            // Set result to dice view
+            Random rand = new Random();
+            int randomValue = rand.nextInt(7);
+            resultNumber = randomValue;
+            diceViewList.get(i).setFirstSideDiceNumber(randomValue);
+
+            // Set 3d Rotate Animation
+            diceViewList.get(i).setInterpolator(new LinearInterpolator());
+            diceViewList.get(i).setRepeatCount(2);
+            diceViewList.get(i).setDuration(400);
+
+            diceViewList.get(i).startAnimation(animationSet);
+        }
 
         setRotateAnimationListener();
     }
 
     @Override
-    public void executeOnlyRoll() {
+    public void executeOnlyRoll(List<DiceLoadingView> diceViewList) {
 
         // Set 2D Rotate Forever Animation
         rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF,
                 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotateAnimation.setRepeatCount(Animation.INFINITE);
-        rotateAnimation.setDuration(800);
+        rotateAnimation.setDuration(600);
         rotateAnimation.setInterpolator(new LinearInterpolator());
         rotateAnimation.setFillAfter(true);
 
-        // Set 3d Rotate Animation.
-        diceView.setInterpolator(new LinearInterpolator());
-        diceView.setRepeatCount(Animation.INFINITE);
-        diceView.setDuration(400);
+        for (int i = 0; i <  diceViewList.size(); i++) {
+            // Set 3d Rotate Animation.
+            diceViewList.get(i).setInterpolator(new LinearInterpolator());
+            diceViewList.get(i).setRepeatCount(Animation.INFINITE);
+            diceViewList.get(i).setDuration(400);
 
-        diceView.startAnimation(rotateAnimation);
+            diceViewList.get(i).startAnimation(rotateAnimation);
+        }
 
         setRotateAnimationListener();
     }
@@ -278,11 +372,19 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
             @Override
             public void onAnimationStart(Animation animation) {
                 textGuide.setVisibility(View.GONE);
+                textDiceCount.setVisibility(View.GONE);
+                textDiceCountValue.setVisibility(View.GONE);
+                decreaseButton.setVisibility(View.GONE);
+                increaseButton.setVisibility(View.GONE);
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
                 textGuide.setVisibility(View.VISIBLE);
+                textDiceCount.setVisibility(View.VISIBLE);
+                textDiceCountValue.setVisibility(View.VISIBLE);
+                decreaseButton.setVisibility(View.VISIBLE);
+                increaseButton.setVisibility(View.VISIBLE);
                 isDiceFlying = false;
             }
 
@@ -290,5 +392,59 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
             public void onAnimationRepeat(Animation animation) {
             }
         });
+    }
+
+    private void addNewDice() {
+        DiceLoadingView lastDiceView = diceViewList.get(diceViewList.size() - 1);
+        DiceLoadingView newDiceView = (DiceLoadingView) LayoutInflater.from(this).inflate(R.layout.dice_view_carousel, null);
+        newDiceView.setId(View.generateViewId());
+        newDiceView.setDuration(0);
+        newDiceView.setRepeatCount(0);
+
+        Resources r = this.getResources();
+        int top = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                56,
+                r.getDisplayMetrics()
+        );
+        int width = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                100,
+                r.getDisplayMetrics()
+        );
+        int height = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                100,
+                r.getDisplayMetrics()
+        );
+        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(width, height);
+        layoutParams.setMargins(0,top,0,0);
+        newDiceView.setLayoutParams(layoutParams);
+        layout.addView(newDiceView);
+
+        ConstraintSet constraintSet = new ConstraintSet();
+        constraintSet.clone((ConstraintLayout) layout);
+        constraintSet.connect(lastDiceView.getId(),ConstraintSet.END,newDiceView.getId(),ConstraintSet.START,0);
+        constraintSet.connect(newDiceView.getId(),ConstraintSet.START,lastDiceView.getId(),ConstraintSet.END,0);
+        constraintSet.connect(newDiceView.getId(),ConstraintSet.END,R.id.layout_roll_dice,ConstraintSet.END,0);
+        constraintSet.connect(newDiceView.getId(),ConstraintSet.TOP,R.id.toolbar,ConstraintSet.BOTTOM);
+        constraintSet.connect(newDiceView.getId(),ConstraintSet.BOTTOM,R.id.layout_roll_dice,ConstraintSet.BOTTOM,0);
+        constraintSet.applyTo((ConstraintLayout) layout);
+
+        diceViewList.add(newDiceView);
+    }
+
+    private void removeADice() {
+        DiceLoadingView nextLastDiceView = diceViewList.get(diceViewList.size() - 2);
+        DiceLoadingView lastDiceView = diceViewList.get(diceViewList.size() - 1);
+
+        layout.removeView(lastDiceView);
+
+        ConstraintSet constraintSet = new ConstraintSet();
+        constraintSet.clone((ConstraintLayout) layout);
+        constraintSet.connect(nextLastDiceView.getId(),ConstraintSet.END, layout.getId(),ConstraintSet.END,0);
+        constraintSet.applyTo((ConstraintLayout) layout);
+
+        diceViewList.remove(lastDiceView);
     }
 }

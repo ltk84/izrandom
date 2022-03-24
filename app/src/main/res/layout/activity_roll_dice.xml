@@ -52,6 +52,65 @@
             android:tint="@color/colorOnBackground" />
     </Toolbar>
 
+    <TextView
+        android:id="@+id/text_dice_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:text="@string/nums_integer"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <ImageButton
+        android:id="@+id/btn_decrease_dice_count"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/colorBackground"
+        android:contentDescription="@string/decrease_amount_description"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintBottom_toBottomOf="@+id/text_dice_count_value"
+        app:layout_constraintEnd_toStartOf="@+id/text_dice_count_value"
+        app:layout_constraintTop_toTopOf="@+id/text_dice_count_value"
+        app:tint="@color/colorOnBackground" />
+
+    <TextView
+        android:id="@+id/text_dice_count_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:height="24dp"
+        android:background="@drawable/rounded_corner"
+        android:gravity="center"
+        android:minWidth="30dp"
+        android:text="@string/number_of_integer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_dice_count" />
+
+    <ImageButton
+        android:id="@+id/btn_increase_dice_count"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/colorBackground"
+        android:contentDescription="@string/increase_amount_description"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:rotation="180"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_decrease_dice_count"
+        app:layout_constraintStart_toEndOf="@+id/text_dice_count_value"
+        app:layout_constraintTop_toTopOf="@+id/btn_decrease_dice_count"
+        app:layout_constraintVertical_bias="0.25"
+        app:tint="@color/colorOnBackground" />
+
 
     <com.iigo.library.DiceLoadingView
         android:id="@+id/diceView"
@@ -79,6 +138,33 @@
         app:thirdSideDiceBorderColor="@color/colorOnBackground"
         app:thirdSideDiceNumber="6"
         app:thirdSideDicePointColor="@color/colorOnBackground" />
+
+<!--    <com.iigo.library.DiceLoadingView-->
+<!--        android:id="@+id/diceView2"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:layout_marginBottom="24dp"-->
+<!--        app:firstSideDiceBgColor="@android:color/white"-->
+<!--        app:firstSideDiceBorderColor="@color/colorOnBackground"-->
+<!--        app:firstSideDiceNumber="1"-->
+<!--        app:firstSideDicePointColor="@color/colorOnBackground"-->
+<!--        app:fourthSideDiceBgColor="@android:color/white"-->
+<!--        app:fourthSideDiceBorderColor="@color/colorOnBackground"-->
+<!--        app:fourthSideDiceNumber="4"-->
+<!--        app:fourthSideDicePointColor="@color/colorOnBackground"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/diceView"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/toolbar"-->
+<!--        app:secondSideDiceBgColor="@android:color/white"-->
+<!--        app:secondSideDiceBorderColor="@color/colorOnBackground"-->
+<!--        app:secondSideDiceNumber="2"-->
+<!--        app:secondSideDicePointColor="@color/colorOnBackground"-->
+<!--        app:thirdSideDiceBgColor="@android:color/white"-->
+<!--        app:thirdSideDiceBorderColor="@color/colorOnBackground"-->
+<!--        app:thirdSideDiceNumber="6"-->
+<!--        app:thirdSideDicePointColor="@color/colorOnBackground" />-->
     <TextView
         android:id="@+id/txt_guide"
         style="@style/GuideTextStyle"
