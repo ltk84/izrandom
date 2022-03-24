@@ -176,7 +176,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
     public void executeSpinForever() {
         rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_animation);
         rotateAnimation.setRepeatCount(Animation.INFINITE);
-        rotateAnimation.setDuration(300);
+        rotateAnimation.setDuration(150);
         rotateAnimation.setInterpolator(new LinearInterpolator());
         rotateAnimation.setFillAfter(true);
         arrowView.startAnimation(rotateAnimation);
