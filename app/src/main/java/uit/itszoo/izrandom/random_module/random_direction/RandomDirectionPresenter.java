@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import uit.itszoo.izrandom.database.Repository;
 import uit.itszoo.izrandom.database.UserConfiguration;
+import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
 
 public class RandomDirectionPresenter implements RandomDirectionContract.Presenter {
     private final RandomDirectionContract.View view;
@@ -26,9 +27,9 @@ public class RandomDirectionPresenter implements RandomDirectionContract.Present
     }
 
     @Override
-    public void changeArrow(int arrow) {
-        repository.changeArrow(arrow);
-        view.applyChangeArrow(arrow);
+    public void changeArrow(Arrow arrow) {
+        view.applyChangeArrow(arrow.getLayout());
+        repository.changeArrow(arrow.getId());
     }
 
     @Override

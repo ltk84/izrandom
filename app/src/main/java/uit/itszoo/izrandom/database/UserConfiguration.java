@@ -10,7 +10,7 @@ public class UserConfiguration {
     public int id;
 
     @ColumnInfo(name = "arrow")
-    public int arrow;
+    public String arrow;
 
 //    @ColumnInfo(name = "dice")
 //    public String dice;
