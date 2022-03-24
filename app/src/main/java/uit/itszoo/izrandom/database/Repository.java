@@ -1,0 +1,36 @@
+package uit.itszoo.izrandom.database;
+
+import android.content.Context;
+
+import androidx.lifecycle.LiveData;
+
+public class Repository {
+    private UserConfigDAO userConfigDAO;
+    private LiveData<UserConfiguration> userConfig;
+
+    private static volatile Repository instance;
+
+    public static synchronized Repository getInstance(Context context) {
+        if (instance == null) {
+            instance = new Repository(context);
+        }
+
+        return instance;
+    }
+
+    public Repository(Context context) {
+        AppDatabase appDatabase = AppDatabase.getInstance(context);
+        userConfigDAO = appDatabase.userConfigDAO();
+        userConfig = userConfigDAO.getUserConfig();
+    }
+
+    public void changeArrow(int arrow) {
+        AppDatabase.dbExecutor.execute(() -> {
+            userConfigDAO.updateArrow(arrow);
+        });
+    }
+
+    public LiveData<UserConfiguration> getUserConfiguration() {
+        return userConfig;
+    }
+}

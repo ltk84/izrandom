@@ -18,8 +18,10 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        HomePresenter presenter = new HomePresenter(this);
+        HomePresenter presenter = new HomePresenter(getApplicationContext(), this);
         setPresenter(presenter);
+
+//        presenter.showUserConfiguration();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -31,6 +33,11 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        presenter.start();
+    }
 
     @Override
     public void setPresenter(HomeContract.Presenter presenter) {
