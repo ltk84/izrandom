@@ -8,5 +8,8 @@ public class UserConfiguration {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
-    public int arrow;
+    public String arrowId;
+
+    public String diceId;
+
 }

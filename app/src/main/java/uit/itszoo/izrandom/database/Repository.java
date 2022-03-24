@@ -24,9 +24,15 @@ public class Repository {
         userConfig = userConfigDAO.getUserConfig();
     }
 
-    public void changeArrow(int arrow) {
+    public void changeArrow(String arrowId) {
         AppDatabase.dbExecutor.execute(() -> {
-            userConfigDAO.updateArrow(arrow);
+            userConfigDAO.updateArrow(arrowId);
+        });
+    }
+
+    public void changeDice(String diceId) {
+        AppDatabase.dbExecutor.execute(() -> {
+            userConfigDAO.updateDice(diceId);
         });
     }
 

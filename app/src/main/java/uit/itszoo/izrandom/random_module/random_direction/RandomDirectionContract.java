@@ -5,11 +5,16 @@ import androidx.lifecycle.LiveData;
 import uit.itszoo.izrandom.BasePresenter;
 import uit.itszoo.izrandom.BaseView;
 import uit.itszoo.izrandom.database.UserConfiguration;
+import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
 
 public interface RandomDirectionContract {
     interface Presenter extends BasePresenter {
 
-        void changeArrow(int selectedArrow);
+        void initArrow(Arrow arrow);
+
+        Arrow getCurrentArrow();
+
+        void changeArrow(Arrow arrow);
 
         LiveData<UserConfiguration> getUserConfig();
     }

@@ -16,6 +16,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.random_direction.source.ArrowSource;
+import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
+
 
 @Database(entities = {UserConfiguration.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
@@ -33,6 +36,7 @@ public abstract class AppDatabase extends RoomDatabase {
         return instance;
     }
 
+
     public AppDatabase() {
     }
 
@@ -49,7 +53,9 @@ public abstract class AppDatabase extends RoomDatabase {
                 @Override
                 public void run() {
                     UserConfiguration userConfiguration = new UserConfiguration();
-                    userConfiguration.arrow = R.drawable.ic_random_direction;
+                    userConfiguration.arrowId = ArrowSource.arrows.get(0).getId();
+                    userConfiguration.diceId = DiceSource.dices.get(0).getId();
+
                     instance.userConfigDAO().insertUserConfig(userConfiguration);
                 }
             });

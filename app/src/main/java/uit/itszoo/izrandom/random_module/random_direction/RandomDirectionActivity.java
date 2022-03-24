@@ -26,7 +26,9 @@ import androidx.core.view.MotionEventCompat;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
 import uit.itszoo.izrandom.random_module.random_direction.random_direction_custom.RandomDirectionCustomActivity;
+import uit.itszoo.izrandom.random_module.random_direction.source.ArrowSource;
 
 public class RandomDirectionActivity extends AppCompatActivity implements RandomDirectionContract.View {
     public static final String CURRENT_ARROW = "CURRENT_ARROW";
@@ -54,7 +56,8 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         setPresenter(presenter);
 
         presenter.getUserConfig().observe(this, config -> {
-            arrowView.setImageDrawable(getDrawable(config.arrow));
+            presenter.initArrow(ArrowSource.arrows.stream().filter(arrow -> arrow.getId().compareTo(config.arrowId) == 0).findFirst().get());
+            arrowView.setImageDrawable(getDrawable(presenter.getCurrentArrow().getLayout()));
         });
     }
 
@@ -66,8 +69,8 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
-                        int selectedArrow = data.getIntExtra(RandomDirectionCustomActivity.SELECTED_ARROW, 0);
-                        if (selectedArrow != 0) {
+                        Arrow selectedArrow = (Arrow) data.getSerializableExtra(RandomDirectionCustomActivity.SELECTED_ARROW);
+                        if (selectedArrow != null) {
                             presenter.changeArrow(selectedArrow);
                         }
                     }
@@ -111,7 +114,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
             @Override
             public void onClick(View view) {
                 Intent intentToCustom = new Intent(getApplicationContext(), RandomDirectionCustomActivity.class);
-                intentToCustom.putExtra(RandomDirectionActivity.CURRENT_ARROW, presenter.getUserConfig().getValue().arrow);
+                intentToCustom.putExtra(RandomDirectionActivity.CURRENT_ARROW, presenter.getCurrentArrow());
                 intentLauncher.launch(intentToCustom);
             }
         });

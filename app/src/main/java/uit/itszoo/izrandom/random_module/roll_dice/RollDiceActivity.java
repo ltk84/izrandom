@@ -1,5 +1,6 @@
 package uit.itszoo.izrandom.random_module.roll_dice;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -38,17 +39,16 @@ import java.util.List;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.roll_dice.model.Dice;
 import uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom.RollDiceCustomActivity;
+import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
 
-public class RollDiceActivity extends AppCompatActivity implements RollDiceContract.View  {
+public class RollDiceActivity extends AppCompatActivity implements RollDiceContract.View {
+    public static final String CURRENT_DICE = "CURRENT_DICE";
 
-    RollDiceContract.Presenter rollDicePresenter;
-
-    // Transition buttons
     ImageButton toCustomScreenButton;
     ImageButton backButton;
-
-    // Static view
+    RollDiceContract.Presenter presenter;
     ViewGroup layout;
     TextView textGuide;
     TextView textDiceCount;
@@ -80,8 +80,13 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         initView();
         setListenerForView();
 
-        rollDicePresenter = new RollDicePresenter(this);
-        setPresenter(rollDicePresenter);
+        presenter = new RollDicePresenter(getApplicationContext(), this);
+        setPresenter(presenter);
+
+        presenter.getUserConfig().observe(this, userConfiguration -> {
+            presenter.initDice(DiceSource.dices.stream().filter(dice -> dice.getId().compareTo(userConfiguration.diceId) == 0).findFirst().get());
+            applyTheme(presenter.getCurrentDice());
+        });
 
         executeHoldEvent = () -> {
             isDiceFlying = true;
@@ -90,18 +95,38 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         handlerHoldEvent = new Handler();
     }
 
+    @Override
+    public void applyTheme(Dice layout) {
+        initDiceView.setFirstSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        initDiceView.setFirstSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        initDiceView.setFirstSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+
+        initDiceView.setSecondSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        initDiceView.setSecondSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        initDiceView.setSecondSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+
+        initDiceView.setThirdSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        initDiceView.setThirdSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        initDiceView.setThirdSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+
+        initDiceView.setFourthSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        initDiceView.setFourthSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        initDiceView.setFourthSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+    }
+
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
-//                    if (result.getResultCode() == Activity.RESULT_OK) {
-//                        Intent data = result.getData();
-//                        int selectedArrow = data.getIntExtra(RandomDirectionCustomActivity.SELECTED_ARROW, 0);
-//                        if (selectedArrow != 0) {
-//                            arrowView.setImageDrawable(getDrawable(selectedArrow));
-//                        }
-//                    }
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        Dice selectedDice = (Dice) data.getSerializableExtra(RollDiceCustomActivity.SELECTED_DICE);
+                        if (selectedDice != null) {
+                            presenter.changeDice(selectedDice);
+                        }
+
+                    }
                 }
             });
 
@@ -161,6 +186,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
             @Override
             public void onClick(View view) {
                 Intent intentToCustom = new Intent(getApplicationContext(), RollDiceCustomActivity.class);
+                intentToCustom.putExtra(RollDiceActivity.CURRENT_DICE, presenter.getCurrentDice());
                 intentLauncher.launch(intentToCustom);
             }
         });
@@ -218,7 +244,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
 
     @Override
     public void setPresenter(RollDiceContract.Presenter presenter) {
-        this.rollDicePresenter = presenter;
+        this.presenter = presenter;
     }
 
     @Override
