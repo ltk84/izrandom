@@ -31,7 +31,7 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     public void showUserConfiguration() {
-        System.out.println(userConfiguration);
+        System.out.println(userConfiguration.getValue().dice);
     }
 
     @Override

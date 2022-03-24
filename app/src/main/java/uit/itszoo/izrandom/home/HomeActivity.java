@@ -21,8 +21,6 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         HomePresenter presenter = new HomePresenter(getApplicationContext(), this);
         setPresenter(presenter);
 
-//        presenter.showUserConfiguration();
-
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnItemSelectedListener(item -> presenter.onFragmentChanged(item, getSupportFragmentManager()));

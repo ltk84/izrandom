@@ -7,15 +7,20 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+
 @Database(entities = {UserConfiguration.class}, version = 1)
+@TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static final String DB_NAME = "userConfig.db";
 
@@ -48,6 +53,9 @@ public abstract class AppDatabase extends RoomDatabase {
                 public void run() {
                     UserConfiguration userConfiguration = new UserConfiguration();
                     userConfiguration.arrow = 2131165306;
+
+                    userConfiguration.dice = new ArrayList<>(Arrays.asList(2131034749, 2131034750, 2131034751));
+
                     instance.userConfigDAO().insertUserConfig(userConfiguration);
                 }
             });

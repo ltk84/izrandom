@@ -29,9 +29,12 @@ import com.iigo.library.DiceLoadingView;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.roll_dice.model.DiceLayout;
 import uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom.RollDiceCustomActivity;
 
-public class RollDiceActivity extends AppCompatActivity implements RollDiceContract.View  {
+public class RollDiceActivity extends AppCompatActivity implements RollDiceContract.View {
+    public static final String CURRENT_DICE = "CURRENT_DICE";
+
     ImageButton toCustomScreenButton;
     ImageButton backButton;
     RollDiceContract.Presenter rollDicePresenter;
@@ -67,18 +70,38 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         handlerHoldEvent = new Handler();
     }
 
+    @Override
+    public void applyTheme(DiceLayout layout) {
+        diceView.setFirstSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        diceView.setFirstSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        diceView.setFirstSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+
+        diceView.setSecondSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        diceView.setSecondSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        diceView.setSecondSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+
+        diceView.setThirdSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        diceView.setThirdSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        diceView.setThirdSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+
+        diceView.setFourthSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        diceView.setFourthSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        diceView.setFourthSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+    }
+
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
-//                    if (result.getResultCode() == Activity.RESULT_OK) {
-//                        Intent data = result.getData();
-//                        int selectedArrow = data.getIntExtra(RandomDirectionCustomActivity.SELECTED_ARROW, 0);
-//                        if (selectedArrow != 0) {
-//                            arrowView.setImageDrawable(getDrawable(selectedArrow));
-//                        }
-//                    }
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        DiceLayout selectedDice = (DiceLayout) data.getSerializableExtra(RollDiceCustomActivity.SELECTED_DICE);
+                        if (selectedDice != null) {
+                            applyTheme(selectedDice);
+                        }
+
+                    }
                 }
             });
 
