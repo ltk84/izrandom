@@ -1,8 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".random_module.random_integer.RandomIntegerActivity">
+    <Toolbar
+        android:id="@+id/tb_random_integer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/lb_rand_integer"
+            style="@style/AppBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/random_number_label" />
+        <ImageButton
+            android:id="@+id/bb_rand_integer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            app:tint="@color/colorOnBackground">
+        </ImageButton>
+        <ImageButton
+            android:id="@+id/bb_rand_integer_cus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minHeight="60dp"
+            android:minWidth="60dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/ic_bottom_nav_setting"
+            app:tint="@color/colorOnBackground">
+        </ImageButton>
+    </Toolbar>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:text="@string/nums_integer"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer" />
+
+    <ImageButton
+        android:id="@+id/down"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/colorBackground"
+        android:contentDescription="@string/back_button"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintBottom_toBottomOf="@+id/numOfInteger"
+        app:layout_constraintEnd_toStartOf="@+id/numOfInteger"
+        app:layout_constraintTop_toTopOf="@+id/numOfInteger"
+        app:tint="@color/colorOnBackground" />
+
+    <ImageButton
+        android:id="@+id/up"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/colorBackground"
+        android:contentDescription="@string/back_button"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:rotation="180"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:src="@drawable/ic_back_button"
+        app:layout_constraintBottom_toBottomOf="@+id/down"
+        app:layout_constraintStart_toEndOf="@+id/numOfInteger"
+        app:layout_constraintTop_toTopOf="@+id/down"
+        app:layout_constraintVertical_bias="0.25"
+        app:tint="@color/colorOnBackground" />
+
+    <TextView
+        android:id="@+id/numOfInteger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:height="24dp"
+        android:background="@drawable/rounded_corner"
+        android:gravity="center"
+        android:minWidth="30dp"
+        android:text="@string/number_of_integer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:text="@string/ran_num_descript_for_min"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/down" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/ran_num_descript_for_max"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/txt_guide"
+        style="@style/GuideTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="56dp"
+        android:text="@string/random_number_guide"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/editMinNum"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:ems="4"
+        android:inputType="number"
+        android:minWidth="20dp"
+        android:text="@string/ran_num_min"
+        android:maxLength="7"
+        android:textAlignment="textEnd"
+        android:layout_marginStart="100dp"
+        android:background="@null"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        android:importantForAutofill="no"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/editMaxNum"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="100dp"
+        android:background="@null"
+        android:ems="4"
+        android:maxLength="7"
+        android:inputType="number"
+        android:minWidth="20dp"
+        android:text="@string/ran_num_max"
+        android:textSize="13sp"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxHeight="400dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="20dp"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        android:isScrollContainer="false"
+
+        app:layout_constraintBottom_toTopOf="@+id/editMinNum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/down" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

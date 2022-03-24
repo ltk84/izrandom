@@ -8,6 +8,9 @@ public interface RandomIntegerContract {
 
     }
 
-    interface View extends BaseView<RandomIntegerContract.Presenter> {
+    interface View extends BaseView<Presenter> {
+        void executeSpin();
+
+        void executeSpinForever();
     }
 }

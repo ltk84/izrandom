@@ -40,6 +40,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.github.woxingxiao:BounceScrollView:1.5'
     implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation "androidx.lifecycle:lifecycle-livedata:2.5.0-alpha04"
     implementation 'androidx.navigation:navigation-fragment:2.4.1'
     implementation 'androidx.navigation:navigation-ui:2.4.1'
     implementation 'com.github.jama5262:CarouselView:1.2.2'
@@ -47,6 +48,8 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+
 
     def room_version = "2.4.2"
 
