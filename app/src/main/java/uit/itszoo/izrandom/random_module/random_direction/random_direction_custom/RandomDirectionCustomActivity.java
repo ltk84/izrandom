@@ -43,7 +43,6 @@ public class RandomDirectionCustomActivity extends AppCompatActivity {
         currentArrow = getIntent().getIntExtra(RandomDirectionActivity.CURRENT_ARROW, 0);
 
         swapCurrentArrowToLead();
-
         initView();
         setupCarouselView();
     }
