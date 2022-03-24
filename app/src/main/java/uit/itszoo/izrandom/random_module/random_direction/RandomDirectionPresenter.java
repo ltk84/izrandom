@@ -12,13 +12,23 @@ public class RandomDirectionPresenter implements RandomDirectionContract.Present
     private final RandomDirectionContract.View view;
 
     private Repository repository;
-    private int currentArrow;
+    private Arrow currentArrow;
     private LiveData<UserConfiguration> userConfig;
 
     public RandomDirectionPresenter(Context context, RandomDirectionContract.View view) {
         this.view = view;
         repository = Repository.getInstance(context);
         userConfig = repository.getUserConfiguration();
+    }
+
+    @Override
+    public void initArrow(Arrow arrow) {
+        currentArrow = arrow;
+    }
+
+    @Override
+    public Arrow getCurrentArrow() {
+        return currentArrow;
     }
 
     @Override

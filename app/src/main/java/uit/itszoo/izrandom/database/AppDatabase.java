@@ -21,7 +21,7 @@ import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
 
 
-@Database(entities = {UserConfiguration.class}, version = 2)
+@Database(entities = {UserConfiguration.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static final String DB_NAME = "userConfig.db";
 
@@ -66,7 +66,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 @Override
                 public void run() {
                     UserConfiguration userConfiguration = new UserConfiguration();
-                    userConfiguration.arrow = arrowList.get(0).getId();
+                    userConfiguration.arrowId = arrowList.get(0).getId();
 
 //                    String bg = String.valueOf(R.color.regularColorDiceBackground);
 //                    String border = String.valueOf(R.color.regularColorDiceBorder);

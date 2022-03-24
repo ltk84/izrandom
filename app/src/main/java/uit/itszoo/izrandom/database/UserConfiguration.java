@@ -1,6 +1,5 @@
 package uit.itszoo.izrandom.database;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -9,8 +8,7 @@ public class UserConfiguration {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
-    @ColumnInfo(name = "arrow")
-    public String arrow;
+    public String arrowId;
 
 //    @ColumnInfo(name = "dice")
 //    public String dice;

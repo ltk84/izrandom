@@ -10,7 +10,7 @@ public interface UserConfigDAO {
     @Insert
     public void insertUserConfig(UserConfiguration... userConfigurations);
 
-    @Query("UPDATE userConfig SET arrow=:arrowId")
+    @Query("UPDATE userConfig SET arrowId=:arrowId")
     public void updateArrow(String arrowId);
 
 //    @Query("UPDATE userConfig SET dice=:dice")

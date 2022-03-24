@@ -12,17 +12,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.database.AppDatabase;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
 import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
+import uit.itszoo.izrandom.random_module.random_direction.source.ArrowSource;
 
 public class RandomDirectionCustomActivity extends AppCompatActivity {
     public static final String SELECTED_ARROW = "SELECTED_ARROW";
-    private List<Arrow> images = AppDatabase.getInstance(getApplicationContext()).getArrowList();
+    private ArrayList<Arrow> images = ArrowSource.arrows;
 
     ImageButton backButton;
     CarouselView carouselView;
@@ -45,7 +45,6 @@ public class RandomDirectionCustomActivity extends AppCompatActivity {
         int initialArrowIndex = images.indexOf(initialArrow);
         Collections.swap(images, 0, initialArrowIndex);
     }
-
 
     private void initView() {
         backButton = findViewById(R.id.bb_rand_dir_custom);
