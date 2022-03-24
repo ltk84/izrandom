@@ -8,6 +8,43 @@
     android:backgroundTint="@color/colorBackground"
     tools:context=".random_module.random_direction.RandomDirectionActivity">
 
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <View
+            android:id="@+id/blinking_rectangle_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <View
+            android:id="@+id/blinking_rectangle_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <View
+            android:id="@+id/blinking_rectangle_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <View
+            android:id="@+id/blinking_rectangle_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+
+    </GridLayout>
+
     <Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
@@ -30,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:backgroundTint="@color/colorBackground"
+            android:background="@null"
             android:contentDescription="@string/back_button"
             android:minHeight="48dp"
             android:minWidth="48dp"
@@ -44,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:backgroundTint="@color/colorBackground"
+            android:background="@null"
             android:contentDescription="@string/action_button_description"
             android:minHeight="60dp"
             android:minWidth="60dp"

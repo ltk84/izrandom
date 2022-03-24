@@ -20,6 +20,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.MotionEventCompat;
 
 import java.util.Random;
@@ -35,6 +36,8 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
     Animation rotateAnimation;
     ImageView arrowView;
     TextView textGuide;
+    View blinkView;
+    Animation blinkAnimation;
     float lastPosition = 0f;
 
     @Override
@@ -135,11 +138,25 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
             @Override
             public void onAnimationStart(Animation animation) {
                 textGuide.setVisibility(View.GONE);
+
+                if (blinkView != null) {
+                    blinkView.clearAnimation();
+                }
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                textGuide.setVisibility(View.VISIBLE);
+                //textGuide.setVisibility(View.VISIBLE);
+                float arrowRotation = lastPosition + 45;
+                if (arrowRotation >= 0 && arrowRotation < 90) {
+                    executeBlinkEffect(2);
+                } else if (arrowRotation >= 90 && arrowRotation < 180) {
+                    executeBlinkEffect(3);
+                } else if (arrowRotation >= 180 && arrowRotation < 225) {
+                    executeBlinkEffect(4);
+                } else {
+                    executeBlinkEffect(1);
+                }
             }
 
             @Override
@@ -158,5 +175,46 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         arrowView.startAnimation(rotateAnimation);
 
         setRotateAnimationListener();
+    }
+
+    private void executeBlinkEffect(int quadrant) {
+        blinkAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink_animation);
+
+
+        switch (quadrant) {
+            case 1:
+                blinkView = findViewById(R.id.blinking_rectangle_1);
+                break;
+            case 2:
+                blinkView = findViewById(R.id.blinking_rectangle_2);
+                break;
+            case 3:
+                blinkView = findViewById(R.id.blinking_rectangle_3);
+                break;
+            default:
+                blinkView = findViewById(R.id.blinking_rectangle_4);
+                break;
+        }
+
+        blinkView.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.blinking_rectangle));
+        blinkView.startAnimation(blinkAnimation);
+
+        blinkAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                textGuide.setVisibility(View.VISIBLE);
+                blinkView.setBackgroundResource(0);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 }
