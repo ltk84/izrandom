@@ -11,14 +11,12 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
+import uit.itszoo.izrandom.random_module.random_direction.source.ArrowSource;
+import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
 
 
 @Database(entities = {UserConfiguration.class}, version = 1)
@@ -35,18 +33,6 @@ public abstract class AppDatabase extends RoomDatabase {
             instance = createInstance(context);
         }
         return instance;
-    }
-
-    private static ArrayList<Arrow> arrowList = new ArrayList<Arrow>(Arrays.asList(
-            new Arrow("1", R.drawable.ic_random_direction),
-            new Arrow("2", R.drawable.ic_random_direction_2),
-            new Arrow("3", R.drawable.ic_random_direction_3),
-            new Arrow("4", R.drawable.ic_random_direction_4),
-            new Arrow("5", R.drawable.ic_random_direction_5)
-    ));
-
-    public ArrayList<Arrow> getArrowList() {
-        return (ArrayList<Arrow>) arrowList.clone();
     }
 
 
@@ -66,12 +52,8 @@ public abstract class AppDatabase extends RoomDatabase {
                 @Override
                 public void run() {
                     UserConfiguration userConfiguration = new UserConfiguration();
-                    userConfiguration.arrowId = arrowList.get(0).getId();
-
-//                    String bg = String.valueOf(R.color.regularColorDiceBackground);
-//                    String border = String.valueOf(R.color.regularColorDiceBorder);
-//                    String point = String.valueOf(R.color.regularColorDicePoint);
-//                    userConfiguration.dice = "";
+                    userConfiguration.arrowId = ArrowSource.arrows.get(0).getId();
+                    userConfiguration.diceId = DiceSource.dices.get(0).getId();
 
                     instance.userConfigDAO().insertUserConfig(userConfiguration);
                 }

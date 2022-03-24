@@ -29,15 +29,16 @@ import com.iigo.library.DiceLoadingView;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.random_module.roll_dice.model.DiceLayout;
+import uit.itszoo.izrandom.random_module.roll_dice.model.Dice;
 import uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom.RollDiceCustomActivity;
+import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
 
 public class RollDiceActivity extends AppCompatActivity implements RollDiceContract.View {
     public static final String CURRENT_DICE = "CURRENT_DICE";
 
     ImageButton toCustomScreenButton;
     ImageButton backButton;
-    RollDiceContract.Presenter rollDicePresenter;
+    RollDiceContract.Presenter presenter;
     ViewGroup layout;
     DiceLoadingView diceView;
     TextView textGuide;
@@ -60,8 +61,13 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         initView();
         setListenerForView();
 
-        rollDicePresenter = new RollDicePresenter(this);
-        setPresenter(rollDicePresenter);
+        presenter = new RollDicePresenter(getApplicationContext(), this);
+        setPresenter(presenter);
+
+        presenter.getUserConfig().observe(this, userConfiguration -> {
+            presenter.initDice(DiceSource.dices.stream().filter(dice -> dice.getId().compareTo(userConfiguration.diceId) == 0).findFirst().get());
+            applyTheme(presenter.getCurrentDice());
+        });
 
         executeHoldEvent = () -> {
             isDiceFlying = true;
@@ -71,7 +77,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
     }
 
     @Override
-    public void applyTheme(DiceLayout layout) {
+    public void applyTheme(Dice layout) {
         diceView.setFirstSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
         diceView.setFirstSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
         diceView.setFirstSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
@@ -96,9 +102,9 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
-                        DiceLayout selectedDice = (DiceLayout) data.getSerializableExtra(RollDiceCustomActivity.SELECTED_DICE);
+                        Dice selectedDice = (Dice) data.getSerializableExtra(RollDiceCustomActivity.SELECTED_DICE);
                         if (selectedDice != null) {
-                            applyTheme(selectedDice);
+                            presenter.changeDice(selectedDice);
                         }
 
                     }
@@ -147,6 +153,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
             @Override
             public void onClick(View view) {
                 Intent intentToCustom = new Intent(getApplicationContext(), RollDiceCustomActivity.class);
+                intentToCustom.putExtra(RollDiceActivity.CURRENT_DICE, presenter.getCurrentDice());
                 intentLauncher.launch(intentToCustom);
             }
         });
@@ -155,7 +162,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
 
     @Override
     public void setPresenter(RollDiceContract.Presenter presenter) {
-        this.rollDicePresenter = presenter;
+        this.presenter = presenter;
     }
 
     @Override

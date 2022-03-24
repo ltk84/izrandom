@@ -30,6 +30,12 @@ public class Repository {
         });
     }
 
+    public void changeDice(String diceId) {
+        AppDatabase.dbExecutor.execute(() -> {
+            userConfigDAO.updateDice(diceId);
+        });
+    }
+
     public LiveData<UserConfiguration> getUserConfiguration() {
         return userConfig;
     }

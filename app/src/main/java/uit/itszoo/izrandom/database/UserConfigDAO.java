@@ -13,8 +13,8 @@ public interface UserConfigDAO {
     @Query("UPDATE userConfig SET arrowId=:arrowId")
     public void updateArrow(String arrowId);
 
-//    @Query("UPDATE userConfig SET dice=:dice")
-//    public void updateDice(String dice);
+    @Query("UPDATE userConfig SET diceId=:diceId")
+    public void updateDice(String diceId);
 
     @Query("SELECT * FROM userConfig LIMIT 1")
     public LiveData<UserConfiguration> getUserConfig();

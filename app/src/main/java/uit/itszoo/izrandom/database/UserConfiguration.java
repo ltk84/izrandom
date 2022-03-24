@@ -10,7 +10,6 @@ public class UserConfiguration {
 
     public String arrowId;
 
-//    @ColumnInfo(name = "dice")
-//    public String dice;
+    public String diceId;
 
 }

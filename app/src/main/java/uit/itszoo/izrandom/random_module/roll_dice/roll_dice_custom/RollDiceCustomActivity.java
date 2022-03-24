@@ -12,34 +12,36 @@ import com.iigo.library.DiceLoadingView;
 import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.random_module.roll_dice.model.DiceLayout;
+import uit.itszoo.izrandom.random_module.roll_dice.RollDiceActivity;
+import uit.itszoo.izrandom.random_module.roll_dice.model.Dice;
+import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
 
 public class RollDiceCustomActivity extends AppCompatActivity {
     public static final String SELECTED_DICE = "SELECTED_DICE";
-    List<DiceLayout> dicesTheme = new ArrayList<DiceLayout>(Arrays.asList(
-            new DiceLayout(R.color.regularColorDiceBackground, R.color.regularColorDiceBorder, R.color.regularColorDicePoint),
-            new DiceLayout(R.color.draculaColorDiceBackground, R.color.draculaColorDiceBorder, R.color.draculaColorDicePoint),
-            new DiceLayout(R.color.poisonColorDiceBackground, R.color.poisonColorDiceBorder, R.color.poisonColorDicePoint),
-            new DiceLayout(R.color.chingChongColorDiceBackground, R.color.chingChongColorDiceBorder, R.color.chingChongColorDicePoint),
-            new DiceLayout(R.color.softColorDiceBackground, R.color.softColorDiceBorder, R.color.softColorDicePoint),
-            new DiceLayout(R.color.lavenderColorDiceBackground, R.color.lavenderColorDiceBorder, R.color.lavenderColorDicePoint)
-    ));
+    List<Dice> dicesTheme = DiceSource.dices;
     CarouselView carouselView;
     DiceLoadingView diceView;
     ImageButton backButton;
     ImageButton confirmButton;
+    Dice initialDice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roll_dice_custom);
+        initialDice = (Dice) getIntent().getSerializableExtra(RollDiceActivity.CURRENT_DICE);
+        swapInitialDiceToLead();
         setupCarouselView();
         initView();
+    }
+
+    private void swapInitialDiceToLead() {
+        int initialDiceIndex = dicesTheme.indexOf(initialDice);
+        Collections.swap(dicesTheme, 0, initialDiceIndex);
     }
 
     private void initView() {

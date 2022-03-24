@@ -36,12 +36,12 @@ public class RandomDirectionCustomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_random_direction_custom);
         initialArrow = (Arrow) getIntent().getSerializableExtra(RandomDirectionActivity.CURRENT_ARROW);
 
-        swapCurrentArrowToLead();
+        swapInitialArrowToLead();
         initView();
         setupCarouselView();
     }
 
-    private void swapCurrentArrowToLead() {
+    private void swapInitialArrowToLead() {
         int initialArrowIndex = images.indexOf(initialArrow);
         Collections.swap(images, 0, initialArrowIndex);
     }
