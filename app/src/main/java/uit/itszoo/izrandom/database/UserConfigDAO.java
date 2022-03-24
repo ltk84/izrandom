@@ -5,8 +5,6 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import java.util.List;
-
 @Dao
 public interface UserConfigDAO {
     @Insert
@@ -15,8 +13,8 @@ public interface UserConfigDAO {
     @Query("UPDATE userConfig SET arrow=:arrow")
     public void updateArrow(int arrow);
 
-    @Query("UPDATE userConfig SET dice=:dice")
-    public void updaeDice(List<Integer> dice);
+//    @Query("UPDATE userConfig SET dice=:dice")
+//    public void updateDice(String dice);
 
     @Query("SELECT * FROM userConfig LIMIT 1")
     public LiveData<UserConfiguration> getUserConfig();

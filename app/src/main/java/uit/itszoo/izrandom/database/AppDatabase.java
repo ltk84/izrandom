@@ -7,20 +7,19 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import uit.itszoo.izrandom.R;
+
 
 @Database(entities = {UserConfiguration.class}, version = 1)
-@TypeConverters({Converters.class})
+//@TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static final String DB_NAME = "userConfig.db";
 
@@ -52,9 +51,12 @@ public abstract class AppDatabase extends RoomDatabase {
                 @Override
                 public void run() {
                     UserConfiguration userConfiguration = new UserConfiguration();
-                    userConfiguration.arrow = 2131165306;
+                    userConfiguration.arrow = R.drawable.ic_random_direction;
 
-                    userConfiguration.dice = new ArrayList<>(Arrays.asList(2131034749, 2131034750, 2131034751));
+//                    String bg = String.valueOf(R.color.regularColorDiceBackground);
+//                    String border = String.valueOf(R.color.regularColorDiceBorder);
+//                    String point = String.valueOf(R.color.regularColorDicePoint);
+//                    userConfiguration.dice = "";
 
                     instance.userConfigDAO().insertUserConfig(userConfiguration);
                 }

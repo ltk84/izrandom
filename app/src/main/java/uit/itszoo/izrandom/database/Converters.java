@@ -10,13 +10,18 @@ import uit.itszoo.izrandom.random_module.roll_dice.model.DiceLayout;
 
 public class Converters {
     @TypeConverter
-    public static DiceLayout fromIntArrToDiceLayout(List<Integer> dice) {
-        return new DiceLayout(dice.get(0), dice.get(1), dice.get(2));
+    public static String diceLayoutToString(DiceLayout diceLayout) {
+        List<String> list = new ArrayList<String>(Arrays.asList(String.valueOf(diceLayout.getBackgroundColor()), String.valueOf(diceLayout.getBorderColor()), String.valueOf(diceLayout.getPointColor())));
+        return list.get(0) + "," + list.get(1) + "," + list.get(2);
     }
 
     @TypeConverter
-    public static List<Integer> diceLayoutToIntArr(DiceLayout diceLayout) {
-        List<Integer> dice = new ArrayList<>(Arrays.asList(diceLayout.getBackgroundColor(), diceLayout.getBorderColor(), diceLayout.getPointColor()));
-        return diceLayout == null ? null : dice;
+    public static DiceLayout fromStringToDiceLayout(String str) {
+//        return new DiceLayout(dice.get(0), dice.get(1), dice.get(2));
+
+        String[] list = str.split(",");
+        return new DiceLayout(Integer.valueOf(list[0]), Integer.valueOf(list[1]), Integer.valueOf(list[2]));
     }
+
+
 }
