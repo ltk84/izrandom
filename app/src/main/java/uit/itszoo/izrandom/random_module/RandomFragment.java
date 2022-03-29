@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import org.jetbrains.annotations.NotNull;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.flip_coin.FlipCoinActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
 import uit.itszoo.izrandom.random_module.random_integer.RandomIntegerActivity;
@@ -139,6 +140,14 @@ public class RandomFragment extends Fragment {
             public void onClick(View view) {
                 Intent intentToLuckyWheel = new Intent(getContext(), LuckyWheelActivity.class);
                 startActivity(intentToLuckyWheel);
+            }
+        });
+
+        flipCoinCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToFlipCoin = new Intent(getContext(), FlipCoinActivity.class);
+                startActivity(intentToFlipCoin);
             }
         });
 
