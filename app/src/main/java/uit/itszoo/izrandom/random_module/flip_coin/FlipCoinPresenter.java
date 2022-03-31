@@ -9,11 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.database.Repository;
 import uit.itszoo.izrandom.database.UserConfiguration;
 import uit.itszoo.izrandom.random_module.flip_coin.model.Coin;
-import uit.itszoo.izrandom.random_module.flip_coin.source.CoinSource;
 
 public class FlipCoinPresenter implements FlipCoinContract.Presenter {
     private final FlipCoinContract.View view;
@@ -46,17 +44,15 @@ public class FlipCoinPresenter implements FlipCoinContract.Presenter {
         coinList = new ArrayList<>();
         for (int i = 0; i < coinViewList.size(); i++) {
             ImageView coinView = coinViewList.get(i);
-            coinList.add(new Coin(coin.getId(), coinView.getId(), R.drawable.ic_coin_1_head, R.drawable.ic_coin_1_tail, true));
+            coinList.add(new Coin(coin.getId(), coinView.getId(), coin.getDrawableHead(), coin.getDrawableTail(), true));
         }
         coinApp = coin;
     }
 
     @Override
     public void addCoin(ImageView coinView) {
-        // mock lay data tu db
-        String coinID = coinApp.getId();
-        Coin newCoin = CoinSource.findCoin(coinID);
-        coinList.add(newCoin);
+        coinList.add(new Coin(coinApp.getId(), coinView.getId(), coinApp.getDrawableHead(), coinApp.getDrawableTail(), true));
+        view.applyChangeCoin(coinApp);
     }
 
     @Override
@@ -80,5 +76,6 @@ public class FlipCoinPresenter implements FlipCoinContract.Presenter {
             coinList.get(i).setId(coin.getId());
             coinList.get(i).setAppearance(coin.getDrawableHead(), coin.getDrawableTail());
         }
+        coinApp = coin;
     }
 }

@@ -77,7 +77,6 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
         initView();
 
         presenter.getUserConfig().observe(this, config -> {
-            System.out.println(config.coinId);
             Coin coinFromDB = CoinSource.findCoin(config.coinId);
             presenter.initCoinList(coinViewList, coinFromDB);
             applyChangeCoin(coinFromDB);
