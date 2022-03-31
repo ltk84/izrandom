@@ -57,7 +57,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
 
         presenter.getUserConfig().observe(this, config -> {
             presenter.initArrow(ArrowSource.arrows.stream().filter(arrow -> arrow.getId().compareTo(config.arrowId) == 0).findFirst().get());
-            arrowView.setImageDrawable(getDrawable(presenter.getCurrentArrow().getLayout()));
+            arrowView.setImageDrawable(getDrawable(presenter.getArrowApp().getLayout()));
         });
     }
 
@@ -113,7 +113,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
             @Override
             public void onClick(View view) {
                 Intent intentToCustom = new Intent(getApplicationContext(), RandomDirectionCustomActivity.class);
-                intentToCustom.putExtra(RandomDirectionActivity.CURRENT_ARROW, presenter.getCurrentArrow());
+                intentToCustom.putExtra(RandomDirectionActivity.CURRENT_ARROW, presenter.getArrowApp());
                 intentLauncher.launch(intentToCustom);
             }
         });

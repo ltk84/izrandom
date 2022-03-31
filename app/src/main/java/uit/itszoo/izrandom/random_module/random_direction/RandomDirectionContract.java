@@ -12,7 +12,7 @@ public interface RandomDirectionContract {
 
         void initArrow(Arrow arrow);
 
-        Arrow getCurrentArrow();
+        Arrow getArrowApp();
 
         void changeArrow(Arrow arrow);
 

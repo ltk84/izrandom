@@ -13,6 +13,9 @@ public interface UserConfigDAO {
     @Query("UPDATE userConfig SET arrowId=:arrowId")
     public void updateArrow(String arrowId);
 
+    @Query("UPDATE userConfig SET coinId=:coinId")
+    public void updateCoin(String coinId);
+
     @Query("UPDATE userConfig SET diceId=:diceId")
     public void updateDice(String diceId);
 

@@ -11,8 +11,8 @@ import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
 public class RandomDirectionPresenter implements RandomDirectionContract.Presenter {
     private final RandomDirectionContract.View view;
 
+    private Arrow arrowApp;
     private Repository repository;
-    private Arrow currentArrow;
     private LiveData<UserConfiguration> userConfig;
 
     public RandomDirectionPresenter(Context context, RandomDirectionContract.View view) {
@@ -23,12 +23,12 @@ public class RandomDirectionPresenter implements RandomDirectionContract.Present
 
     @Override
     public void initArrow(Arrow arrow) {
-        currentArrow = arrow;
+        arrowApp = arrow;
     }
 
     @Override
-    public Arrow getCurrentArrow() {
-        return currentArrow;
+    public Arrow getArrowApp() {
+        return arrowApp;
     }
 
     @Override

@@ -40,6 +40,7 @@ import java.util.Random;
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.flip_coin.flip_coin_custom.FlipCoinCustomActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.model.Coin;
+import uit.itszoo.izrandom.random_module.flip_coin.source.CoinSource;
 
 public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContract.View {
     public static final String CURRENT_COIN = "CURRENT_COIN";
@@ -74,7 +75,13 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
         presenter = new FlipCoinPresenter(getApplicationContext(), this);
         setPresenter(presenter);
         initView();
-        presenter.initCoinList(coinViewList);
+
+        presenter.getUserConfig().observe(this, config -> {
+            System.out.println(config.coinId);
+            Coin coinFromDB = CoinSource.findCoin(config.coinId);
+            presenter.initCoinList(coinViewList, coinFromDB);
+            applyChangeCoin(coinFromDB);
+        });
     }
 
     @Override

@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.flip_coin.source.CoinSource;
 import uit.itszoo.izrandom.random_module.random_direction.source.ArrowSource;
 import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
 
@@ -55,6 +55,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     UserConfiguration userConfiguration = new UserConfiguration();
                     userConfiguration.arrowId = ArrowSource.arrows.get(0).getId();
                     userConfiguration.diceId = DiceSource.dices.get(0).getId();
+                    userConfiguration.coinId = CoinSource.coins.get(0).getId();
 
                     instance.userConfigDAO().insertUserConfig(userConfiguration);
                 }

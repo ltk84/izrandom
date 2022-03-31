@@ -36,6 +36,12 @@ public class Repository {
         });
     }
 
+    public void changeCoin(String coinId) {
+        AppDatabase.dbExecutor.execute(() -> {
+            userConfigDAO.updateCoin(coinId);
+        });
+    }
+
     public LiveData<UserConfiguration> getUserConfiguration() {
         return userConfig;
     }

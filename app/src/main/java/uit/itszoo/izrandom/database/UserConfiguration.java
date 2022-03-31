@@ -12,4 +12,5 @@ public class UserConfiguration {
 
     public String diceId;
 
+    public String coinId;
 }
