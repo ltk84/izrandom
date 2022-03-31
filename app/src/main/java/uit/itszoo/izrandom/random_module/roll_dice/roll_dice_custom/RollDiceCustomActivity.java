@@ -22,7 +22,7 @@ import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
 
 public class RollDiceCustomActivity extends AppCompatActivity {
     public static final String SELECTED_DICE = "SELECTED_DICE";
-    List<Dice> dicesTheme = DiceSource.dices;
+    List<Dice> dicesTheme = (List<Dice>) DiceSource.dices.clone();
     CarouselView carouselView;
     DiceLoadingView diceView;
     ImageButton backButton;

@@ -16,13 +16,13 @@ import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.flip_coin.FlipCoinActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.model.Coin;
+import uit.itszoo.izrandom.random_module.flip_coin.source.CoinSource;
 
 public class FlipCoinCustomActivity extends AppCompatActivity {
     public static final String SELECTED_COIN = "SELECTED_COIN";
@@ -60,12 +60,7 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
 
     private void initView() {
         coinViewList = new ArrayList<ImageView>();
-        coinThemeList = new ArrayList<Coin>(
-                Arrays.asList(
-                        new Coin("1", 1, R.drawable.ic_coin_1_head, R.drawable.ic_coin_1_tail, false),
-                        new Coin("2", 1, R.drawable.ic_coin_2_head, R.drawable.ic_coin_2_tail, false)
-                )
-        );
+        coinThemeList = (List<Coin>) CoinSource.coins.clone();
 
         backButton = findViewById(R.id.bb_flip_coin);
         backButton.setOnClickListener(new View.OnClickListener() {

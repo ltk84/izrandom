@@ -22,7 +22,7 @@ import uit.itszoo.izrandom.random_module.random_direction.source.ArrowSource;
 
 public class RandomDirectionCustomActivity extends AppCompatActivity {
     public static final String SELECTED_ARROW = "SELECTED_ARROW";
-    private ArrayList<Arrow> images = ArrowSource.arrows;
+    private ArrayList<Arrow> images = (ArrayList<Arrow>) ArrowSource.arrows.clone();
 
     ImageButton backButton;
     CarouselView carouselView;
