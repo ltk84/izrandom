@@ -17,9 +17,15 @@ public interface RandomDirectionContract {
         void changeArrow(Arrow arrow);
 
         LiveData<UserConfiguration> getUserConfig();
+
+        void executeAnimation(boolean isHold);
     }
 
     interface View extends BaseView<Presenter> {
         void applyChangeArrow(int arrow);
+
+        void executeSpin();
+
+        void executeSpinForever();
     }
 }

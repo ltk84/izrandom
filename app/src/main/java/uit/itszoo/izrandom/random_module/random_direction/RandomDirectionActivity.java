@@ -80,10 +80,10 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         int action = MotionEventCompat.getActionMasked(event);
         switch (action) {
             case (MotionEvent.ACTION_DOWN):
-                executeSpinForever();
+                presenter.executeAnimation(true);
                 return true;
             case (MotionEvent.ACTION_UP):
-                executeSpin();
+                presenter.executeAnimation(false);
                 return true;
             default:
                 return super.onTouchEvent(event);
@@ -123,6 +123,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         this.presenter = presenter;
     }
 
+    @Override
     public void executeSpin() {
         Random rand = new Random();
         int randomValue = rand.nextInt(361);
@@ -156,6 +157,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         });
     }
 
+    @Override
     public void executeSpinForever() {
         rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_animation);
         rotateAnimation.setRepeatCount(Animation.INFINITE);

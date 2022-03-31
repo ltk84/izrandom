@@ -27,6 +27,15 @@ public class RandomDirectionPresenter implements RandomDirectionContract.Present
     }
 
     @Override
+    public void executeAnimation(boolean isHold) {
+        if (isHold) {
+            view.executeSpinForever();
+        } else {
+            view.executeSpin();
+        }
+    }
+
+    @Override
     public Arrow getCurrentArrow() {
         return currentArrow;
     }
