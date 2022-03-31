@@ -1,32 +1,31 @@
 package uit.itszoo.izrandom.random_module.flip_coin.flip_coin_custom;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.flip_coin.FlipCoinActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.model.Coin;
-import uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom.RollDiceCustomActivity;
 
 public class FlipCoinCustomActivity extends AppCompatActivity {
-
+    public static final String SELECTED_COIN = "SELECTED_COIN";
     CarouselView carouselView;
     ImageButton backButton;
     ImageButton confirmButton;
@@ -35,22 +34,37 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
     ScaleAnimation scaleAnimation;
     List<ImageView> coinViewList;
     int flipPivot = 0;
+    Coin initialCoin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flip_coin_custom);
+        initialCoin = (Coin) getIntent().getSerializableExtra(FlipCoinActivity.CURRENT_COIN);
         initView();
+        swapInitialCoinToLead();
         setupCarouselView();
+    }
+
+    private void swapInitialCoinToLead() {
+        int initialCoinIndex = 0;
+        for (Coin c :
+                coinThemeList) {
+            if (c.getId().compareTo(initialCoin.getId()) == 0) {
+                initialCoinIndex = coinThemeList.indexOf(c);
+                break;
+            }
+        }
+        Collections.swap(coinThemeList, 0, initialCoinIndex);
     }
 
     private void initView() {
         coinViewList = new ArrayList<ImageView>();
         coinThemeList = new ArrayList<Coin>(
-            Arrays.asList(
-                new Coin(1, R.drawable.ic_coin_1_head, R.drawable.ic_coin_1_tail, false),
-                new Coin(1, R.drawable.ic_coin_2_head, R.drawable.ic_coin_2_tail, false)
-            )
+                Arrays.asList(
+                        new Coin("1", 1, R.drawable.ic_coin_1_head, R.drawable.ic_coin_1_tail, false),
+                        new Coin("2", 1, R.drawable.ic_coin_2_head, R.drawable.ic_coin_2_tail, false)
+                )
         );
 
         backButton = findViewById(R.id.bb_flip_coin);
@@ -65,6 +79,10 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intentBack = new Intent();
+                intentBack.putExtra(FlipCoinCustomActivity.SELECTED_COIN, coinThemeList.get(carouselView.getCurrentItem()));
+                setResult(Activity.RESULT_OK, intentBack);
+                finish();
             }
         });
     }

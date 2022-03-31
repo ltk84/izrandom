@@ -12,11 +12,17 @@ public interface FlipCoinContract {
 
     interface Presenter extends BasePresenter {
         void initCoinList(List<ImageView> coinViewList);
+
         void addCoin(ImageView coinView);
+
         void removeCoin();
+
         Coin getCoinFromViewId(int viewId);
+
+        void changeCoin(Coin coin);
     }
 
     interface View extends BaseView<FlipCoinContract.Presenter> {
+        void applyChangeCoin(Coin coin);
     }
 }

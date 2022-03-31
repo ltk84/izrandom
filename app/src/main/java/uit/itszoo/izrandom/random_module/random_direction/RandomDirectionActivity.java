@@ -61,7 +61,6 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         });
     }
 
-
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -224,7 +223,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
             }
         });
     }
-    
+
     @Override
     public void applyChangeArrow(int arrow) {
         arrowView.setImageDrawable(getDrawable(arrow));

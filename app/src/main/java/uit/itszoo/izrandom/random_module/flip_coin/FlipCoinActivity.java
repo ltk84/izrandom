@@ -1,13 +1,6 @@
 package uit.itszoo.izrandom.random_module.flip_coin;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.core.view.MotionEventCompat;
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -30,6 +23,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.core.view.MotionEventCompat;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -39,6 +42,7 @@ import uit.itszoo.izrandom.random_module.flip_coin.flip_coin_custom.FlipCoinCust
 import uit.itszoo.izrandom.random_module.flip_coin.model.Coin;
 
 public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContract.View {
+    public static final String CURRENT_COIN = "CURRENT_COIN";
     FlipCoinContract.Presenter presenter;
 
     // Views
@@ -136,7 +140,18 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
 
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
-            result -> {
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    System.out.println(result.getResultCode());
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        Coin selectedCoin = (Coin) data.getSerializableExtra(FlipCoinCustomActivity.SELECTED_COIN);
+                        if (selectedCoin != null) {
+                            presenter.changeCoin(selectedCoin);
+                        }
+                    }
+                }
             });
 
     public void setListenerForView() {
@@ -144,8 +159,9 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
 
         toCustomScreenButton.setOnClickListener(view -> {
             Intent intentToCustom = new Intent(getApplicationContext(), FlipCoinCustomActivity.class);
-            //intentToCustom.putExtra(RollDiceActivity.CURRENT_DICE, presenter.getCurrentDice());
+            intentToCustom.putExtra(FlipCoinActivity.CURRENT_COIN, presenter.getCoinFromViewId(coinViewList.get(0).getId()));
             intentLauncher.launch(intentToCustom);
+            System.out.println("ALo");
         });
 
         increaseButton.setOnClickListener(view -> {
@@ -200,7 +216,7 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
 
         ConstraintSet constraintSet = new ConstraintSet();
         constraintSet.clone((ConstraintLayout) layout);
-        constraintSet.connect(nextLastCoinView.getId(),ConstraintSet.END, layout.getId(),ConstraintSet.END,0);
+        constraintSet.connect(nextLastCoinView.getId(), ConstraintSet.END, layout.getId(), ConstraintSet.END, 0);
         constraintSet.applyTo((ConstraintLayout) layout);
 
         coinViewList.remove(lastCoinView);
@@ -229,17 +245,17 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
                 r.getDisplayMetrics()
         );
         ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(width, height);
-        layoutParams.setMargins(0,top,0,0);
+        layoutParams.setMargins(0, top, 0, 0);
         newCoinView.setLayoutParams(layoutParams);
         layout.addView(newCoinView);
 
         ConstraintSet constraintSet = new ConstraintSet();
         constraintSet.clone((ConstraintLayout) layout);
-        constraintSet.connect(lastCoinView.getId(),ConstraintSet.END,newCoinView.getId(),ConstraintSet.START,0);
-        constraintSet.connect(newCoinView.getId(),ConstraintSet.START,lastCoinView.getId(),ConstraintSet.END,0);
-        constraintSet.connect(newCoinView.getId(),ConstraintSet.END,R.id.layout_flip_coin,ConstraintSet.END,0);
-        constraintSet.connect(newCoinView.getId(),ConstraintSet.TOP,R.id.toolbar,ConstraintSet.BOTTOM);
-        constraintSet.connect(newCoinView.getId(),ConstraintSet.BOTTOM,R.id.layout_flip_coin,ConstraintSet.BOTTOM,0);
+        constraintSet.connect(lastCoinView.getId(), ConstraintSet.END, newCoinView.getId(), ConstraintSet.START, 0);
+        constraintSet.connect(newCoinView.getId(), ConstraintSet.START, lastCoinView.getId(), ConstraintSet.END, 0);
+        constraintSet.connect(newCoinView.getId(), ConstraintSet.END, R.id.layout_flip_coin, ConstraintSet.END, 0);
+        constraintSet.connect(newCoinView.getId(), ConstraintSet.TOP, R.id.toolbar, ConstraintSet.BOTTOM);
+        constraintSet.connect(newCoinView.getId(), ConstraintSet.BOTTOM, R.id.layout_flip_coin, ConstraintSet.BOTTOM, 0);
         constraintSet.applyTo((ConstraintLayout) layout);
 
         coinViewList.add(newCoinView);
@@ -397,6 +413,13 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
                 coinViewList.get(i).setImageResource(thisCoin.getDrawableTail());
                 thisCoin.isHead = false;
             }
+        }
+    }
+
+    @Override
+    public void applyChangeCoin(Coin coin) {
+        for (int i = 0; i < coinViewList.size(); i++) {
+            coinViewList.get(i).setImageDrawable(getDrawable(coin.getDrawableHead()));
         }
     }
 }
