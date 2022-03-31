@@ -32,8 +32,9 @@
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_coin/FlipCoinActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_coin/FlipCoinActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_coin/FlipCoinPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_coin/FlipCoinPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/roll_dice/RollDiceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/roll_dice/RollDiceActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/roll_dice/RollDiceContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/roll_dice/RollDiceContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/roll_dice/RollDicePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/roll_dice/RollDicePresenter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,10 +246,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="286" y="154" key="#PSD/0.0.1536.816@0.0.1536.816" timestamp="1647770718692" />
-    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser" timestamp="1648733163366">
+    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser" timestamp="1648736024456">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1648733163366" />
+    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1648736024456" />
     <state x="374" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648696579082" />
     <state x="412" y="174" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1647742931826">
       <screen x="0" y="0" width="1366" height="768" />
@@ -258,10 +259,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="207" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1648114591115" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1648733027119">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1648735607362">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1648733027119" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1648735607362" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648696986351" />
     <state x="258" y="142" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1647738634864">
       <screen x="0" y="0" width="1366" height="768" />

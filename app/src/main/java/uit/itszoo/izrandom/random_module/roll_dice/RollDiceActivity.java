@@ -85,7 +85,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
 
         presenter.getUserConfig().observe(this, userConfiguration -> {
             presenter.initDice(DiceSource.dices.stream().filter(dice -> dice.getId().compareTo(userConfiguration.diceId) == 0).findFirst().get());
-            applyTheme(presenter.getCurrentDice());
+            applyTheme(initDiceView, presenter.getDiceApp());
         });
 
         executeHoldEvent = () -> {
@@ -96,22 +96,22 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
     }
 
     @Override
-    public void applyTheme(Dice layout) {
-        initDiceView.setFirstSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
-        initDiceView.setFirstSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
-        initDiceView.setFirstSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+    public void applyTheme(DiceLoadingView view, Dice layout) {
+        view.setFirstSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        view.setFirstSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        view.setFirstSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
 
-        initDiceView.setSecondSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
-        initDiceView.setSecondSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
-        initDiceView.setSecondSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+        view.setSecondSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        view.setSecondSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        view.setSecondSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
 
-        initDiceView.setThirdSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
-        initDiceView.setThirdSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
-        initDiceView.setThirdSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+        view.setThirdSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        view.setThirdSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        view.setThirdSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
 
-        initDiceView.setFourthSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
-        initDiceView.setFourthSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
-        initDiceView.setFourthSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
+        view.setFourthSideDiceBgColor(getResources().getColor(layout.getBackgroundColor(), getTheme()));
+        view.setFourthSideDiceBorderColor(getResources().getColor(layout.getBorderColor(), getTheme()));
+        view.setFourthSidePointColor(getResources().getColor(layout.getPointColor(), getTheme()));
     }
 
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
@@ -123,9 +123,8 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
                         Intent data = result.getData();
                         Dice selectedDice = (Dice) data.getSerializableExtra(RollDiceCustomActivity.SELECTED_DICE);
                         if (selectedDice != null) {
-                            presenter.changeDice(selectedDice);
+                            presenter.changeDice(diceViewList, selectedDice);
                         }
-
                     }
                 }
             });
@@ -186,7 +185,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
             @Override
             public void onClick(View view) {
                 Intent intentToCustom = new Intent(getApplicationContext(), RollDiceCustomActivity.class);
-                intentToCustom.putExtra(RollDiceActivity.CURRENT_DICE, presenter.getCurrentDice());
+                intentToCustom.putExtra(RollDiceActivity.CURRENT_DICE, presenter.getDiceApp());
                 intentLauncher.launch(intentToCustom);
             }
         });
@@ -276,7 +275,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         animationSet.addAnimation(moveDownAnimation);
         animationSet.setFillAfter(true);
 
-        for (int i = 0; i <  diceViewList.size(); i++) {
+        for (int i = 0; i < diceViewList.size(); i++) {
             // Set result to dice view
             Random rand = new Random();
             int randomValue = rand.nextInt(7);
@@ -317,7 +316,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         animationSet.setFillAfter(true);
 
 
-        for (int i = 0; i <  diceViewList.size(); i++) {
+        for (int i = 0; i < diceViewList.size(); i++) {
             // Set 3d Rotate Animation.
             diceViewList.get(i).setInterpolator(new LinearInterpolator());
             diceViewList.get(i).setRepeatCount(Animation.INFINITE);
@@ -352,7 +351,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         animationSet.addAnimation(moveDownAnimation);
         animationSet.setFillAfter(true);
 
-        for (int i = 0; i <  diceViewList.size(); i++) {
+        for (int i = 0; i < diceViewList.size(); i++) {
             // Set result to dice view
             Random rand = new Random();
             int randomValue = rand.nextInt(7);
@@ -381,7 +380,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
         rotateAnimation.setInterpolator(new LinearInterpolator());
         rotateAnimation.setFillAfter(true);
 
-        for (int i = 0; i <  diceViewList.size(); i++) {
+        for (int i = 0; i < diceViewList.size(); i++) {
             // Set 3d Rotate Animation.
             diceViewList.get(i).setInterpolator(new LinearInterpolator());
             diceViewList.get(i).setRepeatCount(Animation.INFINITE);
@@ -444,20 +443,21 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
                 r.getDisplayMetrics()
         );
         ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(width, height);
-        layoutParams.setMargins(0,top,0,0);
+        layoutParams.setMargins(0, top, 0, 0);
         newDiceView.setLayoutParams(layoutParams);
         layout.addView(newDiceView);
 
         ConstraintSet constraintSet = new ConstraintSet();
         constraintSet.clone((ConstraintLayout) layout);
-        constraintSet.connect(lastDiceView.getId(),ConstraintSet.END,newDiceView.getId(),ConstraintSet.START,0);
-        constraintSet.connect(newDiceView.getId(),ConstraintSet.START,lastDiceView.getId(),ConstraintSet.END,0);
-        constraintSet.connect(newDiceView.getId(),ConstraintSet.END,R.id.layout_roll_dice,ConstraintSet.END,0);
-        constraintSet.connect(newDiceView.getId(),ConstraintSet.TOP,R.id.toolbar,ConstraintSet.BOTTOM);
-        constraintSet.connect(newDiceView.getId(),ConstraintSet.BOTTOM,R.id.layout_roll_dice,ConstraintSet.BOTTOM,0);
+        constraintSet.connect(lastDiceView.getId(), ConstraintSet.END, newDiceView.getId(), ConstraintSet.START, 0);
+        constraintSet.connect(newDiceView.getId(), ConstraintSet.START, lastDiceView.getId(), ConstraintSet.END, 0);
+        constraintSet.connect(newDiceView.getId(), ConstraintSet.END, R.id.layout_roll_dice, ConstraintSet.END, 0);
+        constraintSet.connect(newDiceView.getId(), ConstraintSet.TOP, R.id.toolbar, ConstraintSet.BOTTOM);
+        constraintSet.connect(newDiceView.getId(), ConstraintSet.BOTTOM, R.id.layout_roll_dice, ConstraintSet.BOTTOM, 0);
         constraintSet.applyTo((ConstraintLayout) layout);
 
         diceViewList.add(newDiceView);
+        applyTheme(newDiceView, presenter.getDiceApp());
     }
 
     private void removeADice() {
@@ -468,7 +468,7 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
 
         ConstraintSet constraintSet = new ConstraintSet();
         constraintSet.clone((ConstraintLayout) layout);
-        constraintSet.connect(nextLastDiceView.getId(),ConstraintSet.END, layout.getId(),ConstraintSet.END,0);
+        constraintSet.connect(nextLastDiceView.getId(), ConstraintSet.END, layout.getId(), ConstraintSet.END, 0);
         constraintSet.applyTo((ConstraintLayout) layout);
 
         diceViewList.remove(lastDiceView);

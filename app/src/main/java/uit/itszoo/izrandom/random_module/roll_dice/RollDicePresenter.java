@@ -4,6 +4,10 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
+import com.iigo.library.DiceLoadingView;
+
+import java.util.List;
+
 import uit.itszoo.izrandom.database.Repository;
 import uit.itszoo.izrandom.database.UserConfiguration;
 import uit.itszoo.izrandom.random_module.roll_dice.model.Dice;
@@ -13,7 +17,7 @@ public class RollDicePresenter implements RollDiceContract.Presenter {
 
     private Repository repository;
     private LiveData<UserConfiguration> userConfig;
-    private Dice currentDice;
+    private Dice diceApp;
 
     public RollDicePresenter(Context context, RollDiceContract.View view) {
         this.view = view;
@@ -23,18 +27,24 @@ public class RollDicePresenter implements RollDiceContract.Presenter {
 
     @Override
     public void initDice(Dice dice) {
-        currentDice = dice;
+        diceApp = dice;
     }
 
     @Override
-    public void changeDice(Dice dice) {
-        view.applyTheme(dice);
+    public void changeDice(List<DiceLoadingView> diceViewList, Dice dice) {
+        
         repository.changeDice(dice.getId());
+        diceApp = dice;
+
+        for (DiceLoadingView dView :
+                diceViewList) {
+            view.applyTheme(dView, dice);
+        }
     }
 
     @Override
-    public Dice getCurrentDice() {
-        return currentDice;
+    public Dice getDiceApp() {
+        return diceApp;
     }
 
     @Override

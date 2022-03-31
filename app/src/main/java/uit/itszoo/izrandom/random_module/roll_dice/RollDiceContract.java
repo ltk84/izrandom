@@ -1,9 +1,10 @@
 package uit.itszoo.izrandom.random_module.roll_dice;
 
+import androidx.lifecycle.LiveData;
+
 import com.iigo.library.DiceLoadingView;
 
 import java.util.List;
-import androidx.lifecycle.LiveData;
 
 import uit.itszoo.izrandom.BasePresenter;
 import uit.itszoo.izrandom.BaseView;
@@ -14,9 +15,9 @@ public interface RollDiceContract {
     interface Presenter extends BasePresenter {
         void initDice(Dice dice);
 
-        void changeDice(Dice dice);
+        void changeDice(List<DiceLoadingView> viewList, Dice dice);
 
-        Dice getCurrentDice();
+        Dice getDiceApp();
 
         LiveData<UserConfiguration> getUserConfig();
     }
@@ -29,7 +30,7 @@ public interface RollDiceContract {
         void executeMoveDown(List<DiceLoadingView> diceViewList);
 
         void executeOnlyRoll(List<DiceLoadingView> diceViewList);
-        
-        void applyTheme(Dice layout);
+
+        void applyTheme(DiceLoadingView view, Dice layout);
     }
 }
