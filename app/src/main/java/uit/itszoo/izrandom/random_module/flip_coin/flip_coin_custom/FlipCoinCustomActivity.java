@@ -34,8 +34,6 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
     ImageView coinView;
     ScaleAnimation scaleAnimation;
     List<ImageView> coinViewList;
-
-    boolean isHead;
     int flipPivot = 0;
 
     @Override
@@ -43,7 +41,6 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flip_coin_custom);
         initView();
-        isHead = false;
         setupCarouselView();
     }
 
@@ -81,17 +78,14 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
             @Override
             public void onBindView(View view, int position) {
                 coinView = view.findViewById(R.id.coinView);
-                coinView.setImageDrawable(getDrawable(coinThemeList.get(position).getDrawableHead()));
-                coinView.setId(View.generateViewId());
+                coinView.setImageDrawable(getDrawable(coinThemeList.get(position).getDrawableTail()));
                 coinViewList.add(coinView);
-                System.out.println("id" + coinView.getId());
             }
         });
         carouselView.postDelayed(new Runnable() {
             @Override
             public void run() {
                 initScaleAnimation();
-                System.out.println(coinViewList.size());
                 startAnimation();
             }
         }, 300);
@@ -111,7 +105,7 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
                 1f, 1f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        scaleAnimation.setDuration(300);
+        scaleAnimation.setDuration(500);
         scaleAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
         scaleAnimation.setRepeatCount(Animation.INFINITE);
         scaleAnimation.setRepeatMode(Animation.REVERSE);
@@ -131,14 +125,14 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
             public void onAnimationRepeat(Animation animation) {
                 if (flipPivot % 2 == 0) {
                     for (int i = 0; i < coinViewList.size(); i++) {
-                        ImageView thisCoinView = findViewById(coinViewList.get(i).getId());
-                        System.out.println(i + " Alo: " + coinViewList.get(i).getId());
-                        if (isHead) {
-                            thisCoinView.setImageDrawable(getDrawable(R.drawable.ic_random_dice));
-                            isHead = false;
+                        ImageView thisCoinView = coinViewList.get(i);
+                        Coin thisCoin = coinThemeList.get(i);
+                        if (thisCoin.isHead) {
+                            thisCoinView.setImageDrawable(getDrawable(thisCoin.getDrawableTail()));
+                            thisCoin.isHead = false;
                         } else {
-                            thisCoinView.setImageDrawable(getDrawable(R.drawable.ic_check_button));
-                            isHead = true;
+                            thisCoinView.setImageDrawable(getDrawable(thisCoin.getDrawableHead()));
+                            thisCoin.isHead = true;
                         }
                     }
                     flipPivot = 0;
