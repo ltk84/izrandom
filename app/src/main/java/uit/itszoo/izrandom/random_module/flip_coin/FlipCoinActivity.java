@@ -349,6 +349,7 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
                 textCoinCountValue.setVisibility(View.GONE);
                 decreaseButton.setVisibility(View.GONE);
                 increaseButton.setVisibility(View.GONE);
+                generateRandomHeadTail();
             }
 
             @Override
