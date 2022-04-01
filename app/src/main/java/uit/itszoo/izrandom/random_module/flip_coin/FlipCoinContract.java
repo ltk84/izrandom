@@ -22,6 +22,8 @@ public interface FlipCoinContract {
 
         Coin getCoinFromViewId(int viewId);
 
+        Coin getCoinAppearance();
+
         void changeCoin(Coin coin);
 
         LiveData<UserConfiguration> getUserConfig();

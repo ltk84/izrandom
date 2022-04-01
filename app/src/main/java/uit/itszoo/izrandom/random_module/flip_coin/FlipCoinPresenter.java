@@ -65,6 +65,10 @@ public class FlipCoinPresenter implements FlipCoinContract.Presenter {
         return coinList.stream().filter(coin -> coin.getViewID() == viewId).collect(Collectors.toList()).get(0);
     }
 
+    @Override
+    public Coin getCoinAppearance() {
+        return coinApp;
+    }
 
     @Override
     public void changeCoin(Coin coin) {
