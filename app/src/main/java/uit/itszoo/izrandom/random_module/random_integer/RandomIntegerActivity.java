@@ -31,6 +31,7 @@ import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.random_integer.random_integer_custom.RandomIntegerCustomActivity;
 
 public class RandomIntegerActivity extends AppCompatActivity implements RandomIntegerContract.View{
+    public static final String CUS_NUM = "CUS_NUM";
     List<Integer> listNumsResult = new ArrayList<>();
     MutableLiveData<List<Integer>>  listMutableLiveData = new MutableLiveData<List<Integer>>();
     RecyclerviewAdapter recyclerviewAdapter;
@@ -44,6 +45,7 @@ public class RandomIntegerActivity extends AppCompatActivity implements RandomIn
     RecyclerView recyclerView;
     ImageButton backButton;
     ImageButton customScreenButton;
+    public static final RandomIntegerCustomActivity cus  = new RandomIntegerCustomActivity();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,7 +139,7 @@ public class RandomIntegerActivity extends AppCompatActivity implements RandomIn
         customScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentToCustom = new Intent(getApplicationContext(), RandomIntegerCustomActivity.class);
+                Intent intentToCustom = new Intent(getApplicationContext(), cus.getClass());
                 intentLauncher.launch(intentToCustom);
             }
         });

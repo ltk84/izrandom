@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/random_number_label" />
+            android:text="Tùy chỉnh" />
         <ImageButton
             android:id="@+id/bb_rand_integer"
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
             android:minWidth="60dp"
             android:scaleX="1"
             android:scaleY="1"
-            android:src="@drawable/ic_bottom_nav_setting"
+            android:src="@drawable/ic_check_button"
             app:tint="@color/colorOnBackground">
         </ImageButton>
         <ImageButton
@@ -59,7 +59,7 @@
             android:minWidth="60dp"
             android:scaleX="1"
             android:scaleY="1"
-            android:src="@drawable/ic_bottom_nav_setting"
+            android:src="@drawable/ic_clean"
             app:tint="@color/colorOnBackground">
         </ImageButton>
     </Toolbar>
@@ -68,7 +68,7 @@
         android:id="@+id/ran_num_cus_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Các số này sẽ không xuất hiện khi random"
+        android:text="Đây là những số sẽ không \n xuất hiện khi ngẫu nhiên."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,9 +79,9 @@
         android:id="@+id/nums_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:text="Các số: "
-        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:text="Danh sách các số ngoại lệ: "
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_random_integer" />
 
@@ -89,21 +89,27 @@
         android:id="@+id/list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="150dp"
-        android:text="..."
-        android:inputType="number"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:background="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/nums_list"
-        app:layout_constraintStart_toEndOf="@+id/nums_list"
-        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer" />
+        android:hint="Nhấn vào đây để nhập"
+        android:maxLength="26"
+        android:minWidth="100dp"
+        android:text=""
+        android:textStyle="bold"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nums_list" />
 
     <TextView
         android:id="@+id/num_cus_constraint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="(Nhâp các số cách nhau bằng dấu phẩy - ',')"
+        android:layout_marginTop="20dp"
+        android:text="(Nhâp các số cách nhau bằng dấu phẩy  ' , ')"
+        android:textSize="11dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list" />
