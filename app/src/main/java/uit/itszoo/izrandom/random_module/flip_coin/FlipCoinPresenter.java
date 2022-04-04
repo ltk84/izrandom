@@ -40,6 +40,11 @@ public class FlipCoinPresenter implements FlipCoinContract.Presenter {
     }
 
     @Override
+    public Coin getCoinAppearance() {
+        return coinApp;
+    }
+
+    @Override
     public void initCoinList(List<ImageView> coinViewList, Coin coin) {
         coinList = new ArrayList<>();
         for (int i = 0; i < coinViewList.size(); i++) {

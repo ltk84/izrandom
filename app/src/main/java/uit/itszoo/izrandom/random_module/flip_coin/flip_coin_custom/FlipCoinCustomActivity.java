@@ -93,6 +93,7 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
                 coinView = view.findViewById(R.id.coinView);
                 coinView.setImageDrawable(getDrawable(coinThemeList.get(position).getDrawableTail()));
                 coinViewList.add(coinView);
+                System.out.println(coinViewList.size());
             }
         });
         carouselView.postDelayed(new Runnable() {

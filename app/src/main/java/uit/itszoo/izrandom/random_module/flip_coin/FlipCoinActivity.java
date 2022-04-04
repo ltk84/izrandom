@@ -165,7 +165,7 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
 
         toCustomScreenButton.setOnClickListener(view -> {
             Intent intentToCustom = new Intent(getApplicationContext(), FlipCoinCustomActivity.class);
-            intentToCustom.putExtra(FlipCoinActivity.CURRENT_COIN, presenter.getCoinFromViewId(coinViewList.get(0).getId()));
+            intentToCustom.putExtra(FlipCoinActivity.CURRENT_COIN, presenter.getCoinAppearance());
             intentLauncher.launch(intentToCustom);
             System.out.println("ALo");
         });
