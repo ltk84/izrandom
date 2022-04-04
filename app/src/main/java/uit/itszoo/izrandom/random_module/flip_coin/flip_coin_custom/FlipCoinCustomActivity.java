@@ -10,10 +10,15 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.jama.carouselview.CarouselScrollListener;
 import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -92,8 +97,25 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
             public void onBindView(View view, int position) {
                 coinView = view.findViewById(R.id.coinView);
                 coinView.setImageDrawable(getDrawable(coinThemeList.get(position).getDrawableTail()));
-                coinViewList.add(coinView);
-                System.out.println(coinViewList.size());
+                if (coinViewList.size() < coinThemeList.size())
+                    coinViewList.add(coinView);
+            }
+        });
+
+        carouselView.setCarouselScrollListener(new CarouselScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull @NotNull RecyclerView recyclerView, int newState, int position) {
+                System.out.println(newState);
+                if (newState == 0) {
+                    initScaleAnimation();
+                    startAnimation();
+                } else {
+                    stopAnimation();
+                }
+            }
+
+            @Override
+            public void onScrolled(@NonNull @NotNull RecyclerView recyclerView, int dx, int dy) {
             }
         });
         carouselView.postDelayed(new Runnable() {
@@ -105,6 +127,12 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
         }, 300);
         // After you finish setting up, show the CarouselView
         carouselView.show();
+    }
+
+    private void stopAnimation() {
+        for (int i = 0; i < coinViewList.size(); i++) {
+            coinViewList.get(i).clearAnimation();
+        }
     }
 
     private void startAnimation() {
@@ -127,7 +155,7 @@ public class FlipCoinCustomActivity extends AppCompatActivity {
         scaleAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-
+                flipPivot = 0;
             }
 
             @Override
