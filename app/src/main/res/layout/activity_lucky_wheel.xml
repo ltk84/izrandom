@@ -1,8 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:LuckyWheel="http://schemas.android.com/apk/res-auto"
     tools:context=".random_module.lucky_wheel.LuckyWheelActivity">
+
+    <Toolbar
+        android:id="@+id/tb_random_integer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lb_rand_integer"
+            style="@style/AppBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/random_number_label" />
+
+        <ImageButton
+            android:id="@+id/bb_rand_integer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            app:tint="@color/colorOnBackground" />
+
+        <ImageButton
+            android:id="@+id/bb_rand_integer_cus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="60dp"
+            android:minHeight="60dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/ic_bottom_nav_setting"
+            app:tint="@color/colorOnBackground" />
+    </Toolbar>
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/AppBarTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Làm gì bây giờ?"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lwv"
+        app:layout_constraintEnd_toEndOf="@+id/tb_random_integer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer" />
+
+    <com.bluehomestudio.luckywheel.LuckyWheel
+        android:id="@+id/lwv"
+        LuckyWheel:background_color="@color/colorPrimary"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/AppBarTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Chạm vào màn hình để thực hiện quay vòng quay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lwv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
