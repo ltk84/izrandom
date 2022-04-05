@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import org.jetbrains.annotations.NotNull;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.chooser.ChooserActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.FlipCoinActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
@@ -46,6 +47,7 @@ public class RandomFragment extends Fragment {
     CardView luckyWheelCardView;
     CardView randomNumberCardView;
     CardView randomListCardView;
+    CardView chooserCardView;
     ImageView imageView;
     Animation rotateAnimation;
 
@@ -105,6 +107,7 @@ public class RandomFragment extends Fragment {
         luckyWheelCardView = view.findViewById(R.id.cv_lucky_wheel);
         randomNumberCardView = view.findViewById(R.id.cv_random_number);
         randomListCardView = view.findViewById(R.id.cv_random_list);
+        chooserCardView = view.findViewById(R.id.cv_chooser);
         imageView = view.findViewById(R.id.imageView);
         rotateAnimation = new RotateAnimation(0f, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
@@ -151,6 +154,13 @@ public class RandomFragment extends Fragment {
             }
         });
 
+        chooserCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToChooser = new Intent(getContext(), ChooserActivity.class);
+                startActivity(intentToChooser);
+            }
+        });
 
     }
 

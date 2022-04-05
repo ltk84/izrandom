@@ -46,4 +46,7 @@
     <string name="increase_amount_description">increase amount button</string>
     <string name="flip_coin_guide">Chạm vào màn hình để thực hiện tung đồng xu</string>
     <string name="custom_coin_guide">Lướt sang trái hoặc phải để thay đổi hình dạng đồng xu</string>
+    <string name="chooser_label">Người được chọn</string>
+    <string name="number_chooser">Số lượng người được chọn</string>
+    <string name="chooser_guide">Chạm các ngón tay vào màn hình và giữ để thực hiện chọn ngẫu nhiên</string>
 </resources>
