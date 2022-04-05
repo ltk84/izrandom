@@ -44,4 +44,5 @@
     <string name="ran_num_max">100</string>
     <string name="decrease_amount_description">decrease amount button</string>
     <string name="increase_amount_description">increase amount button</string>
+    <string name="wheel_custom_appbar_title">Thay đổi vòng quay</string>
 </resources>
