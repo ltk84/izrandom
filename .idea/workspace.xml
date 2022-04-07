@@ -32,10 +32,8 @@
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/RandomFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/RandomFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_chooser.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_chooser.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,10 +78,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="Interface" />
         <option value="layoutResourceFile" />
-        <option value="Class" />
         <option value="resourceFile" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -101,6 +99,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="SerialNumber@00cc99090904" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2022-04-06T03:11:39.559681600Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.github.jama5262/CarouselView/1.2.2/8673a5251ef29da253b5529a8d85d4bd12379ec6/CarouselView-1.2.2-sources.jar!/com/jama/carouselview/CarouselView.java_SELECTED" value="CarouselView" />
@@ -123,9 +123,6 @@
     <key name="android.template.1365772263">
       <recent name="uit.itszoo.izrandom.random_module.chooser" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\izrandom\app\src\main\res\font" />
-    </key>
     <key name="android.template.-1672636025">
       <recent name="uit.itszoo.izrandom.random_direction" />
     </key>
@@ -139,6 +136,9 @@
     </key>
     <key name="android.template.-144290685">
       <recent name="uit.itszoo.izrandom.random_module.flip_coin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\izrandom\app\src\main\res\font" />
     </key>
     <key name="android.template.-131202538">
       <recent name="uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom" />
@@ -250,11 +250,12 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="286" y="154" key="#PSD/0.0.1536.816@0.0.1536.816" timestamp="1647770718692" />
-    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser" timestamp="1648736024456">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="374" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1649299025700">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1648736024456" />
-    <state x="374" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648696579082" />
+    <state x="374" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649299025700" />
+    <state x="374" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1649210327574" />
     <state x="412" y="174" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1647742931826">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -299,30 +300,30 @@
     <state x="722" y="146" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1647390358707" />
     <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648535614543" />
     <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1648710855651" />
-    <state width="930" height="186" key="GridCell.Tab.0.bottom" timestamp="1648788374817">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1493" height="221" key="GridCell.Tab.0.bottom" timestamp="1649299673903">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="930" height="186" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1648788374817" />
-    <state width="1493" height="221" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648698695731" />
-    <state width="1493" height="221" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1648717965143" />
-    <state width="930" height="186" key="GridCell.Tab.0.center" timestamp="1648788374817">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1493" height="221" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649299673903" />
+    <state width="1493" height="315" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1649234043904" />
+    <state width="1493" height="221" key="GridCell.Tab.0.center" timestamp="1649299673903">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="930" height="186" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1648788374817" />
-    <state width="1493" height="221" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648698695731" />
-    <state width="1493" height="221" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1648717965142" />
-    <state width="930" height="186" key="GridCell.Tab.0.left" timestamp="1648788374816">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1493" height="221" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649299673903" />
+    <state width="1493" height="315" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1649234043904" />
+    <state width="1493" height="221" key="GridCell.Tab.0.left" timestamp="1649299673903">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="930" height="186" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1648788374816" />
-    <state width="1493" height="221" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648698695731" />
-    <state width="1493" height="221" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1648717965142" />
-    <state width="930" height="186" key="GridCell.Tab.0.right" timestamp="1648788374817">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1493" height="221" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649299673903" />
+    <state width="1493" height="315" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1649234043904" />
+    <state width="1493" height="221" key="GridCell.Tab.0.right" timestamp="1649299673903">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="930" height="186" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1648788374817" />
-    <state width="1493" height="221" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648698695731" />
-    <state width="1493" height="221" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1648809176212" />
+    <state width="1493" height="221" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649299673903" />
+    <state width="1493" height="315" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1649234043904" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -336,11 +337,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="383" y="141" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1647741633517" />
-    <state x="425" y="185" key="run.anything.popup" timestamp="1647765373687">
+    <state x="425" y="185" key="run.anything.popup" timestamp="1649214146324">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="425" y="185" key="run.anything.popup/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647623008650" />
-    <state x="425" y="185" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1647765373687" />
+    <state x="425" y="185" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1649214146324" />
     <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1647870338242">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -351,6 +352,7 @@
     <watches-manager>
       <configuration name="app">
         <watch expression="coinList.get(0)" />
+        <watch expression="((ChooserActivity)this).chooserRingList" custom="uit.itszoo.izrandom.random_module.chooser.ChooserActivity" />
       </configuration>
     </watches-manager>
   </component>
