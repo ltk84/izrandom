@@ -48,6 +48,22 @@
                 android:height="100dp"/>
         </shape>
     </item>
+    <item
+        android:id="@+id/background_chooser_shape"
+        android:top="1dp"
+        android:bottom="1dp"
+        android:end="1dp"
+        android:start="1dp">
+        <shape android:shape="oval">
+            <solid
+                android:width="12dp"
+                android:color="@android:color/transparent"/>
+
+            <size
+                android:width="100dp"
+                android:height="100dp"/>
+        </shape>
+    </item>
     <item android:top="1dp"
         android:bottom="1dp"
         android:end="1dp"
