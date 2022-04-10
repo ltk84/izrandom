@@ -29,6 +29,8 @@
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_wheel.xml" value="0.1005" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/rounded_corner.xml" value="0.108" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/wheel_custom_add_button.xml" value="0.128" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/wheel_custom_edit_button.xml" value="0.128" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_add_new_lucky_wheel.xml" value="0.20520833333333333" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_lucky_wheel.xml" value="0.2" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_lucky_wheel_custom.xml" value="0.20052083333333334" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_main.xml" value="0.21422101449275363" />
