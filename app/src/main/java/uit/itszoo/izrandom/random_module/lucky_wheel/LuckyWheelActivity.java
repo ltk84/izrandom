@@ -1,11 +1,13 @@
 package uit.itszoo.izrandom.random_module.lucky_wheel;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,12 +24,17 @@ import java.util.List;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
+import uit.itszoo.izrandom.random_module.random_direction.random_direction_custom.RandomDirectionCustomActivity;
 
 public class LuckyWheelActivity extends AppCompatActivity {
     LuckyWheel lkWheel;
     List <WheelItem> wheelItems = new ArrayList<>();
     TextView randomResult;
+    TextView description;
     ConstraintLayout constrainedLayout;
+    ImageButton backButton ;
+    ImageButton customButton;
     private  String result = "";
     final int SWIPE_DISTANCE_THRESHOLD = 100;
     float x1, x2, y1, y2, dx, dy;
@@ -38,19 +45,23 @@ public class LuckyWheelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lucky_wheel);
         constrainedLayout = findViewById(R.id.layout);
         randomResult = findViewById(R.id.random_result);
+        backButton = findViewById(R.id.bb_back);
+        customButton = findViewById(R.id.bt_cus);
+        description = findViewById(R.id.description);
         initLuckyWheel();
+       setListenerForView();
     }
-    private void initLuckyWheel()
-    {
-        lkWheel = findViewById(R.id.lwv);
-        generateWheelItems();
-        lkWheel.addWheelItems(wheelItems);
-        lkWheel.setLuckyWheelReachTheTarget(new OnLuckyWheelReachTheTarget() {
+    public void setListenerForView() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onReachTarget() {
-                Toast.makeText(LuckyWheelActivity.this, "Target Reached", Toast.LENGTH_LONG).show();
-                randomResult.setText(result);
-                constrainedLayout.setBackgroundColor(wheelItems.get(selectedIndex ).color);
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        customButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
             }
         });
         lkWheel.setOnTouchListener(
@@ -77,6 +88,7 @@ public class LuckyWheelActivity extends AppCompatActivity {
                                         lkWheel.setTarget(selectedIndex+1);
                                         result = wheelItems.get(selectedIndex).text;
                                         lkWheel.rotateWheelTo(selectedIndex+1);
+                                        description.setVisibility(View.INVISIBLE);
                                     }
                                 } else {
                                     if ( dy > 0 && Math.abs(dy) > SWIPE_DISTANCE_THRESHOLD )
@@ -86,6 +98,7 @@ public class LuckyWheelActivity extends AppCompatActivity {
                                         lkWheel.setTarget(selectedIndex+1);
                                         result = wheelItems.get(selectedIndex).text;
                                         lkWheel.rotateWheelTo(selectedIndex+1);
+                                        description.setVisibility(View.INVISIBLE);
                                     }
                                 }
                                 break;
@@ -96,20 +109,38 @@ public class LuckyWheelActivity extends AppCompatActivity {
                     }
                 }
         );
+
+    }
+    private void initLuckyWheel()
+    {
+        lkWheel = findViewById(R.id.lwv);
+        generateWheelItems();
+        lkWheel.addWheelItems(wheelItems);
+        lkWheel.setLuckyWheelReachTheTarget(new OnLuckyWheelReachTheTarget() {
+            @Override
+            public void onReachTarget() {
+                Toast.makeText(LuckyWheelActivity.this, "Target Reached", Toast.LENGTH_LONG).show();
+                randomResult.setText(result);
+                constrainedLayout.setBackgroundColor(wheelItems.get(selectedIndex ).color);
+                backButton.setBackgroundColor(wheelItems.get(selectedIndex ).color);
+                customButton.setBackgroundColor(wheelItems.get(selectedIndex ).color);
+                description.setVisibility(View.VISIBLE);
+            }
+        });
     }
     private void generateWheelItems() {
         wheelItems = new ArrayList<>();
         wheelItems.add(new WheelItem(Color.parseColor("#ffe05f"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons) , "100 $"));
+                R.drawable.small_nails_icons) , "Ngủ"));
         wheelItems.add(new WheelItem(Color.parseColor("#ffaa64"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons) , "0 $"));
+                R.drawable.small_nails_icons) , "Chơi"));
         wheelItems.add(new WheelItem(Color.parseColor("#ff534a"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons), "30 $"));
+                R.drawable.small_nails_icons), "Học"));
         wheelItems.add(new WheelItem(Color.parseColor("#aadb6b"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons), "6000 $"));
+                R.drawable.small_nails_icons), "Ăn"));
         wheelItems.add(new WheelItem(Color.parseColor("#ffe05f"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons), "9 $"));
+                R.drawable.small_nails_icons), "Nhậu"));
         wheelItems.add(new WheelItem(Color.parseColor("#ffaa64"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons), "20 $"));
+                R.drawable.small_nails_icons), "Golf"));
     }
 }

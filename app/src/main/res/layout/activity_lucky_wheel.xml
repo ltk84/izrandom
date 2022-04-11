@@ -9,7 +9,7 @@
     tools:context=".random_module.lucky_wheel.LuckyWheelActivity">
 
     <Toolbar
-        android:id="@+id/tb_random_integer"
+        android:id="@+id/tb_lucky_wheel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentInsetStart="0dp"
@@ -23,16 +23,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/random_number_label" />
+            android:text="Vòng quay may mắn" />
 
         <ImageButton
-            android:id="@+id/bb_rand_integer"
+            android:id="@+id/bb_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:backgroundTint="@color/colorBackground"
             android:contentDescription="@string/back_button"
             android:minWidth="48dp"
+            android:background="@null"
             android:minHeight="48dp"
             android:scaleX="1.2"
             android:scaleY="1.2"
@@ -40,15 +40,15 @@
             app:tint="@color/colorOnBackground" />
 
         <ImageButton
-            android:id="@+id/bb_rand_integer_cus"
+            android:id="@+id/bt_cus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:backgroundTint="@color/colorBackground"
             android:contentDescription="@string/back_button"
             android:minWidth="60dp"
             android:minHeight="60dp"
             android:scaleX="1"
+            android:background="@null"
             android:scaleY="1"
             android:src="@drawable/ic_bottom_nav_setting"
             app:tint="@color/colorOnBackground" />
@@ -63,9 +63,9 @@
         android:text="Làm gì bây giờ?"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/lwv"
-        app:layout_constraintEnd_toEndOf="@+id/tb_random_integer"
+        app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer" />
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
 
     <com.bluehomestudio.luckywheel.LuckyWheel
         android:id="@+id/lwv"
@@ -76,10 +76,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer" />
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/description"
         style="@style/AppBarTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

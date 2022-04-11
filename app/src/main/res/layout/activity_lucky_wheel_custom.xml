@@ -6,7 +6,7 @@
     xmlns:LuckyWheel="http://schemas.android.com/tools">
 
     <Toolbar
-        android:id="@+id/tb_random_integer"
+        android:id="@+id/tb_lucky_wheel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentInsetStart="0dp"
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:backgroundTint="@color/colorBackground"
+            android:background="@null"
             android:contentDescription="@string/back_button"
             android:minWidth="48dp"
             android:minHeight="48dp"
@@ -41,13 +41,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:backgroundTint="@color/colorBackground"
             android:contentDescription="@string/back_button"
             android:minWidth="60dp"
             android:minHeight="60dp"
             android:scaleX="1"
             android:scaleY="1"
             android:src="@drawable/ic_check_button"
+            android:background="@null"
             app:tint="@color/colorOnBackground" />
     </Toolbar>
     <TextView
@@ -59,9 +59,9 @@
         android:text="Làm gì bây giờ?"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/lwv"
-        app:layout_constraintEnd_toEndOf="@+id/tb_random_integer"
+        app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer" />
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
 
     <com.bluehomestudio.luckywheel.LuckyWheel
         android:id="@+id/lwv"
@@ -72,7 +72,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer" />
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
 
     <TextView
         style="@style/AppBarTextStyle"
