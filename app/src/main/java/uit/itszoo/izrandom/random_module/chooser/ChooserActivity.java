@@ -35,8 +35,6 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
     int numberOfTheChosenOne = 1; // 1, 2, 3
     boolean[] theChosenOne;
 
-    int previousPointerCount = 0;
-
     Handler handlerHoldEvent;
     Handler handlerCancelEvent;
     Handler handlerEvent;
@@ -143,7 +141,18 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                         }
                     }, 200);
                     ring.getCircle().startAnimation(scaleAnimation);
-
+                    int finalIndex = index;
+                    ChooserRing finalRing = ring;
+                    handlerHoldEvent.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            int pointerCount = motionEvent.getPointerCount();
+                            if (numberOfTheChosenOne < pointerCount) {
+                                randomTheChosenOne(numberOfTheChosenOne, pointerCount);
+                                handleChooseRing(motionEvent, finalRing, finalIndex, theChosenOne[finalIndex]);
+                            }
+                        }
+                    }, 1500);
                 }
             }
         }
@@ -271,7 +280,6 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                     scaleAnimation.setDuration(400);
                     ring.getCircle().startAnimation(scaleAnimation);
                     chooserHolderLayout.removeView(ring.getCircle());
-                    previousPointerCount--;
                 } else {
                     ScaleAnimation scaleAnimation = new ScaleAnimation(
                             1.5f, 2f,
@@ -294,7 +302,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
         ring.getCircle().startAnimation(scaleAnimation);
     }
 
-    private void randomTheChosenOne(int numberOfTheChosenOne) {
+    private void randomTheChosenOne(int numberOfTheChosenOne, int pointerCount) {
         if (numberOfTheChosenOne > theChosenOne.length) {
             System.out.println("Number of chosen ones is greater than the chosen ones list");
             return;
@@ -304,7 +312,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
         Random random = new Random();
         for (int i = 0; i < numberOfTheChosenOne; i++) {
-            int randomIndex = random.nextInt(numberOfTheChosenOne);
+            int randomIndex = random.nextInt(pointerCount);
             theChosenOne[randomIndex] = true;
         }
     }
