@@ -21,7 +21,7 @@
             android:layout_gravity="center"
             android:text="@string/random_number_label" />
         <ImageButton
-            android:id="@+id/bb_rand_integer"
+            android:id="@+id/bb_rand_integer_cus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -35,7 +35,7 @@
             app:tint="@color/colorOnBackground">
         </ImageButton>
         <ImageButton
-            android:id="@+id/bb_rand_integer_cus"
+            android:id="@+id/rand_integer_cus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

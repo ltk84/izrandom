@@ -5,6 +5,7 @@ import static java.lang.Integer.parseInt;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -31,7 +32,7 @@ import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.random_integer.random_integer_custom.RandomIntegerCustomActivity;
 
 public class RandomIntegerActivity extends AppCompatActivity implements RandomIntegerContract.View{
-    public static final String CUS_NUM = "CUS_NUM";
+    public static final String CURRENT_CUS_NUM = "CURRENT_CUS_NUM";
     List<Integer> listNumsResult = new ArrayList<>();
     MutableLiveData<List<Integer>>  listMutableLiveData = new MutableLiveData<List<Integer>>();
     RecyclerviewAdapter recyclerviewAdapter;
@@ -45,12 +46,12 @@ public class RandomIntegerActivity extends AppCompatActivity implements RandomIn
     RecyclerView recyclerView;
     ImageButton backButton;
     ImageButton customScreenButton;
-    public static final RandomIntegerCustomActivity cus  = new RandomIntegerCustomActivity();
+//    public static final RandomIntegerCustomActivity cus  = new RandomIntegerCustomActivity();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_integer);
-        ranNumPresenter = new RandomIntegerPresenter(this);
+        ranNumPresenter = new RandomIntegerPresenter(getApplicationContext(), this);
         setPresenter(ranNumPresenter);
         initView();
         listMutableLiveData.observe(this, new Observer<List<Integer>>() {
@@ -73,8 +74,8 @@ public class RandomIntegerActivity extends AppCompatActivity implements RandomIn
         max = findViewById(R.id.editMaxNum);
         listNumsResult.add(1);
         listMutableLiveData.setValue(listNumsResult);
-        backButton = findViewById(R.id.bb_rand_integer);
-        customScreenButton = findViewById(R.id.bb_rand_integer_cus);
+        backButton = findViewById(R.id.bb_rand_integer_cus);
+        customScreenButton = findViewById(R.id.rand_integer_cus);
         setRecyclerview();
     }
     private void setRecyclerview()
@@ -102,6 +103,11 @@ public class RandomIntegerActivity extends AppCompatActivity implements RandomIn
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
+                        ArrayList<Integer> newListCusNum = data.getIntegerArrayListExtra(RandomIntegerCustomActivity.NEW_CUS_NUM);
+                        if (newListCusNum != null) {
+                            ranNumPresenter.setListCusNum(newListCusNum);
+                        }
+
                     }
                 }
             });
@@ -139,7 +145,10 @@ public class RandomIntegerActivity extends AppCompatActivity implements RandomIn
         customScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentToCustom = new Intent(getApplicationContext(), cus.getClass());
+                Intent intentToCustom = new Intent(getApplicationContext(), RandomIntegerCustomActivity.class);
+
+                intentToCustom.putExtra(RandomIntegerActivity.CURRENT_CUS_NUM, ranNumPresenter.getListCusNum());
+
                 intentLauncher.launch(intentToCustom);
             }
         });
@@ -155,45 +164,34 @@ public class RandomIntegerActivity extends AppCompatActivity implements RandomIn
         int action = MotionEventCompat.getActionMasked(event);
         switch (action) {
             case (MotionEvent.ACTION_DOWN):
-                executeSpinForever();
-                return true;
-            case (MotionEvent.ACTION_UP):
-                executeSpin();
+                executeRandom();
                 return true;
             default:
                 return super.onTouchEvent(event);
         }
     }
+
     @Override
-    public void executeSpinForever() {
+    public void executeRandom() {
         int minNum = parseInt(min.getText().toString());
         int maxNum = parseInt(max.getText().toString());
         int time = 0;
+
         while (time < 50)
         {
             long start = System.currentTimeMillis();
             for(int i = 0 ; i < listNumsResult.size(); i++)
             {
-                listNumsResult.set(i,(int)(Math.random()*(maxNum-minNum+1)+minNum));
+                Integer randomResult = (int)(Math.random()*(maxNum-minNum+1)+minNum);
+                if (!ranNumPresenter.getListCusNum().contains(randomResult)) {
+                    listNumsResult.set(i, randomResult);
+                }
+
             }
             listMutableLiveData.setValue(listNumsResult);
             time += 1;
         }
+
     }
-    @Override
-    public void executeSpin() {
-        int minNum = parseInt(min.getText().toString());
-        int maxNum = parseInt(max.getText().toString());
-        int time = 0;
-        while (time < 50)
-        {
-            long start = System.currentTimeMillis();
-            for(int i = 0 ; i < listNumsResult.size(); i++)
-            {
-                listNumsResult.set(i,(int)(Math.random()*(maxNum-minNum+1)+minNum));
-            }
-            listMutableLiveData.setValue(listNumsResult);
-            time += 1;
-        }
-    }
+
 }

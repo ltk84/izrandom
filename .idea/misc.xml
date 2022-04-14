@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/JavaProject/DA_Java/random_number/2/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.16458333333333333" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_direction.xml" value="0.11980749746707194" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_direction_custom.xml" value="0.21739130434782608" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_integer.xml" value="0.21739130434782608" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/temp/izrandom/app/src/main/res/layout/activity_lucky_wheel.xml" value="0.14322916666666666" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/temp/izrandom/app/src/main/res/layout/activity_random_integer.xml" value="0.14322916666666666" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/temp/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.14322916666666666" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/blinking_rectangle.xml" value="0.1005" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/gradient_background_selector.xml" value="0.1005" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_back_button.xml" value="0.1215" />
