@@ -1,5 +1,7 @@
 package uit.itszoo.izrandom.random_module.chooser;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -8,8 +10,13 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.ScaleAnimation;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
@@ -18,11 +25,18 @@ import java.util.Arrays;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.chooser.chooser_custom.ChooserCustomActivity;
 import uit.itszoo.izrandom.random_module.chooser.model.ChooserRing;
+import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
+import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
+import uit.itszoo.izrandom.random_module.random_direction.random_direction_custom.RandomDirectionCustomActivity;
 
 public class ChooserActivity extends AppCompatActivity implements ChooserContract.View {
 
     ChooserContract.Presenter presenter;
+
+    ImageButton toCustomScreenButton;
+    ImageButton backButton;
 
     ViewGroup chooserLayout;
     ViewGroup chooserHolderLayout;
@@ -48,9 +62,41 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
         setPresenter(presenter);
 
         initView();
+        setListenerForView();
+    }
+
+    ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+
+                    }
+                }
+            });
+
+    public void setListenerForView() {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        toCustomScreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToCustom = new Intent(getApplicationContext(), ChooserCustomActivity.class);
+                intentLauncher.launch(intentToCustom);
+            }
+        });
+
     }
 
     private void initView() {
+        backButton = findViewById(R.id.bb_chooser);
+        toCustomScreenButton = findViewById(R.id.custom_button);
         chooserLayout = findViewById(R.id.chooser_layout);
         chooserHolderLayout = findViewById(R.id.chooser_holder_layout);
         handlerHoldEvent = new Handler();

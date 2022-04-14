@@ -49,4 +49,5 @@
     <string name="chooser_label">Người được chọn</string>
     <string name="number_chooser">Số lượng người được chọn</string>
     <string name="chooser_guide">Chạm các ngón tay vào màn hình và giữ để thực hiện chọn ngẫu nhiên</string>
+    <string name="custom_chooser_guide">Lướt sang trái hoặc phải để thay đổi màu nền</string>
 </resources>

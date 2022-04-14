@@ -5,8 +5,12 @@
     android:id="@+id/chooser_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/purple_chooser_background_selector"
     tools:context=".random_module.chooser.ChooserActivity">
+    <RelativeLayout
+        android:id="@+id/chooser_holder_layout"
+        android:layout_width="match_parent"
+        android:background="@drawable/purple_chooser_background_selector"
+        android:layout_height="match_parent"/>
     <Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -53,10 +57,6 @@
             android:src="@drawable/ic_change_appearance"
             android:tint="@color/colorOnPrimary" />
     </Toolbar>
-    <RelativeLayout
-        android:id="@+id/chooser_holder_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
     <TextView
         android:id="@+id/chooser_count_label"
         android:layout_width="wrap_content"
