@@ -21,6 +21,7 @@ import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.chooser.ChooserActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.FlipCoinActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
+import uit.itszoo.izrandom.random_module.raffle.RaffleActivity;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
 import uit.itszoo.izrandom.random_module.random_integer.RandomIntegerActivity;
 import uit.itszoo.izrandom.random_module.roll_dice.RollDiceActivity;
@@ -48,6 +49,7 @@ public class RandomFragment extends Fragment {
     CardView randomNumberCardView;
     CardView randomListCardView;
     CardView chooserCardView;
+    CardView raffleCardView;
     ImageView imageView;
     Animation rotateAnimation;
 
@@ -108,6 +110,7 @@ public class RandomFragment extends Fragment {
         randomNumberCardView = view.findViewById(R.id.cv_random_number);
         randomListCardView = view.findViewById(R.id.cv_random_list);
         chooserCardView = view.findViewById(R.id.cv_chooser);
+        raffleCardView = view.findViewById(R.id.cv_raffle);
         imageView = view.findViewById(R.id.imageView);
         rotateAnimation = new RotateAnimation(0f, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
@@ -159,6 +162,14 @@ public class RandomFragment extends Fragment {
             public void onClick(View view) {
                 Intent intentToChooser = new Intent(getContext(), ChooserActivity.class);
                 startActivity(intentToChooser);
+            }
+        });
+
+        raffleCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToRaffle = new Intent(getContext(), RaffleActivity.class);
+                startActivity(intentToRaffle);
             }
         });
 

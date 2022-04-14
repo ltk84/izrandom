@@ -50,4 +50,6 @@
     <string name="number_chooser">Số lượng người được chọn</string>
     <string name="chooser_guide">Chạm các ngón tay vào màn hình và giữ để thực hiện chọn ngẫu nhiên</string>
     <string name="custom_chooser_guide">Lướt sang trái hoặc phải để thay đổi màu nền</string>
+    <string name="raffle_description">raffle description</string>
+    <string name="raffle_label">Xổ số</string>
 </resources>

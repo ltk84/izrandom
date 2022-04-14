@@ -33,8 +33,9 @@
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_chooser.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_chooser.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/RandomFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/RandomFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,9 +126,8 @@
     <key name="android.template.1365772263">
       <recent name="uit.itszoo.izrandom.random_module.chooser" />
     </key>
-    <key name="android.template.1654443001">
-      <recent name="uit.itszoo.izrandom" />
-      <recent name="uit.itszoo.izrandom.random_module.chooser.chooser_custom" />
+    <key name="android.template.289755750">
+      <recent name="uit.itszoo.izrandom.random_module.raffle" />
     </key>
     <key name="android.template.-1672636025">
       <recent name="uit.itszoo.izrandom.random_direction" />
@@ -145,6 +145,10 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\izrandom\app\src\main\res\font" />
+    </key>
+    <key name="android.template.1654443001">
+      <recent name="uit.itszoo.izrandom" />
+      <recent name="uit.itszoo.izrandom.random_module.chooser.chooser_custom" />
     </key>
     <key name="android.template.-131202538">
       <recent name="uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom" />
@@ -295,10 +299,10 @@
     </state>
     <state x="502" y="286" key="AndroidCreateResourceFileDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649909388415" />
     <state x="698" y="238" key="AndroidCreateResourceFileDialog/0.0.1536.816@0.0.1536.816" timestamp="1647769088426" />
-    <state x="614" y="198" key="AndroidCreateXmlResourceDialog" timestamp="1649908014535">
+    <state x="407" y="211" key="AndroidCreateXmlResourceDialog" timestamp="1649954358618">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="614" y="198" key="AndroidCreateXmlResourceDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649908014535" />
+    <state x="407" y="211" key="AndroidCreateXmlResourceDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649954358618" />
     <state x="614" y="198" key="AndroidCreateXmlResourceDialog/0.0.1536.816@0.0.1536.816" timestamp="1648711829743" />
     <state width="492" height="466" key="DebuggerActiveHint" timestamp="1649499603296">
       <screen x="0" y="0" width="1536" height="816" />
@@ -314,29 +318,29 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1649761939847" />
-    <state width="1493" height="142" key="GridCell.Tab.0.bottom" timestamp="1649913345911">
+    <state width="1493" height="142" key="GridCell.Tab.0.bottom" timestamp="1649955202505">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="142" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649913345911" />
+    <state width="1493" height="142" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649955202505" />
     <state width="1493" height="221" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1649501840949" />
-    <state width="1493" height="142" key="GridCell.Tab.0.center" timestamp="1649913345911">
+    <state width="1493" height="142" key="GridCell.Tab.0.center" timestamp="1649955202504">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="142" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649913345911" />
+    <state width="1493" height="142" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649955202504" />
     <state width="1493" height="221" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1649501840949" />
-    <state width="1493" height="142" key="GridCell.Tab.0.left" timestamp="1649913345911">
+    <state width="1493" height="142" key="GridCell.Tab.0.left" timestamp="1649955202504">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="142" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649913345911" />
+    <state width="1493" height="142" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649955202504" />
     <state width="1493" height="221" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1649501840949" />
-    <state width="1493" height="142" key="GridCell.Tab.0.right" timestamp="1649913345911">
+    <state width="1493" height="142" key="GridCell.Tab.0.right" timestamp="1649955202505">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="142" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649913345911" />
+    <state width="1493" height="142" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649955202505" />
     <state width="1493" height="221" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1649501840949" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
       <screen x="0" y="0" width="1536" height="816" />
