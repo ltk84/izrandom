@@ -52,4 +52,8 @@
     <string name="custom_chooser_guide">Lướt sang trái hoặc phải để thay đổi màu nền</string>
     <string name="raffle_description">raffle description</string>
     <string name="raffle_label">Xổ số</string>
+    <string name="participants_label">Người tham gia</string>
+    <string name="input_participants_hint">Nhập người tham gia</string>
+    <string name="awards_label">Giải thưởng</string>
+    <string name="input_awards_hint">Nhập giải thưởng</string>
 </resources>
