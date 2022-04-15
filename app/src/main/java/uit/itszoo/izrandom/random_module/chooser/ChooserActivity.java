@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
@@ -43,6 +44,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
     ViewGroup chooserHolderLayout;
     boolean isAnimation = false;
     boolean isChoosing = false;
+    boolean isFinished = false;
 
     ChooserRing ring1;
     ChooserRing ring2;
@@ -96,6 +98,48 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
     }
 
+    void initRings(MotionEvent motionEvent, int countPointer) {
+        if (motionEvent.getPointerId(0) != -1) {
+            ring1 = handleInitRing(motionEvent, ring1, 0);
+        } else if (countPointer == 2) {
+            ring2 = handleInitRing(motionEvent, ring2, 1);
+        } else if (countPointer == 3) {
+            ring3 = handleInitRing(motionEvent, ring3, 2);
+        } else if (countPointer == 4) {
+            ring4 = handleInitRing(motionEvent, ring4, 3);
+        }
+    }
+
+    void moveRings(MotionEvent motionEvent) {
+        if (ring1 != null) {
+            int ringID1 = motionEvent.findPointerIndex(ring1.getIndex());
+            if (ringID1 != -1) {
+                ring1 = handleMoveRing(motionEvent, ring1, ringID1);
+            }
+        }
+
+        if (ring2 != null) {
+            int ringID2 = motionEvent.findPointerIndex(ring2.getIndex());
+            if (ringID2 != -1) {
+                ring2 = handleMoveRing(motionEvent, ring2, ringID2);
+            }
+        }
+
+        if (ring3 != null) {
+            int ringID3 = motionEvent.findPointerIndex(ring3.getIndex());
+            if (ringID3 != -1) {
+                ring3 = handleMoveRing(motionEvent, ring3, ringID3);
+            }
+        }
+
+        if (ring4 != null) {
+            int ringID4 = motionEvent.findPointerIndex(ring4.getIndex());
+            if (ringID4 != -1) {
+                ring4 = handleMoveRing(motionEvent, ring4, ringID4);
+            }
+        }
+    }
+
     private void initView() {
         backButton = findViewById(R.id.bb_chooser);
         toCustomScreenButton = findViewById(R.id.custom_button);
@@ -110,42 +154,64 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
 
+
+//                if (isChoosing) {
+//                    isChoosing = false;
+//                    if (ring1 != null) ring1.getCircle().clearAnimation();
+//                    if (ring2 != null) ring2.getCircle().clearAnimation();
+//                    if (ring3 != null) ring3.getCircle().clearAnimation();
+//                    if (ring4 != null) ring4.getCircle().clearAnimation();
+//                    return true;
+//                }
+
+
+
                 int countPointer = motionEvent.getPointerCount();
-
-                ring1 = handleInitRing(motionEvent, ring1, 0);
-                int ringID1 = motionEvent.findPointerIndex(ring1.getIndex());
-                if (ringID1 != -1) {
-                    ring1 = handleMoveRing(motionEvent, ring1, ringID1);
+                if (isFinished && countPointer > 1 && (motionEvent.getActionMasked() == MotionEvent.ACTION_DOWN || motionEvent.getActionMasked() == MotionEvent.ACTION_POINTER_DOWN)) {
+                    return true;
                 }
 
-                if (countPointer > 1) {
-                    ring2 = handleInitRing(motionEvent, ring2, 1);
-                    int ringID2 = motionEvent.findPointerIndex(ring2.getIndex());
-                    if (ringID2 != -1) {
-                        ring2 = handleMoveRing(motionEvent, ring2, ringID2);
-                    }
+//                ring1 = handleInitRing(motionEvent, ring1, 0);
+//                if (ring1 != null) {
+//                    int ringID1 = motionEvent.findPointerIndex(ring1.getIndex());
+//                    if (ringID1 != -1) {
+//                        ring1 = handleMoveRing(motionEvent, ring1, ringID1);
+//                    }
+//                }
+//
+//                if (countPointer > 1) {
+//                    ring2 = handleInitRing(motionEvent, ring2, 1);
+//                    if (ring2 != null) {
+//                        int ringID2 = motionEvent.findPointerIndex(ring2.getIndex());
+//                        if (ringID2 != -1) {
+//                            ring2 = handleMoveRing(motionEvent, ring2, ringID2);
+//                        }
+//                    }
+//
+//                    if (countPointer > 2) {
+//                        ring3 = handleInitRing(motionEvent, ring3, 2);
+//                        if (ring3 != null) {
+//                            int ringID3 = motionEvent.findPointerIndex(ring3.getIndex());
+//                            if (ringID3 != -1) {
+//                                ring3 = handleMoveRing(motionEvent, ring3, ringID3);
+//                            }
+//                        }
+//                        if (countPointer > 3) {
+//                            ring4 = handleInitRing(motionEvent, ring4, 3);
+//                            if (ring4 != null) {
+//                                int ringID4 = motionEvent.findPointerIndex(ring4.getIndex());
+//                                if (ringID4 != -1) {
+//                                    ring4 = handleMoveRing(motionEvent, ring4, ringID4);
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
 
-                    if (countPointer > 2) {
-                        ring3 = handleInitRing(motionEvent, ring3, 2);
-                        int ringID3 = motionEvent.findPointerIndex(ring3.getIndex());
-
-                        if (ringID3 != -1) {
-                            ring3 = handleMoveRing(motionEvent, ring3, ringID3);
-                        }
-                        if (countPointer > 3) {
-                            ring4 = handleInitRing(motionEvent, ring4, 3);
-                            int ringID4 = motionEvent.findPointerIndex(ring4.getIndex());
-
-                            if (ringID4 == -1) {
-                                ring4 = handleMoveRing(motionEvent, ring4, 3);
-                            } else {
-                                ring4 = handleMoveRing(motionEvent, ring4, ringID4);
-                            }
-                        }
-                    }
-                }
+                initRings(motionEvent, countPointer);
+                moveRings(motionEvent);
+//                chooseRing(motionEvent);
                 handleCancelRing(motionEvent);
-                chooseRing(motionEvent);
                 return true;
             }
         });
@@ -156,8 +222,8 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
         int action = motionEvent.getActionMasked();
         int countPointer = motionEvent.getPointerCount();
 
-        if (action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_POINTER_DOWN)
-            if (numberOfTheChosenOne < countPointer) {
+        if (action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_POINTER_DOWN) {
+            if (numberOfTheChosenOne < countPointer && !isChoosing) {
                 handlerHoldEvent.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -180,13 +246,14 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                                 default:
                                     break;
                             }
-                            if (ring != null) {
-                                handleChooseRing(motionEvent, ring, i, theChosenOne[i]);
+                            if (ring != null && motionEvent.findPointerIndex(ring.getIndex()) != -1) {
+                                handleChooseRing(motionEvent, ring, motionEvent.findPointerIndex(ring.getIndex()), theChosenOne[i]);
                             }
                         }
                     }
                 }, 2000);
             }
+        }
     }
 
     private ChooserRing handleInitRing(MotionEvent motionEvent, ChooserRing ring, int pointerIndex) {
@@ -296,6 +363,8 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                 ring = ring4;
             }
 
+            isFinished = false;
+
         } else if (action == MotionEvent.ACTION_POINTER_UP) {
             removedPointerIndex = motionEvent.getActionIndex();
 
@@ -338,12 +407,27 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                 public void onAnimationEnd(Animation animation) {
                     chooserHolderLayout.removeView(finalRing.getCircle());
                     isAnimation = false;
-                    if (isChoosing) {
-                        handlerEvent.removeCallbacksAndMessages(null);
-                        handleCancelChoosing(motionEvent, ring1);
-                        handleCancelChoosing(motionEvent, ring2);
-                        handleCancelChoosing(motionEvent, ring3);
-                        handleCancelChoosing(motionEvent, ring4);
+//                    if (isChoosing) {
+//                        handlerEvent.removeCallbacksAndMessages(null);
+//                        handleCancelChoosing(motionEvent, ring1);
+//                        handleCancelChoosing(motionEvent, ring2);
+//                        handleCancelChoosing(motionEvent, ring3);
+//                        handleCancelChoosing(motionEvent, ring4);
+//                    }
+
+                    switch (finalRing.getIndex()) {
+                        case 0:
+                            ring1 = null;
+                            break;
+                        case 1:
+                            ring2 = null;
+                            break;
+                        case 2:
+                            ring3 = null;
+                            break;
+                        case 3:
+                            ring4 = null;
+                            break;
                     }
                 }
 
@@ -352,8 +436,11 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
                 }
             });
+
             ring.getCircle().startAnimation(scaleAnimation);
             chooserHolderLayout.removeView(ring.getCircle());
+
+
         }
     }
 
@@ -377,8 +464,8 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
     private void handleChooseRing(MotionEvent motionEvent, ChooserRing ring, int pointerIndex, boolean isChosen) {
         ScaleAnimation scaleAnimation = new ScaleAnimation(
-                1f, 1.5f,
-                1f, 1.5f,
+                1f, 1.2f,
+                1f, 1.2f,
                 Animation.RELATIVE_TO_SELF, motionEvent.getX(pointerIndex) / ring.getCircle().getLayoutParams().width,
                 Animation.RELATIVE_TO_SELF, motionEvent.getY(pointerIndex) / ring.getCircle().getLayoutParams().height);
         scaleAnimation.setInterpolator(new OvershootInterpolator());
@@ -388,7 +475,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
         scaleAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-
+                isChoosing = true;
             }
 
             @Override
@@ -410,50 +497,16 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
                     circle.setLayoutParams(new RelativeLayout.LayoutParams(reqWidth, reqHeight));
 
-                    circle.setX(motionEvent.getX(pointerIndex) - (circle.getLayoutParams().width >> 1));
-                    circle.setY(motionEvent.getY(pointerIndex) - (circle.getLayoutParams().height >> 1));
+                    circle.setX(motionEvent.getX(pointerIndex) - (reqWidth >> 1));
+                    circle.setY(motionEvent.getY(pointerIndex) - (reqHeight >> 1));
                     ring.setX(motionEvent.getX(pointerIndex));
                     ring.setY(motionEvent.getY(pointerIndex));
+
                     ring.setDx(0);
                     ring.setDy(0);
-//                    System.out.println(ring.getCircle());
-//                    ScaleAnimation scaleAnimation = new ScaleAnimation(
-//                            1.5f, 1.8f,
-//                            1.5f, 1.8f,
-//                            Animation.RELATIVE_TO_SELF, motionEvent.getX(pointerIndex) / ring.getCircle().getLayoutParams().width,
-//                            Animation.RELATIVE_TO_SELF, motionEvent.getY(pointerIndex) / ring.getCircle().getLayoutParams().height);
-//                    scaleAnimation.setInterpolator(new OvershootInterpolator());
-//                    scaleAnimation.setDuration(500);
-//                    ring.getCircle().startAnimation(scaleAnimation);
-//                    scaleAnimation.setAnimationListener(new Animation.AnimationListener() {
-//                        @Override
-//                        public void onAnimationStart(Animation animation) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onAnimationEnd(Animation animation) {
-//                            ImageView circle = ring.getCircle();
-//                            int reqWidth = (int) (circle.getWidth() * 1.8);
-//                            int reqHeight = (int) (circle.getHeight() * 1.8);
-//
-//                            circle.setLayoutParams(new RelativeLayout.LayoutParams(reqWidth, reqHeight));
-//
-//                            circle.setX(motionEvent.getX(pointerIndex) - (circle.getLayoutParams().width >> 1));
-//                            circle.setY(motionEvent.getY(pointerIndex) - (circle.getLayoutParams().height >> 1));
-//                            ring.setX(motionEvent.getX(pointerIndex));
-//                            ring.setY(motionEvent.getY(pointerIndex));
-//                            ring.setDx(0);
-//                            ring.setDy(0);
-//                        }
-//
-//                        @Override
-//                        public void onAnimationRepeat(Animation animation) {
-//
-//                        }
-//                    });
                 }
                 isChoosing = false;
+                isFinished = true;
             }
 
             @Override
