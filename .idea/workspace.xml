@@ -33,6 +33,7 @@
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/model/ChooserRing.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/model/ChooserRing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,6 +298,10 @@
     </state>
     <state x="614" y="198" key="AndroidCreateXmlResourceDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649908014535" />
     <state x="614" y="198" key="AndroidCreateXmlResourceDialog/0.0.1536.816@0.0.1536.816" timestamp="1648711829743" />
+    <state x="279" y="130" key="AndroidProcessChooserDialog" timestamp="1650096315456">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="279" y="130" key="AndroidProcessChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1650096315456" />
     <state width="492" height="466" key="DebuggerActiveHint" timestamp="1649499603296">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -307,32 +312,32 @@
     <state x="722" y="146" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1647390358707" />
     <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648535614543" />
     <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1648710855651" />
-    <state x="311" y="286" key="Github.CreateGistDialog" timestamp="1649761939847">
+    <state x="311" y="286" key="Github.CreateGistDialog" timestamp="1650101713617">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1649761939847" />
-    <state width="1493" height="185" key="GridCell.Tab.0.bottom" timestamp="1650034095985">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1650101713617" />
+    <state width="914" height="216" key="GridCell.Tab.0.bottom" timestamp="1650103220891">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="914" height="220" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
+    <state width="914" height="216" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1650103220891" />
     <state width="1493" height="185" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650034095985" />
     <state width="1493" height="185" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1650019877754" />
-    <state width="1493" height="185" key="GridCell.Tab.0.center" timestamp="1650034095985">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="914" height="216" key="GridCell.Tab.0.center" timestamp="1650103220891">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="914" height="220" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
+    <state width="914" height="216" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1650103220891" />
     <state width="1493" height="185" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650034095985" />
     <state width="1493" height="185" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="1493" height="185" key="GridCell.Tab.0.left" timestamp="1650034095984">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="914" height="216" key="GridCell.Tab.0.left" timestamp="1650103220891">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="914" height="220" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
+    <state width="914" height="216" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1650103220891" />
     <state width="1493" height="185" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650034095984" />
     <state width="1493" height="185" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="1493" height="185" key="GridCell.Tab.0.right" timestamp="1650034095985">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="914" height="216" key="GridCell.Tab.0.right" timestamp="1650103220891">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="914" height="220" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
+    <state width="914" height="216" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1650103220891" />
     <state width="1493" height="185" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650034095985" />
     <state width="1493" height="185" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
@@ -364,20 +369,12 @@
     <state x="431" y="137" width="672" height="678" key="search.everywhere.popup/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649477399614" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java</url>
-          <line>127</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
         <watch expression="coinList.get(0)" />
         <watch expression="((ChooserActivity)this).chooserRingList" custom="uit.itszoo.izrandom.random_module.chooser.ChooserActivity" />
         <watch expression="motionEvent.getActionMasked()" language="JAVA" />
+        <watch expression="isChoosing" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
