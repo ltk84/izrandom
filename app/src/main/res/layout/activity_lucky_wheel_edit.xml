@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Thêm vòng quay" />
+            android:text="@string/lucky_wheel_edit_title" />
 
         <ImageButton
             android:id="@+id/bb_rand_integer"
@@ -48,6 +48,19 @@
             android:scaleY="1"
             android:src="@drawable/ic_check_button"
             app:tint="@color/colorOnBackground" />
+        <ImageButton
+            android:id="@+id/bt_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="60dp"
+            android:minHeight="60dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/colorOnBackground" />
     </Toolbar>
     <com.bluehomestudio.luckywheel.LuckyWheel
         android:id="@+id/lwv"
@@ -68,6 +81,7 @@
         android:layout_gravity="center"
         android:text="Làm gì bây giờ?"
         android:textStyle="bold"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
         app:layout_constraintStart_toStartOf="parent"

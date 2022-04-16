@@ -79,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Lướt sang trái để tùy chỉnh vòng quay"
+        android:text="Lướt sang trái hoặc phải để thay đổi vòng quay"
         android:layout_marginTop="36dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
