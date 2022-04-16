@@ -12,6 +12,14 @@ public interface LuckyWheelContract {
         void initListWheelItems (List<WheelItem> listItems);
         void changeWheelItems(List<WheelItem> newWheel);
         List<WheelItem>   getWheelItems();
+        void setFairMode(boolean fairMode);
+        void setRepeat(int repeat);
+        void setSpinTime(int spinTime);
+        void setTextSize(int textSize);
+        int getRepeat();
+        int getTextSize();
+        int getSpinTime();
+        boolean getFairMode();
     }
 
     interface View extends BaseView<Presenter> {

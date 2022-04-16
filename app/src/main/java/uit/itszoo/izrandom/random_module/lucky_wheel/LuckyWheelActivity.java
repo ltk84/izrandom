@@ -50,6 +50,10 @@ import uit.itszoo.izrandom.random_module.random_direction.random_direction_custo
 
 public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelContract.View{
     public static final String CURRENT_WHEEL = "CURRENT_WHEEL";
+    public static final String TEXT_SIZE = "TEXT_SIZE";
+    public static final String SPIN_TIME = "SPIN_TIME";
+    public static final String SLICE_REPEAT = "SLICE_REPEAT";
+    public static final String FAIR_MODE = "FAIR_MODE";
 
     LuckyWheel lkWheel;
     List <WheelItem> wheelItems = new ArrayList<WheelItem>();
@@ -60,12 +64,15 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
     ImageButton customButton;
     LuckyWheelContract.Presenter presenter;
     TextView textView;
-    private  int spinTime = 9000;
+    private  int spinTime ;
     private  String result = "";
     private final int SWIPE_DISTANCE_THRESHOLD = 100;
     private float x1, x2, y1, y2, dx, dy;
     private int  selectedIndex;
     private boolean spin = false;
+    private int textSize;
+    private int repeat;
+    private boolean fairMode;
     int index = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +98,10 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         backButton = findViewById(R.id.bb_back);
         customButton = findViewById(R.id.bt_cus);
         description = findViewById(R.id.description);
+        fairMode = presenter.getFairMode();
+        textSize = presenter.getTextSize();
+        repeat = presenter.getRepeat();
+        spinTime = presenter.getSpinTime();
         initLuckyWheel();
         setListenerForView();
     }
@@ -120,8 +131,13 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         customButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+                textSize = lkWheel.getTextSize();
                 Intent intentToCustom = new Intent(getApplicationContext(), LuckyWheelCustomActivity.class);
                 intentToCustom.putExtra(LuckyWheelActivity.CURRENT_WHEEL, (Serializable) presenter.getWheelItems());
+                intentToCustom.putExtra(LuckyWheelActivity.FAIR_MODE, presenter.getFairMode());
+                intentToCustom.putExtra(LuckyWheelActivity.SPIN_TIME, presenter.getSpinTime());
+                intentToCustom.putExtra(LuckyWheelActivity.TEXT_SIZE, presenter.getTextSize());
+                intentToCustom.putExtra(LuckyWheelActivity.SLICE_REPEAT, presenter.getRepeat());
                 intentLauncher.launch(intentToCustom);
             }
         });

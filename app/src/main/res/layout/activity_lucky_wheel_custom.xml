@@ -69,7 +69,7 @@
         android:layout_height="250dp"
         android:layout_centerInParent="true"
         LuckyWheel:background_color="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/bt_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
@@ -81,13 +81,13 @@
         android:layout_gravity="center"
         android:text="Lướt sang trái hoặc phải để thay đổi vòng quay"
         android:layout_marginTop="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/bt_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lwv" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bt_edit"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:text="Tùy chỉnh vòng quay"
@@ -106,10 +106,10 @@
         android:layout_height="48dp"
         android:background="@drawable/wheel_custom_add_button"
         android:src="@drawable/ic_add_button"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_edit"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="36dp"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/bt_edit"
+        app:layout_constraintTop_toTopOf="@+id/bt_edit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
