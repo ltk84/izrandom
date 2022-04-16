@@ -23,7 +23,7 @@
             android:text="@string/wheel_custom_appbar_title" />
 
         <ImageButton
-            android:id="@+id/bb_rand_integer"
+            android:id="@+id/bb_rand_wheel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"

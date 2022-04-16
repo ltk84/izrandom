@@ -29,6 +29,8 @@ import com.bluehomestudio.luckywheel.LuckyWheel;
 import com.bluehomestudio.luckywheel.OnLuckyWheelReachTheTarget;
 import com.bluehomestudio.luckywheel.WheelItem;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +49,10 @@ import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
 import uit.itszoo.izrandom.random_module.random_direction.random_direction_custom.RandomDirectionCustomActivity;
 
 public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelContract.View{
+    public static final String CURRENT_WHEEL = "CURRENT_WHEEL";
+
     LuckyWheel lkWheel;
-    List <WheelItem> wheelItems = new ArrayList<>();
+    List <WheelItem> wheelItems = new ArrayList<WheelItem>();
     TextSwitcher randomResult;
     TextView description;
     ConstraintLayout constrainedLayout;
@@ -115,8 +119,9 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         });
         customButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 Intent intentToCustom = new Intent(getApplicationContext(), LuckyWheelCustomActivity.class);
+                intentToCustom.putExtra(LuckyWheelActivity.CURRENT_WHEEL, (Serializable) presenter.getWheelItems());
                 intentLauncher.launch(intentToCustom);
             }
         });
