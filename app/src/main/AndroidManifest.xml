@@ -16,6 +16,8 @@
         <activity android:name=".random_module.random_integer.RandomIntegerActivity" />
         <activity android:name=".random_module.roll_dice.RollDiceActivity" />
         <activity android:name=".random_module.random_direction.RandomDirectionActivity" />
+        <activity android:name=".random_module.lucky_wheel.lucky_wheel_custom.LuckyWheelCustomActivity" />
+
         <activity
             android:name=".home.HomeActivity"
             android:exported="true">

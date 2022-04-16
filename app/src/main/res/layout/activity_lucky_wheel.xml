@@ -54,14 +54,12 @@
             app:tint="@color/colorOnBackground" />
     </Toolbar>
 
-    <TextView
+    <TextSwitcher
         android:id="@+id/random_result"
-        style="@style/AppBarTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Làm gì bây giờ?"
-        android:textStyle="bold"
+        android:inAnimation="@android:anim/slide_in_left"
+        android:outAnimation="@android:anim/slide_out_right"
         app:layout_constraintBottom_toTopOf="@+id/lwv"
         app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
         app:layout_constraintStart_toStartOf="parent"
