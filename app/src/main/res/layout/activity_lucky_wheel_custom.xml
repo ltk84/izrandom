@@ -102,6 +102,7 @@
     </Button>
 
     <ImageButton
+        android:id="@+id/add_button_wheel"
         android:layout_width="60dp"
         android:layout_height="48dp"
         android:background="@drawable/wheel_custom_add_button"

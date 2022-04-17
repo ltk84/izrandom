@@ -43,7 +43,6 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
     TextView textSizeView;
     TextView sliceRepeatView;
     TextView spinTimeView;
-    LinearLayout sliceList;
     int textSize=1;
     int repeat =1;
     int spinTime = 9000;
@@ -82,7 +81,6 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
         sliceRepeatSlider.setValue(repeat);
         spinTimeSlider.setValue(spinTime/1000);
         textSizeSlider.setValue(textSize);
-        sliceList = findViewById(R.id.list_slice);
         mixButton = findViewById(R.id.mix_button);
         listCardView[0] = findViewById(R.id.cardView1);
         listCardView[1] = findViewById(R.id.cardView2);

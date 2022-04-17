@@ -36,6 +36,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
     LuckyWheel luckyWheel;
     List<WheelItem> wheelItems = new ArrayList<>();
     ImageButton backButton;
+    ImageButton addButton;
     Button editButton;
     int textSize;
     int repeate;
@@ -71,6 +72,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
     {
         backButton = findViewById(R.id.bb_rand_wheel);
         editButton = findViewById(R.id.bt_edit);
+        addButton = findViewById(R.id.add_button_wheel);
     }
     void setListener()
     {
@@ -94,5 +96,15 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
                 intentLauncher.launch(intentToCustom);
             }
         });
+        addButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intentToCustom = new Intent(getApplicationContext(), AddNewLuckyWheelActivity.class);
+                        intentLauncher.launch(intentToCustom);
+                    }
+                }
+        );
     }
+
 }

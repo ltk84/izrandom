@@ -151,7 +151,7 @@
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:value="16"
-                android:valueFrom="0"
+                android:valueFrom="8"
                 android:stepSize="1"
                 android:valueTo="32"
                 >
