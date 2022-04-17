@@ -323,8 +323,10 @@
                                 android:id="@+id/imageViewRaffle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="32dp"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ic_random_dice"
+                                android:scaleX="1.2"
+                                android:scaleY="1.2"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/ic_raffle"
                                 android:contentDescription="@string/raffle_description" />
 
                             <TextView

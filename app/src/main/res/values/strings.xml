@@ -56,4 +56,8 @@
     <string name="input_participants_hint">Nhập người tham gia</string>
     <string name="awards_label">Giải thưởng</string>
     <string name="input_awards_hint">Nhập giải thưởng</string>
+    <string name="get_started_label">Bắt đầu</string>
+    <string name="back_button_label">Quay lại</string>
+    <string name="length_hint">Tên của người hoặc giải thưởng phải nhỏ hơn 27 ký tự</string>
+    <string name="start_hint">Hãy đảm bảo số người tham gia lớn hơn hoặc bằng số giải thưởng để bắt đầu</string>
 </resources>
