@@ -1,30 +1,41 @@
 package uit.itszoo.izrandom.random_module.lucky_wheel.lucky_wheel_custom;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.bluehomestudio.luckywheel.LuckyWheel;
 import com.bluehomestudio.luckywheel.WheelItem;
 import com.google.android.material.slider.Slider;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import uit.itszoo.izrandom.R;
 
 public class EditLuckyWheelActivity  extends AppCompatActivity {
     LuckyWheel luckyWheel;
-    List<WheelItem> wheelItems;
+    List<WheelItem> wheelItems = new ArrayList<>();
+    CardView listCardView[]= new CardView[9];
+    TextView listTextInCard[] = new TextView[9];
     ImageButton backButton;
     ImageButton deleteButton;
     ImageButton checkButton;
+    ImageButton mixButton;
     Slider textSizeSlider;
     Slider sliceRepeatSlider;
     Slider spinTimeSlider;
@@ -32,7 +43,7 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
     TextView textSizeView;
     TextView sliceRepeatView;
     TextView spinTimeView;
-
+    LinearLayout sliceList;
     int textSize=1;
     int repeat =1;
     int spinTime = 9000;
@@ -71,10 +82,45 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
         sliceRepeatSlider.setValue(repeat);
         spinTimeSlider.setValue(spinTime/1000);
         textSizeSlider.setValue(textSize);
+        sliceList = findViewById(R.id.list_slice);
+        mixButton = findViewById(R.id.mix_button);
+        listCardView[0] = findViewById(R.id.cardView1);
+        listCardView[1] = findViewById(R.id.cardView2);
+        listCardView[2] = findViewById(R.id.cardView3);
+        listCardView[3] = findViewById(R.id.cardView4);
+        listCardView[4] = findViewById(R.id.cardView5);
+        listCardView[5] = findViewById(R.id.cardView6);
+        listCardView[6] = findViewById(R.id.cardView7);
+        listCardView[7] = findViewById(R.id.cardView8);
+        listCardView[8] = findViewById(R.id.cardView9);
+        listTextInCard[0] = findViewById(R.id.textcard1);
+        listTextInCard[1] = findViewById(R.id.textcard2);
+        listTextInCard[2] = findViewById(R.id.textcard3);
+        listTextInCard[3] = findViewById(R.id.textcard4);
+        listTextInCard[4] = findViewById(R.id.textcard5);
+        listTextInCard[5] = findViewById(R.id.textcard6);
+        listTextInCard[6] = findViewById(R.id.textcard7);
+        listTextInCard[7] = findViewById(R.id.textcard8);
+        listTextInCard[8] = findViewById(R.id.textcard9);
+        createSliceCard();
+    }
+    void createSliceCard()
+    {
+        for(int i = wheelItems.size() ; i < listCardView.length ; i++)
+        {
+            listCardView[i].setVisibility(View.INVISIBLE);
+            listTextInCard[i].setVisibility(View.INVISIBLE);
+        }
+        for(int i = 0; i <wheelItems.size(); i++)
+        {
+            listCardView[i].setBackgroundColor(wheelItems.get(i).color);
+            listTextInCard[i].setText(wheelItems.get(i).text);
+        }
     }
     void setOnlistener()
     {
         backButton.setOnClickListener(
+
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -114,6 +160,16 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                         fairMode = fairModeSwitch.isChecked();
+                    }
+                }
+        );
+        mixButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Collections.shuffle(wheelItems);
+                        luckyWheel.addWheelItems(wheelItems);
+                        createSliceCard();
                     }
                 }
         );

@@ -82,13 +82,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Làm gì bây giờ?"
-        android:textStyle="bold"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="50dp"
-         />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -100,7 +98,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="20dp"
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -251,6 +249,7 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/list_slice"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
@@ -273,6 +272,7 @@
                     android:layout_weight="1" >
                 </Space>
                 <ImageButton
+                    android:id="@+id/mix_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minWidth="30dp"
@@ -283,6 +283,7 @@
                 </ImageButton>
 
                 <ImageButton
+                    android:id="@+id/add_slice_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
@@ -298,13 +299,135 @@
                 android:background="#C4C4C4"
                 android:layout_marginBottom="15dp"
                 />
-
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="10dp"
                 app:cardCornerRadius="5dp">
                 <TextView
+                    android:id="@+id/textcard1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard3"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard5"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard6"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard7"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard8"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard9"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:text="Horizontal Line"
