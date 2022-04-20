@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Spanned;
@@ -15,6 +16,11 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -25,6 +31,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.textfield.TextInputEditText;
+import com.iigo.library.DiceLoadingView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,6 +48,7 @@ public class RaffleActivity extends AppCompatActivity {
     MaterialButton backButton;
     TextInputEditText participantEditText;
     TextInputEditText awardEditText;
+    DiceLoadingView diceLoadingView;
 
     TextView tvGuide;
 
@@ -242,38 +250,62 @@ public class RaffleActivity extends AppCompatActivity {
 
         resultPlaceholder = (TableLayout) getLayoutInflater().inflate(R.layout.table_layout_raffle_result, null);
 
-        for (int i = 0; i < awards.size(); i++) {
-            TableRow tr = new TableRow(context);
-            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-            tr.setGravity(Gravity.CENTER);
 
-            Chip participantChip = new Chip(context);
-            participantChip.setText(participants.get(i));
-            TableRow.LayoutParams lpParticipantChip = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
-            lpParticipantChip.gravity = Gravity.END;
-            participantChip.setLayoutParams(lpParticipantChip);
+        // Set 2D Rotate Forever Animation
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF,
+                0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotateAnimation.setRepeatCount(Animation.INFINITE);
+        rotateAnimation.setDuration(300);
+        rotateAnimation.setInterpolator(new LinearInterpolator());
+        rotateAnimation.setFillAfter(true);
 
-            ImageView ivConnect = new ImageView(context);
-            ivConnect.setBackground(null);
-            ivConnect.setScaleX(0.75f);
-            ivConnect.setScaleY(0.75f);
-            ivConnect.setImageDrawable(getDrawable(R.drawable.ic_check_button));
-            ivConnect.setColorFilter(getColor(R.color.colorGreen));
-            TableRow.LayoutParams lpConnect = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
-            ivConnect.setLayoutParams(lpConnect);
 
-            Chip awardChip = new Chip(context);
-            awardChip.setText(awards.get(i));
-            TableRow.LayoutParams lpAwardChip = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
-            lpAwardChip.gravity = Gravity.START;
-            awardChip.setLayoutParams(lpAwardChip);
+        diceLoadingView = resultPlaceholder.findViewById(R.id.raffle_loading);
+        diceLoadingView.setInterpolator(new LinearInterpolator());
+        diceLoadingView.setRepeatCount(Animation.INFINITE);
+        diceLoadingView.setDuration(200);
 
-            tr.addView(participantChip);
-            tr.addView(ivConnect);
-            tr.addView(awardChip);
+        diceLoadingView.startAnimation(rotateAnimation);
 
-            resultPlaceholder.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
-        }
+        Handler loadingHandler = new Handler();
+        loadingHandler.postDelayed(() -> {
+            diceLoadingView.clearAnimation();
+            TableRow loadingPlaceholder = resultPlaceholder.findViewById(R.id.loading_placeholder);
+            loadingPlaceholder.setVisibility(View.GONE);
+
+            for (int i = 0; i < awards.size(); i++) {
+                TableRow tr = new TableRow(context);
+                tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+                tr.setGravity(Gravity.CENTER);
+
+                Chip participantChip = new Chip(context);
+                participantChip.setText(participants.get(i));
+                TableRow.LayoutParams lpParticipantChip = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+                lpParticipantChip.gravity = Gravity.END;
+                participantChip.setLayoutParams(lpParticipantChip);
+
+                ImageView ivConnect = new ImageView(context);
+                ivConnect.setBackground(null);
+                ivConnect.setScaleX(0.75f);
+                ivConnect.setScaleY(0.75f);
+                ivConnect.setImageDrawable(getDrawable(R.drawable.ic_check_button));
+                ivConnect.setColorFilter(getColor(R.color.colorGreen));
+                TableRow.LayoutParams lpConnect = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+                ivConnect.setLayoutParams(lpConnect);
+
+                Chip awardChip = new Chip(context);
+                awardChip.setText(awards.get(i));
+                TableRow.LayoutParams lpAwardChip = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+                lpAwardChip.gravity = Gravity.START;
+                awardChip.setLayoutParams(lpAwardChip);
+
+                tr.addView(participantChip);
+                tr.addView(ivConnect);
+                tr.addView(awardChip);
+
+                resultPlaceholder.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+            }
+        }, 800);
 
         // Replace RESULT HOLDER LAYOUT for RAFFLE HOLDER
         int index = mainLayout.indexOfChild(rafflePlaceholder);
