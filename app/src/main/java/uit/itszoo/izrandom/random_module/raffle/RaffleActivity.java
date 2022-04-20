@@ -42,13 +42,12 @@ public class RaffleActivity extends AppCompatActivity {
     TextInputEditText participantEditText;
     TextInputEditText awardEditText;
 
-    VerticalImageSpan participantLastImageSpan;
-    int participantLastSpan;
-
     TextView tvGuide;
 
     private int participantFieldSpan = 0, participantFieldLength = 0;
     private int awardFieldSpan = 0, awardFieldLength = 0;
+    int participantLastSpan;
+    int awardLastSpan;
 
     List<String> participants = new ArrayList<>();
     List<String> awards = new ArrayList<>();
@@ -118,18 +117,25 @@ public class RaffleActivity extends AppCompatActivity {
 
                 if (editable.length() < participantFieldSpan)
                 {
-                    int size = participants.size();
-                    if (size > 0) {
-
-                        participantLastSpan = participantFieldSpan - participants.get(participants.size() - 1).length();
+                    if (participants.size() > 0) {
+                        if (participantLastSpan == 0) {
+                            participantLastSpan = participantFieldSpan - participants.get(participants.size() - 1).length();
+                        }
                         if (editable.length() > participantLastSpan) {
                             editable.delete(participantLastSpan, editable.length());
                         }
 
                         if (editable.length()  == participantLastSpan) {
-                            System.out.println(participants);
-                            participants.remove(size - 1);
-                            participantFieldSpan = editable.length();
+                            if (participants.size() > 0) {
+                                participants.remove(participants.size()  - 1);
+                                participantFieldSpan = editable.length();
+                                if (participants.size() != 0) {
+                                    participantLastSpan = participantFieldSpan - participants.get(participants.size() - 1).length();
+                                } else {
+                                    participantLastSpan = 0;
+                                    participantFieldSpan = 0;
+                                }
+                            }
                             if (isInputValid()) {
                                 startButton.setEnabled(true);
                             } else {
@@ -138,41 +144,23 @@ public class RaffleActivity extends AppCompatActivity {
                             }
                         }
                     }
-                    if (editable.length() == 0) {
-                        participantLastSpan = 0;
-                        participantFieldSpan = 0;
-                        //participants.clear();
-                    }
                 }
             }
         });
-        awardEditText.setOnKeyListener((view, keyCode, keyEvent) -> {
-            if (keyEvent.getAction() == KeyEvent.ACTION_UP)
-            {
-                switch (keyCode)
-                {
-                    case KeyEvent.KEYCODE_SEMICOLON:
-                    case KeyEvent.KEYCODE_COMMA:
-                    case KeyEvent.KEYCODE_ENTER:
-                        if (awardFieldLength - awardFieldSpan != 0) {
-                            awards.add(awardEditText.getEditableText().subSequence(awardFieldSpan, awardFieldLength).toString());
-                        }
-                        awardFieldSpan = addChip(context, awardEditText, awardFieldSpan, awardFieldLength);
+        awardEditText.setOnEditorActionListener((textView, actionId, keyEvent) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                if (awardFieldLength - awardFieldSpan != 0) {
+                    awards.add(awardEditText.getEditableText().subSequence(awardFieldSpan, awardFieldLength).toString());
+                }
+                awardFieldSpan = addChip(context, awardEditText, awardFieldSpan, awardFieldLength);
 
-                        if (isInputValid()) {
-                            startButton.setEnabled(true);
-                        } else {
-                            showStartHint();
-                            startButton.setEnabled(false);
-                        }
-                        return true;
-                    default:
-                        break;
+                if (isInputValid()) {
+                    startButton.setEnabled(true);
+                } else {
+                    showStartHint();
+                    startButton.setEnabled(false);
                 }
-                if (awardFieldLength - awardFieldSpan > 25 && keyCode != KeyEvent.KEYCODE_DEL) {
-                    showLengthHint();
-                    return true;
-                }
+                return true;
             }
             return false;
         });
@@ -183,24 +171,46 @@ public class RaffleActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                int charLength = charSequence.length();
-
-                if (charLength < awardFieldSpan)
-                {
-                    awards.remove(awards.size() - 1);
-                    awardFieldSpan = charLength;
-                    if (isInputValid()) {
-                        startButton.setEnabled(true);
-                    } else {
-                        showStartHint();
-                        startButton.setEnabled(false);
-                    }
-                }
-                awardFieldLength = charLength;
+                awardFieldLength = charSequence.length();
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+                if (awardFieldLength - awardFieldSpan > 25) {
+                    showLengthHint();
+                    editable.delete(editable.length() - 2, editable.length() - 1);
+                }
+
+                if (editable.length() < awardFieldSpan)
+                {
+                    if (awards.size() > 0) {
+                        if (awardLastSpan == 0) {
+                            awardLastSpan = awardFieldSpan - awards.get(awards.size() - 1).length();
+                        }
+                        if (editable.length() > awardLastSpan) {
+                            editable.delete(awardLastSpan, editable.length());
+                        }
+
+                        if (editable.length()  == awardLastSpan) {
+                            if (awards.size() > 0) {
+                                awards.remove(awards.size()  - 1);
+                                awardFieldSpan = editable.length();
+                                if (awards.size() != 0) {
+                                    awardLastSpan = awardFieldSpan - awards.get(awards.size() - 1).length();
+                                } else {
+                                    awardLastSpan = 0;
+                                    awardFieldSpan = 0;
+                                }
+                            }
+                            if (isInputValid()) {
+                                startButton.setEnabled(true);
+                            } else {
+                                showStartHint();
+                                startButton.setEnabled(false);
+                            }
+                        }
+                    }
+                }
             }
         });
     }
