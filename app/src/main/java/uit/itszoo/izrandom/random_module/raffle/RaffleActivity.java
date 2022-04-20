@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.util.TypedValue;
@@ -14,6 +15,7 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -40,6 +42,9 @@ public class RaffleActivity extends AppCompatActivity {
     TextInputEditText participantEditText;
     TextInputEditText awardEditText;
 
+    VerticalImageSpan participantLastImageSpan;
+    int participantLastSpan;
+
     TextView tvGuide;
 
     private int participantFieldSpan = 0, participantFieldLength = 0;
@@ -61,7 +66,12 @@ public class RaffleActivity extends AppCompatActivity {
         startButton = findViewById(R.id.start_button);
         backButton = findViewById(R.id.back_button);
         participantEditText = findViewById(R.id.participant_edit_text);
+        participantEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
+
         awardEditText = findViewById(R.id.award_edit_text);
+        awardEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        awardEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
 
         tvGuide = findViewById(R.id.txt_guide);
 
@@ -72,35 +82,20 @@ public class RaffleActivity extends AppCompatActivity {
 
         backButton.setOnClickListener(view -> buildMain());
 
-        participantEditText.setOnKeyListener((view, keyCode, keyEvent) -> {
-            if (keyEvent.getAction() == KeyEvent.ACTION_DOWN)
-            {
-                switch (keyCode)
-                {
-                    case KeyEvent.KEYCODE_SEMICOLON:
-                    case KeyEvent.KEYCODE_COMMA:
-                    case KeyEvent.KEYCODE_ENTER:
-                        if (participantFieldLength - participantFieldSpan != 0) {
-                            participants.add(participantEditText.getEditableText().subSequence(participantFieldSpan, participantFieldLength).toString());
-                        }
-                        participantFieldSpan = addChip(context, participantEditText, participantFieldSpan, participantFieldLength);
-
-                        if (isInputValid()) {
-                            startButton.setEnabled(true);
-                        } else {
-                            showStartHint();
-                            startButton.setEnabled(false);
-                        }
-
-                        return true;
-                    default:
-                        break;
+        participantEditText.setOnEditorActionListener((textView, actionId, keyEvent) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                if (participantFieldLength - participantFieldSpan != 0) {
+                    participants.add(participantEditText.getEditableText().subSequence(participantFieldSpan, participantFieldLength).toString());
                 }
+                participantFieldSpan = addChip(context, participantEditText, participantFieldSpan, participantFieldLength);
 
-                if (participantFieldLength - participantFieldSpan > 25 && keyCode != KeyEvent.KEYCODE_DEL) {
-                    showLengthHint();
-                    return true;
+                if (isInputValid()) {
+                    startButton.setEnabled(true);
+                } else {
+                    showStartHint();
+                    startButton.setEnabled(false);
                 }
+                return true;
             }
             return false;
         });
@@ -111,22 +106,48 @@ public class RaffleActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                int charLength = charSequence.length();
-
-                if (charLength < participantFieldSpan)
-                {
-                    participants.remove(participants.size() - 1);
-                    participantFieldSpan = charLength;
-                }
-                participantFieldLength = charLength;
+                participantFieldLength = charSequence.length();
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+                if (participantFieldLength - participantFieldSpan > 25) {
+                    showLengthHint();
+                    editable.delete(editable.length() - 2, editable.length() - 1);
+                }
+
+                if (editable.length() < participantFieldSpan)
+                {
+                    int size = participants.size();
+                    if (size > 0) {
+
+                        participantLastSpan = participantFieldSpan - participants.get(participants.size() - 1).length();
+                        if (editable.length() > participantLastSpan) {
+                            editable.delete(participantLastSpan, editable.length());
+                        }
+
+                        if (editable.length()  == participantLastSpan) {
+                            System.out.println(participants);
+                            participants.remove(size - 1);
+                            participantFieldSpan = editable.length();
+                            if (isInputValid()) {
+                                startButton.setEnabled(true);
+                            } else {
+                                showStartHint();
+                                startButton.setEnabled(false);
+                            }
+                        }
+                    }
+                    if (editable.length() == 0) {
+                        participantLastSpan = 0;
+                        participantFieldSpan = 0;
+                        //participants.clear();
+                    }
+                }
             }
         });
         awardEditText.setOnKeyListener((view, keyCode, keyEvent) -> {
-            if (keyEvent.getAction() == KeyEvent.ACTION_DOWN)
+            if (keyEvent.getAction() == KeyEvent.ACTION_UP)
             {
                 switch (keyCode)
                 {

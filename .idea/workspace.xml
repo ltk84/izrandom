@@ -34,8 +34,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/raffle/RaffleActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/raffle/RaffleActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_raffle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_raffle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +100,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="SerialNumber@00cc99090904" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2022-04-06T03:11:39.559681600Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2022-04-18T03:52:48.438873100Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.github.jama5262/CarouselView/1.2.2/8673a5251ef29da253b5529a8d85d4bd12379ec6/CarouselView-1.2.2-sources.jar!/com/jama/carouselview/CarouselView.java_SELECTED" value="CarouselView" />
@@ -317,30 +315,30 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1649761939847" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1650181662610">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1650420778283">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650181662610" />
-    <state width="1493" height="221" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1649501840949" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1650181662610">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650384713054" />
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1650420778283" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1650420778283">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650181662610" />
-    <state width="1493" height="221" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1649501840949" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1650181662610">
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650384713053" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1650420778283" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1650420778283">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650181662610" />
-    <state width="1493" height="221" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1649501840949" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1650181662610">
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650384713053" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1650420778283" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1650420778283">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650181662610" />
-    <state width="1493" height="221" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1649501840949" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650384713054" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1650420778283" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
