@@ -13,15 +13,14 @@ import android.text.Spanned;
 import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
-import android.view.animation.ScaleAnimation;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -38,17 +37,21 @@ import java.util.Collections;
 import java.util.List;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.raffle.raffle_guide.RaffleGuideDialog;
 
 public class RaffleActivity extends AppCompatActivity {
 
     ViewGroup mainLayout;
     ViewGroup rafflePlaceholder;
     TableLayout resultPlaceholder;
-    MaterialButton startButton;
-    MaterialButton backButton;
+    MaterialButton startRaffleButton;
+    MaterialButton backFromRaffleButton;
     TextInputEditText participantEditText;
     TextInputEditText awardEditText;
     DiceLoadingView diceLoadingView;
+
+    ImageButton backButton;
+    ImageButton guideButton;
 
     TextView tvGuide;
 
@@ -70,8 +73,8 @@ public class RaffleActivity extends AppCompatActivity {
     private void initView(Context context) {
         mainLayout = findViewById(R.id.layout_raffle);
         rafflePlaceholder = findViewById(R.id.raffle_placeholder);
-        startButton = findViewById(R.id.start_button);
-        backButton = findViewById(R.id.back_button);
+        startRaffleButton = findViewById(R.id.start_button);
+        backFromRaffleButton = findViewById(R.id.back_button);
         participantEditText = findViewById(R.id.participant_edit_text);
         participantEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
         participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
@@ -82,12 +85,20 @@ public class RaffleActivity extends AppCompatActivity {
 
         tvGuide = findViewById(R.id.txt_guide);
 
-        startButton.setOnClickListener(view -> {
+        backButton = findViewById(R.id.bb_raffle);
+        guideButton = findViewById(R.id.guide_button);
+
+        guideButton.setOnClickListener(view -> {
+            RaffleGuideDialog raffleGuideDialog = new RaffleGuideDialog(RaffleActivity.this);
+            raffleGuideDialog.show();
+        });
+
+        startRaffleButton.setOnClickListener(view -> {
             tvGuide.setVisibility(View.INVISIBLE);
             buildResult(context);
         });
 
-        backButton.setOnClickListener(view -> buildMain());
+        backFromRaffleButton.setOnClickListener(view -> buildMain());
 
         participantEditText.setOnEditorActionListener((textView, actionId, keyEvent) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -97,10 +108,10 @@ public class RaffleActivity extends AppCompatActivity {
                 participantFieldSpan = addChip(context, participantEditText, participantFieldSpan, participantFieldLength);
 
                 if (isInputValid()) {
-                    startButton.setEnabled(true);
+                    startRaffleButton.setEnabled(true);
                 } else {
                     showStartHint();
-                    startButton.setEnabled(false);
+                    startRaffleButton.setEnabled(false);
                 }
                 return true;
             }
@@ -145,10 +156,10 @@ public class RaffleActivity extends AppCompatActivity {
                                 }
                             }
                             if (isInputValid()) {
-                                startButton.setEnabled(true);
+                                startRaffleButton.setEnabled(true);
                             } else {
                                 showStartHint();
-                                startButton.setEnabled(false);
+                                startRaffleButton.setEnabled(false);
                             }
                         }
                     }
@@ -163,10 +174,10 @@ public class RaffleActivity extends AppCompatActivity {
                 awardFieldSpan = addChip(context, awardEditText, awardFieldSpan, awardFieldLength);
 
                 if (isInputValid()) {
-                    startButton.setEnabled(true);
+                    startRaffleButton.setEnabled(true);
                 } else {
                     showStartHint();
-                    startButton.setEnabled(false);
+                    startRaffleButton.setEnabled(false);
                 }
                 return true;
             }
@@ -211,10 +222,10 @@ public class RaffleActivity extends AppCompatActivity {
                                 }
                             }
                             if (isInputValid()) {
-                                startButton.setEnabled(true);
+                                startRaffleButton.setEnabled(true);
                             } else {
                                 showStartHint();
-                                startButton.setEnabled(false);
+                                startRaffleButton.setEnabled(false);
                             }
                         }
                     }
@@ -245,8 +256,8 @@ public class RaffleActivity extends AppCompatActivity {
     private void buildResult(Context context) {
         shuffleResultList();
 
-        startButton.setVisibility(View.INVISIBLE);
-        backButton.setVisibility(View.VISIBLE);
+        startRaffleButton.setVisibility(View.INVISIBLE);
+        backFromRaffleButton.setVisibility(View.VISIBLE);
 
         resultPlaceholder = (TableLayout) getLayoutInflater().inflate(R.layout.table_layout_raffle_result, null);
 
@@ -318,8 +329,8 @@ public class RaffleActivity extends AppCompatActivity {
         constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.END,mainLayout.getId(),ConstraintSet.END,0);
         constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.START,mainLayout.getId(),ConstraintSet.START,0);
         constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.TOP,R.id.toolbar,ConstraintSet.BOTTOM,0);
-        constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.BOTTOM,backButton.getId(),ConstraintSet.TOP,0);
-        constraintSet.connect(backButton.getId(),ConstraintSet.TOP,resultPlaceholder.getId(),ConstraintSet.BOTTOM,0);
+        constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.BOTTOM, backFromRaffleButton.getId(),ConstraintSet.TOP,0);
+        constraintSet.connect(backFromRaffleButton.getId(),ConstraintSet.TOP,resultPlaceholder.getId(),ConstraintSet.BOTTOM,0);
         constraintSet.applyTo((ConstraintLayout) mainLayout);
     }
 
@@ -329,8 +340,8 @@ public class RaffleActivity extends AppCompatActivity {
     }
 
     private void buildMain() {
-        backButton.setVisibility(View.INVISIBLE);
-        startButton.setVisibility(View.VISIBLE);
+        backFromRaffleButton.setVisibility(View.INVISIBLE);
+        startRaffleButton.setVisibility(View.VISIBLE);
 
 
         // Replace RAFFLE HOLDER for RESULT HOLDER LAYOUT
@@ -351,8 +362,8 @@ public class RaffleActivity extends AppCompatActivity {
         constraintSet.connect(rafflePlaceholder.getId(),ConstraintSet.END,mainLayout.getId(),ConstraintSet.END,(int) marginPx);
         constraintSet.connect(rafflePlaceholder.getId(),ConstraintSet.START,mainLayout.getId(),ConstraintSet.START,(int) marginPx);
         constraintSet.connect(rafflePlaceholder.getId(),ConstraintSet.TOP,R.id.toolbar,ConstraintSet.BOTTOM,0);
-        constraintSet.connect(rafflePlaceholder.getId(),ConstraintSet.BOTTOM,startButton.getId(),ConstraintSet.TOP,0);
-        constraintSet.connect(startButton.getId(),ConstraintSet.TOP,rafflePlaceholder.getId(),ConstraintSet.BOTTOM,0);
+        constraintSet.connect(rafflePlaceholder.getId(),ConstraintSet.BOTTOM, startRaffleButton.getId(),ConstraintSet.TOP,0);
+        constraintSet.connect(startRaffleButton.getId(),ConstraintSet.TOP,rafflePlaceholder.getId(),ConstraintSet.BOTTOM,0);
         constraintSet.applyTo((ConstraintLayout) mainLayout);
     }
 
