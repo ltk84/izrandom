@@ -41,18 +41,10 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
     ViewGroup chooserLayout;
     ViewGroup chooserHolderLayout;
-    boolean isAnimation = false;
     boolean isChoosing = false;
     boolean isFinished = false;
 
-    ChooserRing ring1;
-    ChooserRing ring2;
-    ChooserRing ring3;
-    ChooserRing ring4;
-
     List<ChooserRing> ringList = new ArrayList<>();
-
-
     int numberOfTheChosenOne = 1; // 1, 2, 3
     boolean[] theChosenOne;
 
@@ -115,7 +107,6 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
             int pointerIndex = motionEvent.getActionIndex();
             int pointerId = motionEvent.getPointerId(pointerIndex);
-//            System.out.println("init index: " + pointerIndex + " id: " + pointerId);
 
             List<ChooserRing> result =
                     ringList.stream().filter(item -> item.getId() == pointerId).collect(Collectors.toList());
@@ -123,7 +114,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                 ChooserRing newRing = initRing(motionEvent, pointerIndex);
                 ringList.add(newRing);
                 if (newRing.getCircle().getParent() == null) {
-//                    if (!isAnimation) {
+
                     chooserHolderLayout.addView(newRing.getCircle());
                     ScaleAnimation scaleAnimation = new ScaleAnimation(
                             0f, 1f,
@@ -133,7 +124,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                     scaleAnimation.setInterpolator(new OvershootInterpolator());
                     scaleAnimation.setDuration(400);
                     newRing.getCircle().startAnimation(scaleAnimation);
-//                    }
+
                 }
             }
         }
@@ -159,65 +150,13 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
         chooserLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-
-
-//                if (isChoosing) {
-//                    isChoosing = false;
-//                    if (ring1 != null) ring1.getCircle().clearAnimation();
-//                    if (ring2 != null) ring2.getCircle().clearAnimation();
-//                    if (ring3 != null) ring3.getCircle().clearAnimation();
-//                    if (ring4 != null) ring4.getCircle().clearAnimation();
-//                    return true;
-//                }
-
-
                 int countPointer = motionEvent.getPointerCount();
-//                if (isFinished && countPointer > 1 && (motionEvent.getActionMasked() == MotionEvent.ACTION_DOWN || motionEvent.getActionMasked() == MotionEvent.ACTION_POINTER_DOWN)) {
-//                    return true;
-//                }
-
-//                ring1 = handleInitRing(motionEvent, ring1, 0);
-//                if (ring1 != null) {
-//                    int ringID1 = motionEvent.findPointerIndex(ring1.getIndex());
-//                    if (ringID1 != -1) {
-//                        ring1 = handleMoveRing(motionEvent, ring1, ringID1);
-//                    }
-//                }
-//
-//                if (countPointer > 1) {
-//                    ring2 = handleInitRing(motionEvent, ring2, 1);
-//                    if (ring2 != null) {
-//                        int ringID2 = motionEvent.findPointerIndex(ring2.getIndex());
-//                        if (ringID2 != -1) {
-//                            ring2 = handleMoveRing(motionEvent, ring2, ringID2);
-//                        }
-//                    }
-//
-//                    if (countPointer > 2) {
-//                        ring3 = handleInitRing(motionEvent, ring3, 2);
-//                        if (ring3 != null) {
-//                            int ringID3 = motionEvent.findPointerIndex(ring3.getIndex());
-//                            if (ringID3 != -1) {
-//                                ring3 = handleMoveRing(motionEvent, ring3, ringID3);
-//                            }
-//                        }
-//                        if (countPointer > 3) {
-//                            ring4 = handleInitRing(motionEvent, ring4, 3);
-//                            if (ring4 != null) {
-//                                int ringID4 = motionEvent.findPointerIndex(ring4.getIndex());
-//                                if (ringID4 != -1) {
-//                                    ring4 = handleMoveRing(motionEvent, ring4, ringID4);
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
 
                 initRings(motionEvent, countPointer);
                 moveRings(motionEvent);
-                chooseRing(motionEvent);
                 cancelChooseRings(motionEvent, countPointer);
                 cancelRings(motionEvent);
+                chooseRing(motionEvent);
                 return true;
             }
         });
@@ -227,37 +166,14 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
     void cancelChooseRings(MotionEvent motionEvent, int countPointer) {
         int action = motionEvent.getActionMasked();
-        if (action != MotionEvent.ACTION_MOVE) {
-            System.out.println("isChoosing: " + isChoosing + " actiton: " + MotionEvent.actionToString(action));
-        }
         if (isChoosing) {
             if (action == MotionEvent.ACTION_POINTER_DOWN || action == MotionEvent.ACTION_POINTER_UP) {
-
+                handlerHoldEvent.removeCallbacksAndMessages(null);
+                handlerCancelEvent.removeCallbacksAndMessages(null);
                 for (int i = 0; i < countPointer; i++) {
                     handleCancelChoosing(motionEvent, ringList.get(i));
                 }
-
-//                if (ringList.size() - 1 == 1) {
-//                    return;
-//                }
-                if (numberOfTheChosenOne < ringList.size() && !isChoosing && !isFinished) {
-                    int triggerPointerIndex = motionEvent.getActionIndex();
-                    handlerHoldEvent.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            randomTheChosenOne(numberOfTheChosenOne, countPointer - 1);
-                            for (int i = 0; i < ringList.size(); i++) {
-                                ChooserRing ring = ringList.get(i);
-                                if (motionEvent.findPointerIndex(ring.getId()) != triggerPointerIndex) {
-                                    handleChooseRing(motionEvent, ring, motionEvent.findPointerIndex(ring.getId()), theChosenOne[i]);
-                                }
-
-                            }
-                        }
-                    }, 2000);
-                }
             }
-
         }
     }
 
@@ -267,6 +183,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
         if (action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_POINTER_DOWN) {
             if (numberOfTheChosenOne < countPointer && !isChoosing && !isFinished) {
+                handlerHoldEvent.removeCallbacksAndMessages(null);
                 handlerHoldEvent.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -274,50 +191,33 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                         for (int i = 0; i < ringList.size(); i++) {
                             ChooserRing ring = ringList.get(i);
                             handleChooseRing(motionEvent, ring, motionEvent.findPointerIndex(ring.getId()), theChosenOne[i]);
+                        }
+                    }
+                }, 2000);
+            }
+        } else if (action == MotionEvent.ACTION_POINTER_UP) {
+            int actualCountPointer = countPointer - 1;
+            int removePointerIndex = motionEvent.getActionIndex();
+            int removePointerID = motionEvent.getPointerId(removePointerIndex);
 
+            if (numberOfTheChosenOne < actualCountPointer && !isChoosing && !isFinished) {
+                handlerHoldEvent.removeCallbacksAndMessages(null);
+                handlerHoldEvent.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        randomTheChosenOne(numberOfTheChosenOne, actualCountPointer);
+                        for (int i = 0; i < ringList.size(); i++) {
+                            ChooserRing ring = ringList.get(i);
+                            if (ring.getId() == removePointerID) {
+                                continue;
+                            }
+                            handleChooseRing(motionEvent, ring, motionEvent.findPointerIndex(ring.getId()), theChosenOne[i]);
                         }
                     }
                 }, 2000);
             }
         }
     }
-
-//    private ChooserRing handleInitRing(MotionEvent motionEvent, ChooserRing ring, int pointerIndex) {
-//        int action = motionEvent.getActionMasked();
-//        int index = pointerIndex;
-//
-//        if (action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_POINTER_DOWN) {
-//            if (ring == null) {
-//                ring = initRing(motionEvent, pointerIndex);
-//            } else {
-//                index = motionEvent.findPointerIndex(ring.getId());
-//
-//                if (index != -1) {
-//                    ring.getCircle().setX(motionEvent.getX(index) - (ring.getCircle().getLayoutParams().width >> 1));
-//                    ring.getCircle().setY(motionEvent.getY(index) - (ring.getCircle().getLayoutParams().height >> 1));
-//
-//                    ring.setX(motionEvent.getX(index));
-//                    ring.setY(motionEvent.getY(index));
-//                    ring.setDx(0);
-//                    ring.setDy(0);
-//                }
-//            }
-//            if (ring.getCircle().getParent() == null && index != -1) {
-//                if (!isAnimation) {
-//                    chooserHolderLayout.addView(ring.getCircle());
-//                    ScaleAnimation scaleAnimation = new ScaleAnimation(
-//                            0f, 1f,
-//                            0f, 1f,
-//                            Animation.RELATIVE_TO_SELF, motionEvent.getX(index) / ring.getCircle().getLayoutParams().width,
-//                            Animation.RELATIVE_TO_SELF, motionEvent.getY(index) / ring.getCircle().getLayoutParams().height);
-//                    scaleAnimation.setInterpolator(new OvershootInterpolator());
-//                    scaleAnimation.setDuration(400);
-//                    ring.getCircle().startAnimation(scaleAnimation);
-//                }
-//            }
-//        }
-//        return ring;
-//    }
 
     private ChooserRing handleMoveRing(MotionEvent motionEvent, ChooserRing ring, int pointerIndex) {
         int action = motionEvent.getActionMasked();
@@ -373,11 +273,9 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
         }
 
         isChoosing = false;
-        System.out.println("done cancel choosing");
     }
 
     private void cancelRings(MotionEvent motionEvent) {
-
         int action = motionEvent.getActionMasked();
         ChooserRing ring = null;
         int removedPointerIndex = -1;
@@ -388,20 +286,20 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
             isFinished = false;
         } else if (action == MotionEvent.ACTION_POINTER_UP) {
             removedPointerIndex = motionEvent.getActionIndex();
-//            isChoosing = false;
         }
 
         if (removedPointerIndex < 0) {
             return;
         }
 
+        handlerHoldEvent.removeCallbacksAndMessages(null);
+
         int removePointerID = motionEvent.getPointerId(removedPointerIndex);
-//        System.out.println("Leave index: " + removedPointerIndex + " id: " + removePointerID);
         List<ChooserRing> result = ringList.stream().filter(item -> item.getId() == removePointerID).collect(Collectors.toList());
         if (result.size() != 0) {
             ring = result.get(0);
         }
-//        System.out.println("find ring: " + ring);
+
         if (ring != null) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(
                     1f, 0f,
@@ -414,20 +312,12 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
             scaleAnimation.setAnimationListener(new Animation.AnimationListener() {
                 @Override
                 public void onAnimationStart(Animation animation) {
-                    isAnimation = true;
+
                 }
 
                 @Override
                 public void onAnimationEnd(Animation animation) {
                     chooserHolderLayout.removeView(finalRing.getCircle());
-                    isAnimation = false;
-//                    if (isChoosing) {
-//                        handlerEvent.removeCallbacksAndMessages(null);
-//                        handleCancelChoosing(motionEvent, ring1);
-//                        handleCancelChoosing(motionEvent, ring2);
-//                        handleCancelChoosing(motionEvent, ring3);
-//                        handleCancelChoosing(motionEvent, ring4);
-//                    }
                 }
 
                 @Override
@@ -526,10 +416,17 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
         Arrays.fill(theChosenOne, Boolean.FALSE);
 
         Random random = new Random();
-        for (int i = 0; i < numberOfTheChosenOne; i++) {
+        int countRandomTime = 0;
+        ArrayList randomRes = new ArrayList();
+        while (countRandomTime != numberOfTheChosenOne) {
             int randomIndex = random.nextInt(pointerCount);
-            theChosenOne[randomIndex] = true;
+            if (!randomRes.contains(randomIndex)) {
+                randomRes.add(randomIndex);
+                countRandomTime++;
+                theChosenOne[randomIndex] = true;
+            }
         }
+
     }
 
     @Override
