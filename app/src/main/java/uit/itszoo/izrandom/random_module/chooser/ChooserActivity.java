@@ -13,6 +13,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -38,9 +39,15 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
     ImageButton toCustomScreenButton;
     ImageButton backButton;
-
     ViewGroup chooserLayout;
     ViewGroup chooserHolderLayout;
+    TextView guideTextView;
+    TextView chooserCountLabel;
+    TextView chooserCountTextView;
+    ImageButton decreaseChooserButton;
+    ImageButton increaseChooserButton;
+
+
     boolean isChoosing = false;
     boolean isFinished = false;
 
@@ -98,7 +105,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
     }
 
-    void initRings(MotionEvent motionEvent, int countPointer) {
+    void initRings(MotionEvent motionEvent) {
         int action = motionEvent.getActionMasked();
         if (action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_POINTER_DOWN) {
             if (isFinished) {
@@ -147,12 +154,20 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
         handlerEvent = new Handler();
         theChosenOne = new boolean[4];
 
+        guideTextView = findViewById(R.id.txt_guide);
+        chooserCountTextView = findViewById(R.id.text_chooser_count_value);
+        decreaseChooserButton = findViewById(R.id.btn_decrease_chooser_count);
+        increaseChooserButton = findViewById(R.id.btn_increase_chooser_count);
+        chooserCountLabel = findViewById(R.id.chooser_count_label);
+
         chooserLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 int countPointer = motionEvent.getPointerCount();
 
-                initRings(motionEvent, countPointer);
+                actionWithComponents(motionEvent);
+
+                initRings(motionEvent);
                 moveRings(motionEvent);
                 cancelChooseRings(motionEvent, countPointer);
                 cancelRings(motionEvent);
@@ -161,6 +176,23 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
             }
         });
 
+    }
+
+    private void actionWithComponents(MotionEvent motionEvent) {
+        int action = motionEvent.getActionMasked();
+        if (action == MotionEvent.ACTION_DOWN) {
+            guideTextView.setVisibility(View.INVISIBLE);
+            chooserCountTextView.setVisibility(View.INVISIBLE);
+            decreaseChooserButton.setVisibility(View.INVISIBLE);
+            increaseChooserButton.setVisibility(View.INVISIBLE);
+            chooserCountLabel.setVisibility(View.INVISIBLE);
+        } else if (action == MotionEvent.ACTION_UP) {
+            guideTextView.setVisibility(View.VISIBLE);
+            chooserCountTextView.setVisibility(View.VISIBLE);
+            decreaseChooserButton.setVisibility(View.VISIBLE);
+            chooserCountLabel.setVisibility(View.VISIBLE);
+            increaseChooserButton.setVisibility(View.VISIBLE);
+        }
     }
 
 
