@@ -37,6 +37,9 @@ import uit.itszoo.izrandom.random_module.chooser.source.ChooserSource;
 
 public class ChooserActivity extends AppCompatActivity implements ChooserContract.View {
     public static String CURRENT_THEME = "CURRENT_THEME";
+    private static final int MIN_CHOOSER = 1;
+    private static final int MAX_CHOOSER = 3;
+
     ChooserContract.Presenter presenter;
 
     ImageButton toCustomScreenButton;
@@ -55,6 +58,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
     List<ChooserRing> ringList = new ArrayList<>();
     int numberOfTheChosenOne = 1; // 1, 2, 3
+
     boolean[] theChosenOne;
 
     Handler handlerHoldEvent;
@@ -115,6 +119,19 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
             }
         });
 
+        decreaseChooserButton.setOnClickListener(view -> {
+            if (numberOfTheChosenOne > MIN_CHOOSER) {
+                numberOfTheChosenOne--;
+                chooserCountTextView.setText(String.valueOf(numberOfTheChosenOne));
+            }
+        });
+
+        increaseChooserButton.setOnClickListener(view -> {
+            if (numberOfTheChosenOne < MAX_CHOOSER) {
+                numberOfTheChosenOne++;
+                chooserCountTextView.setText(String.valueOf(numberOfTheChosenOne));
+            }
+        });
     }
 
     void initRings(MotionEvent motionEvent) {
