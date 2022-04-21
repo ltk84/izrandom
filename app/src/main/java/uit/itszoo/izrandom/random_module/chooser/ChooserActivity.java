@@ -33,9 +33,10 @@ import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.chooser.chooser_custom.ChooserCustomActivity;
 import uit.itszoo.izrandom.random_module.chooser.model.ChooserRing;
 import uit.itszoo.izrandom.random_module.chooser.model.ChooserTheme;
+import uit.itszoo.izrandom.random_module.chooser.source.ChooserSource;
 
 public class ChooserActivity extends AppCompatActivity implements ChooserContract.View {
-
+    public static String CURRENT_THEME = "CURRENT_THEME";
     ChooserContract.Presenter presenter;
 
     ImageButton toCustomScreenButton;
@@ -70,6 +71,11 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
         initView();
         setListenerForView();
+
+        presenter.getUserConfig().observe(this, config -> {
+            presenter.initTheme(ChooserSource.themes.stream().filter(theme -> theme.getId().compareTo(config.chooserThemeId) == 0).findFirst().get());
+            applyChangeTheme(presenter.getCurrentTheme().getThemeValue());
+        });
     }
 
     @Override
@@ -104,6 +110,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
             @Override
             public void onClick(View view) {
                 Intent intentToCustom = new Intent(getApplicationContext(), ChooserCustomActivity.class);
+                intentToCustom.putExtra(ChooserActivity.CURRENT_THEME, presenter.getCurrentTheme());
                 intentLauncher.launch(intentToCustom);
             }
         });

@@ -38,7 +38,7 @@ public class RandomDirectionPresenter implements RandomDirectionContract.Present
 
     @Override
     public void changeArrow(Arrow arrow) {
-        view.applyChangeArrow(arrow.getLayout());
+//        view.applyChangeArrow(arrow.getLayout());
         repository.changeArrow(arrow.getId());
     }
 

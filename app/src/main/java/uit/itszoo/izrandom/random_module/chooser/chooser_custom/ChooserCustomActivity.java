@@ -15,8 +15,10 @@ import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.chooser.ChooserActivity;
 import uit.itszoo.izrandom.random_module.chooser.model.ChooserTheme;
 import uit.itszoo.izrandom.random_module.chooser.source.ChooserSource;
 
@@ -33,12 +35,21 @@ public class ChooserCustomActivity extends AppCompatActivity {
     int screenWidth;
     int screenHeight;
 
+    ChooserTheme initialTheme;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chooser_custom);
+        initialTheme = (ChooserTheme) getIntent().getSerializableExtra(ChooserActivity.CURRENT_THEME);
+        swapInitialThemeToLead();
         initView();
         setupCarouselView();
+    }
+
+    void swapInitialThemeToLead() {
+        int initialThemeIndex = themes.indexOf(initialTheme);
+        Collections.swap(themes, 0, initialThemeIndex);
     }
 
     private void initView() {

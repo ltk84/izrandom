@@ -19,6 +19,9 @@ public interface UserConfigDAO {
     @Query("UPDATE userConfig SET diceId=:diceId")
     public void updateDice(String diceId);
 
+    @Query("UPDATE userConfig SET chooserThemeId=:themeId")
+    public void updateChooserTheme(String themeId);
+
     @Query("SELECT * FROM userConfig LIMIT 1")
     public LiveData<UserConfiguration> getUserConfig();
 }

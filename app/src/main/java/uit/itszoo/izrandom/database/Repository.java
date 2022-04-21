@@ -42,6 +42,12 @@ public class Repository {
         });
     }
 
+    public void changeChooserTheme(String cThemeId) {
+        AppDatabase.dbExecutor.execute(() -> {
+            userConfigDAO.updateChooserTheme(cThemeId);
+        });
+    }
+
     public LiveData<UserConfiguration> getUserConfiguration() {
         return userConfig;
     }

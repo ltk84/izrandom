@@ -10,7 +10,7 @@ import uit.itszoo.izrandom.random_module.chooser.model.ChooserTheme;
 
 public class ChooserPresenter implements ChooserContract.Presenter {
     private final ChooserContract.View view;
-    private ChooserTheme theme;
+    private ChooserTheme currentTheme;
     private Repository repository;
     private LiveData<UserConfiguration> userConfig;
 
@@ -20,9 +20,24 @@ public class ChooserPresenter implements ChooserContract.Presenter {
     }
 
     @Override
+    public LiveData<UserConfiguration> getUserConfig() {
+        return userConfig;
+    }
+
+    @Override
+    public void initTheme(ChooserTheme newTheme) {
+        currentTheme = newTheme;
+    }
+
+    @Override
+    public ChooserTheme getCurrentTheme() {
+        return currentTheme;
+    }
+
+    @Override
     public void changeTheme(ChooserTheme theme) {
-        view.applyChangeTheme(theme.getThemeValue());
-//        repository.changeChooserTheme(theme.getId());
+//        view.applyChangeTheme(theme.getThemeValue());
+        repository.changeChooserTheme(theme.getId());
     }
 
     public ChooserPresenter(Context context, ChooserContract.View view) {
