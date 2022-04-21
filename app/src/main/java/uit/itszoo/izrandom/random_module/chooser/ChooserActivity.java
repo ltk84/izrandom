@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.chooser.chooser_custom.ChooserCustomActivity;
 import uit.itszoo.izrandom.random_module.chooser.model.ChooserRing;
+import uit.itszoo.izrandom.random_module.chooser.model.ChooserTheme;
 
 public class ChooserActivity extends AppCompatActivity implements ChooserContract.View {
 
@@ -72,8 +73,8 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void applyChangeTheme(int themeValue) {
+        chooserHolderLayout.setBackground(getDrawable(themeValue));
     }
 
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
@@ -82,7 +83,11 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK) {
-
+                        Intent data = result.getData();
+                        ChooserTheme selectedTheme = (ChooserTheme) data.getSerializableExtra(ChooserCustomActivity.SELECTED_THEME);
+                        if (selectedTheme != null) {
+                            presenter.changeTheme(selectedTheme);
+                        }
                     }
                 }
             });
@@ -175,6 +180,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                 return true;
             }
         });
+
 
     }
 
