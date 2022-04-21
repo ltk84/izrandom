@@ -1,11 +1,11 @@
 package uit.itszoo.izrandom.random_module.lucky_wheel.lucky_wheel_custom;
 
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -18,20 +18,18 @@ import com.bluehomestudio.luckywheel.LuckyWheel;
 import com.bluehomestudio.luckywheel.WheelItem;
 import com.google.android.material.slider.Slider;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
 
 public class EditLuckyWheelActivity  extends AppCompatActivity {
     LuckyWheel luckyWheel;
     List<WheelItem> wheelItems = new ArrayList<>();
-    CardView listCardView[]= new CardView[9];
-    TextView listTextInCard[] = new TextView[9];
+    CardView listCardView[]= new CardView[12];
+    TextView listTextInCard[] = new TextView[12];
     ImageButton backButton;
     ImageButton deleteButton;
     ImageButton checkButton;
@@ -43,21 +41,35 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
     TextView textSizeView;
     TextView sliceRepeatView;
     TextView spinTimeView;
+    int indexCurrentWheel;
     int textSize=1;
     int repeat =1;
-    int spinTime = 9000;
+    int spinTime;
     boolean fairMode = false;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lucky_wheel_edit);
-        wheelItems = (List<WheelItem>) getIntent().getSerializableExtra(LuckyWheelCustomActivity.CURRENT_WHEEL);
-        textSize = (int) getIntent().getSerializableExtra(LuckyWheelCustomActivity.TEXT_SIZE);
-        repeat = (int) getIntent().getSerializableExtra(LuckyWheelCustomActivity.SLICE_REPEAT);
-        spinTime = (int) getIntent().getSerializableExtra(LuckyWheelCustomActivity.SPIN_TIME);
-        fairMode = (boolean) getIntent().getSerializableExtra(LuckyWheelCustomActivity.FAIR_MODE);
+        indexCurrentWheel = (int) getIntent().getSerializableExtra(LuckyWheelCustomActivity.CURRENT_WHEEL);
+        textSize = LuckyWheelSource.textSize.get(indexCurrentWheel);
+        repeat = LuckyWheelSource.repeat.get(indexCurrentWheel);
+        spinTime = LuckyWheelSource.spinTime.get(indexCurrentWheel);
+        fairMode = LuckyWheelSource.fairMode.get(indexCurrentWheel);
+        generateWheelItems();
         initView();
         setOnlistener();
+    }
+    private void generateWheelItems() {
+        wheelItems = new ArrayList<>();
+        List<String> content= new ArrayList<>();
+        List<String> color= new ArrayList<>();
+        content = LuckyWheelSource.listContent.get(indexCurrentWheel);
+        color = LuckyWheelSource.listColor.get(indexCurrentWheel);
+        for(int i = 0 ; i < content.size();i++)
+        {
+            wheelItems.add(new WheelItem(Color.parseColor(color.get(i)), BitmapFactory.decodeResource(getResources(),
+                    R.drawable.small_nails_icons) , content.get(i)));
+        }
     }
     void initView()
     {
@@ -76,10 +88,10 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
         fairModeSwitch = findViewById(R.id.fair_mode);
         textSizeView.setText(String.valueOf(textSize));
         sliceRepeatView.setText(String.valueOf(repeat));
-        spinTimeView.setText(String.valueOf(spinTime/1000));
+        spinTimeView.setText(String.valueOf(spinTime));
         fairModeSwitch.setChecked(fairMode);
         sliceRepeatSlider.setValue(repeat);
-        spinTimeSlider.setValue(spinTime/1000);
+        spinTimeSlider.setValue(spinTime);
         textSizeSlider.setValue(textSize);
         mixButton = findViewById(R.id.mix_button);
         listCardView[0] = findViewById(R.id.cardView1);
@@ -91,6 +103,9 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
         listCardView[6] = findViewById(R.id.cardView7);
         listCardView[7] = findViewById(R.id.cardView8);
         listCardView[8] = findViewById(R.id.cardView9);
+        listCardView[9] = findViewById(R.id.cardView10);
+        listCardView[10] = findViewById(R.id.cardView11);
+        listCardView[11] = findViewById(R.id.cardView12);
         listTextInCard[0] = findViewById(R.id.textcard1);
         listTextInCard[1] = findViewById(R.id.textcard2);
         listTextInCard[2] = findViewById(R.id.textcard3);
@@ -100,6 +115,9 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
         listTextInCard[6] = findViewById(R.id.textcard7);
         listTextInCard[7] = findViewById(R.id.textcard8);
         listTextInCard[8] = findViewById(R.id.textcard9);
+        listTextInCard[9] = findViewById(R.id.textcard10);
+        listTextInCard[10] = findViewById(R.id.textcard11);
+        listTextInCard[11] = findViewById(R.id.textcard12);
         createSliceCard();
     }
     void createSliceCard()
@@ -148,8 +166,8 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                 new Slider.OnChangeListener() {
                     @Override
                     public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
-                        spinTime = (int) spinTimeSlider.getValue()*1000;
-                        spinTimeView.setText(String.valueOf(spinTime/1000));
+                        spinTime = (int) spinTimeSlider.getValue();
+                        spinTimeView.setText(String.valueOf(spinTime));
                     }
                 }
         );
@@ -165,7 +183,9 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
                         Collections.shuffle(wheelItems);
+                        //generateWheelItems();
                         luckyWheel.addWheelItems(wheelItems);
                         createSliceCard();
                     }

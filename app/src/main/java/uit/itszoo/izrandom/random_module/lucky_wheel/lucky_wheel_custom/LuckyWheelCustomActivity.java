@@ -64,6 +64,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
         indexWheelInList = (int) getIntent().getSerializableExtra(LuckyWheelActivity.CURRENT_WHEEL);
         initView();
         setupCarouselView();
+        carouselView.setCurrentItem(indexWheelInList);
         setListener();
     }
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
@@ -108,11 +109,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentToCustom = new Intent(getApplicationContext(), EditLuckyWheelActivity.class);
-                intentToCustom.putExtra(LuckyWheelCustomActivity.CURRENT_WHEEL, indexWheelInList);
-                intentToCustom.putExtra(LuckyWheelCustomActivity.FAIR_MODE, fairMode);
-                intentToCustom.putExtra(LuckyWheelCustomActivity.SPIN_TIME, spinTime);
-                intentToCustom.putExtra(LuckyWheelCustomActivity.TEXT_SIZE, textSize);
-                intentToCustom.putExtra(LuckyWheelCustomActivity.SLICE_REPEAT, repeate);
+                intentToCustom.putExtra(LuckyWheelCustomActivity.CURRENT_WHEEL, carouselView.getCurrentItem());
                 intentLauncher.launch(intentToCustom);
             }
         });
@@ -151,7 +148,6 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
                 wheelItems.add(new WheelItem(Color.parseColor(color.get(j)), BitmapFactory.decodeResource(getResources(),
                         R.drawable.small_nails_icons) , content.get(j)));
             }
-
             listWheelItems.add(wheelItems);
         }
     }

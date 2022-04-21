@@ -62,7 +62,6 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
     LuckyWheelContract.Presenter presenter;
     TextView textView;
     int indexCurrentWheel = 0; /// index của wheelContent trong source
-    private  int spinTime ;
     private  String result = "";
     private final int SWIPE_DISTANCE_THRESHOLD = 100;
     private float x1, x2, y1, y2, dx, dy;
@@ -91,7 +90,6 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         backButton = findViewById(R.id.bb_back);
         customButton = findViewById(R.id.bt_cus);
         description = findViewById(R.id.description);
-        spinTime = presenter.getSpinTime();
         initLuckyWheel();
         setListenerForView();
     }
@@ -148,7 +146,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                                     if ( dx < 0 && Math.abs(dx) > SWIPE_DISTANCE_THRESHOLD ) {
                                         spin = true;
                                         Random random = new Random();
-                                        lkWheel.setSpinTime(spinTime);
+                                        lkWheel.setSpinTime(LuckyWheelSource.spinTime.get(indexCurrentWheel));
                                         selectedIndex = random.nextInt(wheelItems.size());
                                         lkWheel.setTarget(selectedIndex + 1);
                                         result = wheelItems.get(selectedIndex).text;
@@ -160,7 +158,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                                     {
                                         spin = true;
                                         Random random = new Random();
-                                        lkWheel.setSpinTime(spinTime);
+                                        lkWheel.setSpinTime(LuckyWheelSource.spinTime.get(indexCurrentWheel));
                                         selectedIndex = random.nextInt(wheelItems.size());
                                         lkWheel.setTarget(selectedIndex+1);
                                         result = wheelItems.get(selectedIndex).text;
