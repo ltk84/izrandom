@@ -33,12 +33,37 @@ public class LuckyWheelSource {
             )
     );
 
+    public static ArrayList<String> mixedContentItem1 = new ArrayList<>(
+            Arrays.asList(
+                    "Ăn", "Ngủ", "Nhậu", "Học", "Chơi", "Gofl"
+            )
+    );
+
+    public static ArrayList<String> mixedContentItem2 = new ArrayList<>(
+            Arrays.asList(
+                    "Pizza", "Sushi", "Burger", "Lẩu Thái", "Mì", "Hủ tiếu"
+            )
+    );
+
+    public static ArrayList<String> mixedContentItem3 = new ArrayList<>(
+            Arrays.asList(
+                    "Bóng đá", "Bơi", "Chạy bộ", "Nhảy xa", "Bóng chuyền", "Gofl" ,"Lướt sóng", "Game",
+                    "Bóng rổ", "Nhảy dây" , "Bún thun", "Cờ vua"
+            )
+    );
     public static  ArrayList<ArrayList<String>> listContent = new ArrayList<>(
       Arrays.asList(
               contentItem1,
               contentItem2,
               contentItem3
       )
+    );
+    public static  ArrayList<ArrayList<String>> mixedContentItem = new ArrayList<>(
+            Arrays.asList(
+                    mixedContentItem1,
+                    mixedContentItem2,
+                    mixedContentItem3
+            )
     );
     public static ArrayList<String> listTitle = new ArrayList<>(
       Arrays.asList(
@@ -130,4 +155,5 @@ public class LuckyWheelSource {
               listColor3
       )
     );
+
 }
