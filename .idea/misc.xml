@@ -43,10 +43,13 @@
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_random_integer.xml" value="0.264" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.264" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_roll_dice.xml" value="0.17617753623188406" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_roll_dice_custom.xml" value="0.2630208333333333" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/dice_view_carousel.xml" value="0.2630208333333333" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/fragment_play.xml" value="0.21422101449275363" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/fragment_random.xml" value="0.21422101449275363" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/fragment_suggest.xml" value="0.21422101449275363" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/image_view_carousel.xml" value="0.21422101449275363" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/lucky_wheel_carousel.xml" value="0.2630208333333333" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/number_view_card.xml" value="0.24739583333333334" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/number_view_carousel.xml" value="0.2477355072463768" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/slice_card.xml" value="0.24739583333333334" />

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:LuckyWheel="http://schemas.android.com/tools">
-
+    >
     <Toolbar
         android:id="@+id/tb_lucky_wheel"
         android:layout_width="match_parent"
@@ -37,7 +36,7 @@
             app:tint="@color/colorOnBackground" />
 
         <ImageButton
-            android:id="@+id/bb_rand_integer_cus"
+            android:id="@+id/oke_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -50,29 +49,38 @@
             android:background="@null"
             app:tint="@color/colorOnBackground" />
     </Toolbar>
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textTitle"
         style="@style/AppBarTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Làm gì bây giờ?"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/lwv"
+        app:layout_constraintBottom_toTopOf="@+id/carouselView"
         app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
 
-    <com.bluehomestudio.luckywheel.LuckyWheel
-        android:id="@+id/lwv"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_centerInParent="true"
-        LuckyWheel:background_color="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/bt_edit"
+    <com.jama.carouselview.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:carouselOffset="center"
+        app:enableSnapping="true"
+        app:indicatorAnimationType="worm"
+        app:indicatorPadding="5"
+        app:indicatorRadius="5"
+        app:indicatorSelectedColor="@color/colorOnBackground"
+        app:indicatorUnselectedColor="@color/colorOnBackgroundDark"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:scaleOnScroll="false"
+        app:setAutoPlay="false"
+        app:spacing="200" />
 
     <TextView
         style="@style/AppBarTextStyle"
@@ -80,11 +88,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Lướt sang trái hoặc phải để thay đổi vòng quay"
-        android:layout_marginTop="36dp"
         app:layout_constraintBottom_toTopOf="@+id/bt_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lwv" />
+        app:layout_constraintTop_toBottomOf="@+id/carouselView" />
 
     <Button
         android:id="@+id/bt_edit"

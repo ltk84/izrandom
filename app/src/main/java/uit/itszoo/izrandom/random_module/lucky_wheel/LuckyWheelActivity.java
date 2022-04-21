@@ -43,6 +43,7 @@ import java.util.concurrent.TimeUnit;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.lucky_wheel.lucky_wheel_custom.LuckyWheelCustomActivity;
+import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionPresenter;
 import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
@@ -50,10 +51,6 @@ import uit.itszoo.izrandom.random_module.random_direction.random_direction_custo
 
 public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelContract.View{
     public static final String CURRENT_WHEEL = "CURRENT_WHEEL";
-    public static final String TEXT_SIZE = "TEXT_SIZE";
-    public static final String SPIN_TIME = "SPIN_TIME";
-    public static final String SLICE_REPEAT = "SLICE_REPEAT";
-    public static final String FAIR_MODE = "FAIR_MODE";
 
     LuckyWheel lkWheel;
     List <WheelItem> wheelItems = new ArrayList<WheelItem>();
@@ -64,16 +61,13 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
     ImageButton customButton;
     LuckyWheelContract.Presenter presenter;
     TextView textView;
+    int indexCurrentWheel = 0; /// index của wheelContent trong source
     private  int spinTime ;
     private  String result = "";
     private final int SWIPE_DISTANCE_THRESHOLD = 100;
     private float x1, x2, y1, y2, dx, dy;
     private int  selectedIndex;
     private boolean spin = false;
-    private int textSize;
-    private int repeat;
-    private boolean fairMode;
-    int index = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,13 +88,9 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         });
         presenter = new LuckWheelPresenter(getApplicationContext(), this);
         setPresenter(presenter);
-        randomResult.setText("Làm gì bây giờ?");
         backButton = findViewById(R.id.bb_back);
         customButton = findViewById(R.id.bt_cus);
         description = findViewById(R.id.description);
-        fairMode = presenter.getFairMode();
-        textSize = presenter.getTextSize();
-        repeat = presenter.getRepeat();
         spinTime = presenter.getSpinTime();
         initLuckyWheel();
         setListenerForView();
@@ -112,6 +102,9 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
+                        indexCurrentWheel = (int) data.getSerializableExtra(LuckyWheelCustomActivity.SELECTED_WHEEL);
+                        initLuckyWheel();
+                        presenter.setIndexOfWheelInList(indexCurrentWheel);
                     }
                 }
             });
@@ -131,13 +124,8 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         customButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                textSize = lkWheel.getTextSize();
                 Intent intentToCustom = new Intent(getApplicationContext(), LuckyWheelCustomActivity.class);
-                intentToCustom.putExtra(LuckyWheelActivity.CURRENT_WHEEL, (Serializable) presenter.getWheelItems());
-                intentToCustom.putExtra(LuckyWheelActivity.FAIR_MODE, presenter.getFairMode());
-                intentToCustom.putExtra(LuckyWheelActivity.SPIN_TIME, presenter.getSpinTime());
-                intentToCustom.putExtra(LuckyWheelActivity.TEXT_SIZE, presenter.getTextSize());
-                intentToCustom.putExtra(LuckyWheelActivity.SLICE_REPEAT, presenter.getRepeat());
+                intentToCustom.putExtra(LuckyWheelActivity.CURRENT_WHEEL, presenter.getIndexOfWheelInList());
                 intentLauncher.launch(intentToCustom);
             }
         });
@@ -157,28 +145,27 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                                 dx = x2 - x1;
                                 dy = y2 - y1;
                                 if ( Math.abs(dx) > Math.abs(dy) && !spin) {
-                                    if ( dx < 0 && Math.abs(dx) > SWIPE_DISTANCE_THRESHOLD )
-                                    {
+                                    if ( dx < 0 && Math.abs(dx) > SWIPE_DISTANCE_THRESHOLD ) {
                                         spin = true;
                                         Random random = new Random();
+                                        lkWheel.setSpinTime(spinTime);
                                         selectedIndex = random.nextInt(wheelItems.size());
-                                        lkWheel.setTarget(selectedIndex+1);
+                                        lkWheel.setTarget(selectedIndex + 1);
                                         result = wheelItems.get(selectedIndex).text;
-                                        lkWheel.rotateWheelTo(selectedIndex+1);
+                                        lkWheel.rotateWheelTo(selectedIndex + 1);
                                         description.setVisibility(View.INVISIBLE);
-                                        setAnimationForBackground(spinTime);
                                     }
                                 } else {
                                     if ( dy > 0 && Math.abs(dy) > SWIPE_DISTANCE_THRESHOLD && !spin)
                                     {
                                         spin = true;
                                         Random random = new Random();
+                                        lkWheel.setSpinTime(spinTime);
                                         selectedIndex = random.nextInt(wheelItems.size());
                                         lkWheel.setTarget(selectedIndex+1);
                                         result = wheelItems.get(selectedIndex).text;
                                         lkWheel.rotateWheelTo(selectedIndex+1);
                                         description.setVisibility(View.INVISIBLE);
-                                        setAnimationForBackground(spinTime);
                                     }
                                 }
                                 break;
@@ -194,8 +181,14 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
     private void initLuckyWheel()
     {
         lkWheel = findViewById(R.id.lwv);
+        randomResult.setText(LuckyWheelSource.listTitle.get(indexCurrentWheel));
         generateWheelItems();
         presenter.initListWheelItems(wheelItems);
+        presenter.setFairMode(LuckyWheelSource.fairMode.get(indexCurrentWheel));
+        presenter.setSpinTime(LuckyWheelSource.spinTime.get(indexCurrentWheel));
+        presenter.setRepeat(LuckyWheelSource.repeat.get(indexCurrentWheel));
+        presenter.setTextSize(LuckyWheelSource.textSize.get(indexCurrentWheel));
+        randomResult.setText(LuckyWheelSource.listTitle.get(indexCurrentWheel));
         lkWheel.addWheelItems(presenter.getWheelItems());
         lkWheel.setLuckyWheelReachTheTarget(new OnLuckyWheelReachTheTarget() {
             @Override
@@ -210,43 +203,18 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
             }
         });
     }
-    int time = 0;
-    private  void setAnimationForBackground(int spinTime)
-    {
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                randomResult.setText(wheelItems.get(index).text);
-                index += 1;
-                time += 1;
-                if(index == wheelItems.size())
-                {
-                    index = 0;
-                }
-                if(time == 20)
-                {
-                    cancel();
-                }
-            }
-        };
-        Timer timer = new Timer();
-        timer.schedule(task, spinTime/wheelItems.size());
-        timer.cancel();
-    }
+
     private void generateWheelItems() {
         wheelItems = new ArrayList<>();
-        wheelItems.add(new WheelItem(Color.parseColor("#ffe05f"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons) , "Ngủ"));
-        wheelItems.add(new WheelItem(Color.parseColor("#ffaa64"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons) , "Chơi"));
-        wheelItems.add(new WheelItem(Color.parseColor("#ff534a"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons), "Học"));
-        wheelItems.add(new WheelItem(Color.parseColor("#aadb6b"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons), "Ăn"));
-        wheelItems.add(new WheelItem(Color.parseColor("#ffe05f"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons), "Nhậu"));
-        wheelItems.add(new WheelItem(Color.parseColor("#ffaa64"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.small_nails_icons), "Golf"));
+        List<String> content= new ArrayList<>();
+        List<String> color= new ArrayList<>();
+        content = LuckyWheelSource.listContent.get(indexCurrentWheel);
+        color = LuckyWheelSource.listColor.get(indexCurrentWheel);
+        for(int i = 0 ; i < content.size();i++)
+        {
+            wheelItems.add(new WheelItem(Color.parseColor(color.get(i)), BitmapFactory.decodeResource(getResources(),
+                    R.drawable.small_nails_icons) , content.get(i)));
+        }
     }
 
     @Override

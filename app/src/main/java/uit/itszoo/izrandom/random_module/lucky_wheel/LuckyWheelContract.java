@@ -16,9 +16,11 @@ public interface LuckyWheelContract {
         void setRepeat(int repeat);
         void setSpinTime(int spinTime);
         void setTextSize(int textSize);
+        void setIndexOfWheelInList(int indexOfWheelInList);
         int getRepeat();
         int getTextSize();
         int getSpinTime();
+        int getIndexOfWheelInList();
         boolean getFairMode();
     }
 

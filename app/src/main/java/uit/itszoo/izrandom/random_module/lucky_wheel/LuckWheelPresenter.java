@@ -11,21 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
 
 public class LuckWheelPresenter implements LuckyWheelContract.Presenter {
     private final LuckyWheelContract.View view;
     private List<WheelItem> currentListWheel = new ArrayList<>();
-    private int repeat;
-    private int textSize;
-    private int spinTime;
-    private boolean fairMode;
+    private int indexOfWheelInList = 0;
+    private int repeat = 1;
+    private int textSize = 16;
+    private int spinTime = 5;
+    private boolean fairMode =  false;
     public LuckWheelPresenter(Context context, LuckyWheelContract.View view) {
         this.view = view;
-        repeat = 1;
-        textSize = 16;
-        spinTime = 9000;
-        fairMode = false;
     }
+
     public void changeWheelItems(List<WheelItem> newWheel)
     {
         currentListWheel = newWheel;
@@ -56,6 +55,10 @@ public class LuckWheelPresenter implements LuckyWheelContract.Presenter {
         this.textSize = textSize;
     }
 
+    public void setIndexOfWheelInList(int indexOfWheelInList) {
+        this.indexOfWheelInList = indexOfWheelInList;
+    }
+
     public int getRepeat() {
         return repeat;
     }
@@ -70,6 +73,10 @@ public class LuckWheelPresenter implements LuckyWheelContract.Presenter {
 
     public boolean getFairMode(){
         return fairMode;
+    }
+
+    public int getIndexOfWheelInList() {
+        return indexOfWheelInList;
     }
 
     @Override
