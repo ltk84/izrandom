@@ -31,8 +31,12 @@ import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
 public class EditLuckyWheelActivity  extends AppCompatActivity {
     LuckyWheel luckyWheel;
     List<WheelItem> wheelItems = new ArrayList<>();
+    List<WheelItem> wheelShowedItems = new ArrayList<>();
     CardView listCardView[]= new CardView[12];
     TextView listTextInCard[] = new TextView[12];
+    ArrayList<String> mixedContent = new ArrayList<>();
+    ArrayList<String> wheelContents = new ArrayList<>();
+    ArrayList<String> colors = new ArrayList<>();
     ImageButton backButton;
     ImageButton deleteButton;
     ImageButton checkButton;
@@ -58,28 +62,32 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
         repeat = LuckyWheelSource.repeat.get(indexCurrentWheel);
         spinTime = LuckyWheelSource.spinTime.get(indexCurrentWheel);
         fairMode = LuckyWheelSource.fairMode.get(indexCurrentWheel);
+        mixedContent = LuckyWheelSource.mixedContentItem.get(indexCurrentWheel);
+        wheelContents = LuckyWheelSource.listContent.get(indexCurrentWheel);
+        colors = LuckyWheelSource.listColor.get(indexCurrentWheel);
         generateWheelItems();
         initView();
         setOnlistener();
     }
     private void generateWheelItems() {
         wheelItems = new ArrayList<>();
-        List<String> content= new ArrayList<>();
-        List<String> color= new ArrayList<>();
-        content = LuckyWheelSource.listContent.get(indexCurrentWheel);
-        color = LuckyWheelSource.listColor.get(indexCurrentWheel);
-        for(int i = 0 ; i < content.size();i++)
+        for(int i = 0 ; i < wheelContents.size();i++)
         {
-            wheelItems.add(new WheelItem(Color.parseColor(color.get(i)), BitmapFactory.decodeResource(getResources(),
-                    R.drawable.small_nails_icons) , content.get(i)));
+            wheelItems.add(new WheelItem(Color.parseColor(colors.get(i)), BitmapFactory.decodeResource(getResources(),
+                    R.drawable.small_nails_icons) , wheelContents.get(i)));
         }
-        wheelItems.stream().distinct().collect(Collectors.toList());
+        for(int i = 0 ; i < mixedContent.size();i++)
+        {
+            int indexColor = wheelContents.indexOf(mixedContent.get(i));
+            wheelShowedItems.add(new WheelItem(Color.parseColor(colors.get(indexColor)), BitmapFactory.decodeResource(getResources(),
+                    R.drawable.small_nails_icons) , mixedContent.get(i)));
+        }
     }
     void initView()
     {
         luckyWheel = findViewById(R.id.edit_lucky_wheel);
         luckyWheel.setTarget(1);
-        luckyWheel.addWheelItems(wheelItems);
+        luckyWheel.addWheelItems(wheelShowedItems);
         backButton = findViewById(R.id.bb_lucky_wheel_edit);
         deleteButton = findViewById(R.id.bt_delete_lucky_wheel_edit);
         checkButton = findViewById(R.id.bt_check_lucky_wheel_edit);
@@ -126,20 +134,16 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
     }
     void createSliceCard()
     {
-        List<WheelItem> cache = new ArrayList<>();
-        cache = wheelItems.stream().distinct().collect(Collectors.toList());
-        System.out.println(cache.size());
-        for(int i = cache.size() ; i < listCardView.length ; i++)
+        for(int i = wheelItems.size() ; i < listCardView.length ; i++)
         {
             listCardView[i].setVisibility(View.INVISIBLE);
             listTextInCard[i].setVisibility(View.INVISIBLE);
         }
-        for(int i = 0; i <cache.size(); i++)
+        for(int i = 0; i <wheelContents.size(); i++)
         {
-            listCardView[i].setBackgroundColor(cache.get(i).color);
-            listTextInCard[i].setText(cache.get(i).text);
+            listCardView[i].setBackgroundColor(wheelItems.get(i).color);
+            listTextInCard[i].setText(wheelItems.get(i).text);
         }
-        System.out.println(cache.size());
     }
     void setOnlistener()
     {
@@ -157,14 +161,13 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                     @Override
                     public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
                         repeat = (int) sliceRepeatSlider.getValue();
-                        wheelItems = wheelItems.stream().distinct().collect(Collectors.toList());
-                        List<WheelItem> cache  = new ArrayList<>();
+                        ArrayList<WheelItem> cache  = new ArrayList<>();
                         for(int i = 1 ; i <= repeat ; i++)
                         {
                             cache.addAll(wheelItems);
                         }
-                        wheelItems = cache;
-                        luckyWheel.addWheelItems(wheelItems);
+                        wheelShowedItems = cache;
+                        luckyWheel.addWheelItems(wheelShowedItems);
                         sliceRepeatView.setText(String.valueOf(repeat));
                     }
                 }
@@ -175,8 +178,6 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                     public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
                         textSize = (int) textSizeSlider.getValue();
                         luckyWheel.setTextSize(textSize);
-                        luckyWheel.addWheelItems(wheelItems);
-                        textSizeView.setText(String.valueOf(textSize));
                     }
                 }
         );
@@ -201,10 +202,8 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
-                        Collections.shuffle(wheelItems);
-                        //generateWheelItems();
-                        luckyWheel.addWheelItems(wheelItems);
+                        Collections.shuffle(wheelShowedItems);
+                        luckyWheel.addWheelItems(wheelShowedItems);
                         createSliceCard();
                     }
                 }
@@ -218,11 +217,11 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                         LuckyWheelSource.spinTime.set(indexCurrentWheel, spinTime);
                         LuckyWheelSource.repeat.set(indexCurrentWheel, repeat);
                         ArrayList<String> contents = new ArrayList<>();
-                        for(int i = 0 ; i< wheelItems.size(); i++)
+                        for(int i = 0 ; i< wheelShowedItems.size(); i++)
                         {
-                            contents.add(wheelItems.get(i).text);
+                            contents.add(wheelShowedItems.get(i).text);
                         }
-                        LuckyWheelSource.listContent.set(indexCurrentWheel, contents);
+                        LuckyWheelSource.mixedContentItem.set(indexCurrentWheel, contents);
                         Intent intentBack = new Intent();
                         setResult(Activity.RESULT_OK, intentBack);
                         finish();
