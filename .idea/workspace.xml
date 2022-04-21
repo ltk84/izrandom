@@ -35,14 +35,6 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/AppDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/AppDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/Repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/UserConfigDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/UserConfigDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/UserConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/UserConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/chooser_custom/ChooserCustomActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/chooser_custom/ChooserCustomActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/source/ChooserSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/source/ChooserSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_direction/RandomDirectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_direction/RandomDirectionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_direction/RandomDirectionPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_direction/RandomDirectionPresenter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,28 +317,28 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1650101713617" />
-    <state width="914" height="189" key="GridCell.Tab.0.bottom" timestamp="1650509235371">
+    <state width="914" height="189" key="GridCell.Tab.0.bottom" timestamp="1650514876703">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="914" height="189" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1650509235371" />
+    <state width="914" height="189" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1650514876703" />
     <state width="1493" height="185" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650034095985" />
     <state width="1493" height="185" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1650019877754" />
-    <state width="914" height="189" key="GridCell.Tab.0.center" timestamp="1650509235370">
+    <state width="914" height="189" key="GridCell.Tab.0.center" timestamp="1650514876703">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="914" height="189" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1650509235370" />
+    <state width="914" height="189" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1650514876703" />
     <state width="1493" height="185" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650034095985" />
     <state width="1493" height="185" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="914" height="189" key="GridCell.Tab.0.left" timestamp="1650509235370">
+    <state width="914" height="189" key="GridCell.Tab.0.left" timestamp="1650514876703">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="914" height="189" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1650509235370" />
+    <state width="914" height="189" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1650514876703" />
     <state width="1493" height="185" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650034095984" />
     <state width="1493" height="185" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="914" height="189" key="GridCell.Tab.0.right" timestamp="1650509235370">
+    <state width="914" height="189" key="GridCell.Tab.0.right" timestamp="1650514876703">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="914" height="189" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1650509235370" />
+    <state width="914" height="189" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1650514876703" />
     <state width="1493" height="185" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650034095985" />
     <state width="1493" height="185" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
@@ -354,10 +346,10 @@
     </state>
     <state x="29" y="40" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1647486414658" />
     <state x="33" y="43" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1647770642862" />
-    <state x="208" y="129" width="540" height="524" key="StructurePopup" timestamp="1650506102313">
+    <state x="208" y="129" width="570" height="524" key="StructurePopup" timestamp="1650510726036">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="208" y="129" width="540" height="524" key="StructurePopup/0.0.1366.768@0.0.1366.768" timestamp="1650506102313" />
+    <state x="208" y="129" width="570" height="524" key="StructurePopup/0.0.1366.768@0.0.1366.768" timestamp="1650510726036" />
     <state x="584" y="186" key="chooseDestDirectoryDialog" timestamp="1647307361368">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -366,10 +358,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="478" y="141" width="579" height="534" key="find.popup/0.0.1536.816@0.0.1536.816" timestamp="1650018350872" />
-    <state width="503" height="214" key="javadoc.popup.new" timestamp="1650464426540">
+    <state width="503" height="214" key="javadoc.popup.new" timestamp="1650510445090">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="503" height="214" key="javadoc.popup.new/0.0.1366.768@0.0.1366.768" timestamp="1650464426540" />
+    <state width="503" height="214" key="javadoc.popup.new/0.0.1366.768@0.0.1366.768" timestamp="1650510445090" />
     <state x="383" y="141" key="refactoring.ChangeSignatureDialog" timestamp="1647741633517">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

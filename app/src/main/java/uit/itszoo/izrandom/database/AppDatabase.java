@@ -13,7 +13,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 import uit.itszoo.izrandom.random_module.chooser.source.ChooserSource;
 import uit.itszoo.izrandom.random_module.flip_coin.source.CoinSource;
@@ -23,8 +22,8 @@ import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
 
 @Database(entities = {UserConfiguration.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-    private static final String DB_NAME = "userConfig.db";
 
+    private static final String DB_NAME = "userConfig.db";
     private static volatile AppDatabase instance;
     private static final int NUMBER_OF_THREADS = 4;
 
@@ -50,24 +49,17 @@ public abstract class AppDatabase extends RoomDatabase {
         public void onCreate(@NonNull @NotNull SupportSQLiteDatabase db) {
             super.onCreate(db);
             Log.d("ONCREATE", "Database has been created.");
-            dbExecutor.execute(new Runnable() {
-                @Override
-                public void run() {
-                    UserConfiguration userConfiguration = new UserConfiguration();
-                    userConfiguration.arrowId = ArrowSource.arrows.get(0).getId();
-                    userConfiguration.diceId = DiceSource.dices.get(0).getId();
-                    userConfiguration.coinId = CoinSource.coins.get(0).getId();
-                    userConfiguration.chooserThemeId = ChooserSource.themes.get(0).getId();
 
-                    instance.userConfigDAO().insertUserConfig(userConfiguration);
-                }
+            dbExecutor.execute(() -> {
+                UserConfiguration userConfiguration = new UserConfiguration();
+                userConfiguration.arrowId = ArrowSource.arrows.get(0).getId();
+                userConfiguration.diceId = DiceSource.dices.get(0).getId();
+                userConfiguration.coinId = CoinSource.coins.get(0).getId();
+                userConfiguration.chooserThemeId = ChooserSource.themes.get(0).getId();
+
+                instance.userConfigDAO().insertUserConfig(userConfiguration);
             });
 
-            try {
-                dbExecutor.awaitTermination(2, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
 
         @Override
@@ -77,5 +69,5 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     };
 
-    public abstract UserConfigDAO userConfigDAO();
+    abstract UserConfigDAO userConfigDAO();
 }

@@ -24,4 +24,7 @@ public interface UserConfigDAO {
 
     @Query("SELECT * FROM userConfig LIMIT 1")
     public LiveData<UserConfiguration> getUserConfig();
+
+    @Query("DELETE FROM userConfig")
+    public void deleteAll();
 }

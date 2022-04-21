@@ -22,6 +22,7 @@ public class Repository {
         AppDatabase appDatabase = AppDatabase.getInstance(context);
         userConfigDAO = appDatabase.userConfigDAO();
         userConfig = userConfigDAO.getUserConfig();
+        appDatabase.query("SELECT 1", null);
     }
 
     public void changeArrow(String arrowId) {
