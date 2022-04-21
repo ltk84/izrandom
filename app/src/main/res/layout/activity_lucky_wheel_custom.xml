@@ -50,18 +50,6 @@
             app:tint="@color/colorOnBackground" />
     </Toolbar>
 
-    <TextView
-        android:id="@+id/textTitle"
-        style="@style/AppBarTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Làm gì bây giờ?"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/carouselView"
-        app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
 
     <com.jama.carouselview.CarouselView
         android:id="@+id/carouselView"
@@ -74,10 +62,10 @@
         app:indicatorRadius="5"
         app:indicatorSelectedColor="@color/colorOnBackground"
         app:indicatorUnselectedColor="@color/colorOnBackgroundDark"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bt_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel"
         app:scaleOnScroll="false"
         app:setAutoPlay="false"
         app:spacing="200" />

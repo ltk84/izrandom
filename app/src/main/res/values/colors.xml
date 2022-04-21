@@ -10,7 +10,7 @@
     <color name="randomElementRed">#C52222</color>
     <color name="randomElementBlue">#2280C5</color>
     <color name="randomElementBlack">#333333</color>
-
+    <color name="gold">#b89903</color>
     <color name="regularColorDiceBorder">#333333</color>
     <color name="regularColorDiceBackground">#FFFFFF</color>
     <color name="regularColorDicePoint">#333333</color>

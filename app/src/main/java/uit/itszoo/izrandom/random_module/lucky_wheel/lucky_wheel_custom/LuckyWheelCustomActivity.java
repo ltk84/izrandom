@@ -62,7 +62,6 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lucky_wheel_custom);
         indexWheelInList = (int) getIntent().getSerializableExtra(LuckyWheelActivity.CURRENT_WHEEL);
-        generateWheelItems();
         initView();
         setupCarouselView();
         setListener();
@@ -157,8 +156,8 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
         }
     }
     private void setupCarouselView() {
+        generateWheelItems();
         carouselView = findViewById(R.id.carouselView);
-        //textView = findViewById(R.id.textTitle);
 
         carouselView.setSize(listTitle.size());
         carouselView.setResource(R.layout.lucky_wheel_carousel);
@@ -167,7 +166,8 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
             @Override
             public void onBindView(View view, int position) {
                 // Example here is setting up a full image carousel
-               // textView.setText(LuckyWheelSource.listTitle.get(position));
+                textView = view.findViewById(R.id.textTitle);
+                textView.setText(LuckyWheelSource.listTitle.get(position));
                 luckyWheel = view.findViewById(R.id.wheel_carousel);
                 luckyWheel.setTarget(1);
                 luckyWheel.addWheelItems(listWheelItems.get(position));

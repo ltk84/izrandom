@@ -77,18 +77,18 @@ public class LuckyWheelSource {
     );
     public static  ArrayList<String> listColor1 = new ArrayList<>(
             Arrays.asList(
-                    "#6a419d",
-                    "#a8449a",
-                    "#e44097",
-                    "#ec1a23",
-                    "#e4722e",
-                    "#f78f1c",
-                    "#ffc30d",
-                    "#fff203",
-                    "#8dfd03",
-                    "#02a890",
+                    "#0b4581",
                     "#549cb9",
-                    "#0b4581"
+                    "#02a890",
+                    "#8dfd03",
+                    "#fff203",
+                    "#ffc30d",
+                    "#f78f1c",
+                    "#e4722e",
+                    "#ec1a23",
+                    "#e44097",
+                    "#a8449a",
+                    "#6a419d"
             )
     );
     public static  ArrayList<String> listColor2 = new ArrayList<>(
