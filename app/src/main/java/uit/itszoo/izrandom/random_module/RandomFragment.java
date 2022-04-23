@@ -19,6 +19,7 @@ import org.jetbrains.annotations.NotNull;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.chooser.ChooserActivity;
+import uit.itszoo.izrandom.random_module.divide_team.DivideTeamActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.FlipCoinActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.raffle.RaffleActivity;
@@ -50,6 +51,8 @@ public class RandomFragment extends Fragment {
     CardView randomListCardView;
     CardView chooserCardView;
     CardView raffleCardView;
+    CardView divideTeamCardView;
+
     ImageView imageView;
     Animation rotateAnimation;
 
@@ -111,6 +114,7 @@ public class RandomFragment extends Fragment {
         randomListCardView = view.findViewById(R.id.cv_random_list);
         chooserCardView = view.findViewById(R.id.cv_chooser);
         raffleCardView = view.findViewById(R.id.cv_raffle);
+        divideTeamCardView = view.findViewById(R.id.cv_divide_team);
         imageView = view.findViewById(R.id.imageView);
         rotateAnimation = new RotateAnimation(0f, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
@@ -170,6 +174,14 @@ public class RandomFragment extends Fragment {
             public void onClick(View view) {
                 Intent intentToRaffle = new Intent(getContext(), RaffleActivity.class);
                 startActivity(intentToRaffle);
+            }
+        });
+
+        divideTeamCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToDivideTeam = new Intent(getContext(), DivideTeamActivity.class);
+                startActivity(intentToDivideTeam);
             }
         });
 

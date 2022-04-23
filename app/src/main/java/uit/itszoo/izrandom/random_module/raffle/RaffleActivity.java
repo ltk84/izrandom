@@ -88,6 +88,10 @@ public class RaffleActivity extends AppCompatActivity {
         backButton = findViewById(R.id.bb_raffle);
         guideButton = findViewById(R.id.guide_button);
 
+        backButton.setOnClickListener(view -> {
+         onBackPressed();
+        });
+
         guideButton.setOnClickListener(view -> {
             RaffleGuideDialog raffleGuideDialog = new RaffleGuideDialog(RaffleActivity.this);
             raffleGuideDialog.show();

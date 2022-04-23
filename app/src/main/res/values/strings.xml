@@ -60,4 +60,9 @@
     <string name="back_button_label">Quay lại</string>
     <string name="length_hint">Tên của người hoặc giải thưởng phải nhỏ hơn 27 ký tự</string>
     <string name="start_hint">Hãy đảm bảo số người tham gia lớn hơn hoặc bằng số giải thưởng để bắt đầu</string>
+    <string name="divide_team_label">Chia đội nhóm</string>
+    <string name="get_result">Tạo kết quả</string>
+    <string name="person_per_team_count_label">Theo số người mỗi nhóm</string>
+    <string name="team_count_label">Theo số nhóm</string>
+    <string name="default_value_divide_team">1</string>
 </resources>
