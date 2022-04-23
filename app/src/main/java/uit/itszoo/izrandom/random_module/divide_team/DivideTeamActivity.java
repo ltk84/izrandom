@@ -2,46 +2,34 @@ package uit.itszoo.izrandom.random_module.divide_team;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextWatcher;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.textfield.TextInputEditText;
 import com.iigo.library.DiceLoadingView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.random_module.raffle.RaffleActivity;
-import uit.itszoo.izrandom.random_module.raffle.VerticalImageSpan;
-import uit.itszoo.izrandom.random_module.raffle.raffle_guide.RaffleGuideDialog;
+import uit.itszoo.izrandom.random_module.divide_team.divide_team_guide.DivideTeamGuideDialog;
+import uit.itszoo.izrandom.utilities.InputFilterMinMax;
+import uit.itszoo.izrandom.utilities.VerticalImageSpan;
 
 public class DivideTeamActivity extends AppCompatActivity {
 
@@ -103,10 +91,10 @@ public class DivideTeamActivity extends AppCompatActivity {
             onBackPressed();
         });
 
-//        guideButton.setOnClickListener(view -> {
-//            RaffleGuideDialog raffleGuideDialog = new RaffleGuideDialog(RaffleActivity.this);
-//            raffleGuideDialog.show();
-//        });
+        guideButton.setOnClickListener(view -> {
+            DivideTeamGuideDialog divideTeamGuideDialog = new DivideTeamGuideDialog(DivideTeamActivity.this);
+            divideTeamGuideDialog.show();
+        });
 
         startDivideTeamButton.setOnClickListener(view -> {
             tvGuide.setVisibility(View.INVISIBLE);
@@ -234,12 +222,6 @@ public class DivideTeamActivity extends AppCompatActivity {
         tvGuide.setVisibility(View.VISIBLE);
         tvGuide.postDelayed(() -> tvGuide.setVisibility(View.INVISIBLE), 5000);
     }
-
-//    private void showCountHint() {
-//        tvGuide.setText(R.string.count_hint);
-//        tvGuide.setVisibility(View.VISIBLE);
-//        tvGuide.postDelayed(() -> tvGuide.setVisibility(View.INVISIBLE), 5000);
-//    }
 
     private boolean isInputValid() {
         if (personPerTeamCountCheck.getVisibility() == View.VISIBLE) {

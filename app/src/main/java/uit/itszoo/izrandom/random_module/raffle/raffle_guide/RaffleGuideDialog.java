@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -29,6 +30,12 @@ public class RaffleGuideDialog extends Dialog implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_raffle_guide);
+        
+        WindowManager.LayoutParams params = this.getWindow().getAttributes();
+        this.setCanceledOnTouchOutside(true);
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        this.getWindow().setAttributes(params);
+
         closeButton = findViewById(R.id.close_button);
         closeButton.setOnClickListener(this);
 

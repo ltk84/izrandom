@@ -19,7 +19,6 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -38,6 +37,7 @@ import java.util.List;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.raffle.raffle_guide.RaffleGuideDialog;
+import uit.itszoo.izrandom.utilities.VerticalImageSpan;
 
 public class RaffleActivity extends AppCompatActivity {
 
@@ -88,9 +88,7 @@ public class RaffleActivity extends AppCompatActivity {
         backButton = findViewById(R.id.bb_raffle);
         guideButton = findViewById(R.id.guide_button);
 
-        backButton.setOnClickListener(view -> {
-         onBackPressed();
-        });
+        backButton.setOnClickListener(view -> onBackPressed());
 
         guideButton.setOnClickListener(view -> {
             RaffleGuideDialog raffleGuideDialog = new RaffleGuideDialog(RaffleActivity.this);

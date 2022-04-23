@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_module.raffle;
+package uit.itszoo.izrandom.utilities;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

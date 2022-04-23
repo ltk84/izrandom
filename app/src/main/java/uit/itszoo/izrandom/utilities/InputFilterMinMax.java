@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_module.divide_team;
+package uit.itszoo.izrandom.utilities;
 
 import android.text.InputFilter;
 import android.text.Spanned;
