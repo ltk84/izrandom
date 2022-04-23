@@ -65,4 +65,6 @@
     <string name="person_per_team_count_label">Theo số người mỗi nhóm</string>
     <string name="team_count_label">Theo số nhóm</string>
     <string name="default_value_divide_team">1</string>
+    <string name="start_divide_team_hint">Số người tham gia phải lớn hơn hoặc bằng số người mỗi nhóm/số nhóm để bắt đầu</string>
+    <string name="count_hint">Số nhóm/số người mỗi nhóm phải lớn hơn 0</string>
 </resources>

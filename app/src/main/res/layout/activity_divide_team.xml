@@ -58,7 +58,7 @@
         style="@style/GuideTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="56dp"
+        android:paddingHorizontal="36dp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,6 +149,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_person_per_team_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -172,6 +173,7 @@
                 android:layout_height="18dp"
                 android:src="@drawable/ic_check_button"
                 android:tint="@color/colorGreen"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -189,6 +191,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
+                android:enabled="false"
                 android:id="@+id/person_per_team_count_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
