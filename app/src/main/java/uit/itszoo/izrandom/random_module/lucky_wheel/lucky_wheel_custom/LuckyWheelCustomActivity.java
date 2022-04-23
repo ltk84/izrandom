@@ -64,10 +64,16 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
-                public void onActivityResult(ActivityResult result) {
+                public void onActivityResult(ActivityResult result){
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
-                        recreate();
+                        try{
+                            recreate();
+                        }
+                        catch (Exception e)
+                        {
+                            System.out.println(e);
+                        }
                     }
                 }
             });

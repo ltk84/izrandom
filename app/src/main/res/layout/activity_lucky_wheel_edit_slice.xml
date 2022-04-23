@@ -15,12 +15,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="Thêm Slide"
+        android:text="Chỉnh sửa slice"
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/delete_slice_button"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tt"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@null"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintTop_toTopOf="@+id/tt">
+
+    </ImageButton>
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_height="wrap_content"
@@ -41,7 +53,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_gravity="center"
-            android:text=""
+            android:text="Ăn cức"
             android:textSize="16dp"
             android:layout_margin="5dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +72,7 @@
         android:hint="Nội dung"
         android:maxLength="20"
         android:drawableRight="@drawable/ic_clarity_pencil_solid"
-        />
+       />
     <EditText
         android:id="@+id/slice_color"
         android:layout_width="match_parent"
