@@ -95,7 +95,10 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        onBackPressed();
+                        Intent intentBack = new Intent();
+                        intentBack.putExtra(LuckyWheelCustomActivity.SELECTED_WHEEL,indexWheelInList);
+                        setResult(Activity.RESULT_OK, intentBack);
+                        finish();
                     }
                 }
         );

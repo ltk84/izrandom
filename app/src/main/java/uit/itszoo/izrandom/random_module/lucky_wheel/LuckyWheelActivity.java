@@ -108,6 +108,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                     Toast.makeText(LuckyWheelActivity.this, "During a spindling", Toast.LENGTH_LONG).show();
                 }
                 else
+
                     onBackPressed();
             }
         });
@@ -168,6 +169,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                                         result = mixedWheelItems.get(selectedIndex).text;
                                         lkWheel.rotateWheelTo(selectedIndex + 1);
                                         description.setVisibility(View.INVISIBLE);
+
                                     }
                                 }
                                 break;
