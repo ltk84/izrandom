@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import org.jetbrains.annotations.NotNull;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.flip_card.FlipCardActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
 import uit.itszoo.izrandom.random_module.random_integer.RandomIntegerActivity;
@@ -45,6 +46,7 @@ public class RandomFragment extends Fragment {
     CardView luckyWheelCardView;
     CardView randomNumberCardView;
     CardView randomListCardView;
+    CardView flipCardCardView;
     ImageView imageView;
     Animation rotateAnimation;
 
@@ -104,6 +106,7 @@ public class RandomFragment extends Fragment {
         luckyWheelCardView = view.findViewById(R.id.cv_lucky_wheel);
         randomNumberCardView = view.findViewById(R.id.cv_random_number);
         randomListCardView = view.findViewById(R.id.cv_random_list);
+        flipCardCardView = view.findViewById(R.id.cv_flip_card);
         imageView = view.findViewById(R.id.imageView);
         rotateAnimation = new RotateAnimation(0f, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
@@ -139,6 +142,14 @@ public class RandomFragment extends Fragment {
             public void onClick(View view) {
                 Intent intentToLuckyWheel = new Intent(getContext(), LuckyWheelActivity.class);
                 startActivity(intentToLuckyWheel);
+            }
+        });
+
+        flipCardCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToFlipCard = new Intent(getContext(), FlipCardActivity.class);
+                startActivity(intentToFlipCard);
             }
         });
 

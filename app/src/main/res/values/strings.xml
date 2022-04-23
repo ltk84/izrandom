@@ -12,6 +12,7 @@
     <string name="random_wheel_label">Vòng quay</string>
     <string name="random_number_label">Số ngẫu nhiên</string>
     <string name="random_list_label">Danh sách</string>
+    <string name="flip_card_label">Lật thẻ bài</string>
     <string name="random_direction_description">Random Direction</string>
     <string name="roll_a_dice_description">Roll A Dice</string>
     <string name="toss_a_dice_description">Toss A Dice</string>

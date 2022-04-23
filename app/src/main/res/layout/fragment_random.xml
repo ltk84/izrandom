@@ -250,6 +250,84 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="123dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    app:contentPadding="12dp"
+                    android:layout_width="146dp"
+                    android:id="@+id/cv_flip_card"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="24dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_flip_card"
+                            android:contentDescription="@string/random_numbers_description" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom|center_horizontal"
+                            android:textColor="@color/colorOnBackground"
+                            android:text="@string/flip_card_label" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    app:contentPadding="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:id="@+id/cv_random_list_1"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginBottom="24dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_random_list"
+                            app:tint="@color/randomElementBlue"
+                            android:contentDescription="@string/random_list_description" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom|center_horizontal"
+                            android:textColor="@color/colorOnBackground"
+                            android:text="@string/random_list_label" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
         </LinearLayout>
 
     </com.xw.repo.widget.BounceScrollView>

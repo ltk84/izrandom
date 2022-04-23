@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".random_module.flip_card.FlipCardActivity">
+
+    <Toolbar
+        android:id="@+id/tb_random_integer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/lb_flip_card"
+            style="@style/AppBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/flip_card_label" />
+        <ImageButton
+            android:id="@+id/bb_flip_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            app:tint="@color/colorOnBackground">
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/flip_card_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="60dp"
+            android:minHeight="60dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@android:drawable/ic_input_add"
+            app:tint="@color/colorOnBackground"
+            tools:layout_editor_absoluteX="351dp">
+        </ImageButton>
+    </Toolbar>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
