@@ -448,6 +448,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
                     circle.setLayoutParams(new RelativeLayout.LayoutParams(reqWidth, reqHeight));
 
+                    circle.setImageDrawable(getDrawable(R.drawable.chosen_chooser_shape));
                     circle.setX(motionEvent.getX(pointerIndex) - (reqWidth >> 1));
                     circle.setY(motionEvent.getY(pointerIndex) - (reqHeight >> 1));
                     ring.setX(motionEvent.getX(pointerIndex));

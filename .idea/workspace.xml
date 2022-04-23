@@ -31,9 +31,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/RandomFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/RandomFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,10 +76,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="resourceFile" />
         <option value="Interface" />
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -288,10 +286,10 @@
     <state x="310" y="153" key="AndroidCreateResourceDirectoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1647389374139" />
     <state x="349" y="163" key="AndroidCreateResourceDirectoryDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647756609789" />
     <state x="349" y="163" key="AndroidCreateResourceDirectoryDialog/0.0.1536.816@0.0.1536.816" timestamp="1647768950050" />
-    <state x="502" y="286" key="AndroidCreateResourceFileDialog" timestamp="1649909388415">
+    <state x="502" y="286" key="AndroidCreateResourceFileDialog" timestamp="1650684379268">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="502" y="286" key="AndroidCreateResourceFileDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649909388415" />
+    <state x="502" y="286" key="AndroidCreateResourceFileDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684379268" />
     <state x="698" y="238" key="AndroidCreateResourceFileDialog/0.0.1536.816@0.0.1536.816" timestamp="1647769088426" />
     <state x="614" y="198" key="AndroidCreateXmlResourceDialog" timestamp="1649908014535">
       <screen x="0" y="0" width="1536" height="816" />
@@ -316,29 +314,29 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1650101713617" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1650683171477">
+    <state width="1493" height="204" key="GridCell.Tab.0.bottom" timestamp="1650684231548">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="189" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1650516223165" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650683171477" />
+    <state width="1493" height="204" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1650019877754" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1650683171477">
+    <state width="1493" height="204" key="GridCell.Tab.0.center" timestamp="1650684231548">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="189" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1650516223164" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650683171477" />
+    <state width="1493" height="204" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1650683171477">
+    <state width="1493" height="204" key="GridCell.Tab.0.left" timestamp="1650684231548">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="189" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1650516223163" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650683171477" />
+    <state width="1493" height="204" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1650683171477">
+    <state width="1493" height="204" key="GridCell.Tab.0.right" timestamp="1650684231548">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="189" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1650516223165" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650683171477" />
+    <state width="1493" height="204" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
       <screen x="0" y="0" width="1536" height="816" />
