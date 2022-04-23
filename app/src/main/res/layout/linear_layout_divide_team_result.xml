@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/result_placeholder">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/result_label"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorGreen"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:layout_marginBottom="8dp"/>
+    <TextView
+        android:id="@+id/txt_guide"
+        style="@style/GuideTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="56dp"
+        android:text="@string/divide_team_result_guide"
+        android:textAlignment="center"/>
+    <com.jama.carouselview.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_marginTop="36dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:enableSnapping="true"
+        app:indicatorAnimationType="worm"
+        app:indicatorPadding="5"
+        app:indicatorRadius="5"
+        app:indicatorSelectedColor="@color/colorOnBackground"
+        app:indicatorUnselectedColor="@color/colorOnBackgroundDark"
+        app:scaleOnScroll="false"
+        app:setAutoPlay="false" />
+</LinearLayout>

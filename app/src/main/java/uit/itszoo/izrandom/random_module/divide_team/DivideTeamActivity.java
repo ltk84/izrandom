@@ -1,27 +1,47 @@
 package uit.itszoo.izrandom.random_module.divide_team;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipDrawable;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
 import com.iigo.library.DiceLoadingView;
+import com.jama.carouselview.CarouselScrollListener;
+import com.jama.carouselview.CarouselView;
+import com.jama.carouselview.CarouselViewListener;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +88,7 @@ public class DivideTeamActivity extends AppCompatActivity {
     private void initView(Context context) {
 
         tvGuide = findViewById(R.id.txt_guide);
-        mainLayout = findViewById(R.id.layout_raffle);
+        mainLayout = findViewById(R.id.layout_divide_team);
         divideTeamPlaceholder = findViewById(R.id.divide_team_placeholder);
         startDivideTeamButton = findViewById(R.id.start_button);
         backFromDivideTeamButton = findViewById(R.id.back_button);
@@ -98,7 +118,7 @@ public class DivideTeamActivity extends AppCompatActivity {
 
         startDivideTeamButton.setOnClickListener(view -> {
             tvGuide.setVisibility(View.INVISIBLE);
-            //buildResult(context);
+            buildResult(context);
         });
 
 //        backFromDivideTeamButton.setOnClickListener(view -> buildMain());
@@ -262,5 +282,88 @@ public class DivideTeamActivity extends AppCompatActivity {
             showStartHint();
             startDivideTeamButton.setEnabled(false);
         }
+    }
+
+    private void buildResult(Context context) {
+
+        startDivideTeamButton.setVisibility(View.INVISIBLE);
+        backFromDivideTeamButton.setVisibility(View.VISIBLE);
+        teamCountCardView.setVisibility(View.GONE);
+        personPerTeamCountCardView.setVisibility(View.GONE);
+
+        resultPlaceholder = (LinearLayout) getLayoutInflater().inflate(R.layout.linear_layout_divide_team_result, null);
+
+
+//        // Set 2D Rotate Forever Animation
+//        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF,
+//                0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+//        rotateAnimation.setRepeatCount(Animation.INFINITE);
+//        rotateAnimation.setDuration(300);
+//        rotateAnimation.setInterpolator(new LinearInterpolator());
+//        rotateAnimation.setFillAfter(true);
+//
+//
+//        diceLoadingView = resultPlaceholder.findViewById(R.id.raffle_loading);
+//        diceLoadingView.setInterpolator(new LinearInterpolator());
+//        diceLoadingView.setRepeatCount(Animation.INFINITE);
+//        diceLoadingView.setDuration(200);
+//
+//        diceLoadingView.startAnimation(rotateAnimation);
+
+//        Handler loadingHandler = new Handler();
+//        loadingHandler.postDelayed(() -> {
+//            //diceLoadingView.clearAnimation();
+////            TableRow loadingPlaceholder = resultPlaceholder.findViewById(R.id.loading_placeholder);
+////            loadingPlaceholder.setVisibility(View.GONE);
+//
+//            ChipGroup chipGroup = resultPlaceholder.findViewById(R.id.person_chip_holder);
+//            for (int i = 0; i < participants.size(); i++) {
+//
+//                Chip participantChip = new Chip(context);
+//                participantChip.setText(participants.get(i));
+//                TableRow.LayoutParams lpParticipantChip = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+//                lpParticipantChip.gravity = Gravity.CENTER_HORIZONTAL;
+//                participantChip.setLayoutParams(lpParticipantChip);
+//
+//                chipGroup.addView(participantChip);
+//            }
+//        }, 800);
+        CarouselView carouselView = resultPlaceholder.findViewById(R.id.carouselView);
+        setupCarouselView(context, carouselView);
+        // Replace RESULT HOLDER LAYOUT for DIVIDE TEAM HOLDER
+        int index = mainLayout.indexOfChild(divideTeamPlaceholder);
+        mainLayout.removeView(divideTeamPlaceholder);
+        mainLayout.addView(resultPlaceholder, index);
+
+        // Set constraints for RESULT HOLDER LAYOUT
+        ConstraintSet constraintSet = new ConstraintSet();
+        constraintSet.clone((ConstraintLayout) mainLayout);
+        constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.END,mainLayout.getId(),ConstraintSet.END,0);
+        constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.START,mainLayout.getId(),ConstraintSet.START,0);
+        constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.TOP,R.id.toolbar,ConstraintSet.BOTTOM,0);
+        constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.BOTTOM, backFromDivideTeamButton.getId(),ConstraintSet.TOP,0);
+        constraintSet.connect(backFromDivideTeamButton.getId(),ConstraintSet.TOP,resultPlaceholder.getId(),ConstraintSet.BOTTOM,0);
+        constraintSet.applyTo((ConstraintLayout) mainLayout);
+    }
+
+    private void setupCarouselView(Context context, CarouselView carouselView) {
+
+        carouselView.setSize(3);
+        carouselView.setResource(R.layout.divide_team_carousel_item);
+        carouselView.setCarouselViewListener((view, position) -> {
+            View carouselItemView = view.findViewById(R.id.divide_team_carousel_item);
+            TextView tvTeamLabel = carouselItemView.findViewById(R.id.team_label);
+
+            tvTeamLabel.setText("Nhóm " + (position + 1));
+
+            FlexboxLayout chipHolder = carouselItemView.findViewById(R.id.person_chip_holder);
+            for (int i = 0; i < participants.size(); i++) {
+                Chip participantChip = new Chip(context);
+                participantChip.setText(participants.get(i));
+                chipHolder.addView(participantChip);
+            }
+        });
+
+        carouselView.show();
     }
 }

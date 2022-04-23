@@ -69,4 +69,6 @@
     <string name="count_hint">Số nhóm/số người mỗi nhóm phải lớn hơn 0</string>
     <string name="guide_label">Hướng dẫn</string>
     <string name="close_label">Đóng</string>
+    <string name="divide_team_result_guide">Lướt sang phải hoặc trái để xem các đội nhóm khác</string>
+    <string name="result_label">Kết quả</string>
 </resources>
