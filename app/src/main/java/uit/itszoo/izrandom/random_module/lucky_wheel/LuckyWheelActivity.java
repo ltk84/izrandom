@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -21,6 +22,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.MotionEventCompat;
 
 import com.bluehomestudio.luckywheel.LuckyWheel;
 import com.bluehomestudio.luckywheel.OnLuckyWheelReachTheTarget;
@@ -41,6 +43,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
     List <WheelItem> mixedWheelItems = new ArrayList<WheelItem>();
     TextSwitcher randomResult;
     TextView description;
+    TextView description2;
     ConstraintLayout constrainedLayout;
     ImageButton backButton ;
     ImageButton customButton;
@@ -65,7 +68,8 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                 textView
                         = new TextView(
                         LuckyWheelActivity.this);
-                textView.setTextSize(20);
+                textView.setTextSize(30);
+                textView.setTypeface(textView.getTypeface(), Typeface.BOLD);
                 textView.setGravity(
                         Gravity.CENTER_HORIZONTAL);
                 return textView;
@@ -76,6 +80,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         backButton = findViewById(R.id.bb_back);
         customButton = findViewById(R.id.bt_cus);
         description = findViewById(R.id.description);
+        description2 = findViewById(R.id.description2);
         initLuckyWheel();
         setListenerForView();
     }
@@ -98,6 +103,40 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         selectedIndex = random.nextInt(mixedWheelItems.size());
 
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if(spin == true)
+        {
+            return super.onTouchEvent(event);
+        }
+        int action = MotionEventCompat.getActionMasked(event);
+        switch (action) {
+            case (MotionEvent.ACTION_DOWN):
+
+                return true;
+            case (MotionEvent.ACTION_UP):
+                spin = true;
+                randomIndex();
+                lkWheel.setSpinTime(LuckyWheelSource.spinTime.get(indexCurrentWheel));
+                if(LuckyWheelSource.fairMode.get(indexCurrentWheel) == true)
+                {
+                    while (mixedWheelItems.get(selectedIndex).text == randomContent)
+                    {
+                        randomIndex();
+                    }
+                }
+                lkWheel.setTarget(selectedIndex + 1);
+                result = mixedWheelItems.get(selectedIndex).text;
+                lkWheel.rotateWheelTo(selectedIndex + 1);
+                description.setVisibility(View.INVISIBLE);
+                description2.setVisibility(View.INVISIBLE);
+                return true;
+            default:
+                return super.onTouchEvent(event);
+        }
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     public void setListenerForView() {
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -108,13 +147,17 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                     Toast.makeText(LuckyWheelActivity.this, "During a spindling", Toast.LENGTH_LONG).show();
                 }
                 else
-
                     onBackPressed();
             }
         });
         customButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+                if(spin)
+                {
+                    Toast.makeText(LuckyWheelActivity.this, "During a spindling", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Intent intentToCustom = new Intent(getApplicationContext(), LuckyWheelCustomActivity.class);
                 intentToCustom.putExtra(LuckyWheelActivity.CURRENT_WHEEL, presenter.getIndexOfWheelInList());
                 intentLauncher.launch(intentToCustom);
@@ -151,6 +194,8 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                                         result = mixedWheelItems.get(selectedIndex).text;
                                         lkWheel.rotateWheelTo(selectedIndex + 1);
                                         description.setVisibility(View.INVISIBLE);
+                                        description2.setVisibility(View.INVISIBLE);
+
                                     }
                                 } else {
                                     if ( dy > 0 && Math.abs(dy) > SWIPE_DISTANCE_THRESHOLD && !spin)
@@ -169,6 +214,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                                         result = mixedWheelItems.get(selectedIndex).text;
                                         lkWheel.rotateWheelTo(selectedIndex + 1);
                                         description.setVisibility(View.INVISIBLE);
+                                        description2.setVisibility(View.INVISIBLE);
 
                                     }
                                 }
@@ -207,6 +253,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                 backButton.setBackgroundColor(mixedWheelItems.get(selectedIndex ).color);
                 customButton.setBackgroundColor(mixedWheelItems.get(selectedIndex ).color);
                 description.setVisibility(View.VISIBLE);
+                description2.setVisibility(View.VISIBLE);
                 spin = false;
             }
         });

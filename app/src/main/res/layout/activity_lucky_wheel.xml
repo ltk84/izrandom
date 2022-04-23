@@ -5,6 +5,7 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     xmlns:LuckyWheel="http://schemas.android.com/apk/res-auto"
     tools:context=".random_module.lucky_wheel.LuckyWheelActivity">
 
@@ -60,6 +61,7 @@
         android:layout_height="wrap_content"
         android:inAnimation="@android:anim/slide_in_left"
         android:outAnimation="@android:anim/slide_out_right"
+        android:minWidth="100dp"
         app:layout_constraintBottom_toTopOf="@+id/lwv"
         app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,10 +84,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Xoay vòng quay theo hướng kim đồng hồ để random"
+        android:text="Chạm vào màn hình hoặc xoay vòng quay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lwv" />
 
+    <TextView
+        android:id="@+id/description2"
+        style="@style/AppBarTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text=" theo hướng kim đồng hồ để random"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
 </androidx.constraintlayout.widget.ConstraintLayout>

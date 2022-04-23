@@ -34,6 +34,7 @@ import com.bluehomestudio.luckywheel.LuckyWheel;
 import com.bluehomestudio.luckywheel.WheelItem;
 import com.google.android.material.slider.Slider;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -283,7 +284,6 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                         }
                         else {
                             Toast.makeText(EditLuckyWheelActivity.this,"Số lượng Slice đã lớn nhất",Toast.LENGTH_LONG).show();
-                            return;
                         };
                     }
                 }
@@ -401,6 +401,11 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if(wheelItems.size() <= 2)
+                        {
+                            Toast.makeText(EditLuckyWheelActivity.this, "Số SLice đã đạt mức nhỏ nhất", Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         for(int i = 0 ; i < wheelShowedItems.size();i++)
                         {
                             if(wheelShowedItems.get(i).text.equals(wheelItems.get(index).text))
