@@ -43,7 +43,7 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView"
+                            android:id="@+id/ic_random_direction"
                             android:layout_width="60dp"
                             android:layout_height="80dp"
                             android:rotation="-45"
@@ -84,14 +84,31 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/imageView2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="32dp"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ic_random_dice"
-                                android:contentDescription="@string/roll_a_dice_description" />
+                            <com.iigo.library.DiceLoadingView
+                                android:id="@+id/ic_roll_dice"
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:layout_gravity="center_horizontal"
+                                app:firstSideDiceBgColor="@android:color/white"
+                                app:firstSideDiceBorderColor="@color/colorOnBackground"
+                                app:firstSideDiceNumber="1"
+                                app:firstSideDicePointColor="@color/colorOnBackground"
+                                app:fourthSideDiceBgColor="@android:color/white"
+                                app:fourthSideDiceBorderColor="@color/colorOnBackground"
+                                app:fourthSideDiceNumber="4"
+                                app:fourthSideDicePointColor="@color/colorOnBackground"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                                app:secondSideDiceBgColor="@android:color/white"
+                                app:secondSideDiceBorderColor="@color/colorOnBackground"
+                                app:secondSideDiceNumber="2"
+                                app:secondSideDicePointColor="@color/colorOnBackground"
+                                app:thirdSideDiceBgColor="@android:color/white"
+                                app:thirdSideDiceBorderColor="@color/colorOnBackground"
+                                app:thirdSideDiceNumber="6"
+                                app:thirdSideDicePointColor="@color/colorOnBackground"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -122,11 +139,11 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/imageView3"
-                                android:layout_width="wrap_content"
+                                android:id="@+id/ic_flip_coin"
+                                android:layout_width="32dp"
                                 android:layout_height="32dp"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ic_random_coin"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/ic_coin_1_tail"
                                 android:contentDescription="@string/toss_a_dice_description" />
 
                             <TextView

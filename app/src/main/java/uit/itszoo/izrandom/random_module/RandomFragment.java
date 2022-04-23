@@ -5,21 +5,30 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
+
+import com.iigo.library.DiceLoadingView;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Random;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.chooser.ChooserActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.FlipCoinActivity;
+import uit.itszoo.izrandom.random_module.flip_coin.model.Coin;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
 import uit.itszoo.izrandom.random_module.random_integer.RandomIntegerActivity;
@@ -48,8 +57,16 @@ public class RandomFragment extends Fragment {
     CardView randomNumberCardView;
     CardView randomListCardView;
     CardView chooserCardView;
-    ImageView imageView;
+
+    ImageView ivDirection;
     Animation rotateAnimation;
+
+    DiceLoadingView dlvRollDice;
+
+    ImageView ivCoin;
+    ScaleAnimation coinAnimation;
+    int flipPivot = 0;
+    Coin coin = new Coin("1", 1, R.drawable.ic_coin_1_head, R.drawable.ic_coin_1_tail, false);
 
     public RandomFragment() {
         // Required empty public constructor
@@ -94,10 +111,25 @@ public class RandomFragment extends Fragment {
     }
 
     public void performAnimation() {
-        rotateAnimation.setDuration(800);
-        rotateAnimation.setInterpolator(new AnticipateOvershootInterpolator());
+        Random random = new Random();
+        switch (random.nextInt(3)) {
+            case 0:
+                rotateAnimation.setDuration(800);
+                rotateAnimation.setInterpolator(new AnticipateOvershootInterpolator());
+                ivDirection.startAnimation(rotateAnimation);
+                break;
+            case 1:
+                dlvRollDice.setDuration(800);
+                dlvRollDice.setRepeatCount(0);
+                break;
+            case 2:
+                ivCoin.startAnimation(coinAnimation);
+                break;
+            default:
+                break;
+        }
 
-        imageView.startAnimation(rotateAnimation);
+
     }
 
     public void initView(@NonNull @NotNull View view) {
@@ -108,7 +140,13 @@ public class RandomFragment extends Fragment {
         randomNumberCardView = view.findViewById(R.id.cv_random_number);
         randomListCardView = view.findViewById(R.id.cv_random_list);
         chooserCardView = view.findViewById(R.id.cv_chooser);
-        imageView = view.findViewById(R.id.imageView);
+        ivDirection = view.findViewById(R.id.ic_random_direction);
+        dlvRollDice = view.findViewById(R.id.ic_roll_dice);
+        dlvRollDice.setDuration(0);
+        dlvRollDice.setRepeatCount(0);
+        ivCoin = view.findViewById(R.id.ic_flip_coin);
+
+        initCoinAnimation();
         rotateAnimation = new RotateAnimation(0f, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
     }
@@ -162,6 +200,43 @@ public class RandomFragment extends Fragment {
             }
         });
 
+    }
+
+    public void initCoinAnimation() {
+        coinAnimation = new ScaleAnimation(
+                1, 0,
+                1f, 1f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+        coinAnimation.setDuration(100);
+        coinAnimation.setInterpolator(new FastOutLinearInInterpolator());
+        coinAnimation.setRepeatCount(5);
+        coinAnimation.setRepeatMode(Animation.REVERSE);
+
+        coinAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+                if (flipPivot % 2 == 0) {
+                    if (coin.isHead) {
+                        ivCoin.setImageResource(coin.getDrawableTail());
+                        coin.isHead = false;
+                    } else {
+                        ivCoin.setImageResource(coin.getDrawableHead());
+                        coin.isHead = true;
+                    }
+                    flipPivot = 0;
+                }
+                flipPivot++;
+            }
+        });
     }
 
 
