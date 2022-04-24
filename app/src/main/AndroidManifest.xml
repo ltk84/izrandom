@@ -16,7 +16,8 @@
         <activity android:name=".random_module.random_integer.RandomIntegerActivity" />
         <activity android:name=".random_module.roll_dice.RollDiceActivity" />
         <activity android:name=".random_module.random_direction.RandomDirectionActivity" />
-        <activity android:name=".random_module.flip_card.FlipCardMenuActivity" />
+        <activity android:name=".random_module.flip_card.flip_card_menu.FlipCardMenuActivity" />
+        <activity android:name=".random_module.flip_card.flip_card.FlipCardActivity" />
         <activity
             android:name=".home.HomeActivity"
             android:exported="true">

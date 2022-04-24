@@ -1,7 +1,9 @@
-package uit.itszoo.izrandom.random_module.flip_card;
+package uit.itszoo.izrandom.random_module.flip_card.flip_card_menu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -11,14 +13,16 @@ import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.flip_card.flip_card.FlipCardActivity;
 
-public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardMenuContract.View{
+public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardMenuContract.View {
 
     FlipCardMenuContract.Presenter presenter;
     CarouselView carouselView;
     TextView cardNameTextView;
     ImageButton backButton;
     ImageButton addButton;
+    Button startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,7 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
     private void initView() {
         backButton = findViewById(R.id.bb_flip_card_menu);
         addButton = findViewById(R.id.flip_card_add);
+        startButton = findViewById(R.id.btn_flip_card_menu_start);
     }
 
 
@@ -56,6 +61,16 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
 //                intentLauncher.launch(intentToCustom);
 //            }
 //        });
+
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToFlipCard = new Intent(getApplicationContext(), FlipCardActivity.class);
+//                intentToFlipCard.putExtra(RandomDirectionActivity.CURRENT_ARROW, presenter.getCurrentArrow());
+//                intentLauncher.launch(intentToFlipCard);
+                startActivity(intentToFlipCard);
+            }
+        });
 
     }
 

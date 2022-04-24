@@ -48,6 +48,8 @@
     <string name="flip_card_object_description">Flip card object</string>
     <string name="flip_card_object_label">Tên thẻ bài</string>
     <string name="flip_card_object_guide">Chạm vào để chỉnh sửa</string>
-    <string name="flip_card_start_button">Bắt đầu</string>
-    <string name="flip_card_guide">Lướt sang phải hoặc trái để thay đổi bộ thẻ bài</string>
+    <string name="flip_card_menu_start_button">Bắt đầu</string>
+    <string name="flip_card_menu_guide">Lướt sang phải hoặc trái để thay đổi bộ thẻ bài</string>
+    <string name="flip_card_back_to_menu_button">Quay lại</string>
+    <string name="flip_card_guide">Chạm vào thẻ bài để lật thẻ bài</string>
 </resources>

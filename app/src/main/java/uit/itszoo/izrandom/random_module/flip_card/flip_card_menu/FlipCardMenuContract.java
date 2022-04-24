@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_module.flip_card;
+package uit.itszoo.izrandom.random_module.flip_card.flip_card_menu;
 
 import uit.itszoo.izrandom.BasePresenter;
 import uit.itszoo.izrandom.BaseView;
