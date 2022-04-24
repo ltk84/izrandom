@@ -1,50 +1,38 @@
 package uit.itszoo.izrandom.random_module.divide_team;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipDrawable;
-import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
 import com.iigo.library.DiceLoadingView;
-import com.jama.carouselview.CarouselScrollListener;
 import com.jama.carouselview.CarouselView;
-import com.jama.carouselview.CarouselViewListener;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.divide_team.divide_team_guide.DivideTeamGuideDialog;
@@ -67,6 +55,8 @@ public class DivideTeamActivity extends AppCompatActivity {
     ImageView personPerTeamCountCheck;
     EditText teamCountEditText;
     EditText personPerTeamCountEditText;
+    int memberCount = -1;
+    int teamCount = -1;
 
     ImageButton backButton;
     ImageButton guideButton;
@@ -77,6 +67,7 @@ public class DivideTeamActivity extends AppCompatActivity {
     int participantLastSpan;
 
     List<String> participants = new ArrayList<>();
+    List<Integer> teamMemberCount = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -250,14 +241,24 @@ public class DivideTeamActivity extends AppCompatActivity {
                 return false;
             }
             int count = Integer.parseInt(value);
-            return participants.size() >= count && count != 0;
+            if (participants.size() < count || count == 0) {
+                return false;
+            } else {
+                memberCount = count;
+                return true;
+            }
         } else if (teamCountCheck.getVisibility() == View.VISIBLE){
             String value = teamCountEditText.getText().toString();
             if (value.isEmpty()) {
                 return false;
             }
             int count = Integer.parseInt(value);
-            return participants.size() >= count && count != 0;
+            if (participants.size() < count || count == 0) {
+                return false;
+            } else {
+                teamCount = count;
+                return true;
+            }
         }
         return true;
     }
@@ -328,8 +329,11 @@ public class DivideTeamActivity extends AppCompatActivity {
 //                chipGroup.addView(participantChip);
 //            }
 //        }, 800);
+
+        generateTeam();
         CarouselView carouselView = resultPlaceholder.findViewById(R.id.carouselView);
-        setupCarouselView(context, carouselView);
+        setupResultCarouselView(context, carouselView);
+
         // Replace RESULT HOLDER LAYOUT for DIVIDE TEAM HOLDER
         int index = mainLayout.indexOfChild(divideTeamPlaceholder);
         mainLayout.removeView(divideTeamPlaceholder);
@@ -346,24 +350,95 @@ public class DivideTeamActivity extends AppCompatActivity {
         constraintSet.applyTo((ConstraintLayout) mainLayout);
     }
 
-    private void setupCarouselView(Context context, CarouselView carouselView) {
+    private void generateTeam() {
+        int personCount = participants.size();
+        int surplus = -1;
 
-        carouselView.setSize(3);
-        carouselView.setResource(R.layout.divide_team_carousel_item);
-        carouselView.setCarouselViewListener((view, position) -> {
-            View carouselItemView = view.findViewById(R.id.divide_team_carousel_item);
-            TextView tvTeamLabel = carouselItemView.findViewById(R.id.team_label);
+        if (memberCount == -1) {
+            memberCount = personCount / teamCount;
+            surplus = personCount % teamCount;
 
-            tvTeamLabel.setText("Nhóm " + (position + 1));
+        }
 
-            FlexboxLayout chipHolder = carouselItemView.findViewById(R.id.person_chip_holder);
-            for (int i = 0; i < participants.size(); i++) {
-                Chip participantChip = new Chip(context);
-                participantChip.setText(participants.get(i));
-                chipHolder.addView(participantChip);
+        if (teamCount == -1) {
+            teamCount = personCount / memberCount;
+            surplus = personCount % teamCount;
+        }
+
+        if (surplus < teamCount && surplus >= memberCount) {
+            teamCount += surplus / memberCount;
+            surplus = surplus % memberCount;
+        } else if (surplus >= teamCount && surplus < memberCount) {
+            memberCount += surplus / teamCount;
+            surplus = surplus % teamCount;
+        }
+
+        if (surplus < teamCount && surplus < memberCount) {
+            int index = 0;
+            while (index < teamCount) {
+                if (surplus != 0) {
+                    teamMemberCount.add(memberCount + 1);
+                    surplus--;
+                } else {
+                    teamMemberCount.add(memberCount);
+                }
+                index++;
             }
-        });
-
-        carouselView.show();
+        }
     }
+
+    private void setupResultCarouselView(Context context, CarouselView carouselView) {
+        if (teamMemberCount.size() > 0) {
+            AtomicInteger iCurrentTeam = new AtomicInteger();
+            AtomicInteger sizeTeam = new AtomicInteger();
+            AtomicBoolean hasInit = new AtomicBoolean(false);
+
+            carouselView.setSize(teamMemberCount.size());
+            carouselView.setResource(R.layout.divide_team_carousel_item);
+            carouselView.setCarouselViewListener((view, position) -> {
+                View carouselItemView = view.findViewById(R.id.divide_team_carousel_item);
+                TextView tvTeamLabel = carouselItemView.findViewById(R.id.team_label);
+
+                String teamLabel = "Nhóm " + (position + 1);
+
+                tvTeamLabel.setText(teamLabel);
+
+                if (!hasInit.get()) {
+
+                    FlexboxLayout chipHolder = carouselItemView.findViewById(R.id.person_chip_holder);
+
+                    sizeTeam.addAndGet(teamMemberCount.get(position));
+                    //int iCurrentTeam = getTeamStartIndex(position);
+                    //int sizeTeam = getTeamEndIndex(position);
+                //if (chipHolder.getChildCount() < teamMemberCount.get(position)) {
+                    for (int i = iCurrentTeam.get(); i < sizeTeam.get(); i++) {
+                        Chip participantChip = new Chip(context);
+                        participantChip.setText(participants.get(i));
+                        chipHolder.addView(participantChip);
+                    }
+                //}
+                    iCurrentTeam.addAndGet(teamMemberCount.get(position));
+
+                    if (sizeTeam.get() == participants.size()) {
+                        hasInit.set(true);
+                    }
+                }
+            });
+
+            carouselView.show();
+        }
+    }
+
+//    private int getTeamStartIndex(int position) {
+//        if (position == 0) {
+//            return 0;
+//        } else {
+//            return getTeamEndIndex(position - 1);
+//        }
+//    }
+//
+//    private int getTeamEndIndex(int position) {
+//        return getTeamStartIndex(position) + teamMemberCount.get(position);
+//    }
+
 }
