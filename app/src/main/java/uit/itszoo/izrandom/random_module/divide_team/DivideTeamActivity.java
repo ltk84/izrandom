@@ -12,6 +12,7 @@ import android.text.InputFilter;
 import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -112,7 +113,7 @@ public class DivideTeamActivity extends AppCompatActivity {
             buildResult(context);
         });
 
-//        backFromDivideTeamButton.setOnClickListener(view -> buildMain());
+        backFromDivideTeamButton.setOnClickListener(view -> buildMain());
 
         teamCountCardView.setOnClickListener(view -> {
             teamCountCheck.setVisibility(View.VISIBLE);
@@ -347,6 +348,37 @@ public class DivideTeamActivity extends AppCompatActivity {
         constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.TOP,R.id.toolbar,ConstraintSet.BOTTOM,0);
         constraintSet.connect(resultPlaceholder.getId(),ConstraintSet.BOTTOM, backFromDivideTeamButton.getId(),ConstraintSet.TOP,0);
         constraintSet.connect(backFromDivideTeamButton.getId(),ConstraintSet.TOP,resultPlaceholder.getId(),ConstraintSet.BOTTOM,0);
+        constraintSet.applyTo((ConstraintLayout) mainLayout);
+    }
+
+    private void buildMain() {
+
+        backFromDivideTeamButton.setVisibility(View.INVISIBLE);
+        startDivideTeamButton.setVisibility(View.VISIBLE);
+        teamCountCardView.setVisibility(View.VISIBLE);
+        personPerTeamCountCardView.setVisibility(View.VISIBLE);
+
+
+        // Replace RAFFLE HOLDER for RESULT HOLDER LAYOUT
+        int index = mainLayout.indexOfChild(resultPlaceholder);
+        mainLayout.removeView(resultPlaceholder);
+        resultPlaceholder = null;
+        mainLayout.addView(divideTeamPlaceholder, index);
+
+        float marginPx = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                24,
+                getResources().getDisplayMetrics()
+        );
+
+        // Set constraints for RESULT HOLDER LAYOUT
+        ConstraintSet constraintSet = new ConstraintSet();
+        constraintSet.clone((ConstraintLayout) mainLayout);
+        constraintSet.connect(divideTeamPlaceholder.getId(),ConstraintSet.END,mainLayout.getId(),ConstraintSet.END,(int) marginPx);
+        constraintSet.connect(divideTeamPlaceholder.getId(),ConstraintSet.START,mainLayout.getId(),ConstraintSet.START,(int) marginPx);
+        constraintSet.connect(divideTeamPlaceholder.getId(),ConstraintSet.TOP,R.id.toolbar,ConstraintSet.BOTTOM,0);
+        constraintSet.connect(divideTeamPlaceholder.getId(),ConstraintSet.BOTTOM, startDivideTeamButton.getId(),ConstraintSet.TOP,0);
+        constraintSet.connect(startDivideTeamButton.getId(),ConstraintSet.TOP,divideTeamPlaceholder.getId(),ConstraintSet.BOTTOM,0);
         constraintSet.applyTo((ConstraintLayout) mainLayout);
     }
 
