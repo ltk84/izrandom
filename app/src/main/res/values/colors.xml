@@ -57,6 +57,8 @@
     <color name="colorOnBackgroundLight">#BFBFBF</color>
     <color name="colorOnBackgroundDark">#808080</color>
 
+    <color name="colorWhite">#FFFFFF</color>
+
     <color name="colorRed">#C52222</color>
     <color name="colorRedLight">#CE6161</color>
     <color name="colorRedDark">#450C0C</color>

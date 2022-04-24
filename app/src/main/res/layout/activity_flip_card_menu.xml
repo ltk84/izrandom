@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".random_module.flip_card.FlipCardActivity">
+    tools:context=".random_module.flip_card.FlipCardMenuActivity">
 
     <Toolbar
         android:id="@+id/tb_random_integer"
@@ -14,15 +14,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/lb_flip_card"
             style="@style/AppBarTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/flip_card_label" />
+            android:fontFamily="@font/be_vietnam_pro"
+            android:text="@string/flip_card_label"
+            tools:layout_editor_absoluteX="158dp"
+            tools:layout_editor_absoluteY="17dp" />
         <ImageButton
-            android:id="@+id/bb_flip_card"
+            android:id="@+id/bb_flip_card_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -52,5 +56,49 @@
             tools:layout_editor_absoluteX="351dp">
         </ImageButton>
     </Toolbar>
+
+    <com.jama.carouselview.CarouselView
+        android:id="@+id/flip_card_carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:carouselOffset="center"
+        app:enableSnapping="true"
+        app:indicatorAnimationType="worm"
+        app:indicatorPadding="5"
+        app:indicatorRadius="5"
+        app:indicatorSelectedColor="@color/colorOnBackground"
+        app:indicatorUnselectedColor="@color/colorOnBackgroundDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer"
+        app:scaleOnScroll="false"
+        app:setAutoPlay="false"
+        app:spacing="200" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="@font/be_vietnam_pro"
+        android:text="@string/flip_card_start_button"
+        app:cornerRadius="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="@font/be_vietnam_pro"
+        android:text="@string/flip_card_guide"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
