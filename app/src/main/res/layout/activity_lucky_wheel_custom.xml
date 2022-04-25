@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    xmlns:LuckyWheel="http://schemas.android.com/apk/res-auto"
-    tools:context=".random_module.lucky_wheel.LuckyWheelActivity">
-
+    >
     <Toolbar
         android:id="@+id/tb_lucky_wheel"
         android:layout_width="match_parent"
@@ -24,16 +19,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Vòng quay may mắn" />
+            android:text="@string/wheel_custom_appbar_title" />
 
         <ImageButton
-            android:id="@+id/bb_back"
+            android:id="@+id/bb_rand_wheel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
+            android:background="@null"
             android:contentDescription="@string/back_button"
             android:minWidth="48dp"
-            android:background="@null"
             android:minHeight="48dp"
             android:scaleX="1.2"
             android:scaleY="1.2"
@@ -41,7 +36,7 @@
             app:tint="@color/colorOnBackground" />
 
         <ImageButton
-            android:id="@+id/bt_cus"
+            android:id="@+id/oke_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -49,55 +44,68 @@
             android:minWidth="60dp"
             android:minHeight="60dp"
             android:scaleX="1"
-            android:background="@null"
             android:scaleY="1"
-            android:src="@drawable/ic_bottom_nav_setting"
+            android:src="@drawable/ic_check_button"
+            android:background="@null"
             app:tint="@color/colorOnBackground" />
     </Toolbar>
 
-    <TextSwitcher
-        android:id="@+id/random_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inAnimation="@android:anim/slide_in_left"
-        android:outAnimation="@android:anim/slide_out_right"
-        android:minWidth="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/lwv"
-        app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
 
-    <com.bluehomestudio.luckywheel.LuckyWheel
-        android:id="@+id/lwv"
-        LuckyWheel:background_color="@color/gold"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_centerInParent="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.jama.carouselview.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:carouselOffset="center"
+        app:enableSnapping="true"
+        app:indicatorAnimationType="worm"
+        app:indicatorPadding="5"
+        app:indicatorRadius="5"
+        app:indicatorSelectedColor="@color/colorOnBackground"
+        app:indicatorUnselectedColor="@color/colorOnBackgroundDark"
+        app:layout_constraintBottom_toTopOf="@+id/bt_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel"
+        app:scaleOnScroll="false"
+        app:setAutoPlay="false"
+        app:spacing="200" />
 
     <TextView
-        android:id="@+id/description"
         style="@style/AppBarTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Chạm vào màn hình hoặc xoay vòng quay"
+        android:text="Lướt sang trái hoặc phải để thay đổi vòng quay"
+        app:layout_constraintBottom_toTopOf="@+id/bt_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carouselView" />
+
+    <Button
+        android:id="@+id/bt_edit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Tùy chỉnh vòng quay"
+        android:textSize="13dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/wheel_custom_edit_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lwv" />
+        app:layout_constraintStart_toStartOf="parent">
+    </Button>
 
-    <TextView
-        android:id="@+id/description2"
-        style="@style/AppBarTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text=" theo hướng kim đồng hồ để random"
+    <ImageButton
+        android:id="@+id/add_button_wheel"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:background="@drawable/wheel_custom_add_button"
+        android:src="@drawable/ic_add_button"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_edit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        android:layout_marginEnd="36dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/bt_edit"
+        app:layout_constraintTop_toTopOf="@+id/bt_edit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

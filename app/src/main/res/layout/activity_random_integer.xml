@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".random_module.random_integer.RandomIntegerActivity">
     <Toolbar
-        android:id="@+id/tb_random_integer"
+        android:id="@+id/tb_lucky_wheel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentInsetStart="0dp"
@@ -59,7 +59,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer" />
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
 
     <ImageButton
         android:id="@+id/down"
@@ -193,7 +193,6 @@
         android:textAlignment="center"
         android:layout_margin="10dp"
         android:isScrollContainer="false"
-
         app:layout_constraintBottom_toTopOf="@+id/editMinNum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

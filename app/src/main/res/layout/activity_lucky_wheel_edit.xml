@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:LuckyWheel="http://schemas.android.com/tools">
+    <Toolbar
+        android:id="@+id/tb_lucky_wheel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lb_rand_integer"
+            style="@style/AppBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/lucky_wheel_edit_title" />
+
+        <ImageButton
+            android:id="@+id/bb_lucky_wheel_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            app:tint="@color/colorOnBackground" />
+
+        <ImageButton
+            android:id="@+id/bt_check_lucky_wheel_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="60dp"
+            android:minHeight="60dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/ic_check_button"
+            app:tint="@color/colorOnBackground" />
+        <ImageButton
+            android:id="@+id/bt_delete_lucky_wheel_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="60dp"
+            android:minHeight="60dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/colorOnBackground" />
+    </Toolbar>
+
+    <com.bluehomestudio.luckywheel.LuckyWheel
+        android:id="@+id/edit_lucky_wheel"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        LuckyWheel:background_color="@color/gold"
+        app:layout_constraintBottom_toTopOf="@+id/wheel_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
+
+    <EditText
+        android:id="@+id/wheel_title"
+        style="@style/AppBarTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text=""
+        android:minWidth="100dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:minHeight="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="20dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginEnd="10dp"
+            LuckyWheel:ignore="UselessParent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="start"
+                android:text="Decoration"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#C4C4C4"
+                android:layout_marginTop="-20dp"
+                />
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Text size"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                <TextView
+                    android:id="@+id/text_size_edit_lucky_wheel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/text_size_slider"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:value="16"
+                android:valueFrom="8"
+                android:stepSize="1"
+                android:valueTo="32"
+                >
+            </com.google.android.material.slider.Slider>
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slice repeat"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                <TextView
+                    android:id="@+id/slide_repeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slice_repeat_slider"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:value="1"
+                android:valueFrom="1"
+                android:valueTo="4"
+                android:stepSize="1"
+                >
+            </com.google.android.material.slider.Slider>
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spin time"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                <TextView
+                    android:id="@+id/spin_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/spin_time_slide"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:value="9"
+                android:valueFrom="3"
+                android:valueTo="20"
+                android:stepSize="1"
+                >
+            </com.google.android.material.slider.Slider>
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fair mode"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                <Switch
+                    android:id="@+id/fair_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    LuckyWheel:ignore="UseSwitchCompatOrMaterialXml">
+                </Switch>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/list_slice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slice"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                <ImageButton
+                    android:id="@+id/mix_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="30dp"
+                    android:minHeight="30dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_mix">
+
+                </ImageButton>
+
+                <ImageButton
+                    android:id="@+id/add_slice_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:minWidth="30dp"
+                    android:minHeight="30dp"
+                    android:src="@drawable/ic_add">
+
+                </ImageButton>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#C4C4C4"
+                android:layout_marginBottom="15dp"
+                />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard3"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard5"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard6"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard7"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard8"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard9"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard10"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard11"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/textcard12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

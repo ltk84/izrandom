@@ -10,7 +10,7 @@
     <color name="randomElementRed">#C52222</color>
     <color name="randomElementBlue">#2280C5</color>
     <color name="randomElementBlack">#333333</color>
-
+    <color name="gold">#b89903</color>
     <color name="regularColorDiceBorder">#333333</color>
     <color name="regularColorDiceBackground">#FFFFFF</color>
     <color name="regularColorDicePoint">#333333</color>
@@ -68,6 +68,9 @@
     <color name="colorBlue">#2280C5</color>
     <color name="colorBlueLight">#61A1CE</color>
     <color name="colorBlueDark">#0C2D45</color>
-<!--    Blue Light Theme Over-->
+
+    <color name="cancelButton">#8E8E8E</color>
+    <color name="addButton">#00C734</color>
+    <!--    Blue Light Theme Over-->
 
 </resources>
