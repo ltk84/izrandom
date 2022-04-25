@@ -15,6 +15,7 @@
         <activity android:name=".random_module.flip_coin.FlipCoinActivity" />
         <activity android:name=".random_module.roll_dice.roll_dice_custom.RollDiceCustomActivity" />
         <activity android:name=".random_module.random_direction.random_direction_custom.RandomDirectionCustomActivity" />
+        <activity android:name=".random_module.random_integer.random_integer_custom.RandomIntegerCustomActivity" />
         <activity android:name=".random_module.lucky_wheel.LuckyWheelActivity" />
         <activity android:name=".random_module.random_integer.RandomIntegerActivity" />
         <activity android:name=".random_module.roll_dice.RollDiceActivity" />

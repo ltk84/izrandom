@@ -30,7 +30,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="" />
+    <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_clean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_random_number_custom_clean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_random_number_custom_selected.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_integer/RandomIntegerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_integer/RandomIntegerActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_integer/RandomIntegerContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_integer/RandomIntegerContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_integer/RandomIntegerPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_integer/RandomIntegerPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_integer/random_integer_custom/RandomIntegerCustomActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_integer/random_integer_custom/RandomIntegerCustomActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_random_integer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_random_integer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_random_integer_custom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_random_integer_custom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,17 +113,15 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="SerialNumber@00cc99090904" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2022-04-06T03:11:39.559681600Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.github.jama5262/CarouselView/1.2.2/8673a5251ef29da253b5529a8d85d4bd12379ec6/CarouselView-1.2.2-sources.jar!/com/jama/carouselview/CarouselView.java_SELECTED" value="CarouselView" />
-    <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.6.0-alpha03/8c62c296efe35e282f6a589701662f5f026765df/material-1.6.0-alpha03-sources.jar!/com/google/android/material/navigation/NavigationBarView.java_SELECTED" value="NavigationBarView" />
     <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.jama5262/CarouselView/1.2.2/8673a5251ef29da253b5529a8d85d4bd12379ec6/CarouselView-1.2.2-sources.jar!/com/jama/carouselview/CarouselView.java_SELECTED" value="CarouselView" />
-    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.ltk84/DiceLoadingView/1.5/81e2c0f497b6c12b2aeeaf7fdb8b1a391a91e787/DiceLoadingView-1.5-sources.jar!/com/iigo/library/DiceLoadingView.java_SELECTED" value="DiceLoadingView" />
-    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.ltk84/DiceLoadingView/1.5/81e2c0f497b6c12b2aeeaf7fdb8b1a391a91e787/DiceLoadingView-1.5-sources.jar!/com/iigo/library/DiceView.java_SELECTED" value="DiceView" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="com.android.tools.idea.sqlite.queryhistory" value="SELECT  * FROM userConfig" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DiceLoadingView" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -246,6 +259,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="275" y="39" width="816" height="729" key="#Intentions/0.0.1366.768@0.0.1366.768" timestamp="1647739066866" />
+    <state x="239" y="208" key="#Notifications" timestamp="1650857596920">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="239" y="208" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1650857596920" />
     <state x="286" y="154" key="#PSD" timestamp="1647770718692">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
