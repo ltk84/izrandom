@@ -471,6 +471,7 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
     }
 
     private void randomTheChosenOne(int numberOfTheChosenOne, int pointerCount) {
+        theChosenOne = new boolean[ringList.size()];
         if (numberOfTheChosenOne > theChosenOne.length) {
             System.out.println("Number of chosen ones is greater than the chosen ones list");
             return;
