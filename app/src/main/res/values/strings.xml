@@ -71,4 +71,6 @@
     <string name="close_label">Đóng</string>
     <string name="divide_team_result_guide">Lướt sang phải hoặc trái để xem các đội nhóm khác</string>
     <string name="result_label">Kết quả</string>
+    <string name="wheel_custom_appbar_title">Thay đổi vòng quay</string>
+    <string name="lucky_wheel_edit_title">Tùy chỉnh vòng quay</string>
 </resources>

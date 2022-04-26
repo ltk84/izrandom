@@ -3,18 +3,26 @@ package uit.itszoo.izrandom.random_module.chooser.model;
 import android.widget.ImageView;
 
 public class ChooserRing {
-    private int index;
+    private int id;
     private ImageView circle;
     private float x, y;
     private float dx, dy;
 
-    public ChooserRing(int index, ImageView circle, float x, float y, float dx, float dy) {
-        this.index = index;
+    public ChooserRing(int id, ImageView circle, float x, float y, float dx, float dy) {
+        this.id = id;
         this.circle = circle;
         this.x = x;
         this.y = y;
         this.dx = dx;
         this.dy = dy;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setCircle(ImageView circle) {
@@ -57,11 +65,4 @@ public class ChooserRing {
         this.dy = dy;
     }
 
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
 }

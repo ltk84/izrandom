@@ -57,7 +57,7 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
 
         presenter.getUserConfig().observe(this, config -> {
             presenter.initArrow(ArrowSource.arrows.stream().filter(arrow -> arrow.getId().compareTo(config.arrowId) == 0).findFirst().get());
-            arrowView.setImageDrawable(getDrawable(presenter.getArrowApp().getLayout()));
+            applyChangeArrow(presenter.getArrowApp().getLayout());
         });
     }
 

@@ -1,56 +1,70 @@
 package uit.itszoo.izrandom.random_module.chooser.chooser_custom;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
-import com.jama.carouselview.CarouselScrollListener;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.chooser.ChooserActivity;
+import uit.itszoo.izrandom.random_module.chooser.model.ChooserTheme;
 import uit.itszoo.izrandom.random_module.chooser.source.ChooserSource;
-import uit.itszoo.izrandom.random_module.flip_coin.FlipCoinActivity;
-import uit.itszoo.izrandom.random_module.flip_coin.flip_coin_custom.FlipCoinCustomActivity;
-import uit.itszoo.izrandom.random_module.flip_coin.model.Coin;
-import uit.itszoo.izrandom.random_module.flip_coin.source.CoinSource;
-import uit.itszoo.izrandom.random_module.random_direction.model.Arrow;
-import uit.itszoo.izrandom.random_module.random_direction.source.ArrowSource;
 
 public class ChooserCustomActivity extends AppCompatActivity {
-    private ArrayList<Integer> themes = (ArrayList<Integer>) ChooserSource.themes.clone();
+    public static String SELECTED_THEME = "SELECTED_THEME";
+
+    private ArrayList<ChooserTheme> themes = (ArrayList<ChooserTheme>) ChooserSource.themes.clone();
     CarouselView carouselView;
     RelativeLayout chooserHolderLayout;
     ViewGroup layout;
+    ImageButton backButton;
+    ImageButton confirmButton;
 
     int screenWidth;
     int screenHeight;
+
+    ChooserTheme initialTheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chooser_custom);
+        initialTheme = (ChooserTheme) getIntent().getSerializableExtra(ChooserActivity.CURRENT_THEME);
+        swapInitialThemeToLead();
         initView();
         setupCarouselView();
     }
+
+    void swapInitialThemeToLead() {
+        int initialThemeIndex = themes.indexOf(initialTheme);
+        Collections.swap(themes, 0, initialThemeIndex);
+    }
+
     private void initView() {
         layout = findViewById(R.id.layout_custom_chooser);
+        backButton = findViewById(R.id.bb_chooser_custom);
+        confirmButton = findViewById(R.id.confirm_button_chooser);
+
+        backButton.setOnClickListener(view -> onBackPressed());
+        confirmButton.setOnClickListener(view -> {
+            Intent intentBack = new Intent();
+            intentBack.putExtra(ChooserCustomActivity.SELECTED_THEME, themes.get(carouselView.getCurrentItem()));
+            setResult(Activity.RESULT_OK, intentBack);
+            finish();
+        });
+
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -67,7 +81,7 @@ public class ChooserCustomActivity extends AppCompatActivity {
             @Override
             public void onBindView(View view, int position) {
                 chooserHolderLayout = view.findViewById(R.id.chooser_holder_layout);
-                chooserHolderLayout.setBackground(getDrawable(themes.get(position)));
+                chooserHolderLayout.setBackground(getDrawable(themes.get(position).getThemeValue()));
 
                 chooserHolderLayout.getLayoutParams().width = screenWidth;
                 chooserHolderLayout.getLayoutParams().height = screenHeight;

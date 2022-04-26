@@ -3,26 +3,75 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/JavaProject/DA_Java/random_number/2/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.16458333333333333" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_direction.xml" value="0.11980749746707194" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_direction_custom.xml" value="0.21739130434782608" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_integer.xml" value="0.21739130434782608" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/temp/izrandom/app/src/main/res/layout/activity_lucky_wheel.xml" value="0.14322916666666666" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/temp/izrandom/app/src/main/res/layout/activity_random_integer.xml" value="0.14322916666666666" />
+        <entry key="..\:/JavaProject/DA_Java/random_number/temp/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.14322916666666666" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/blinking_rectangle.xml" value="0.1005" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/circle_color_shape.xml" value="0.178" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/custom_accept_button.xml" value="0.178" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/custom_background_dialog.xml" value="0.178" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/custom_button.xml" value="0.128" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/custom_cancel_button.xml" value="0.178" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/custom_edit_text_background.xml" value="0.178" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/gradient_background_selector.xml" value="0.1005" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_add.xml" value="0.185" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_back_button.xml" value="0.1215" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_bottom_nav_dice.xml" value="0.1215" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_bottom_nav_game.xml" value="0.1215" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_bottom_nav_setting.xml" value="0.1215" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_bottom_nav_suggest.xml" value="0.1215" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_cancle.xml" value="0.178" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_change_appearance.xml" value="0.1215" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_check_button.xml" value="0.1175" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_circle_color.xml" value="0.178" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_circle_color_button.xml" value="0.178" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_clarity_pencil_solid.xml" value="0.178" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_clean.xml" value="0.1735" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_delete.xml" value="0.185" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1175" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_mix.xml" value="0.185" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_coin.xml" value="0.1005" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_dice.xml" value="0.1175" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_direction.xml" value="0.1175" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_direction_2.xml" value="0.1" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_direction_3.xml" value="0.1005" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_direction_4.xml" value="0.1005" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_direction_5.xml" value="0.1005" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_list.xml" value="0.1175" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_number.xml" value="0.1175" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_number_custom_clean.xml" value="0.1175" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_number_custom_selected.xml" value="0.152" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_random_wheel.xml" value="0.1005" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/rounded_corner.xml" value="0.108" />
-        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_lucky_wheel.xml" value="0.21422101449275363" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/wheel_custom_add_button.xml" value="0.128" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/wheel_custom_edit_button.xml" value="0.128" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_add_new_lucky_wheel.xml" value="0.20520833333333333" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_lucky_wheel.xml" value="0.2" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_lucky_wheel_add_slice.xml" value="0.16145833333333334" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_lucky_wheel_custom.xml" value="0.20052083333333334" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_lucky_wheel_edit.xml" value="0.2" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_lucky_wheel_edit_slice.xml" value="0.22291666666666668" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_main.xml" value="0.21422101449275363" />
-        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_random_direction.xml" value="0.23143115942028986" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_random_direction.xml" value="0.2" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_random_direction_custom.xml" value="0.2" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_random_integer.xml" value="0.264" />
-        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.1279128672745694" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.264" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_roll_dice.xml" value="0.17617753623188406" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/activity_roll_dice_custom.xml" value="0.2630208333333333" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/dice_view_carousel.xml" value="0.2630208333333333" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/fragment_play.xml" value="0.21422101449275363" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/fragment_random.xml" value="0.21422101449275363" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/fragment_suggest.xml" value="0.21422101449275363" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/image_view_carousel.xml" value="0.21422101449275363" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/lucky_wheel_carousel.xml" value="0.2630208333333333" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/number_view_card.xml" value="0.24739583333333334" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/number_view_carousel.xml" value="0.2477355072463768" />
+        <entry key="..\:/ReposGithub/izrandom/app/src/main/res/layout/slice_card.xml" value="0.24739583333333334" />
       </map>
     </option>
   </component>

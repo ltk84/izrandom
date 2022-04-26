@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:LuckyWheel="http://schemas.android.com/tools">
+    <Toolbar
+        android:id="@+id/tb_lucky_wheel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lb_rand_integer"
+            style="@style/AppBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Thêm vòng quay" />
+
+        <ImageButton
+            android:id="@+id/bb_add_wheel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            app:tint="@color/colorOnBackground" />
+
+        <ImageButton
+            android:id="@+id/oke_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="60dp"
+            android:minHeight="60dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/ic_check_button"
+            app:tint="@color/colorOnBackground" />
+    </Toolbar>
+
+    <com.bluehomestudio.luckywheel.LuckyWheel
+        android:id="@+id/lw_add_wheel"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        LuckyWheel:background_color="@color/gold"
+        app:layout_constraintBottom_toTopOf="@+id/wheel_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
+
+    <EditText
+        android:id="@+id/wheel_title"
+        style="@style/AppBarTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Làm gì bây giờ?"
+        android:minWidth="100dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:minHeight="100dp"
+        android:padding="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="20dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            LuckyWheel:ignore="UselessParent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="start"
+                android:text="Decoration"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#C4C4C4"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="-20dp"
+                />
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Text size"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                <TextView
+                    android:id="@+id/text_size_add_lucky_wheel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/text_size_slider_add_lucky_wheel"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:value="16"
+                android:stepSize="1"
+                android:valueFrom="0"
+                android:valueTo="32"
+                >
+            </com.google.android.material.slider.Slider>
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slice repeat"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                <TextView
+                    android:id="@+id/slide_repeat_add_lucky_wheel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slice_repeat_slider_add_lucky_wheel"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:value="1"
+                android:valueFrom="1"
+                android:stepSize="1"
+                android:valueTo="4"
+                >
+            </com.google.android.material.slider.Slider>
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spin time"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                <TextView
+                    android:id="@+id/spin_time_add_lucky_wheel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/spin_time_slide_add_lucky_wheel"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:value="5"
+                android:valueFrom="3"
+                android:valueTo="20"
+                android:stepSize="1"
+                >
+            </com.google.android.material.slider.Slider>
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fair mode"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                <Switch
+                    android:id="@+id/fair_mode_add_lucky_wheel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    LuckyWheel:ignore="UseSwitchCompatOrMaterialXml">
+                </Switch>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/add_list_slice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slice"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                <ImageButton
+                    android:id="@+id/add_wheel_mix_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="30dp"
+                    android:minHeight="30dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_mix">
+
+                </ImageButton>
+
+                <ImageButton
+                    android:id="@+id/add_wheel_add_slice_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:minWidth="30dp"
+                    android:minHeight="30dp"
+                    android:src="@drawable/ic_add">
+
+                </ImageButton>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#C4C4C4"
+                android:layout_marginBottom="15dp"
+                />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard3"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard5"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard6"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard7"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard8"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard9"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard10"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard11"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/add_wheel_cardView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#45CAF2"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="5dp">
+                <TextView
+                    android:id="@+id/add_wheel_textcard12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Horizontal Line"
+                    android:textSize="16dp"
+                    android:gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

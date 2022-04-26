@@ -22,6 +22,7 @@ public class Repository {
         AppDatabase appDatabase = AppDatabase.getInstance(context);
         userConfigDAO = appDatabase.userConfigDAO();
         userConfig = userConfigDAO.getUserConfig();
+        appDatabase.query("SELECT 1", null);
     }
 
     public void changeArrow(String arrowId) {
@@ -39,6 +40,12 @@ public class Repository {
     public void changeCoin(String coinId) {
         AppDatabase.dbExecutor.execute(() -> {
             userConfigDAO.updateCoin(coinId);
+        });
+    }
+
+    public void changeChooserTheme(String cThemeId) {
+        AppDatabase.dbExecutor.execute(() -> {
+            userConfigDAO.updateChooserTheme(cThemeId);
         });
     }
 

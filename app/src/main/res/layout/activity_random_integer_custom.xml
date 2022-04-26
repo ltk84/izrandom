@@ -3,7 +3,119 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".random_module.random_integer.random_integer_custom.RandomIntegerCustomActivity">
+    <Toolbar
+        android:id="@+id/tb_lucky_wheel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/lb_rand_integer"
+            style="@style/AppBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Tùy chỉnh" />
+        <ImageButton
+            android:id="@+id/bb_rand_integer_cus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            app:tint="@color/colorOnBackground">
+        </ImageButton>
+        <ImageButton
+            android:id="@+id/ran_num_custom_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minHeight="60dp"
+            android:minWidth="60dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/ic_check_button"
+            app:tint="@color/colorOnBackground">
+        </ImageButton>
+        <ImageButton
+            android:id="@+id/ran_num_cus_clean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minHeight="60dp"
+            android:minWidth="60dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/ic_clean"
+            app:tint="@color/colorOnBackground">
+        </ImageButton>
+    </Toolbar>
 
+    <TextView
+        android:id="@+id/ran_num_cus_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đây là những số sẽ không \n xuất hiện khi ngẫu nhiên."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="150dp"
+        />
 
+    <TextView
+        android:id="@+id/nums_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Danh sách các số ngoại lệ: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
+
+    <EditText
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="64dp"
+        android:background="@null"
+        android:digits="0123456789 ,"
+        android:hint="Nhấn vào đây để nhập"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:minWidth="100dp"
+        android:minHeight="48dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nums_list" />
+
+    <TextView
+        android:id="@+id/num_cus_constraint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="(Nhâp các số cách nhau bằng dấu phẩy  ' , ')"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list" />
 </androidx.constraintlayout.widget.ConstraintLayout>
