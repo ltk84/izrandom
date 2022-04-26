@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -15,11 +16,15 @@ import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.android.flexbox.FlexboxLayout;
@@ -300,44 +305,32 @@ public class DivideTeamActivity extends AppCompatActivity {
         resultPlaceholder = (LinearLayout) getLayoutInflater().inflate(R.layout.linear_layout_divide_team_result, null);
 
 
-//        // Set 2D Rotate Forever Animation
-//        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF,
-//                0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-//        rotateAnimation.setRepeatCount(Animation.INFINITE);
-//        rotateAnimation.setDuration(300);
-//        rotateAnimation.setInterpolator(new LinearInterpolator());
-//        rotateAnimation.setFillAfter(true);
-//
-//
-//        diceLoadingView = resultPlaceholder.findViewById(R.id.raffle_loading);
-//        diceLoadingView.setInterpolator(new LinearInterpolator());
-//        diceLoadingView.setRepeatCount(Animation.INFINITE);
-//        diceLoadingView.setDuration(200);
-//
-//        diceLoadingView.startAnimation(rotateAnimation);
+        // Set 2D Rotate Forever Animation
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF,
+                0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotateAnimation.setRepeatCount(Animation.INFINITE);
+        rotateAnimation.setDuration(300);
+        rotateAnimation.setInterpolator(new LinearInterpolator());
+        rotateAnimation.setFillAfter(true);
 
-//        Handler loadingHandler = new Handler();
-//        loadingHandler.postDelayed(() -> {
-//            //diceLoadingView.clearAnimation();
-////            TableRow loadingPlaceholder = resultPlaceholder.findViewById(R.id.loading_placeholder);
-////            loadingPlaceholder.setVisibility(View.GONE);
-//
-//            ChipGroup chipGroup = resultPlaceholder.findViewById(R.id.person_chip_holder);
-//            for (int i = 0; i < participants.size(); i++) {
-//
-//                Chip participantChip = new Chip(context);
-//                participantChip.setText(participants.get(i));
-//                TableRow.LayoutParams lpParticipantChip = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
-//                lpParticipantChip.gravity = Gravity.CENTER_HORIZONTAL;
-//                participantChip.setLayoutParams(lpParticipantChip);
-//
-//                chipGroup.addView(participantChip);
-//            }
-//        }, 800);
 
-        generateTeam();
-        CarouselView carouselView = resultPlaceholder.findViewById(R.id.carouselView);
-        setupResultCarouselView(context, carouselView);
+        diceLoadingView = resultPlaceholder.findViewById(R.id.divide_team_loading);
+        diceLoadingView.setInterpolator(new LinearInterpolator());
+        diceLoadingView.setRepeatCount(Animation.INFINITE);
+        diceLoadingView.setDuration(200);
+        diceLoadingView.setVisibility(View.VISIBLE);
+
+        diceLoadingView.startAnimation(rotateAnimation);
+
+        Handler loadingHandler = new Handler();
+        loadingHandler.postDelayed(() -> {
+            diceLoadingView.clearAnimation();
+            diceLoadingView.setVisibility(View.GONE);
+
+            generateTeam();
+            CarouselView carouselView = resultPlaceholder.findViewById(R.id.carouselView);
+            setupResultCarouselView(context, carouselView);
+        }, 800);
 
         // Replace RESULT HOLDER LAYOUT for DIVIDE TEAM HOLDER
         int index = mainLayout.indexOfChild(divideTeamPlaceholder);
@@ -412,7 +405,6 @@ public class DivideTeamActivity extends AppCompatActivity {
             memberCount += surplus / teamCount;
             surplus = surplus % teamCount;
         }
-        System.out.println(teamCount + " " + memberCount + " ");
 
         if (surplus <= teamCount) { // && surplus < memberCount) {
             int index = 0;
