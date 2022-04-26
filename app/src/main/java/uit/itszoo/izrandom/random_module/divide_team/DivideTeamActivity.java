@@ -31,6 +31,7 @@ import com.iigo.library.DiceLoadingView;
 import com.jama.carouselview.CarouselView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -86,7 +87,8 @@ public class DivideTeamActivity extends AppCompatActivity {
         backFromDivideTeamButton = findViewById(R.id.back_button);
         participantEditText = findViewById(R.id.participant_edit_text);
         participantEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        participantEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         teamCountCheck = findViewById(R.id.check_team_count);
         personPerTeamCountCheck = findViewById(R.id.check_person_per_team_count);
         teamCountEditText = findViewById(R.id.team_count_value);
@@ -236,6 +238,8 @@ public class DivideTeamActivity extends AppCompatActivity {
     }
 
     private boolean isInputValid() {
+        memberCount = -1;
+        teamCount = -1;
         if (personPerTeamCountCheck.getVisibility() == View.VISIBLE) {
             String value = personPerTeamCountEditText.getText().toString();
             if (value.isEmpty()) {
@@ -380,9 +384,12 @@ public class DivideTeamActivity extends AppCompatActivity {
         constraintSet.connect(divideTeamPlaceholder.getId(),ConstraintSet.BOTTOM, startDivideTeamButton.getId(),ConstraintSet.TOP,0);
         constraintSet.connect(startDivideTeamButton.getId(),ConstraintSet.TOP,divideTeamPlaceholder.getId(),ConstraintSet.BOTTOM,0);
         constraintSet.applyTo((ConstraintLayout) mainLayout);
+
+        isInputValid();
     }
 
     private void generateTeam() {
+        teamMemberCount.clear();
         int personCount = participants.size();
         int surplus = -1;
 
@@ -394,23 +401,31 @@ public class DivideTeamActivity extends AppCompatActivity {
 
         if (teamCount == -1) {
             teamCount = personCount / memberCount;
-            surplus = personCount % teamCount;
+            surplus = personCount % memberCount;
         }
 
-        if (surplus < teamCount && surplus >= memberCount) {
-            teamCount += surplus / memberCount;
-            surplus = surplus % memberCount;
-        } else if (surplus >= teamCount && surplus < memberCount) {
+//        if (surplus < teamCount && surplus >= memberCount) {
+//            teamCount += surplus / memberCount;
+//            surplus = surplus % memberCount;
+//        } else
+        if (surplus >= teamCount && surplus < memberCount - 1) {
             memberCount += surplus / teamCount;
             surplus = surplus % teamCount;
         }
+        System.out.println(teamCount + " " + memberCount + " ");
 
-        if (surplus < teamCount && surplus < memberCount) {
+        if (surplus <= teamCount) { // && surplus < memberCount) {
             int index = 0;
             while (index < teamCount) {
                 if (surplus != 0) {
-                    teamMemberCount.add(memberCount + 1);
-                    surplus--;
+                    if (surplus == memberCount - 1) {
+                        teamMemberCount.add(surplus);
+                        teamCount++;
+                        surplus = 0;
+                    } else {
+                        teamMemberCount.add(memberCount + 1);
+                        surplus--;
+                    }
                 } else {
                     teamMemberCount.add(memberCount);
                 }
@@ -420,10 +435,11 @@ public class DivideTeamActivity extends AppCompatActivity {
     }
 
     private void setupResultCarouselView(Context context, CarouselView carouselView) {
+        Collections.shuffle(participants);
         if (teamMemberCount.size() > 0) {
-            AtomicInteger iCurrentTeam = new AtomicInteger();
-            AtomicInteger sizeTeam = new AtomicInteger();
-            AtomicBoolean hasInit = new AtomicBoolean(false);
+            //AtomicInteger iCurrentTeam = new AtomicInteger();
+            //AtomicInteger sizeTeam = new AtomicInteger();
+            //AtomicBoolean hasInit = new AtomicBoolean(false);
 
             carouselView.setSize(teamMemberCount.size());
             carouselView.setResource(R.layout.divide_team_carousel_item);
@@ -435,42 +451,43 @@ public class DivideTeamActivity extends AppCompatActivity {
 
                 tvTeamLabel.setText(teamLabel);
 
-                if (!hasInit.get()) {
+                //if (!hasInit.get()) {
 
                     FlexboxLayout chipHolder = carouselItemView.findViewById(R.id.person_chip_holder);
+                    chipHolder.removeAllViews();
 
-                    sizeTeam.addAndGet(teamMemberCount.get(position));
-                    //int iCurrentTeam = getTeamStartIndex(position);
-                    //int sizeTeam = getTeamEndIndex(position);
-                //if (chipHolder.getChildCount() < teamMemberCount.get(position)) {
-                    for (int i = iCurrentTeam.get(); i < sizeTeam.get(); i++) {
+                //    sizeTeam.addAndGet(teamMemberCount.get(position));
+                    int iCurrentTeam = getTeamStartIndex(position);
+                    int sizeTeam = getTeamEndIndex(position);
+                if (chipHolder.getChildCount() < teamMemberCount.get(position)) {
+                    for (int i = iCurrentTeam; i < sizeTeam; i++) {
                         Chip participantChip = new Chip(context);
                         participantChip.setText(participants.get(i));
                         chipHolder.addView(participantChip);
                     }
-                //}
-                    iCurrentTeam.addAndGet(teamMemberCount.get(position));
-
-                    if (sizeTeam.get() == participants.size()) {
-                        hasInit.set(true);
-                    }
                 }
+                    //iCurrentTeam.addAndGet(teamMemberCount.get(position));
+
+                    //if (sizeTeam.get() == participants.size()) {
+                    //    hasInit.set(true);
+                    //}
+                //}
             });
 
             carouselView.show();
         }
     }
 
-//    private int getTeamStartIndex(int position) {
-//        if (position == 0) {
-//            return 0;
-//        } else {
-//            return getTeamEndIndex(position - 1);
-//        }
-//    }
-//
-//    private int getTeamEndIndex(int position) {
-//        return getTeamStartIndex(position) + teamMemberCount.get(position);
-//    }
+    private int getTeamStartIndex(int position) {
+        if (position == 0) {
+            return 0;
+        } else {
+            return getTeamEndIndex(position - 1);
+        }
+    }
+
+    private int getTeamEndIndex(int position) {
+        return getTeamStartIndex(position) + teamMemberCount.get(position);
+    }
 
 }
