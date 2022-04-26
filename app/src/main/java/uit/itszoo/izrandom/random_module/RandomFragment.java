@@ -30,6 +30,7 @@ import uit.itszoo.izrandom.random_module.chooser.ChooserActivity;
 import uit.itszoo.izrandom.random_module.divide_team.DivideTeamActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.FlipCoinActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.model.Coin;
+import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.raffle.RaffleActivity;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
@@ -63,6 +64,7 @@ public class RandomFragment extends Fragment {
     CardView divideTeamCardView;
 
     ImageView ivDirection;
+    CardView flipCardCardView;
     Animation rotateAnimation;
 
     DiceLoadingView dlvRollDice;
@@ -146,6 +148,7 @@ public class RandomFragment extends Fragment {
         chooserCardView = view.findViewById(R.id.cv_chooser);
         raffleCardView = view.findViewById(R.id.cv_raffle);
         divideTeamCardView = view.findViewById(R.id.cv_divide_team);
+        flipCardCardView = view.findViewById(R.id.cv_flip_card);
         ivDirection = view.findViewById(R.id.ic_random_direction);
         dlvRollDice = view.findViewById(R.id.ic_roll_dice);
         dlvRollDice.setDuration(0);
@@ -205,6 +208,14 @@ public class RandomFragment extends Fragment {
                 startActivity(intentToChooser);
             }
         });
+        flipCardCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToFlipCard = new Intent(getContext(), FlipCardMenuActivity.class);
+                startActivity(intentToFlipCard);
+            }
+        });
+
 
         raffleCardView.setOnClickListener(new View.OnClickListener() {
             @Override

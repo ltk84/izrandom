@@ -3,6 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/drawable/blinking_rectangle.xml" value="0.1125" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/drawable/card_gradient_background.xml" value="0.1125" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/drawable/gradient_background_selector.xml" value="0.1125" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/drawable/ic_flip_card.xml" value="0.107" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/drawable/ic_random_direction.xml" value="0.2515" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/drawable/rounded_corner.xml" value="0.1125" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/activity_flip_card.xml" value="0.19519927536231885" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/activity_flip_card_menu.xml" value="0.11955420466058764" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/activity_lucky_wheel.xml" value="0.11930091185410334" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/activity_random_direction.xml" value="0.19519927536231885" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/activity_random_direction_custom.xml" value="0.1" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/activity_random_integer.xml" value="0.19519927536231885" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.11930091185410334" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/card_view_carousel.xml" value="0.2" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/card_view_grid_item.xml" value="0.11980749746707194" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/dice_view_carousel.xml" value="0.1" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/fragment_random.xml" value="0.19519927536231885" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/image_view_carousel.xml" value="0.1" />
+        <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/number_view_card.xml" value="0.1" />
         <entry key="..\:/JavaProject/DA_Java/random_number/2/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.16458333333333333" />
         <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_direction.xml" value="0.11980749746707194" />
         <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_direction_custom.xml" value="0.21739130434782608" />

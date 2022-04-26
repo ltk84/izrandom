@@ -12,6 +12,7 @@
     <string name="random_wheel_label">Vòng quay</string>
     <string name="random_number_label">Số ngẫu nhiên</string>
     <string name="random_list_label">Danh sách</string>
+    <string name="flip_card_label">Lật thẻ bài</string>
     <string name="random_direction_description">Random Direction</string>
     <string name="roll_a_dice_description">Roll A Dice</string>
     <string name="toss_a_dice_description">Toss A Dice</string>
@@ -73,4 +74,11 @@
     <string name="result_label">Kết quả</string>
     <string name="wheel_custom_appbar_title">Thay đổi vòng quay</string>
     <string name="lucky_wheel_edit_title">Tùy chỉnh vòng quay</string>
+    <string name="flip_card_object_description">Flip card object</string>
+    <string name="flip_card_object_label">Tên thẻ bài</string>
+    <string name="flip_card_object_guide">Chạm vào để chỉnh sửa</string>
+    <string name="flip_card_menu_start_button">Bắt đầu</string>
+    <string name="flip_card_menu_guide">Lướt sang phải hoặc trái để thay đổi bộ thẻ bài</string>
+    <string name="flip_card_back_to_menu_button">Quay lại</string>
+    <string name="flip_card_guide">Chạm vào thẻ bài để lật thẻ bài</string>
 </resources>
