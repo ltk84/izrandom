@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jama.carouselview.CarouselViewListener;
 
+import java.util.ArrayList;
+
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuContract;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuPresenter;
@@ -56,13 +58,14 @@ public class FlipCardActivity extends AppCompatActivity implements FlipCardContr
     }
 
     public void setUpGridView() {
-//        String[] listString = new String[10];
-//
-//        for (int i = 0; i < 10; i++) {
-//            listString[i] = "card " + i;
-//        }
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.card_view_grid_item, listString);
-//        gridView.setAdapter(adapter);
+        ArrayList<String> listString = new ArrayList<>();
+
+        for (int i = 0; i < 25; i++) {
+            listString.add("card context " + i);
+        }
+
+        CardItemAdapter cardItemAdapter = new CardItemAdapter(this, listString);
+        gridView.setAdapter(cardItemAdapter);
 
     }
 

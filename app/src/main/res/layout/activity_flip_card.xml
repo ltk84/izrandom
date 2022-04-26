@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Toolbar
-        android:id="@+id/tb_random_integer2"
+        android:id="@+id/tb_flip_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentInsetStart="0dp"
@@ -77,12 +77,14 @@
     <GridView
         android:id="@+id/flip_card_grid_view"
         android:layout_width="280dp"
-        android:layout_height="380dp"
+        android:layout_height="400dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:numColumns="3"
+        android:horizontalSpacing="6dp"
+        android:numColumns="5"
+        android:verticalSpacing="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer2" />
+        app:layout_constraintTop_toBottomOf="@+id/tb_flip_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
