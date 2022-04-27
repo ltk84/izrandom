@@ -92,8 +92,7 @@ public class DivideTeamActivity extends AppCompatActivity {
         backFromDivideTeamButton = findViewById(R.id.back_button);
         participantEditText = findViewById(R.id.participant_edit_text);
         participantEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-        participantEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
         teamCountCheck = findViewById(R.id.check_team_count);
         personPerTeamCountCheck = findViewById(R.id.check_person_per_team_count);
         teamCountEditText = findViewById(R.id.team_count_value);
