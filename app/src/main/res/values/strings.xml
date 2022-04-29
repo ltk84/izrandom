@@ -71,4 +71,6 @@
     <string name="close_label">Đóng</string>
     <string name="divide_team_result_guide">Lướt sang phải hoặc trái để xem các đội nhóm khác</string>
     <string name="result_label">Kết quả</string>
+    <string name="tournament_bracket_title">Lập bảng thi đấu</string>
+    <string name="tournament_input_hnt">Người/Đội tham gia</string>
 </resources>
