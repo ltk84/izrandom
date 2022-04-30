@@ -290,11 +290,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="206dp"
-                android:layout_marginBottom="@dimen/navigation_bar_height"
                 android:orientation="horizontal">
-
-
-
                 <LinearLayout
                     android:layout_width="146dp"
                     android:layout_height="match_parent"
@@ -401,6 +397,38 @@
                             android:gravity="bottom|center_horizontal"
                             android:text="@string/divide_team_label"
                             android:textColor="@color/colorOnBackground"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="206dp"
+                android:layout_marginBottom="@dimen/navigation_bar_height"
+                android:orientation="horizontal"
+                >
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_tournament_bracket"
+                    app:cardCornerRadius="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_width="150dp"
+                    android:layout_height="73dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/ic_divide_team"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

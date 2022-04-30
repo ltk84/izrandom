@@ -9,9 +9,9 @@
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
         <item name="toolbarStyle">@style/ToolBarStyle</item>
         <item name="fontFamily">@font/be_vietnam_pro</item>
-<!--        <item name="colorControlNormal">@color/colorPrimary</item>-->
-<!--        <item name="colorControlActivated">@color/colorPrimary</item>-->
-<!--        <item name="colorControlHighlight">@color/colorPrimaryLight</item>-->
+        <!--        <item name="colorControlNormal">@color/colorPrimary</item>-->
+        <!--        <item name="colorControlActivated">@color/colorPrimary</item>-->
+        <!--        <item name="colorControlHighlight">@color/colorPrimaryLight</item>-->
     </style>
 
     <!-- Bottom Navigation Bar Style. -->
@@ -50,6 +50,11 @@
     <style name="Theme.IZRandom.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.IZRandom.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ThemeOverlay.IZRandom.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
 
 
 </resources>

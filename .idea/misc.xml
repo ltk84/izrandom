@@ -7,7 +7,16 @@
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/activity_tournament_bracket.xml" value="0.2630208333333333" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/dialog_divide_team_guide.xml" value="0.2630208333333333" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/dialog_tournament_bracket_guide.xml" value="0.2630208333333333" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/divide_team_carousel_item.xml" value="0.2630208333333333" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/fragment_fullscreen.xml" value="0.24739583333333334" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/fragment_play.xml" value="0.2630208333333333" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/fragment_random.xml" value="0.2630208333333333" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/layout_cell_bracket.xml" value="0.24739583333333334" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/layout_cell_brackets.xml" value="0.24739583333333334" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/layout_cell_single_bracket.xml" value="0.2630208333333333" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/linear_layout_divide_team_result.xml" value="0.2630208333333333" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/result_tournament_bracket.xml" value="0.2630208333333333" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/tournament_bracket_result.xml" value="0.18854166666666666" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_back_button.xml" value="0.1215" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_bottom_nav_dice.xml" value="0.1215" />
         <entry key="..\:/ReposGithub/izrandom/app/src/main/res/drawable/ic_bottom_nav_game.xml" value="0.1215" />

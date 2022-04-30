@@ -73,4 +73,6 @@
     <string name="result_label">Kết quả</string>
     <string name="tournament_bracket_title">Lập bảng thi đấu</string>
     <string name="tournament_input_hnt">Người/Đội tham gia</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

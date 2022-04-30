@@ -1,30 +1,49 @@
 package uit.itszoo.izrandom.random_module.tournament_bracket;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.telecom.InCallService;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextWatcher;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import com.ventura.bracketslib.BracketsView;
+import com.ventura.bracketslib.model.ColomnData;
+import com.ventura.bracketslib.model.CompetitorData;
+import com.ventura.bracketslib.model.MatchData;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.tournament_bracket.result.TournamentBracketResult;
 import uit.itszoo.izrandom.utilities.VerticalImageSpan;
 
 public class TournamentBracketActivity extends AppCompatActivity implements TournamentBracketContract.View {
-    MaterialButton startDivideTeamButton;
-    MaterialButton backFromDivideTeamButton;
+    public static final String LIST_PARTICIPANT = "LIST_PARTICIPANT";
+    MaterialButton startDivideTournament;
     TextInputEditText participantEditText;
+    TextInputLayout textInputLayout;
+    ImageButton backButton;
+    ViewGroup mainLayout;
 
     private int participantFieldSpan = 0, participantFieldLength = 0;
     int participantLastSpan;
@@ -39,12 +58,13 @@ public class TournamentBracketActivity extends AppCompatActivity implements Tour
 
     void initView()
     {
-        startDivideTeamButton = findViewById(R.id.start_button);
-        backFromDivideTeamButton = findViewById(R.id.back_button);
+        startDivideTournament = findViewById(R.id.start_button);
         participantEditText = findViewById(R.id.participant_edit_text);
         participantEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
         participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
-
+        textInputLayout = findViewById(R.id.participant_text_input);
+        mainLayout = findViewById(R.id.main_tournament_layout);
+        backButton = findViewById(R.id.bb_tb);
     }
     private int addChip(Context context, TextInputEditText editText, int span, int length) {
         Editable editable =
@@ -68,7 +88,7 @@ public class TournamentBracketActivity extends AppCompatActivity implements Tour
                 }
                 participantFieldSpan = addChip(this, participantEditText, participantFieldSpan, participantFieldLength);
 
-                startDivideTeamButton.setEnabled(true);
+                startDivideTournament.setEnabled(true);
                 return true;
             }
             return false;
@@ -116,8 +136,25 @@ public class TournamentBracketActivity extends AppCompatActivity implements Tour
                 }
             }
         });
+        startDivideTournament.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intentToCustom = new Intent(getApplicationContext(), TournamentBracketResult.class);
+                        intentToCustom.putExtra(TournamentBracketActivity.LIST_PARTICIPANT, (Serializable) participants);
+                        startActivity(intentToCustom);
+                    }
+                }
+        );
+        backButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onBackPressed();
+                    }
+                }
+        );
     }
-
     @Override
     public void setPresenter(TournamentBracketContract.Presenter presenter) {
     }

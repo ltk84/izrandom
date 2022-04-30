@@ -22,6 +22,8 @@
         <activity android:name=".random_module.roll_dice.RollDiceActivity" />
         <activity android:name=".random_module.random_direction.RandomDirectionActivity" />
         <activity android:name=".random_module.tournament_bracket.TournamentBracketActivity" />
+        <activity android:name=".random_module.tournament_bracket.result.TournamentBracketResult" />
+
 
         <activity
             android:name=".home.HomeActivity"
