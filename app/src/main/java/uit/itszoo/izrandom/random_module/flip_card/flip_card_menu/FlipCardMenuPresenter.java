@@ -15,8 +15,8 @@ public class FlipCardMenuPresenter implements FlipCardMenuContract.Presenter {
 
     public FlipCardMenuPresenter(Context context, FlipCardMenuContract.View view) {
         this.view = view;
-        repository = Repository.getInstance(context);
-        userConfig = repository.getUserConfiguration();
+//        repository = Repository.getInstance(context);
+//        userConfig = repository.getUserConfiguration();
     }
 
     @Override

@@ -8,7 +8,7 @@
                 android:endColor="#E988F9"
                 android:type="linear" />
             <corners
-                android:radius="8dp">
+                android:radius="5dp">
             </corners>
         </shape>
     </item>
