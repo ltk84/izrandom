@@ -152,7 +152,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                     return;
                 }
                 Intent intentToCustom = new Intent(getApplicationContext(), LuckyWheelCustomActivity.class);
-//                intentToCustom.putExtra(LuckyWheelActivity.CURRENT_WHEEL, presenter.getIndexOfWheelInList());
+                intentToCustom.putExtra(LuckyWheelActivity.CURRENT_WHEEL, presenter.getWheelData().getId());
                 intentLauncher.launch(intentToCustom);
             }
         });

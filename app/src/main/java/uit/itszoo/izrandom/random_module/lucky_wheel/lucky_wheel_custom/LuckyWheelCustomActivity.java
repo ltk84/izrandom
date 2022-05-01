@@ -21,8 +21,10 @@ import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
@@ -37,6 +39,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
 
     LuckyWheel luckyWheel;
     ArrayList<LuckyWheelData> wheelList;
+    String currentWheelID;
 
 //    ArrayList<ArrayList<String>> listMixedContent = LuckyWheelSource.mixedContentItem;
 //    ArrayList<ArrayList<String>> listContent = LuckyWheelSource.listContent;
@@ -55,14 +58,24 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lucky_wheel_custom);
-//        indexWheelInList = (int) getIntent().getSerializableExtra(LuckyWheelActivity.CURRENT_WHEEL);
         wheelList = (ArrayList<LuckyWheelData>) LuckyWheelSource.luckyWheelList.clone();
         initView();
         setupCarouselView();
-//        carouselView.setCurrentItem(indexWheelInList);
-        // THAY THE TAM
-        carouselView.setCurrentItem(0);
-        setListener();
+        currentWheelID = getIntent().getStringExtra(LuckyWheelActivity.CURRENT_WHEEL);
+        swapInitialWheelToLead();
+        setListenerForView();
+    }
+
+    private void swapInitialWheelToLead() {
+        int initialWheelIndex = 0;
+        for (LuckyWheelData wheelData :
+                wheelList) {
+            if (wheelData.getId().equals(currentWheelID)) {
+                initialWheelIndex = wheelList.indexOf(wheelData);
+                break;
+            }
+        }
+        Collections.swap(wheelList, 0, initialWheelIndex);
     }
 
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
@@ -76,7 +89,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
                         System.out.println(e);
                     }
                 }
-                
+
             });
 
     void initView() {
@@ -96,7 +109,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
         return super.getResources();
     }
 
-    void setListener() {
+    void setListenerForView() {
         backButton.setOnClickListener(
                 view -> {
 //                    Intent intentBack = new Intent();
