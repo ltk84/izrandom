@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,9 +23,9 @@ import com.jama.carouselview.CarouselViewListener;
 import java.util.ArrayList;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
-import uit.itszoo.izrandom.random_module.model.LuckyWheelData;
-import uit.itszoo.izrandom.random_module.model.LuckyWheelSlice;
 
 public class LuckyWheelCustomActivity extends AppCompatActivity {
     public static final String FAIR_MODE = "FAIR_MODE";
@@ -38,7 +36,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
     public static String SELECTED_WHEEL = "SELECTED_WHEEL";
 
     LuckyWheel luckyWheel;
-    ArrayList<LuckyWheelData> wheelList = (ArrayList<LuckyWheelData>) LuckyWheelSource.luckyWheelList.clone();
+    ArrayList<LuckyWheelData> wheelList;
 
 //    ArrayList<ArrayList<String>> listMixedContent = LuckyWheelSource.mixedContentItem;
 //    ArrayList<ArrayList<String>> listContent = LuckyWheelSource.listContent;
@@ -58,6 +56,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lucky_wheel_custom);
 //        indexWheelInList = (int) getIntent().getSerializableExtra(LuckyWheelActivity.CURRENT_WHEEL);
+        wheelList = (ArrayList<LuckyWheelData>) LuckyWheelSource.luckyWheelList.clone();
         initView();
         setupCarouselView();
 //        carouselView.setCurrentItem(indexWheelInList);
@@ -70,13 +69,14 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 if (result.getResultCode() == Activity.RESULT_OK) {
-//                    Intent data = result.getData();
-//                    try {
-//                        recreate();
-//                    } catch (Exception e) {
-//                        System.out.println(e);
-//                    }
+                    Intent data = result.getData();
+                    try {
+                        recreate();
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
                 }
+                
             });
 
     void initView() {
@@ -143,16 +143,6 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
         );
     }
 
-    private ArrayList<WheelItem> convertSliceDataToWheelItem(ArrayList<LuckyWheelSlice> slices) {
-        ArrayList<WheelItem> uiSlices = new ArrayList<>();
-        for (LuckyWheelSlice slice : slices) {
-            uiSlices.add(new WheelItem(Color.parseColor(slice.getColor()),
-                    BitmapFactory.decodeResource(getResources(), R.drawable.small_nails_icons), slice.getName()));
-        }
-
-        return uiSlices;
-    }
-
     private void setupCarouselView() {
 //        generateWheelItems();
         carouselView = findViewById(R.id.carouselView);
@@ -167,7 +157,10 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
                 textView.setText(wheelList.get(position).getTitle());
                 luckyWheel = view.findViewById(R.id.wheel_carousel);
                 luckyWheel.setTarget(1);
-                luckyWheel.addWheelItems(convertSliceDataToWheelItem(wheelList.get(position).getSlices()));
+
+                ArrayList<WheelItem> wheelItems = SliceToWheelItem.convertSlicesToWheelItems(
+                        getResources(), wheelList.get(position).getSlicesWithRepeat());
+                luckyWheel.addWheelItems(wheelItems);
             }
         });
 

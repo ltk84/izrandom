@@ -2,7 +2,7 @@ package uit.itszoo.izrandom.random_module.lucky_wheel;
 
 import uit.itszoo.izrandom.BasePresenter;
 import uit.itszoo.izrandom.BaseView;
-import uit.itszoo.izrandom.random_module.model.LuckyWheelData;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 
 public interface LuckyWheelContract {
     interface Presenter extends BasePresenter {

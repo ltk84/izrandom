@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_module.model;
+package uit.itszoo.izrandom.random_module.lucky_wheel.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -72,5 +72,16 @@ public class LuckyWheelData implements Serializable {
 
     public void setSlices(ArrayList<LuckyWheelSlice> slices) {
         this.slices = slices;
+    }
+
+    public ArrayList<LuckyWheelSlice> getSlicesWithRepeat() {
+        if (getSliceRepeat() == 1) {
+            return getSlices();
+        }
+        ArrayList<LuckyWheelSlice> list = new ArrayList<>();
+        for (int i = 0; i < getSliceRepeat(); i++) {
+            list.addAll(getSlices());
+        }
+        return list;
     }
 }

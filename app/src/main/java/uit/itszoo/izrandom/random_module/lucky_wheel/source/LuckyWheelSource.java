@@ -3,8 +3,8 @@ package uit.itszoo.izrandom.random_module.lucky_wheel.source;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import uit.itszoo.izrandom.random_module.model.LuckyWheelData;
-import uit.itszoo.izrandom.random_module.model.LuckyWheelSlice;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
 
 public class LuckyWheelSource {
 

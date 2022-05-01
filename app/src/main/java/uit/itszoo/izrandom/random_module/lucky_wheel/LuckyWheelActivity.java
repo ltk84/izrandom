@@ -3,8 +3,6 @@ package uit.itszoo.izrandom.random_module.lucky_wheel;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -29,10 +27,10 @@ import java.util.List;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
 import uit.itszoo.izrandom.random_module.lucky_wheel.lucky_wheel_custom.LuckyWheelCustomActivity;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
-import uit.itszoo.izrandom.random_module.model.LuckyWheelData;
-import uit.itszoo.izrandom.random_module.model.LuckyWheelSlice;
 
 public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelContract.View {
     public static final String CURRENT_WHEEL = "CURRENT_WHEEL";
@@ -196,7 +194,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         // TODO: đổi lại thành lấy từ db
         presenter.setWheelData(luckyWheelData);
 
-        generateWheelItems(presenter.getWheelData().getSlices());
+        generateWheelItems();
 
         titleTextView.setText(presenter.getWheelData().getTitle());
 
@@ -216,14 +214,9 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         });
     }
 
-    private void generateWheelItems(ArrayList<LuckyWheelSlice> slices) {
-        wheelItems = new ArrayList<>();
-        for (LuckyWheelSlice slice : slices) {
-            // TODO: thay bằng icon của slice sau
-            WheelItem uiSlice = new WheelItem(Color.parseColor(slice.getColor()),
-                    BitmapFactory.decodeResource(getResources(), R.drawable.small_nails_icons), slice.getName());
-            wheelItems.add(uiSlice);
-        }
+    private void generateWheelItems() {
+        wheelItems = SliceToWheelItem.convertSlicesToWheelItems(
+                getResources(), presenter.getWheelData().getSlicesWithRepeat());
     }
 
     @Override

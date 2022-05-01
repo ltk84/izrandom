@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_module.model;
+package uit.itszoo.izrandom.random_module.lucky_wheel.model;
 
 import java.io.Serializable;
 
@@ -42,4 +42,6 @@ public class LuckyWheelSlice implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    
 }

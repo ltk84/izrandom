@@ -2,7 +2,7 @@ package uit.itszoo.izrandom.random_module.lucky_wheel;
 
 import android.content.Context;
 
-import uit.itszoo.izrandom.random_module.model.LuckyWheelData;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 
 public class LuckyWheelPresenter implements LuckyWheelContract.Presenter {
     private final LuckyWheelContract.View view;

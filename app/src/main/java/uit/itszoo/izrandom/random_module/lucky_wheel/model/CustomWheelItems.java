@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_module.model;
+package uit.itszoo.izrandom.random_module.lucky_wheel.model;
 
 import com.bluehomestudio.luckywheel.WheelItem;
 

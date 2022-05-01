@@ -30,17 +30,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfa6ce8a-b6d1-4611-81f8-c418f9f6fd2c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/model/LuckyWheelData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/model/LuckyWheelSlice.java" afterDir="false" />
+    <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/adapter/SliceToWheelItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckWheelPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelPresenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelPresenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/EditLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/EditLuckyWheelActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/LuckyWheelCustomActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/LuckyWheelCustomActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/source/LuckyWheelSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/source/LuckyWheelSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/models/CustomWheelItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/model/CustomWheelItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/model/CustomWheelItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/model/CustomWheelItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/model/LuckyWheelData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/model/LuckyWheelData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/model/LuckyWheelSlice.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/model/LuckyWheelSlice.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +114,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.github.troqphuc147/LuckyWheel_Android/0.4.1/f9ce1e9700d4ae23a2f7910c2d73d453248349ef/LuckyWheel_Android-0.4.1-sources.jar!/com/bluehomestudio/luckywheel/LuckyWheel.java_SELECTED" value="LuckyWheel" />
+    <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.github.troqphuc147/LuckyWheel_Android/0.4.1/f9ce1e9700d4ae23a2f7910c2d73d453248349ef/LuckyWheel_Android-0.4.1-sources.jar!/com/bluehomestudio/luckywheel/WheelView.java_SELECTED" value="WheelView" />
     <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.jama5262/CarouselView/1.2.2/8673a5251ef29da253b5529a8d85d4bd12379ec6/CarouselView-1.2.2-sources.jar!/com/jama/carouselview/CarouselView.java_SELECTED" value="CarouselView" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="cidr.known.project.marker" value="true" />
@@ -274,10 +276,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="412" y="174" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1647742931826" />
-    <state x="207" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1648114591115">
+    <state x="207" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1651386162916">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="207" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1648114591115" />
+    <state x="207" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1651386162916" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1648735607362">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -312,9 +314,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="279" y="130" key="AndroidProcessChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1650096315456" />
-    <state width="492" height="466" key="DebuggerActiveHint" timestamp="1649499603296">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="448" height="439" key="DebuggerActiveHint" timestamp="1651395457032">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state width="448" height="439" key="DebuggerActiveHint/0.0.1366.768@0.0.1366.768" timestamp="1651395457032" />
     <state width="492" height="466" key="DebuggerActiveHint/0.0.1536.816@0.0.1536.816" timestamp="1649499603296" />
     <state x="812" y="155" key="FileChooserDialogImpl" timestamp="1648791403129">
       <screen x="0" y="0" width="1536" height="816" />
@@ -326,28 +329,28 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1650101713617" />
-    <state width="1321" height="191" key="GridCell.Tab.0.bottom" timestamp="1651376565530">
+    <state width="1321" height="192" key="GridCell.Tab.0.bottom" timestamp="1651404423002">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1321" height="191" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1651376565530" />
+    <state width="1321" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1651404423002" />
     <state width="1493" height="204" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1650019877754" />
-    <state width="1321" height="191" key="GridCell.Tab.0.center" timestamp="1651376565529">
+    <state width="1321" height="192" key="GridCell.Tab.0.center" timestamp="1651404423002">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1321" height="191" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1651376565529" />
+    <state width="1321" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1651404423002" />
     <state width="1493" height="204" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="1321" height="191" key="GridCell.Tab.0.left" timestamp="1651376565529">
+    <state width="1321" height="192" key="GridCell.Tab.0.left" timestamp="1651404423002">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1321" height="191" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1651376565529" />
+    <state width="1321" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1651404423002" />
     <state width="1493" height="204" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="1321" height="191" key="GridCell.Tab.0.right" timestamp="1651376565530">
+    <state width="1321" height="192" key="GridCell.Tab.0.right" timestamp="1651404423002">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1321" height="191" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1651376565530" />
+    <state width="1321" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1651404423002" />
     <state width="1493" height="204" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
@@ -355,10 +358,10 @@
     </state>
     <state x="29" y="40" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1647486414658" />
     <state x="33" y="43" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1647770642862" />
-    <state x="208" y="129" width="570" height="524" key="StructurePopup" timestamp="1650510726036">
+    <state x="208" y="129" width="570" height="524" key="StructurePopup" timestamp="1651386992109">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="208" y="129" width="570" height="524" key="StructurePopup/0.0.1366.768@0.0.1366.768" timestamp="1650510726036" />
+    <state x="208" y="129" width="570" height="524" key="StructurePopup/0.0.1366.768@0.0.1366.768" timestamp="1651386992109" />
     <state x="584" y="186" key="chooseDestDirectoryDialog" timestamp="1647307361368">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -367,14 +370,14 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="478" y="141" width="579" height="534" key="find.popup/0.0.1536.816@0.0.1536.816" timestamp="1650018350872" />
-    <state width="503" height="214" key="javadoc.popup.new" timestamp="1651375090895">
+    <state width="503" height="214" key="javadoc.popup.new" timestamp="1651397289130">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="503" height="214" key="javadoc.popup.new/0.0.1366.768@0.0.1366.768" timestamp="1651375090895" />
-    <state x="383" y="141" key="refactoring.ChangeSignatureDialog" timestamp="1647741633517">
+    <state width="503" height="214" key="javadoc.popup.new/0.0.1366.768@0.0.1366.768" timestamp="1651397289130" />
+    <state x="383" y="141" key="refactoring.ChangeSignatureDialog" timestamp="1651391857755">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="383" y="141" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1647741633517" />
+    <state x="383" y="141" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1651391857755" />
     <state x="425" y="185" key="run.anything.popup" timestamp="1650016860189">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -396,6 +399,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.bluehomestudio.luckywheel.WheelItem" memberName="color" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <configuration name="app">
         <watch expression="coinList.get(0)" />
