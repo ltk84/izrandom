@@ -34,16 +34,14 @@ import com.bluehomestudio.luckywheel.LuckyWheel;
 import com.bluehomestudio.luckywheel.WheelItem;
 import com.google.android.material.slider.Slider;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import top.defaults.colorpicker.ColorPickerPopup;
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
 
-public class EditLuckyWheelActivity  extends AppCompatActivity {
+public class EditLuckyWheelActivity extends AppCompatActivity {
     LuckyWheel luckyWheel;
     ArrayList<WheelItem> wheelItems = new ArrayList<>();
     ArrayList<WheelItem> wheelShowedItems = new ArrayList<>();
@@ -67,19 +65,21 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
     TextView spinTimeView;
     EditText ttText;
     int indexCurrentWheel;
-    int textSize=1;
-    int repeat =1;
+    int textSize = 1;
+    int repeat = 1;
     int spinTime;
     String title = "";
     boolean fairMode = false;
     int changeColor;
     int defaultSLiceColor = -4955036;
-    public static enum DrawablePosition { TOP, BOTTOM, LEFT, RIGHT };
+
+    public static enum DrawablePosition {TOP, BOTTOM, LEFT, RIGHT}
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lucky_wheel_edit);
-        indexCurrentWheel = (int) getIntent().getSerializableExtra(LuckyWheelCustomActivity.CURRENT_WHEEL);
+//        indexCurrentWheel = (int) getIntent().getSerializableExtra(LuckyWheelCustomActivity.CURRENT_WHEEL);
         textSize = LuckyWheelSource.textSize.get(indexCurrentWheel);
         repeat = LuckyWheelSource.repeat.get(indexCurrentWheel);
         spinTime = LuckyWheelSource.spinTime.get(indexCurrentWheel);
@@ -90,24 +90,23 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
         colors.addAll(LuckyWheelSource.listColor.get(indexCurrentWheel));
         generateWheelItems();
         initView();
-        setOnlistener();
+        setListenerForView();
     }
+
     private void generateWheelItems() {
         wheelItems = new ArrayList<>();
-        for(int i = 0 ; i < wheelContents.size();i++)
-        {
+        for (int i = 0; i < wheelContents.size(); i++) {
             wheelItems.add(new WheelItem(Color.parseColor(colors.get(i)), BitmapFactory.decodeResource(getResources(),
-                    R.drawable.small_nails_icons) , wheelContents.get(i)));
+                    R.drawable.small_nails_icons), wheelContents.get(i)));
         }
-        for(int i = 0 ; i < mixedContent.size();i++)
-        {
+        for (int i = 0; i < mixedContent.size(); i++) {
             int indexColor = wheelContents.indexOf(mixedContent.get(i));
             wheelShowedItems.add(new WheelItem(Color.parseColor(colors.get(indexColor)), BitmapFactory.decodeResource(getResources(),
-                    R.drawable.small_nails_icons) , mixedContent.get(i)));
+                    R.drawable.small_nails_icons), mixedContent.get(i)));
         }
     }
-    void initView()
-    {
+
+    void initView() {
         luckyWheel = findViewById(R.id.edit_lucky_wheel);
         luckyWheel.setTarget(1);
         luckyWheel.addWheelItems(wheelShowedItems);
@@ -158,16 +157,14 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
         listTextInCard[11] = findViewById(R.id.textcard12);
         createSliceCard();
     }
-    void createSliceCard()
-    {
-        for(int i = 0 ; i < listCardView.length ; i++)
-        {
+
+    void createSliceCard() {
+        for (int i = 0; i < listCardView.length; i++) {
             listCardView[i].setVisibility(View.INVISIBLE);
             listTextInCard[i].setVisibility(View.INVISIBLE);
             indexSliceCard.add(i);
         }
-        for(int index = 0; index <wheelItems.size(); index++)
-        {
+        for (int index = 0; index < wheelItems.size(); index++) {
             listCardView[index].setVisibility(View.VISIBLE);
             listTextInCard[index].setVisibility(View.VISIBLE);
             listCardView[index].setCardBackgroundColor(wheelItems.get(index).color);
@@ -183,8 +180,8 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
             );
         }
     }
-    void setOnlistener()
-    {
+
+    void setListenerForView() {
         backButton.setOnClickListener(
 
                 new View.OnClickListener() {
@@ -199,9 +196,8 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                     @Override
                     public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
                         repeat = (int) sliceRepeatSlider.getValue();
-                        ArrayList<WheelItem> cache  = new ArrayList<>();
-                        for(int i = 1 ; i <= repeat ; i++)
-                        {
+                        ArrayList<WheelItem> cache = new ArrayList<>();
+                        for (int i = 1; i <= repeat; i++) {
                             cache.addAll(wheelItems);
                         }
                         wheelShowedItems = cache;
@@ -255,13 +251,11 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                         LuckyWheelSource.spinTime.set(indexCurrentWheel, spinTime);
                         LuckyWheelSource.repeat.set(indexCurrentWheel, repeat);
                         ArrayList<String> mixedContents = new ArrayList<>();
-                        for(int i = 0 ; i< wheelShowedItems.size(); i++)
-                        {
+                        for (int i = 0; i < wheelShowedItems.size(); i++) {
                             mixedContents.add(wheelShowedItems.get(i).text);
                         }
                         ArrayList<String> contents = new ArrayList<>();
-                        for(int i = 0 ; i< wheelItems.size(); i++)
-                        {
+                        for (int i = 0; i < wheelItems.size(); i++) {
                             contents.add(wheelItems.get(i).text);
                         }
                         LuckyWheelSource.listTitle.set(indexCurrentWheel, ttText.getText().toString());
@@ -278,13 +272,11 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(wheelItems.size() < 12)
-                        {
+                        if (wheelItems.size() < 12) {
                             openAddSliceDialog(Gravity.CENTER);
+                        } else {
+                            Toast.makeText(EditLuckyWheelActivity.this, "Số lượng Slice đã lớn nhất", Toast.LENGTH_LONG).show();
                         }
-                        else {
-                            Toast.makeText(EditLuckyWheelActivity.this,"Số lượng Slice đã lớn nhất",Toast.LENGTH_LONG).show();
-                        };
                     }
                 }
         );
@@ -292,9 +284,8 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(LuckyWheelSource.listTitle.size() <= 1)
-                        {
-                            Toast.makeText(EditLuckyWheelActivity.this,"Đây là vòng quay duy nhất",Toast.LENGTH_LONG).show();
+                        if (LuckyWheelSource.listTitle.size() <= 1) {
+                            Toast.makeText(EditLuckyWheelActivity.this, "Đây là vòng quay duy nhất", Toast.LENGTH_LONG).show();
                             return;
                         }
                         LuckyWheelSource.fairMode.remove(indexCurrentWheel);
@@ -312,16 +303,15 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                 }
         );
     }
+
     @SuppressLint("ClickableViewAccessibility")
-    void openEditSliceDialog(int gravity, int index)
-    {
+    void openEditSliceDialog(int gravity, int index) {
         Dialog editDialog = new Dialog(this);
         editDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         editDialog.setContentView(R.layout.activity_lucky_wheel_edit_slice);
 
         Window window = editDialog.getWindow();
-        if(window == null)
-        {
+        if (window == null) {
             return;
         }
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
@@ -367,8 +357,8 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                         final int DRAWABLE_RIGHT = 2;
                         final int DRAWABLE_BOTTOM = 3;
 
-                        if(event.getAction() == MotionEvent.ACTION_UP) {
-                            if(event.getRawX() >= (color.getRight() - color.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (event.getAction() == MotionEvent.ACTION_UP) {
+                            if (event.getRawX() >= (color.getRight() - color.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                                 new ColorPickerPopup
                                         .Builder(EditLuckyWheelActivity.this)
                                         .initialColor(wheelItems.get(index).color)
@@ -387,7 +377,7 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                                                 mDrawable.setColorFilter(new
                                                         PorterDuffColorFilter(cl, PorterDuff.Mode.SRC_IN));
                                                 color.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable, null);
-                                                changeColor= cl;
+                                                changeColor = cl;
                                             }
                                         });
                                 return true;
@@ -401,15 +391,12 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(wheelItems.size() <= 2)
-                        {
+                        if (wheelItems.size() <= 2) {
                             Toast.makeText(EditLuckyWheelActivity.this, "Số SLice đã đạt mức nhỏ nhất", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        for(int i = 0 ; i < wheelShowedItems.size();i++)
-                        {
-                            if(wheelShowedItems.get(i).text.equals(wheelItems.get(index).text))
-                            {
+                        for (int i = 0; i < wheelShowedItems.size(); i++) {
+                            if (wheelShowedItems.get(i).text.equals(wheelItems.get(index).text)) {
                                 wheelShowedItems.remove(i);
                             }
                         }
@@ -425,14 +412,11 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(content.getText().toString() == null || content.getText().toString() == "")
-                        {
+                        if (content.getText().toString() == null || content.getText().toString() == "") {
                             return;
                         }
-                        for(int i = 0 ; i< wheelShowedItems.size(); i++)
-                        {
-                            if(wheelShowedItems.get(i).text.equals(wheelItems.get(index).text))
-                            {
+                        for (int i = 0; i < wheelShowedItems.size(); i++) {
+                            if (wheelShowedItems.get(i).text.equals(wheelItems.get(index).text)) {
                                 wheelShowedItems.get(i).setColor(changeColor);
                                 wheelShowedItems.get(i).setText(content.getText().toString());
                                 System.out.println("change");
@@ -440,7 +424,7 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                         }
                         wheelItems.get(index).setColor(changeColor);
                         wheelItems.get(index).setText(content.getText().toString());
-                        colors.set(index,  String.format("#%06X", (0xFFFFFF &changeColor)));
+                        colors.set(index, String.format("#%06X", (0xFFFFFF & changeColor)));
 
                         createSliceCard();
                         luckyWheel.addWheelItems(wheelShowedItems);
@@ -451,15 +435,13 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    void openAddSliceDialog(int gravity)
-    {
+    void openAddSliceDialog(int gravity) {
         Dialog addDialog = new Dialog(this);
         addDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         addDialog.setContentView(R.layout.activity_lucky_wheel_add_slice);
 
         Window window = addDialog.getWindow();
-        if(window == null)
-        {
+        if (window == null) {
             return;
         }
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
@@ -500,8 +482,8 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                         final int DRAWABLE_RIGHT = 2;
                         final int DRAWABLE_BOTTOM = 3;
 
-                        if(event.getAction() == MotionEvent.ACTION_UP) {
-                            if(event.getRawX() >= (color.getRight() - color.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (event.getAction() == MotionEvent.ACTION_UP) {
+                            if (event.getRawX() >= (color.getRight() - color.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                                 new ColorPickerPopup
                                         .Builder(EditLuckyWheelActivity.this)
                                         .initialColor(defaultSLiceColor)
@@ -538,12 +520,11 @@ public class EditLuckyWheelActivity  extends AppCompatActivity {
                     public void onClick(View view) {
                         wheelItems.add(
                                 new WheelItem(defaultSLiceColor, BitmapFactory.decodeResource(getResources(),
-                                        R.drawable.small_nails_icons) , content.getText().toString()));
-                        for(int i = 0 ; i < repeat ; i++)
-                        {
-                            wheelShowedItems.add(wheelItems.get(wheelItems.size()-1));
+                                        R.drawable.small_nails_icons), content.getText().toString()));
+                        for (int i = 0; i < repeat; i++) {
+                            wheelShowedItems.add(wheelItems.get(wheelItems.size() - 1));
                         }
-                        colors.set(wheelItems.size()-1,String.format("#%06X", (0xFFFFFF & defaultSLiceColor)));
+                        colors.set(wheelItems.size() - 1, String.format("#%06X", (0xFFFFFF & defaultSLiceColor)));
                         createSliceCard();
                         luckyWheel.addWheelItems(wheelShowedItems);
                         addDialog.cancel();
