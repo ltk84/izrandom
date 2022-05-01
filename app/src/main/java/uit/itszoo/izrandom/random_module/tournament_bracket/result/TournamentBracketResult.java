@@ -44,8 +44,8 @@ public class TournamentBracketResult extends FragmentActivity {
     }
     void initMatch()
     {
-        int numMatch = (int) (Math.log(participants.size())/Math.log(2));
-        int subMatch = (int) (participants.size() - Math.pow(2, numMatch));
+        int numQualifier = (int) (Math.log(participants.size())/Math.log(2));
+        int subMatch = (int) (participants.size() - Math.pow(2, numQualifier));
         int indexOfParticipant = 0;
         ArrayList<String> copyParticipants = new ArrayList<>(participants);
         Collections.shuffle(copyParticipants);
@@ -55,22 +55,26 @@ public class TournamentBracketResult extends FragmentActivity {
         {
             listCompetitorData.add(new CompetitorData(copyParticipants.get(i), "-"));
         }
-        int numMatchQualifier1 = numMatch*2;
+        int numMatchQualifier1 = (int) ((int) subMatch == 0?Math.pow(2,numQualifier-1):Math.pow(2,numQualifier));
         List<Integer> indexOfRealMatchQualifier1 = new ArrayList<>();
-
         int period = subMatch == 0?0:(int)numMatchQualifier1/subMatch;
-        listMatchDataOfTournament.add(new ArrayList<>());
+        int totalQualifier = subMatch==0?numQualifier : numQualifier +1;
+        for(int i= 0 ; i < totalQualifier; i++)
+        {
+            listMatchDataOfTournament.add(new ArrayList<>());
+        }
         if(period != 0)
         {
             for(int i = 0; i< numMatchQualifier1 ; i ++)
             {
-                if(i%period == 0)
+                if(i%period == 0 && subMatch > 0)
                 {
                     listMatchDataOfTournament.get(0).add(
                             new MatchData(listCompetitorData.get(indexOfParticipant),
                                     listCompetitorData.get(indexOfParticipant+1)));
                     indexOfParticipant+=2;
                     indexOfRealMatchQualifier1.add(i);
+                    subMatch -= 1;
                 }
                 else {
                     listMatchDataOfTournament.get(0).add(
@@ -78,7 +82,22 @@ public class TournamentBracketResult extends FragmentActivity {
                                     new CompetitorData("", "-"))
                     );
                 }
-                System.out.println("Oke la");
+            }
+            while (subMatch != 0)
+            {
+                period -= 1;
+                for(int i = 0; i< numMatchQualifier1 ; i ++)
+                {
+                    if(i%period == 0 && !indexOfRealMatchQualifier1.contains(i))
+                    {
+                        listMatchDataOfTournament.get(0).set(i,
+                                new MatchData(listCompetitorData.get(indexOfParticipant),
+                                        listCompetitorData.get(indexOfParticipant+1)));
+                        indexOfParticipant+=2;
+                        indexOfRealMatchQualifier1.add(i);
+                        subMatch -= 1;
+                    }
+                }
             }
         }
         else{
@@ -88,11 +107,50 @@ public class TournamentBracketResult extends FragmentActivity {
                         new MatchData(listCompetitorData.get(indexOfParticipant),
                                 listCompetitorData.get(indexOfParticipant+1)));
                 indexOfParticipant+=2;
-                System.out.println("Oke");
+                indexOfRealMatchQualifier1.add(i);
+            }
+        }
+        if(totalQualifier >=2)
+        {
+            for(int i = 0; i< numMatchQualifier1/2 ; i++)
+            {
+                CompetitorData team1;
+                CompetitorData team2;
+                if(indexOfRealMatchQualifier1.contains(i*2))
+                {
+                    team1 = new CompetitorData("","-");
+                }
+                else
+                {
+                    team1 = listCompetitorData.get(indexOfParticipant);
+                    indexOfParticipant += 1;
+                }
+                if(indexOfRealMatchQualifier1.contains(i*2+1))
+                {
+                    team2 = new CompetitorData("","-");
+                }
+                else
+                {
+                    team2 = listCompetitorData.get(indexOfParticipant);
+                    indexOfParticipant += 1;
+                }
+                listMatchDataOfTournament.get(1).add(new MatchData(team1,team2));
+            }
+        }
+        for(int i = 2; i < totalQualifier ; i++)
+        {
+            for(int j = 0; j < numMatchQualifier1/ Math.pow(2,i); j++)
+            {
+                listMatchDataOfTournament.get(i).add(
+                        new MatchData(new CompetitorData("", "-"),
+                                new CompetitorData("", "-")));
             }
         }
         ArrayList<ColomnData> listColumnData = new ArrayList<>();
-        listColumnData.add(new ColomnData(listMatchDataOfTournament.get(0)));
+        for(int i = 0; i < totalQualifier ; i++)
+        {
+            listColumnData.add(new ColomnData(listMatchDataOfTournament.get(i)));
+        }
         bracketsView.setBracketsData(listColumnData);
     }
 }
