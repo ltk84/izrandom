@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Java/izrandom/app/src/main/res/drawable/custom_backgroud_dialog.xml" value="0.154" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/activity_divide_team.xml" value="0.2630208333333333" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/activity_tournament_bracket.xml" value="0.2630208333333333" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/dialog_divide_team_guide.xml" value="0.2630208333333333" />

@@ -65,7 +65,7 @@
             android:id="@+id/participant_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/input_participants_hint"
+            android:hint="@string/hint_input_for_tournament_bracket"
             android:imeOptions="actionDone"
             android:inputType="textMultiLine|textNoSuggestions" />
     </com.google.android.material.textfield.TextInputLayout>
