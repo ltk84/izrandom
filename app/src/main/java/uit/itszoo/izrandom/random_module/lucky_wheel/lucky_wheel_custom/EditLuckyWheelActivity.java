@@ -44,7 +44,7 @@ import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
 public class EditLuckyWheelActivity extends AppCompatActivity {
     LuckyWheel luckyWheel;
     ArrayList<WheelItem> wheelItems = new ArrayList<>();
-    ArrayList<WheelItem> originWheelItem = new ArrayList<>();
+    ArrayList<WheelItem> originWheelItems = new ArrayList<>();
 
     CardView[] listCardView = new CardView[12];
     TextView[] listTextInCard = new TextView[12];
@@ -100,7 +100,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
 
     private void generateWheelItems() {
         wheelItems = SliceToWheelItem.convertSlicesToWheelItems(getResources(), currentWheelData.getSlicesWithRepeat());
-        originWheelItem = SliceToWheelItem.convertSlicesToWheelItems(getResources(), currentWheelData.getSlices());
+        originWheelItems = SliceToWheelItem.convertSlicesToWheelItems(getResources(), currentWheelData.getSlices());
     }
 
     void initView() {
@@ -188,7 +188,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
 
                     ArrayList<WheelItem> cache = new ArrayList<>();
                     for (int i = 1; i <= repeat; i++) {
-                        cache.addAll(originWheelItem);
+                        cache.addAll(originWheelItems);
                     }
 
                     wheelItems = cache;
@@ -219,10 +219,10 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
 
         mixButton.setOnClickListener(
                 view -> {
-                    Collections.shuffle(originWheelItem);
+                    Collections.shuffle(originWheelItems);
                     wheelItems.clear();
                     for (int i = 0; i < repeat; i++) {
-                        wheelItems.addAll(originWheelItem);
+                        wheelItems.addAll(originWheelItems);
                     }
 
                     luckyWheel.addWheelItems(wheelItems);
@@ -260,11 +260,11 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
 
                     // TODO: đổi cơ chế sau
                     ArrayList<String> ids = new ArrayList<>();
-                    for (int i = 0; i < originWheelItem.size(); i++) {
+                    for (int i = 0; i < originWheelItems.size(); i++) {
                         ids.add(String.valueOf(i));
                     }
                     currentWheelData.setSlices(
-                            SliceToWheelItem.convertWheelItemsToSlices(ids, originWheelItem)
+                            SliceToWheelItem.convertWheelItemsToSlices(ids, originWheelItems)
                     );
 
                     LuckyWheelSource.luckyWheelList.set(indexCurrentWheel, currentWheelData);
@@ -391,12 +391,8 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                         wheelItems.remove(uiSlice);
                     }
 
-                    originWheelItem.remove(uiSlice);
-
-                    // colors này để làm gì?
-//                    colors.remove(index);
+                    originWheelItems.remove(uiSlice);
                     createSliceCard();
-
                     luckyWheel.addWheelItems(wheelItems);
                     editDialog.cancel();
                 }
@@ -506,7 +502,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
 
                     WheelItem newSlice = new WheelItem(defaultSliceColor, BitmapFactory.decodeResource(getResources(),
                             R.drawable.small_nails_icons), content.getText().toString());
-                    originWheelItem.add(newSlice);
+                    originWheelItems.add(newSlice);
 
                     for (int i = 0; i < repeat; i++) {
                         wheelItems.add(newSlice);

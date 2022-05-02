@@ -68,8 +68,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
 
     private void swapInitialWheelToLead() {
         int initialWheelIndex = 0;
-        for (LuckyWheelData wheelData :
-                wheelList) {
+        for (LuckyWheelData wheelData : wheelList) {
             if (wheelData.getId().equals(currentWheelID)) {
                 initialWheelIndex = wheelList.indexOf(wheelData);
                 break;
@@ -112,52 +111,38 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
     void setListenerForView() {
         backButton.setOnClickListener(
                 view -> {
-//                    Intent intentBack = new Intent();
-//                    intentBack.putExtra(LuckyWheelCustomActivity.SELECTED_WHEEL, indexWheelInList);
-//                    setResult(Activity.RESULT_OK, intentBack);
-//                    finish();
                     onBackPressed();
                 }
         );
 
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentToCustom = new Intent(getApplicationContext(), EditLuckyWheelActivity.class);
-                intentToCustom.putExtra(LuckyWheelCustomActivity.CURRENT_WHEEL, carouselView.getCurrentItem());
-                intentLauncher.launch(intentToCustom);
-            }
+        editButton.setOnClickListener(view -> {
+            Intent intentToCustom = new Intent(getApplicationContext(), EditLuckyWheelActivity.class);
+            intentToCustom.putExtra(LuckyWheelCustomActivity.CURRENT_WHEEL, carouselView.getCurrentItem());
+            intentLauncher.launch(intentToCustom);
         });
-//
-//        addButton.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        Intent intentToCustom = new Intent(getApplicationContext(), AddNewLuckyWheelActivity.class);
-//                        intentLauncher.launch(intentToCustom);
-//                    }
-//                }
-//        );
+
+        addButton.setOnClickListener(
+                view -> {
+                    Intent intentToCustom = new Intent(getApplicationContext(), AddNewLuckyWheelActivity.class);
+                    intentLauncher.launch(intentToCustom);
+                }
+        );
 
         okeButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intentBack = new Intent();
-                        // tìm lucky wheel data từ trong db voi index rồi trả về cho screen chính
-                        // tạm thời tìm lucky wheel data từ trong list source
-                        int currentIndex = carouselView.getCurrentItem();
-                        LuckyWheelData currentWheel = wheelList.get(currentIndex);
-                        intentBack.putExtra(LuckyWheelCustomActivity.SELECTED_WHEEL, currentWheel);
-                        setResult(Activity.RESULT_OK, intentBack);
-                        finish();
-                    }
+                view -> {
+                    Intent intentBack = new Intent();
+                    // tìm lucky wheel data từ trong db voi index rồi trả về cho screen chính
+                    // tạm thời tìm lucky wheel data từ trong list source
+                    int currentIndex = carouselView.getCurrentItem();
+                    LuckyWheelData currentWheel = wheelList.get(currentIndex);
+                    intentBack.putExtra(LuckyWheelCustomActivity.SELECTED_WHEEL, currentWheel);
+                    setResult(Activity.RESULT_OK, intentBack);
+                    finish();
                 }
         );
     }
 
     private void setupCarouselView() {
-//        generateWheelItems();
         carouselView = findViewById(R.id.carouselView);
         carouselView.setSize(wheelList.size());
         carouselView.setResource(R.layout.lucky_wheel_carousel);
