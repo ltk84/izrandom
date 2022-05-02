@@ -2,69 +2,64 @@ package uit.itszoo.izrandom.random_module.lucky_wheel.source;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
 
 public class LuckyWheelSource {
 
-    public static ArrayList<ArrayList<LuckyWheelSlice>> slices = new ArrayList<>(
+    public static ArrayList<LuckyWheelSlice> slices = new ArrayList<>(
             Arrays.asList(
-                    new ArrayList<>(
-                            Arrays.asList(
-                                    new LuckyWheelSlice("1", "Charlie Puth", "#0b4581", 12),
-                                    new LuckyWheelSlice("2", "Selena Gomez", "#549cb9", 12))
-                    ),
-                    new ArrayList<>(
-                            Arrays.asList(
-                                    new LuckyWheelSlice("1", "Ăn", "#0b4581", 12),
-                                    new LuckyWheelSlice("2", "Ngủ", "#549cb9", 12),
-                                    new LuckyWheelSlice("3", "Nhậu", "#02a890", 12),
-                                    new LuckyWheelSlice("4", "Học", "#8dfd03", 12),
-                                    new LuckyWheelSlice("5", "Chơi", "#fff203", 12),
-                                    new LuckyWheelSlice("6", "Golf", "#ffc30d", 12)
-                            )
-                    ),
-                    new ArrayList<>(
-                            Arrays.asList(
-                                    new LuckyWheelSlice("1", "Pizza", "#0b4581", 12),
-                                    new LuckyWheelSlice("2", "Sushi", "#549cb9", 12),
-                                    new LuckyWheelSlice("3", "Burger", "#02a890", 12),
-                                    new LuckyWheelSlice("4", "Lẩu Thái", "#8dfd03", 12),
-                                    new LuckyWheelSlice("5", "Mì", "#fff203", 12),
-                                    new LuckyWheelSlice("6", "Hủ tiếu", "#ffc30d", 12)
-                            )
-                    ),
-                    new ArrayList<>(
-                            Arrays.asList(
-                                    new LuckyWheelSlice("1", "Bóng đá", "#0b4581", 12),
-                                    new LuckyWheelSlice("2", "Bơi", "#549cb9", 12),
-                                    new LuckyWheelSlice("3", "Chạy bộ", "#02a890", 12),
-                                    new LuckyWheelSlice("4", "Nhảy xa", "#8dfd03", 12),
-                                    new LuckyWheelSlice("5", "Bóng chuyền", "#fff203", 12),
-                                    new LuckyWheelSlice("6", "Gofl", "#ffc30d", 12),
-                                    new LuckyWheelSlice("7", "Lướt sóng", "#6a419d", 12),
-                                    new LuckyWheelSlice("8", "Game", "#ffc30d", 12),
-                                    new LuckyWheelSlice("9", "Bóng rổ", "#a8449a", 12),
-                                    new LuckyWheelSlice("10", "Nhảy dây", "#e44097", 12),
-                                    new LuckyWheelSlice("11", "Bún thun", "#ec1a23", 12),
-                                    new LuckyWheelSlice("12", "Cờ vua", "#e4722e", 12)
-                            )
-                    )
-
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Charlie Puth", "#0b4581", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Selena Gomez", "#549cb9", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Adam Levine", "#fff203", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Ăn", "#0b4581", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Ngủ", "#549cb9", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Nhậu", "#02a890", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Học", "#8dfd03", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Chơi", "#fff203", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Golf", "#ffc30d", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Pizza", "#0b4581", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Sushi", "#549cb9", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Burger", "#02a890", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Lẩu Thái", "#8dfd03", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Mì", "#fff203", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Hủ tiếu", "#ffc30d", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Bóng đá", "#0b4581", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Bơi", "#549cb9", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Chạy bộ", "#02a890", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Nhảy xa", "#8dfd03", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Bóng chuyền", "#fff203", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Gofl", "#ffc30d", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Lướt sóng", "#6a419d", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Game", "#ffc30d", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Bóng rổ", "#a8449a", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Nhảy dây", "#e44097", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Bún thun", "#ec1a23", 12),
+                    new LuckyWheelSlice(UUID.randomUUID().toString(), "Cờ vua", "#e4722e", 12)
             ));
 
     public static ArrayList<LuckyWheelData> luckyWheelList = new ArrayList<>(
             Arrays.asList(
                     new LuckyWheelData("1", "Ca sĩ yêu thích?", 16, 1, 3,
-                            false, slices.get(0)
+                            false, new ArrayList<String>(
+                            slices.subList(0, 3).stream().map(slice -> slice.getId()).collect(Collectors.toList())
+                    )
                     ),
                     new LuckyWheelData("2", "Hôm nay làm gì?", 16, 1, 3,
-                            false, slices.get(1)),
+                            false, new ArrayList<String>(
+                            slices.subList(3, 8).stream().map(slice -> slice.getId()).collect(Collectors.toList())
+                    )),
                     new LuckyWheelData("3", "Hôm nay ăn gì?", 16, 1, 3,
-                            false, slices.get(2)),
+                            false, new ArrayList<String>(
+                            slices.subList(8, 13).stream().map(slice -> slice.getId()).collect(Collectors.toList())
+                    )),
                     new LuckyWheelData("4", "Hôm nay chơi gì?", 16, 1, 3,
-                            false, slices.get(3))
+                            false, new ArrayList<String>(
+                            slices.subList(13, 25).stream().map(slice -> slice.getId()).collect(Collectors.toList())
+                    ))
             )
     );
 

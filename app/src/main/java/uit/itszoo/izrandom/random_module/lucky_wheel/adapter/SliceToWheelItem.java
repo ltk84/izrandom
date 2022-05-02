@@ -29,7 +29,7 @@ public class SliceToWheelItem {
 
     public static LuckyWheelSlice convertWheelItemToSlice(String id, WheelItem wi) {
         // TODO: Icon đang fake
-        return new LuckyWheelSlice(id, wi.text, String.format("#%06X", (0xFFFFFF & wi.color)), 123);
+        return new LuckyWheelSlice(id, wi.text, String.format("#%06X", (0xFFFFFF & wi.color)), 12);
     }
 
     public static ArrayList<LuckyWheelSlice> convertWheelItemsToSlices(ArrayList<String> ids, ArrayList<WheelItem> wis) {

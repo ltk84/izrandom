@@ -32,9 +32,12 @@
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/adapter/SliceToWheelItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/adapter/SliceToWheelItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/AddNewLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/AddNewLuckyWheelActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/EditLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/EditLuckyWheelActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/LuckyWheelCustomActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/LuckyWheelCustomActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/model/LuckyWheelData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/model/LuckyWheelData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/model/LuckyWheelSlice.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/model/LuckyWheelSlice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/source/LuckyWheelSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/source/LuckyWheelSource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,10 +278,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="207" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1651386162916" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1648735607362">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1651457273692">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1648735607362" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1651457273692" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648696986351" />
     <state x="290" y="151" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1648791361185">
       <screen x="0" y="0" width="1536" height="816" />
@@ -305,14 +308,14 @@
     </state>
     <state x="614" y="198" key="AndroidCreateXmlResourceDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649908014535" />
     <state x="614" y="198" key="AndroidCreateXmlResourceDialog/0.0.1536.816@0.0.1536.816" timestamp="1648711829743" />
-    <state x="279" y="130" key="AndroidProcessChooserDialog" timestamp="1651406125679">
+    <state x="279" y="130" key="AndroidProcessChooserDialog" timestamp="1651475298314">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="279" y="130" key="AndroidProcessChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1651406125679" />
-    <state width="512" height="439" key="DebuggerActiveHint" timestamp="1651406292228">
+    <state x="279" y="130" key="AndroidProcessChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1651475298314" />
+    <state width="559" height="439" key="DebuggerActiveHint" timestamp="1651477184645">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="512" height="439" key="DebuggerActiveHint/0.0.1366.768@0.0.1366.768" timestamp="1651406292228" />
+    <state width="559" height="439" key="DebuggerActiveHint/0.0.1366.768@0.0.1366.768" timestamp="1651477184645" />
     <state width="492" height="466" key="DebuggerActiveHint/0.0.1536.816@0.0.1536.816" timestamp="1649499603296" />
     <state x="812" y="155" key="FileChooserDialogImpl" timestamp="1648791403129">
       <screen x="0" y="0" width="1536" height="816" />
@@ -324,28 +327,28 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1650101713617" />
-    <state width="930" height="227" key="GridCell.Tab.0.bottom" timestamp="1651406707810">
+    <state width="1321" height="86" key="GridCell.Tab.0.bottom" timestamp="1651477296372">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="930" height="227" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1651406707810" />
+    <state width="1321" height="86" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1651477296372" />
     <state width="1493" height="204" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1650019877754" />
-    <state width="930" height="227" key="GridCell.Tab.0.center" timestamp="1651406707810">
+    <state width="1321" height="86" key="GridCell.Tab.0.center" timestamp="1651477296372">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="930" height="227" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1651406707810" />
+    <state width="1321" height="86" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1651477296372" />
     <state width="1493" height="204" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="930" height="227" key="GridCell.Tab.0.left" timestamp="1651406707810">
+    <state width="1321" height="86" key="GridCell.Tab.0.left" timestamp="1651477622962">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="930" height="227" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1651406707810" />
+    <state width="1321" height="86" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1651477622962" />
     <state width="1493" height="204" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="930" height="227" key="GridCell.Tab.0.right" timestamp="1651406707810">
+    <state width="1321" height="86" key="GridCell.Tab.0.right" timestamp="1651477296372">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="930" height="227" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1651406707810" />
+    <state width="1321" height="86" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1651477296372" />
     <state width="1493" height="204" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
@@ -365,17 +368,18 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="478" y="141" width="579" height="534" key="find.popup/0.0.1536.816@0.0.1536.816" timestamp="1650018350872" />
-    <state width="503" height="214" key="javadoc.popup.new" timestamp="1651451658644">
+    <state width="503" height="214" key="javadoc.popup.new" timestamp="1651478334834">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="503" height="214" key="javadoc.popup.new/0.0.1366.768@0.0.1366.768" timestamp="1651451658644" />
+    <state width="503" height="214" key="javadoc.popup.new/0.0.1366.768@0.0.1366.768" timestamp="1651478334834" />
     <state x="383" y="141" key="refactoring.ChangeSignatureDialog" timestamp="1651391857755">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="383" y="141" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1651391857755" />
-    <state x="425" y="185" key="run.anything.popup" timestamp="1650016860189">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="378" y="174" width="672" height="677" key="run.anything.popup" timestamp="1651477594845">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="378" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1651477594845" />
     <state x="425" y="185" key="run.anything.popup/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647623008650" />
     <state x="425" y="185" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1650016860189" />
     <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1649477399614">
@@ -401,11 +405,10 @@
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="app">
-        <watch expression="coinList.get(0)" />
-        <watch expression="((ChooserActivity)this).chooserRingList" custom="uit.itszoo.izrandom.random_module.chooser.ChooserActivity" />
-        <watch expression="motionEvent.getActionMasked()" language="JAVA" />
-        <watch expression="isChoosing" language="JAVA" />
-        <watch expression="item" />
+        <watch expression="currentWheelSlices.size()" language="JAVA" />
+        <watch expression="originWheelItems.get(2)" language="JAVA" />
+        <watch expression="uiSlice" language="JAVA" />
+        <watch expression="content.getText().toString()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

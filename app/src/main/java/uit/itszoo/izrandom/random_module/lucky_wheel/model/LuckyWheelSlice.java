@@ -1,5 +1,9 @@
 package uit.itszoo.izrandom.random_module.lucky_wheel.model;
 
+import androidx.annotation.NonNull;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
 
 public class LuckyWheelSlice implements Serializable {
@@ -13,6 +17,13 @@ public class LuckyWheelSlice implements Serializable {
         this.name = name;
         this.color = color;
         this.icon = icon;
+    }
+
+    @NonNull
+    @NotNull
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new LuckyWheelSlice(id, name, color, icon);
     }
 
     public String getId() {
@@ -43,5 +54,5 @@ public class LuckyWheelSlice implements Serializable {
         this.name = name;
     }
 
-    
+
 }
