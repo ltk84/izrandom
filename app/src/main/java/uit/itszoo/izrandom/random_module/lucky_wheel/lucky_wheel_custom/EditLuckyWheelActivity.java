@@ -258,7 +258,6 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                 }
         );
 
-        // TODO: giải quyết vấn đề mix không lưu = field numberOrder của LuckyWheelSlice
         checkButton.setOnClickListener(
                 view -> {
 
@@ -280,7 +279,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                     LuckyWheelSource.slices.removeAll(removedSlices);
 
                     // check xem có slice nào mới được add không
-                    // có thì add vào source (//TODO: thayy bằng việc add trong db)
+                    // có thì add vào source (//TODO: thay bằng việc add trong db)
                     for (LuckyWheelSlice slice : currentWheelSlices) {
                         boolean isExist = false;
                         for (int i = 0; i < LuckyWheelSource.slices.size(); i++) {

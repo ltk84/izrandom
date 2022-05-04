@@ -220,9 +220,6 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity {
                     }
 
                     luckyWheel.addWheelItems(wheelItems);
-                    // Chỗ này làm thay đổi danh sách Slice (hỏi lại)
-                    // nếu chỉnh theo data của Tùng thì các slide sẽ bị giống ID
-                    // nên nếu user thay đổi slice repeat -> mix -> thay đổi danh sách slice -> edit slice -> bug (slice bị giống ID)
                     createSliceCard();
                 }
         );

@@ -21,6 +21,7 @@ public class SliceToWheelItem {
 
     public static ArrayList<WheelItem> convertSlicesToWheelItems(Resources resources, ArrayList<LuckyWheelSlice> slices) {
         ArrayList<WheelItem> list = new ArrayList<>();
+        slices.sort((slice, t1) -> slice.getNumberOrder() - t1.getNumberOrder());
         slices.forEach(slice -> {
             list.add(convertSliceToWheelItem(resources, slice));
         });
