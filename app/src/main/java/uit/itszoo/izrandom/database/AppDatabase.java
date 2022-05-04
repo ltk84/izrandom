@@ -54,16 +54,9 @@ public abstract class AppDatabase extends RoomDatabase {
             Log.d("ONCREATE", "Database has been created.");
 
             dbExecutor.execute(() -> {
-                UserConfiguration userConfiguration = new UserConfiguration();
-                userConfiguration.arrowId = ArrowSource.arrows.get(0).getId();
-                userConfiguration.diceId = DiceSource.dices.get(0).getId();
-                userConfiguration.coinId = CoinSource.coins.get(0).getId();
-                userConfiguration.chooserThemeId = ChooserSource.themes.get(0).getId();
-
-                instance.userConfigDAO().insertUserConfig(userConfiguration);
-
                 initLuckyWheelSlice();
                 initLuckyWheel();
+                initUserConfig();
             });
 
         }
@@ -74,6 +67,17 @@ public abstract class AppDatabase extends RoomDatabase {
             Log.d("ONOPEN", "Database has been opened.");
         }
     };
+
+    private static void initUserConfig() {
+        UserConfiguration userConfiguration = new UserConfiguration();
+        userConfiguration.arrowId = ArrowSource.arrows.get(0).getId();
+        userConfiguration.diceId = DiceSource.dices.get(0).getId();
+        userConfiguration.coinId = CoinSource.coins.get(0).getId();
+        userConfiguration.chooserThemeId = ChooserSource.themes.get(0).getId();
+        userConfiguration.wheelID = LuckyWheelSource.luckyWheelList.get(0).getId();
+
+        instance.userConfigDAO().insertUserConfig(userConfiguration);
+    }
 
     private static void initLuckyWheelSlice() {
         for (LuckyWheelSlice slice : LuckyWheelSource.slices) {

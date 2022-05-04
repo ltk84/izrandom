@@ -30,7 +30,6 @@ import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
 import uit.itszoo.izrandom.random_module.lucky_wheel.lucky_wheel_custom.LuckyWheelCustomActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
-import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
 
 public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelContract.View {
     public static final String CURRENT_WHEEL = "CURRENT_WHEEL";
@@ -59,6 +58,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lucky_wheel);
 
+        lkWheel = findViewById(R.id.lwv);
         constrainedLayout = findViewById(R.id.layout);
         backButton = findViewById(R.id.bb_back);
         customButton = findViewById(R.id.bt_cus);
@@ -70,17 +70,20 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
                     LuckyWheelActivity.this);
             textView.setTextSize(30);
             textView.setTypeface(textView.getTypeface(), Typeface.BOLD);
-            textView.setGravity(
-                    Gravity.CENTER_HORIZONTAL);
+            textView.setGravity(Gravity.CENTER_HORIZONTAL);
             return textView;
         });
 
         presenter = new LuckyWheelPresenter(getApplicationContext(), this);
         setPresenter(presenter);
 
-        // lấy wheel hiện tại từ db
-        // tạm thời lấy wheel đầu tiên trong danh sách để test
-        initLuckyWheel(LuckyWheelSource.luckyWheelList.get(0));
+        presenter.getUserConfig().observe(this, userConfiguration -> {
+            System.out.println(userConfiguration.wheelID);
+            presenter.setWheelData(userConfiguration.wheelID);
+            initLuckyWheel(presenter.getWheelData());
+        });
+
+
         setListenerForView();
     }
 
@@ -189,11 +192,6 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
     }
 
     private void initLuckyWheel(LuckyWheelData luckyWheelData) {
-        lkWheel = findViewById(R.id.lwv);
-
-        // TODO: đổi lại thành lấy từ db
-        presenter.setWheelData(luckyWheelData);
-
         generateWheelItems();
 
         titleTextView.setText(presenter.getWheelData().getTitle());
@@ -215,6 +213,9 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
     }
 
     private void generateWheelItems() {
+        int repeat = presenter.getWheelData().getSliceRepeat();
+        
+
         wheelItems = SliceToWheelItem.convertSlicesToWheelItems(
                 getResources(), presenter.getWheelData().getSlicesWithRepeat());
     }

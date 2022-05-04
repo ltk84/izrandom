@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
@@ -90,6 +91,18 @@ public class Repository {
 
     public LiveData<List<LuckyWheelData>> getAllWheels() {
         return wheelList;
+    }
+
+    public LuckyWheelData getWheelByID(String id) {
+        LuckyWheelData wheelData = null;
+        try {
+            wheelData = AppDatabase.dbExecutor.submit(() -> wheelDAO.getWheelByID(id)).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return wheelData;
     }
 
     public LiveData<UserConfiguration> getUserConfiguration() {

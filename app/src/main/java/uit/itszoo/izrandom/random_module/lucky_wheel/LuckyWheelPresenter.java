@@ -2,21 +2,30 @@ package uit.itszoo.izrandom.random_module.lucky_wheel;
 
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
+
+import uit.itszoo.izrandom.database.Repository;
+import uit.itszoo.izrandom.database.UserConfiguration;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 
 public class LuckyWheelPresenter implements LuckyWheelContract.Presenter {
     private final LuckyWheelContract.View view;
-    private LuckyWheelData currentWheelData;
 
-//    private List<WheelItem> currentListWheel = new ArrayList<>();
-//    private int indexOfWheelInList = 0;
-//    private int repeat = 1;
-//    private int textSize = 16;
-//    private int spinTime = 5;
-//    private boolean fairMode = false;
+    private Repository repository;
+
+    private LiveData<UserConfiguration> userConfig;
+
+    private LuckyWheelData currentWheelData;
 
     public LuckyWheelPresenter(Context context, LuckyWheelContract.View view) {
         this.view = view;
+        repository = Repository.getInstance(context);
+        userConfig = repository.getUserConfiguration();
+    }
+
+    @Override
+    public LiveData<UserConfiguration> getUserConfig() {
+        return userConfig;
     }
 
     @Override
@@ -25,8 +34,8 @@ public class LuckyWheelPresenter implements LuckyWheelContract.Presenter {
     }
 
     @Override
-    public void setWheelData(LuckyWheelData lkWheelData) {
-        this.currentWheelData = lkWheelData;
+    public void setWheelData(String wheelID) {
+        this.currentWheelData = repository.getWheelByID(wheelID);
     }
 
 //    @Override

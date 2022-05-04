@@ -22,8 +22,8 @@ public interface WheelDAO {
     @Delete
     public void deleteWheel(LuckyWheelData... wheel);
 
-    @Query("SELECT * FROM luckyWheel WHERE id IN (:ids)")
-    public LiveData<List<LuckyWheelData>> getWheelByIDs(List<String> ids);
+    @Query("SELECT * FROM luckyWheel WHERE id =:ids")
+    public LuckyWheelData getWheelByID(String ids);
 
     @Query("SELECT * FROM luckyWheel")
     public LiveData<List<LuckyWheelData>> getAllWheels();
