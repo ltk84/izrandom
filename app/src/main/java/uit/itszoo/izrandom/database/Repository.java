@@ -4,9 +4,20 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
+import java.util.List;
+
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
+
 public class Repository {
     private UserConfigDAO userConfigDAO;
     private LiveData<UserConfiguration> userConfig;
+
+    private SliceDAO sliceDAO;
+    private LiveData<List<LuckyWheelSlice>> sliceList;
+
+    private WheelDAO wheelDAO;
+    private LiveData<List<LuckyWheelData>> wheelList;
 
     private static volatile Repository instance;
 
@@ -22,6 +33,14 @@ public class Repository {
         AppDatabase appDatabase = AppDatabase.getInstance(context);
         userConfigDAO = appDatabase.userConfigDAO();
         userConfig = userConfigDAO.getUserConfig();
+
+        sliceDAO = appDatabase.sliceDAO();
+        sliceList = sliceDAO.getAllSlices();
+
+        wheelDAO = appDatabase.wheelDAO();
+        wheelList = wheelDAO.getAllWheels();
+
+        // trigger để mở database => tránh việc lỗi khi sử dụng LiveData khi db chưa được open
         appDatabase.query("SELECT 1", null);
     }
 
@@ -47,6 +66,30 @@ public class Repository {
         AppDatabase.dbExecutor.execute(() -> {
             userConfigDAO.updateChooserTheme(cThemeId);
         });
+    }
+
+    public void addSlice(LuckyWheelSlice... slices) {
+        AppDatabase.dbExecutor.execute(() -> {
+            sliceDAO.insertSlice(slices);
+        });
+    }
+
+    public void updateSlice(LuckyWheelSlice slice) {
+        AppDatabase.dbExecutor.execute(() -> {
+            sliceDAO.updateSlice(slice);
+        });
+    }
+
+    public void deleteSlice(LuckyWheelSlice... slice) {
+        AppDatabase.dbExecutor.execute(() -> sliceDAO.deleteSlice(slice));
+    }
+
+    public LiveData<List<LuckyWheelSlice>> getAllSlices() {
+        return sliceList;
+    }
+
+    public LiveData<List<LuckyWheelData>> getAllWheels() {
+        return wheelList;
     }
 
     public LiveData<UserConfiguration> getUserConfiguration() {

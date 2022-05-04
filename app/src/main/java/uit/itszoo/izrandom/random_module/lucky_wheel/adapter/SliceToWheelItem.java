@@ -27,15 +27,15 @@ public class SliceToWheelItem {
         return list;
     }
 
-    public static LuckyWheelSlice convertWheelItemToSlice(String id, WheelItem wi) {
+    public static LuckyWheelSlice convertWheelItemToSlice(String id, WheelItem wi, String wheelID) {
         // TODO: Icon đang fake
-        return new LuckyWheelSlice(id, wi.text, String.format("#%06X", (0xFFFFFF & wi.color)), 12);
+        return new LuckyWheelSlice(id, wi.text, String.format("#%06X", (0xFFFFFF & wi.color)), 12, wheelID);
     }
 
-    public static ArrayList<LuckyWheelSlice> convertWheelItemsToSlices(ArrayList<String> ids, ArrayList<WheelItem> wis) {
+    public static ArrayList<LuckyWheelSlice> convertWheelItemsToSlices(ArrayList<String> ids, ArrayList<WheelItem> wis, String wheelID) {
         ArrayList<LuckyWheelSlice> list = new ArrayList<>();
         for (int i = 0; i < wis.size(); i++) {
-            list.add(convertWheelItemToSlice(ids.get(i), wis.get(i)));
+            list.add(convertWheelItemToSlice(ids.get(i), wis.get(i), wheelID));
         }
         return list;
     }

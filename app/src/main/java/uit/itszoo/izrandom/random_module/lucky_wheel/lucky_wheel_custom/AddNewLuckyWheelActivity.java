@@ -244,14 +244,14 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity {
                         ids.add(UUID.randomUUID().toString());
                     }
 
-                    LuckyWheelData newWheelData = new LuckyWheelData(UUID.randomUUID().toString(), titleText.getText().toString(),
-                            textSize, repeat, spinTime, fairMode, ids);
+                    LuckyWheelData newWheelData = new LuckyWheelData(UUID.randomUUID().toString(),
+                            titleText.getText().toString(), textSize, repeat, spinTime, fairMode);
 
                     // TODO: dổi thành lưu xuống db
                     LuckyWheelSource.luckyWheelList.add(newWheelData);
 
                     ArrayList<LuckyWheelSlice> newWheelSlices =
-                            SliceToWheelItem.convertWheelItemsToSlices(ids, originWheelItems);
+                            SliceToWheelItem.convertWheelItemsToSlices(ids, originWheelItems, newWheelData.getId());
 
                     // TODO: dổi thành lưu xuống db
                     LuckyWheelSource.slices.addAll(newWheelSlices);

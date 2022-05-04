@@ -298,7 +298,6 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                     currentWheelData.setTextSize(textSize);
                     currentWheelData.setSliceRepeat(repeat);
                     currentWheelData.setTitle(title);
-                    currentWheelData.setSliceIDs(ids);
                     LuckyWheelSource.luckyWheelList.set(indexCurrentWheel, currentWheelData);
 
 
@@ -549,7 +548,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                     }
 
                     // Thêm slice vào list slices
-                    LuckyWheelSlice newSliceData = SliceToWheelItem.convertWheelItemToSlice(UUID.randomUUID().toString(), newSlice);
+                    LuckyWheelSlice newSliceData = SliceToWheelItem.convertWheelItemToSlice(UUID.randomUUID().toString(), newSlice, currentWheelData.getId());
                     currentWheelSlices.add(newSliceData);
 
                     createSliceCard();

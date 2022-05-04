@@ -1,29 +1,37 @@
 package uit.itszoo.izrandom.random_module.lucky_wheel.model;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.Objects;
 
+@Entity(tableName = "luckyWheelSlice")
 public class LuckyWheelSlice implements Serializable {
+    @PrimaryKey
+    @NonNull
     private String id;
     private String name;
     private String color;
     private int icon;
+    private String wheelID;
 
-    public LuckyWheelSlice(String id, String name, String color, int icon) {
+    public LuckyWheelSlice(String id, String name, String color, int icon, String wheelID) {
         this.id = id;
         this.name = name;
         this.color = color;
         this.icon = icon;
+        this.wheelID = wheelID;
     }
 
     @NonNull
     @NotNull
     @Override
     public Object clone() throws CloneNotSupportedException {
-        return new LuckyWheelSlice(id, name, color, icon);
+        return new LuckyWheelSlice(id, name, color, icon, wheelID);
     }
 
     public String getId() {
@@ -54,5 +62,32 @@ public class LuckyWheelSlice implements Serializable {
         this.name = name;
     }
 
+    public String getWheelID() {
+        return wheelID;
+    }
 
+    public void setWheelID(String wheelID) {
+        this.wheelID = wheelID;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LuckyWheelSlice slice = (LuckyWheelSlice) o;
+        return icon == slice.icon &&
+                id.equals(slice.id) &&
+                Objects.equals(name, slice.name) &&
+                Objects.equals(color, slice.color) &&
+                Objects.equals(wheelID, slice.wheelID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, color, icon, wheelID);
+    }
 }

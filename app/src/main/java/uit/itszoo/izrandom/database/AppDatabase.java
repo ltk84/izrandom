@@ -16,11 +16,14 @@ import java.util.concurrent.Executors;
 
 import uit.itszoo.izrandom.random_module.chooser.source.ChooserSource;
 import uit.itszoo.izrandom.random_module.flip_coin.source.CoinSource;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
+import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
 import uit.itszoo.izrandom.random_module.random_direction.source.ArrowSource;
 import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
 
 
-@Database(entities = {UserConfiguration.class}, version = 1)
+@Database(entities = {UserConfiguration.class, LuckyWheelSlice.class, LuckyWheelData.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String DB_NAME = "userConfig.db";
@@ -58,6 +61,9 @@ public abstract class AppDatabase extends RoomDatabase {
                 userConfiguration.chooserThemeId = ChooserSource.themes.get(0).getId();
 
                 instance.userConfigDAO().insertUserConfig(userConfiguration);
+
+                initLuckyWheelSlice();
+                initLuckyWheel();
             });
 
         }
@@ -69,5 +75,21 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     };
 
+    private static void initLuckyWheelSlice() {
+        for (LuckyWheelSlice slice : LuckyWheelSource.slices) {
+            instance.sliceDAO().insertSlice(slice);
+        }
+    }
+
+    private static void initLuckyWheel() {
+        for (LuckyWheelData wheel : LuckyWheelSource.luckyWheelList) {
+            instance.wheelDAO().insertWheel(wheel);
+        }
+    }
+
     abstract UserConfigDAO userConfigDAO();
+
+    abstract SliceDAO sliceDAO();
+
+    abstract WheelDAO wheelDAO();
 }

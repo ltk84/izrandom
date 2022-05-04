@@ -29,12 +29,16 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
             presenter.loadFragment(getSupportFragmentManager(), new RandomFragment());
         }
 
-    }
+        presenter.sliceList.observe(this, slices -> {
+            System.out.println("Fuck it:  " + slices.size());
+            slices.forEach(slice -> System.out.println(slice.getName()));
+        });
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-//        presenter.start();
+//        presenter.wheelList.observe(this, luckyWheelData -> {
+//            System.out.println("Let fall in love for night:  " + luckyWheelData.size());
+//            luckyWheelData.forEach(slice -> System.out.println(slice.getTitle()));
+//        });
+
     }
 
     @Override

@@ -22,6 +22,7 @@ import com.jama.carouselview.CarouselViewListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
@@ -38,7 +39,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity {
     public static String SELECTED_WHEEL = "SELECTED_WHEEL";
 
     LuckyWheel luckyWheel;
-    ArrayList<LuckyWheelData> wheelList;
+    List<LuckyWheelData> wheelList;
     String currentWheelID;
 
 //    ArrayList<ArrayList<String>> listMixedContent = LuckyWheelSource.mixedContentItem;
