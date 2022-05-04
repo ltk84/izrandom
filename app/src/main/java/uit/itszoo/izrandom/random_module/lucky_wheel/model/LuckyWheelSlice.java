@@ -2,6 +2,7 @@ package uit.itszoo.izrandom.random_module.lucky_wheel.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
@@ -18,20 +19,32 @@ public class LuckyWheelSlice implements Serializable {
     private String color;
     private int icon;
     private String wheelID;
+    private int numberOrder;
 
-    public LuckyWheelSlice(String id, String name, String color, int icon, String wheelID) {
+    @Ignore
+    public LuckyWheelSlice(String id, String name, String color, int icon) {
+        this.id = id;
+        this.name = name;
+        this.color = color;
+        this.icon = icon;
+        wheelID = "";
+        numberOrder = -1;
+    }
+
+    public LuckyWheelSlice(String id, String name, String color, int icon, String wheelID, int numberOrder) {
         this.id = id;
         this.name = name;
         this.color = color;
         this.icon = icon;
         this.wheelID = wheelID;
+        this.numberOrder = numberOrder;
     }
 
     @NonNull
     @NotNull
     @Override
     public Object clone() throws CloneNotSupportedException {
-        return new LuckyWheelSlice(id, name, color, icon, wheelID);
+        return new LuckyWheelSlice(id, name, color, icon, wheelID, numberOrder);
     }
 
     public String getId() {
@@ -68,6 +81,22 @@ public class LuckyWheelSlice implements Serializable {
 
     public void setWheelID(String wheelID) {
         this.wheelID = wheelID;
+    }
+
+    public int getNumberOrder() {
+        return numberOrder;
+    }
+
+    public void setNumberOrder(int numberOrder) {
+        this.numberOrder = numberOrder;
+    }
+
+    public boolean isBelongToWheel() {
+        return !getWheelID().equals("");
+    }
+
+    public boolean hasNumberOrder() {
+        return getNumberOrder() >= 0;
     }
 
     @Override

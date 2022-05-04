@@ -243,6 +243,10 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
         mixButton.setOnClickListener(
                 view -> {
                     Collections.shuffle(currentWheelSlices);
+                    for (int i = 0; i < currentWheelSlices.size(); i++) {
+                        currentWheelSlices.get(i).setNumberOrder(i);
+                    }
+
                     originWheelItems = SliceToWheelItem.convertSlicesToWheelItems(getResources(), currentWheelSlices);
                     wheelItems.clear();
                     for (int i = 0; i < repeat; i++) {
@@ -254,6 +258,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                 }
         );
 
+        // TODO: giải quyết vấn đề mix không lưu = field numberOrder của LuckyWheelSlice
         checkButton.setOnClickListener(
                 view -> {
 
@@ -274,6 +279,8 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                     // TODO: thay bằng việc remove trong db
                     LuckyWheelSource.slices.removeAll(removedSlices);
 
+                    // check xem có slice nào mới được add không
+                    // có thì add vào source (//TODO: thayy bằng việc add trong db)
                     for (LuckyWheelSlice slice : currentWheelSlices) {
                         boolean isExist = false;
                         for (int i = 0; i < LuckyWheelSource.slices.size(); i++) {
@@ -548,7 +555,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                     }
 
                     // Thêm slice vào list slices
-                    LuckyWheelSlice newSliceData = SliceToWheelItem.convertWheelItemToSlice(UUID.randomUUID().toString(), newSlice, currentWheelData.getId());
+                    LuckyWheelSlice newSliceData = SliceToWheelItem.convertWheelItemToSlice(UUID.randomUUID().toString(), newSlice, currentWheelData.getId(), currentWheelSlices.size());
                     currentWheelSlices.add(newSliceData);
 
                     createSliceCard();
