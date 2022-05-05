@@ -31,14 +31,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelContract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddLuckyWheelContract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddLuckyWheelPresenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/SliceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/SliceDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/adapter/SliceToWheelItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/adapter/SliceToWheelItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/EditLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/AddNewLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddNewLuckyWheelActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/LuckyWheelCustomActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/LuckyWheelCustomActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -266,10 +265,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="286" y="154" key="#PSD/0.0.1536.816@0.0.1536.816" timestamp="1647770718692" />
-    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser" timestamp="1651732143454">
+    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser" timestamp="1651737666144">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1651732143454" />
+    <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1651737666144" />
     <state x="374" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649301903370" />
     <state x="374" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1649210327574" />
     <state x="412" y="174" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1647742931826">
@@ -329,28 +328,28 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1650101713617" />
-    <state width="930" height="186" key="GridCell.Tab.0.bottom" timestamp="1651736503371">
+    <state width="930" height="186" key="GridCell.Tab.0.bottom" timestamp="1651738151827">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="930" height="186" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1651736503371" />
+    <state width="930" height="186" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1651738151827" />
     <state width="1493" height="204" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1650019877754" />
-    <state width="930" height="186" key="GridCell.Tab.0.center" timestamp="1651736503371">
+    <state width="930" height="186" key="GridCell.Tab.0.center" timestamp="1651738151826">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="930" height="186" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1651736503371" />
+    <state width="930" height="186" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1651738151826" />
     <state width="1493" height="204" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="930" height="186" key="GridCell.Tab.0.left" timestamp="1651736503371">
+    <state width="930" height="186" key="GridCell.Tab.0.left" timestamp="1651738151826">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="930" height="186" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1651736503371" />
+    <state width="930" height="186" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1651738151826" />
     <state width="1493" height="204" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
-    <state width="930" height="186" key="GridCell.Tab.0.right" timestamp="1651736503371">
+    <state width="930" height="186" key="GridCell.Tab.0.right" timestamp="1651738151826">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="930" height="186" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1651736503371" />
+    <state width="930" height="186" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1651738151826" />
     <state width="1493" height="204" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650684231548" />
     <state width="1493" height="185" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1650019877753" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">

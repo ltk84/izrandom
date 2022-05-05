@@ -130,6 +130,10 @@ public class Repository {
         return slice != null;
     }
 
+    public void addWheel(LuckyWheelData wheelData) {
+        AppDatabase.dbExecutor.execute(() -> wheelDAO.insertWheel(wheelData));
+    }
+
     public void updateWheel(LuckyWheelData wheelData) {
         AppDatabase.dbExecutor.execute(() -> wheelDAO.updateWheel(wheelData));
     }

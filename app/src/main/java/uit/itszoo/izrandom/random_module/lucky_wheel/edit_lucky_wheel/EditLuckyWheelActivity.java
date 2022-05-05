@@ -179,15 +179,15 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
             listTextInCard[i].setVisibility(View.INVISIBLE);
         }
 
-        for (int index = 0; index < wheelItems.size(); index++) {
+        for (int index = 0; index < originWheelItems.size(); index++) {
             listCardView[index].setVisibility(View.VISIBLE);
             listTextInCard[index].setVisibility(View.VISIBLE);
 
-            listCardView[index].setCardBackgroundColor(wheelItems.get(index).color);
-            listTextInCard[index].setText(wheelItems.get(index).text);
+            listCardView[index].setCardBackgroundColor(originWheelItems.get(index).color);
+            listTextInCard[index].setText(originWheelItems.get(index).text);
 
             final int finalIndex = index;
-            final WheelItem uiSlice = wheelItems.get(finalIndex);
+            final WheelItem uiSlice = originWheelItems.get(finalIndex);
             listCardView[index].setOnClickListener(
                     view -> openEditSliceDialog(currentWheelSlices.get(finalIndex).getId(), uiSlice)
             );
@@ -227,7 +227,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
 
                     wheelItems = cache;
                     luckyWheel.addWheelItems(wheelItems);
-                    createSliceCard();
+//                    createSliceCard();
                 }
         );
 

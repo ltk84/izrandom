@@ -21,7 +21,7 @@
         <activity android:name=".random_module.roll_dice.RollDiceActivity" />
         <activity android:name=".random_module.random_direction.RandomDirectionActivity" />
         <activity android:name=".random_module.lucky_wheel.lucky_wheel_custom.LuckyWheelCustomActivity" />
-        <activity android:name=".random_module.lucky_wheel.lucky_wheel_custom.AddNewLuckyWheelActivity" />
+        <activity android:name=".random_module.lucky_wheel.add_lucky_wheel.AddNewLuckyWheelActivity" />
         <activity android:name=".random_module.lucky_wheel.edit_lucky_wheel.EditLuckyWheelActivity" />
         <activity
             android:name=".home.HomeActivity"

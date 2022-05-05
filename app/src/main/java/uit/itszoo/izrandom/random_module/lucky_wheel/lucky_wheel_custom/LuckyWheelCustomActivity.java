@@ -27,6 +27,7 @@ import java.util.List;
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
+import uit.itszoo.izrandom.random_module.lucky_wheel.add_lucky_wheel.AddNewLuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.edit_lucky_wheel.EditLuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
