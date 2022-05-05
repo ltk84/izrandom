@@ -23,6 +23,7 @@ public interface LuckyWheelContract {
     }
 
     interface View extends BaseView<Presenter> {
-
+        void initLuckyWheel(LuckyWheelData luckyWheelData);
+        
     }
 }

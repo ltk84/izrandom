@@ -69,7 +69,6 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
     TextView spinTimeView;
     EditText ttText;
 
-    int indexCurrentWheel;
     int textSize = 1;
     int repeat = 1;
     int spinTime;
@@ -79,11 +78,8 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
     int changeColor;
     int defaultSliceColor = -4955036;
 
-    // Lay tu screen ngoai truyen vao
-    // Tam thoi lay tu source de test
     LuckyWheelData currentWheelData;
     List<LuckyWheelSlice> currentWheelSlices;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -227,7 +223,6 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
 
                     wheelItems = cache;
                     luckyWheel.addWheelItems(wheelItems);
-//                    createSliceCard();
                 }
         );
 

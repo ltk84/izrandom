@@ -191,7 +191,6 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
 
                     wheelItems = cache;
                     luckyWheel.addWheelItems(wheelItems);
-//                    createSliceCard();
                 }
         );
 
@@ -247,19 +246,15 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                     LuckyWheelData newWheelData = new LuckyWheelData(UUID.randomUUID().toString(),
                             titleText.getText().toString(), textSize, repeat, spinTime, fairMode);
 
-                    // TODO: dổi thành lưu xuống db
                     present.insertWheel(newWheelData);
 
                     List<LuckyWheelSlice> newWheelSlices =
                             SliceToWheelItem.convertWheelItemsToSlices(ids, originWheelItems, newWheelData.getId());
 
-                    // TODO: dổi thành lưu xuống db
                     for (LuckyWheelSlice slice : newWheelSlices) {
                         present.insertSlice(slice);
                     }
 
-//                    Intent intentBack = new Intent();
-//                    setResult(Activity.RESULT_OK, intentBack);
                     finish();
                 }
         );

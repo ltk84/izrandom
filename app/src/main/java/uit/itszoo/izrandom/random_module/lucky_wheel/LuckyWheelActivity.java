@@ -77,9 +77,9 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         presenter = new LuckyWheelPresenter(getApplicationContext(), this);
         setPresenter(presenter);
 
+        // observe là cơ chế của LiveData (update mỗi khi có thay đổi với userConfig)
         presenter.getUserConfig().observe(this, userConfiguration -> {
             presenter.setWheelData(userConfiguration.wheelID);
-            initLuckyWheel(presenter.getWheelData());
         });
 
         setListenerForView();
@@ -140,17 +140,14 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
             }
         });
 
-        customButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (spin) {
-                    Toast.makeText(LuckyWheelActivity.this, "During a spindling", Toast.LENGTH_LONG).show();
-                    return;
-                }
-                Intent intentToCustom = new Intent(getApplicationContext(), LuckyWheelCustomActivity.class);
-                intentToCustom.putExtra(LuckyWheelActivity.CURRENT_WHEEL, presenter.getWheelData().getId());
-                intentLauncher.launch(intentToCustom);
+        customButton.setOnClickListener(view -> {
+            if (spin) {
+                Toast.makeText(LuckyWheelActivity.this, "During a spindling", Toast.LENGTH_LONG).show();
+                return;
             }
+            Intent intentToCustom = new Intent(getApplicationContext(), LuckyWheelCustomActivity.class);
+            intentToCustom.putExtra(LuckyWheelActivity.CURRENT_WHEEL, presenter.getWheelData().getId());
+            intentLauncher.launch(intentToCustom);
         });
 
         lkWheel.setOnTouchListener(
@@ -184,7 +181,9 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
 
     }
 
-    private void initLuckyWheel(LuckyWheelData luckyWheelData) {
+
+    @Override
+    public void initLuckyWheel(LuckyWheelData luckyWheelData) {
         generateWheelItems();
 
         titleTextView.setText(presenter.getWheelData().getTitle());

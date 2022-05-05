@@ -39,6 +39,7 @@ public class LuckyWheelPresenter implements LuckyWheelContract.Presenter {
     @Override
     public void setWheelData(String wheelID) {
         this.currentWheelData = repository.getWheelByID(wheelID);
+        view.initLuckyWheel(currentWheelData);
     }
 
     @Override
