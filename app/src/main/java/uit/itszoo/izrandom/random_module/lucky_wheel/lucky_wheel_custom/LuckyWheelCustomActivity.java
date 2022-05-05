@@ -61,10 +61,25 @@ public class LuckyWheelCustomActivity extends AppCompatActivity implements Lucky
         setPresenter(presenter);
 
         currentWheelID = getIntent().getStringExtra(LuckyWheelActivity.CURRENT_WHEEL);
+
         presenter.getAllWheelList().observe(this, luckyWheelData -> {
+            System.out.println("wheel");
+
+            //  f2b77749-a103-48a9-ac48-065853559636
+            //  18257e72-878a-4b6e-8d40-def6a478cec9
+            //  8d8d15aa-9257-4d3a-a368-0f63d2b0d097
+            //  e7e999ab-8419-4fd7-90a5-cf3f1f612254
             wheelList = luckyWheelData;
             setupCarouselView();
         });
+
+        presenter.getAllSliceList().observe(this, luckyWheelSlices -> {
+            System.out.println("slice");
+            setupCarouselView();
+        });
+        
+
+        System.out.println("out");
 
         initView();
         setListenerForView();
@@ -85,12 +100,12 @@ public class LuckyWheelCustomActivity extends AppCompatActivity implements Lucky
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 if (result.getResultCode() == Activity.RESULT_OK) {
-                    Intent data = result.getData();
-                    try {
-                        recreate();
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+//                    Intent data = result.getData();
+//                    try {
+//                        recreate();
+//                    } catch (Exception e) {
+//                        System.out.println(e);
+//                    }
                 }
 
             });

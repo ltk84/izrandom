@@ -17,10 +17,18 @@ public class LuckyWheelCustomPresenter implements LuckyWheelCustomContract.Prese
 
     private LiveData<List<LuckyWheelData>> allWheelList;
 
+    private LiveData<List<LuckyWheelSlice>> allSliceList;
+
     public LuckyWheelCustomPresenter(Context context, LuckyWheelCustomContract.View view) {
         this.view = view;
         repository = Repository.getInstance(context);
         allWheelList = repository.getAllWheels();
+        allSliceList = repository.getAllSlices();
+    }
+
+    @Override
+    public LiveData<List<LuckyWheelSlice>> getAllSliceList() {
+        return allSliceList;
     }
 
     @Override

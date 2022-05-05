@@ -38,6 +38,7 @@ import java.util.UUID;
 
 import top.defaults.colorpicker.ColorPickerPopup;
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.database.Repository;
 import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
@@ -79,13 +80,17 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
     LuckyWheelData currentWheelData;
     ArrayList<LuckyWheelSlice> currentWheelSlices;
 
-//    public static enum DrawablePosition {TOP, BOTTOM, LEFT, RIGHT}
+    // test
+    Repository repository;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lucky_wheel_edit);
+        repository = Repository.getInstance(getApplicationContext());
         indexCurrentWheel = (int) getIntent().getSerializableExtra(LuckyWheelCustomActivity.CURRENT_WHEEL);
+
         currentWheelData = LuckyWheelSource.luckyWheelList.get(indexCurrentWheel);
         currentWheelSlices = (ArrayList<LuckyWheelSlice>) currentWheelData.getSlices().clone();
 
@@ -306,9 +311,12 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                     currentWheelData.setTitle(title);
                     LuckyWheelSource.luckyWheelList.set(indexCurrentWheel, currentWheelData);
 
+//                    List<LuckyWheelSlice> list = repository.getSlicesByWheelID("f2b77749-a103-48a9-ac48-065853559636");
+//                    list.forEach(slice -> {
+//                        slice.setName(slice.getName() + "1");
+//                        repository.updateSlice(slice);
+//                    });
 
-                    Intent intentBack = new Intent();
-                    setResult(Activity.RESULT_OK, intentBack);
                     finish();
                 }
         );

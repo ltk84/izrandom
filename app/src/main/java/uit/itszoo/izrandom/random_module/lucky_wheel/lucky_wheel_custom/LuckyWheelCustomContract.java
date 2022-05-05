@@ -12,6 +12,8 @@ public interface LuckyWheelCustomContract {
     interface Presenter {
         LiveData<List<LuckyWheelData>> getAllWheelList();
 
+        LiveData<List<LuckyWheelSlice>> getAllSliceList();
+
         List<LuckyWheelSlice> getSlicesByWheelID(String wheelID);
 
         void changeCurrentWheel(String wheelID);
