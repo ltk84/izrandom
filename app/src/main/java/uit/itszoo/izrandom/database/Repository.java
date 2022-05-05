@@ -86,8 +86,8 @@ public class Repository {
         });
     }
 
-    public void deleteSlice(LuckyWheelSlice... slice) {
-        AppDatabase.dbExecutor.execute(() -> sliceDAO.deleteSlice(slice));
+    public void deleteSlicesByIDs(List<String> ids) {
+        AppDatabase.dbExecutor.execute(() -> sliceDAO.deleteSlicesByIDs(ids));
     }
 
     public LiveData<List<LuckyWheelSlice>> getAllSlices() {
@@ -112,10 +112,26 @@ public class Repository {
         List<LuckyWheelSlice> list = new ArrayList<>();
         try {
             list = AppDatabase.dbExecutor.submit(() -> sliceDAO.getSliceByWheelID(wheelID)).get();
+            // sort theo thu tu number order
+            list.sort((slice, t1) -> slice.getNumberOrder() - t1.getNumberOrder());
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public boolean checkIfSliceExist(String id) {
+        LuckyWheelSlice slice = null;
+        try {
+            slice = AppDatabase.dbExecutor.submit(() -> sliceDAO.getSliceByID(id)).get();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return slice != null;
+    }
+
+    public void updateWheel(LuckyWheelData wheelData) {
+        AppDatabase.dbExecutor.execute(() -> wheelDAO.updateWheel(wheelData));
     }
 
     public LiveData<UserConfiguration> getUserConfiguration() {

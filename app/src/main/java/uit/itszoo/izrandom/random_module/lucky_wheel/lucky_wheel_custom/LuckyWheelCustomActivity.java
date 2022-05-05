@@ -27,6 +27,7 @@ import java.util.List;
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
+import uit.itszoo.izrandom.random_module.lucky_wheel.edit_lucky_wheel.EditLuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
 
@@ -77,7 +78,7 @@ public class LuckyWheelCustomActivity extends AppCompatActivity implements Lucky
             System.out.println("slice");
             setupCarouselView();
         });
-        
+
 
         System.out.println("out");
 
@@ -135,9 +136,9 @@ public class LuckyWheelCustomActivity extends AppCompatActivity implements Lucky
         );
 
         editButton.setOnClickListener(view -> {
-            Intent intentToCustom = new Intent(getApplicationContext(), EditLuckyWheelActivity.class);
-            intentToCustom.putExtra(LuckyWheelCustomActivity.CURRENT_WHEEL, carouselView.getCurrentItem());
-            intentLauncher.launch(intentToCustom);
+            Intent intentToEdit = new Intent(getApplicationContext(), EditLuckyWheelActivity.class);
+            intentToEdit.putExtra(LuckyWheelCustomActivity.CURRENT_WHEEL, presenter.getAllWheelList().getValue().get(carouselView.getCurrentItem()));
+            intentLauncher.launch(intentToEdit);
         });
 
         addButton.setOnClickListener(

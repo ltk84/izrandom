@@ -1,4 +1,4 @@
-package uit.itszoo.izrandom.random_module.lucky_wheel.lucky_wheel_custom;
+package uit.itszoo.izrandom.random_module.lucky_wheel.edit_lucky_wheel;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -34,20 +34,24 @@ import com.google.android.material.slider.Slider;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import top.defaults.colorpicker.ColorPickerPopup;
 import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.database.Repository;
 import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
+import uit.itszoo.izrandom.random_module.lucky_wheel.lucky_wheel_custom.LuckyWheelCustomActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
 import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
 
-public class EditLuckyWheelActivity extends AppCompatActivity {
+public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuckyWheelContract.View {
     LuckyWheel luckyWheel;
     ArrayList<WheelItem> wheelItems = new ArrayList<>();
     ArrayList<WheelItem> originWheelItems = new ArrayList<>();
+
+    EditLuckyWheelContract.Presenter presenter;
 
     CardView[] listCardView = new CardView[12];
     TextView[] listTextInCard = new TextView[12];
@@ -78,21 +82,19 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
     // Lay tu screen ngoai truyen vao
     // Tam thoi lay tu source de test
     LuckyWheelData currentWheelData;
-    ArrayList<LuckyWheelSlice> currentWheelSlices;
-
-    // test
-    Repository repository;
+    List<LuckyWheelSlice> currentWheelSlices;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lucky_wheel_edit);
-        repository = Repository.getInstance(getApplicationContext());
-        indexCurrentWheel = (int) getIntent().getSerializableExtra(LuckyWheelCustomActivity.CURRENT_WHEEL);
 
-        currentWheelData = LuckyWheelSource.luckyWheelList.get(indexCurrentWheel);
-        currentWheelSlices = (ArrayList<LuckyWheelSlice>) currentWheelData.getSlices().clone();
+        presenter = new EditLuckyWheelPresenter(getApplicationContext(), this);
+        setPresenter(presenter);
+
+        currentWheelData = (LuckyWheelData) getIntent().getSerializableExtra(LuckyWheelCustomActivity.CURRENT_WHEEL);
+        currentWheelSlices = presenter.getSlicesByWheelID(currentWheelData.getId());
 
         textSize = currentWheelData.getTextSize();
         repeat = currentWheelData.getSliceRepeat();
@@ -107,8 +109,14 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
 
 
     private void generateWheelItems() {
-        wheelItems = SliceToWheelItem.convertSlicesToWheelItems(getResources(), currentWheelData.getSlicesWithRepeat());
-        originWheelItems = SliceToWheelItem.convertSlicesToWheelItems(getResources(), currentWheelData.getSlices());
+        originWheelItems = SliceToWheelItem.convertSlicesToWheelItems(getResources(), currentWheelSlices);
+
+        List<LuckyWheelSlice> slicesWithRepeat = new ArrayList<>();
+        for (int i = 0; i < repeat; i++) {
+            slicesWithRepeat.addAll(currentWheelSlices);
+        }
+
+        wheelItems = SliceToWheelItem.convertSlicesToWheelItems(getResources(), slicesWithRepeat);
     }
 
     void initView() {
@@ -266,8 +274,8 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
         checkButton.setOnClickListener(
                 view -> {
 
-                    ArrayList<LuckyWheelSlice> slicesSource = currentWheelData.getSlices();
-                    ArrayList<LuckyWheelSlice> removedSlices = new ArrayList<>();
+                    List<LuckyWheelSlice> slicesSource = presenter.getSlicesByWheelID(currentWheelData.getId());
+                    List<LuckyWheelSlice> removedSlices = new ArrayList<>();
 
                     for (LuckyWheelSlice slice : slicesSource) {
                         if (!currentWheelSlices.contains(slice)) {
@@ -280,42 +288,24 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                         }
                     }
 
-                    // TODO: thay bằng việc remove trong db
-                    LuckyWheelSource.slices.removeAll(removedSlices);
+                    presenter.deleteSliceByIDs(removedSlices.stream().map(slice -> slice.getId()).collect(Collectors.toList()));
 
                     // check xem có slice nào mới được add không
-                    // có thì add vào source (//TODO: thay bằng việc add trong db)
                     for (LuckyWheelSlice slice : currentWheelSlices) {
-                        boolean isExist = false;
-                        for (int i = 0; i < LuckyWheelSource.slices.size(); i++) {
-                            LuckyWheelSlice sliceInSource = LuckyWheelSource.slices.get(i);
-                            if (sliceInSource.getId().equals(slice.getId())) {
-                                LuckyWheelSource.slices.set(i, slice);
-                                isExist = true;
-                            }
+                        boolean sliceExist = presenter.checkIfSliceExist(slice.getId());
+                        if (sliceExist) {
+                            presenter.updateSlice(slice);
+                        } else {
+                            presenter.addSlice(slice);
                         }
-
-                        if (!isExist) {
-                            LuckyWheelSource.slices.add(slice);
-                        }
-                    }
-
-                    ArrayList<String> ids = new ArrayList<>();
-                    for (int i = 0; i < originWheelItems.size(); i++) {
-                        ids.add(currentWheelSlices.get(i).getId());
                     }
 
                     currentWheelData.setFairMode(fairMode);
                     currentWheelData.setTextSize(textSize);
                     currentWheelData.setSliceRepeat(repeat);
                     currentWheelData.setTitle(title);
-                    LuckyWheelSource.luckyWheelList.set(indexCurrentWheel, currentWheelData);
 
-//                    List<LuckyWheelSlice> list = repository.getSlicesByWheelID("f2b77749-a103-48a9-ac48-065853559636");
-//                    list.forEach(slice -> {
-//                        slice.setName(slice.getName() + "1");
-//                        repository.updateSlice(slice);
-//                    });
+                    presenter.updateWheel(currentWheelData);
 
                     finish();
                 }
@@ -588,5 +578,10 @@ public class EditLuckyWheelActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    @Override
+    public void setPresenter(EditLuckyWheelContract.Presenter presenter) {
+        this.presenter = presenter;
     }
 }

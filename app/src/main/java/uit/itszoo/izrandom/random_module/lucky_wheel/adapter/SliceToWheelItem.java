@@ -7,6 +7,7 @@ import android.graphics.Color;
 import com.bluehomestudio.luckywheel.WheelItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
@@ -19,9 +20,9 @@ public class SliceToWheelItem {
                 BitmapFactory.decodeResource(resources, R.drawable.small_nails_icons), slice.getName());
     }
 
-    public static ArrayList<WheelItem> convertSlicesToWheelItems(Resources resources, ArrayList<LuckyWheelSlice> slices) {
+    public static ArrayList<WheelItem> convertSlicesToWheelItems(Resources resources, List<LuckyWheelSlice> slices) {
         ArrayList<WheelItem> list = new ArrayList<>();
-        slices.sort((slice, t1) -> slice.getNumberOrder() - t1.getNumberOrder());
+//        slices.sort((slice, t1) -> slice.getNumberOrder() - t1.getNumberOrder());
         slices.forEach(slice -> {
             list.add(convertSliceToWheelItem(resources, slice));
         });
