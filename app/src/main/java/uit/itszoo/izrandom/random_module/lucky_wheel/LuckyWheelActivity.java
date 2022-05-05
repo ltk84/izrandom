@@ -30,6 +30,7 @@ import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
 import uit.itszoo.izrandom.random_module.lucky_wheel.lucky_wheel_custom.LuckyWheelCustomActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
 
 public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelContract.View {
     public static final String CURRENT_WHEEL = "CURRENT_WHEEL";
@@ -78,11 +79,9 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         setPresenter(presenter);
 
         presenter.getUserConfig().observe(this, userConfiguration -> {
-            System.out.println(userConfiguration.wheelID);
             presenter.setWheelData(userConfiguration.wheelID);
             initLuckyWheel(presenter.getWheelData());
         });
-
 
         setListenerForView();
     }
@@ -91,9 +90,9 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 if (result.getResultCode() == Activity.RESULT_OK) {
-                    Intent data = result.getData();
-                    LuckyWheelData currentWheel = (LuckyWheelData) data.getSerializableExtra(LuckyWheelCustomActivity.SELECTED_WHEEL);
-                    initLuckyWheel(currentWheel);
+//                    Intent data = result.getData();
+//                    LuckyWheelData currentWheel = (LuckyWheelData) data.getSerializableExtra(LuckyWheelCustomActivity.SELECTED_WHEEL);
+//                    initLuckyWheel(currentWheel);
                 }
             });
 
@@ -214,10 +213,15 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
 
     private void generateWheelItems() {
         int repeat = presenter.getWheelData().getSliceRepeat();
-        
+        List<LuckyWheelSlice> slicesOfWheel = presenter.getSliceByWheelID(presenter.getWheelData().getId());
+
+        ArrayList<LuckyWheelSlice> list = new ArrayList<>();
+        for (int i = 0; i < repeat; i++) {
+            list.addAll(slicesOfWheel);
+        }
 
         wheelItems = SliceToWheelItem.convertSlicesToWheelItems(
-                getResources(), presenter.getWheelData().getSlicesWithRepeat());
+                getResources(), list);
     }
 
     @Override

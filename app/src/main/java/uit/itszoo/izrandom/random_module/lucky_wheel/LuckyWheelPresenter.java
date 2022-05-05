@@ -4,9 +4,12 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
+import java.util.List;
+
 import uit.itszoo.izrandom.database.Repository;
 import uit.itszoo.izrandom.database.UserConfiguration;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
 
 public class LuckyWheelPresenter implements LuckyWheelContract.Presenter {
     private final LuckyWheelContract.View view;
@@ -38,70 +41,10 @@ public class LuckyWheelPresenter implements LuckyWheelContract.Presenter {
         this.currentWheelData = repository.getWheelByID(wheelID);
     }
 
-//    @Override
-//    public void changeWheelItems(List<WheelItem> newWheel) {
-//        currentListWheel = newWheel;
-//    }
-//
-//    @Override
-//    public List<WheelItem> getWheelItems() {
-//        return currentListWheel;
-//    }
-//
-//    @Override
-//    public void initListWheelItems(List<WheelItem> listItems) {
-//        currentListWheel = listItems;
-//    }
-//
-//    @Override
-//    public void setFairMode(boolean fairMode) {
-//        this.fairMode = fairMode;
-//    }
-//
-//    @Override
-//    public void setRepeat(int repeat) {
-//        this.repeat = repeat;
-//    }
-//
-//    @Override
-//    public void setSpinTime(int spinTime) {
-//        this.spinTime = spinTime;
-//    }
-//
-//    @Override
-//    public void setTextSize(int textSize) {
-//        this.textSize = textSize;
-//    }
-//
-//    @Override
-//    public void setIndexOfWheelInList(int indexOfWheelInList) {
-//        this.indexOfWheelInList = indexOfWheelInList;
-//    }
-//
-//    @Override
-//    public int getRepeat() {
-//        return repeat;
-//    }
-//
-//    @Override
-//    public int getTextSize() {
-//        return textSize;
-//    }
-//
-//    @Override
-//    public int getSpinTime() {
-//        return spinTime;
-//    }
-//
-//    @Override
-//    public boolean getFairMode() {
-//        return fairMode;
-//    }
-//
-//    @Override
-//    public int getIndexOfWheelInList() {
-//        return indexOfWheelInList;
-//    }
+    @Override
+    public List<LuckyWheelSlice> getSliceByWheelID(String wheelID) {
+        return repository.getSlicesByWheelID(wheelID);
+    }
 
     @Override
     public void start() {

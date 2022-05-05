@@ -92,6 +92,7 @@ public class LuckyWheelData implements Serializable {
         return sliceList;
     }
 
+    // TODO: khoong lay nua
     public ArrayList<LuckyWheelSlice> getSlicesWithRepeat() {
         ArrayList<LuckyWheelSlice> list = new ArrayList<>();
         for (int i = 0; i < getSliceRepeat(); i++) {

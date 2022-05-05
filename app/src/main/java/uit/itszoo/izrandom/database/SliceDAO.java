@@ -22,8 +22,8 @@ public interface SliceDAO {
     @Delete
     public void deleteSlice(LuckyWheelSlice... slices);
 
-    @Query("SELECT * FROM luckyWheelSlice WHERE id IN (:ids)")
-    public LiveData<List<LuckyWheelSlice>> getSliceByIDs(List<String> ids);
+    @Query("SELECT * FROM luckyWheelSlice WHERE wheelID =:id")
+    public List<LuckyWheelSlice> getSliceByWheelID(String id);
 
     @Query("SELECT * FROM luckyWheelSlice")
     public LiveData<List<LuckyWheelSlice>> getAllSlices();
