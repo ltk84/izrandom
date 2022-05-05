@@ -32,4 +32,9 @@ public class LuckyWheelCustomPresenter implements LuckyWheelCustomContract.Prese
     public List<LuckyWheelSlice> getSlicesByWheelID(String wheelID) {
         return repository.getSlicesByWheelID(wheelID);
     }
+
+    @Override
+    public void changeCurrentWheel(String wheelID) {
+        repository.changeChosenWheel(wheelID);
+    }
 }

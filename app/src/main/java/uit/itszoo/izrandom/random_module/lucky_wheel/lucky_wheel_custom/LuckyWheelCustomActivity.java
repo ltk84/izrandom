@@ -134,20 +134,9 @@ public class LuckyWheelCustomActivity extends AppCompatActivity implements Lucky
 
         okeButton.setOnClickListener(
                 view -> {
-                    Intent intentBack = new Intent();
-                    // tìm lucky wheel data từ trong db voi index rồi trả về cho screen chính
-                    // tạm thời tìm lucky wheel data từ trong list source
                     int currentIndex = carouselView.getCurrentItem();
                     LuckyWheelData currentWheel = wheelList.get(currentIndex);
-
-                    //    f2b77749-a103-48a9-ac48-065853559636
-                    //    18257e72-878a-4b6e-8d40-def6a478cec9
-                    //    8d8d15aa-9257-4d3a-a368-0f63d2b0d097
-                    //    e7e999ab-8419-4fd7-90a5-cf3f1f612254
-
-
-                    intentBack.putExtra(LuckyWheelCustomActivity.SELECTED_WHEEL, currentWheel);
-                    setResult(Activity.RESULT_OK, intentBack);
+                    presenter.changeCurrentWheel(currentWheel.getId());
                     finish();
                 }
         );

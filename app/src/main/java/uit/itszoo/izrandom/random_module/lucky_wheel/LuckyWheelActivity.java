@@ -1,7 +1,6 @@
 package uit.itszoo.izrandom.random_module.lucky_wheel;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -89,11 +88,6 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
-                if (result.getResultCode() == Activity.RESULT_OK) {
-//                    Intent data = result.getData();
-//                    LuckyWheelData currentWheel = (LuckyWheelData) data.getSerializableExtra(LuckyWheelCustomActivity.SELECTED_WHEEL);
-//                    initLuckyWheel(currentWheel);
-                }
             });
 
     public void executeRandom() {

@@ -13,6 +13,8 @@ public interface LuckyWheelCustomContract {
         LiveData<List<LuckyWheelData>> getAllWheelList();
 
         List<LuckyWheelSlice> getSlicesByWheelID(String wheelID);
+
+        void changeCurrentWheel(String wheelID);
     }
 
     interface View extends BaseView<Presenter> {
