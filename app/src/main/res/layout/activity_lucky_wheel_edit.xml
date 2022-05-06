@@ -48,7 +48,7 @@
             android:scaleX="1"
             android:scaleY="1"
             android:src="@drawable/ic_check_button"
-            app:tint="@color/colorOnBackground" />
+            app:tint="@color/colorGreen" />
 
         <ImageButton
             android:id="@+id/bt_delete_lucky_wheel_edit"
@@ -59,8 +59,8 @@
             android:contentDescription="@string/back_button"
             android:minWidth="60dp"
             android:minHeight="60dp"
-            android:scaleX="1"
-            android:scaleY="1"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
             android:src="@drawable/ic_delete"
             app:tint="@color/colorOnBackground" />
     </Toolbar>
@@ -71,7 +71,7 @@
         android:layout_height="200dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
-        LuckyWheel:background_color="@color/gold"
+        LuckyWheel:background_color="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@+id/wheel_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
         android:layout_gravity="center"
         android:text=""
         android:minWidth="100dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
@@ -114,9 +114,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="start"
-                android:text="Decoration"
+                android:text="Tùy chỉnh"
                 android:textColor="#000000"
-                android:textSize="16dp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <View
@@ -134,14 +134,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Text size"
+                    android:text="Cỡ chữ"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"></Space>
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/text_size_edit_lucky_wheel"
@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:text="16"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <com.google.android.material.slider.Slider
@@ -157,9 +157,9 @@
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:value="16"
-                android:valueFrom="8"
+                android:valueFrom="10"
                 android:stepSize="1"
-                android:valueTo="32"></com.google.android.material.slider.Slider>
+                android:valueTo="50" />
 
             <LinearLayout
                 android:layout_width="160dp"
@@ -169,14 +169,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Slice repeat"
+                    android:text="Lặp slice"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"></Space>
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/slide_repeat"
@@ -184,7 +184,7 @@
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <com.google.android.material.slider.Slider
@@ -193,8 +193,8 @@
                 android:layout_height="wrap_content"
                 android:value="1"
                 android:valueFrom="1"
-                android:valueTo="4"
-                android:stepSize="1"></com.google.android.material.slider.Slider>
+                android:valueTo="10"
+                android:stepSize="1" />
 
             <LinearLayout
                 android:layout_width="160dp"
@@ -204,14 +204,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Spin time"
+                    android:text="Số lần quay"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"></Space>
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/spin_time"
@@ -219,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:text="9"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <com.google.android.material.slider.Slider
@@ -229,7 +229,7 @@
                 android:value="9"
                 android:valueFrom="3"
                 android:valueTo="20"
-                android:stepSize="1"></com.google.android.material.slider.Slider>
+                android:stepSize="1" />
 
             <LinearLayout
                 android:layout_width="160dp"
@@ -241,18 +241,18 @@
                     android:layout_height="wrap_content"
                     android:text="Fair mode"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"></Space>
+                    android:layout_weight="1" />
 
                 <Switch
                     android:id="@+id/fair_mode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    LuckyWheel:ignore="UseSwitchCompatOrMaterialXml"></Switch>
+                    LuckyWheel:ignore="UseSwitchCompatOrMaterialXml" />
             </LinearLayout>
         </LinearLayout>
 
@@ -274,12 +274,12 @@
                     android:text="Slice"
                     android:textStyle="bold"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"></Space>
+                    android:layout_weight="1" />
 
                 <ImageButton
                     android:id="@+id/mix_button"
@@ -287,6 +287,8 @@
                     android:layout_height="wrap_content"
                     android:minWidth="30dp"
                     android:minHeight="30dp"
+                    android:scaleX="1.4"
+                    android:scaleY="1.4"
                     android:background="@null"
                     android:src="@drawable/ic_mix">
 
@@ -299,6 +301,8 @@
                     android:background="@null"
                     android:minWidth="30dp"
                     android:minHeight="30dp"
+                    android:scaleX="1.4"
+                    android:scaleY="1.4"
                     android:src="@drawable/ic_add">
 
                 </ImageButton>

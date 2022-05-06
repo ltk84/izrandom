@@ -47,7 +47,7 @@
             android:scaleY="1"
             android:src="@drawable/ic_check_button"
             android:background="@null"
-            app:tint="@color/colorOnBackground" />
+            app:tint="@color/colorGreen" />
     </Toolbar>
 
 
@@ -71,10 +71,13 @@
         app:spacing="200" />
 
     <TextView
-        style="@style/AppBarTextStyle"
+        style="@style/GuideTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:paddingStart="36dp"
+        android:paddingEnd="36dp"
+        android:textAlignment="center"
         android:text="Lướt sang trái hoặc phải để thay đổi vòng quay"
         app:layout_constraintBottom_toTopOf="@+id/bt_edit"
         app:layout_constraintEnd_toEndOf="parent"

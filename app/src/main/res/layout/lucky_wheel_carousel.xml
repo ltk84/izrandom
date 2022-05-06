@@ -18,13 +18,14 @@
         app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="8dp"/>
     <com.bluehomestudio.luckywheel.LuckyWheel
         android:id="@+id/wheel_carousel"
-        LuckyWheel:background_color="@color/gold"
+        LuckyWheel:background_color="@color/colorPrimaryDark"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
-        app:ignore="NamespaceTypo" />
+        app:ignore="NamespaceTypo"
+        android:layout_marginBottom="24dp"/>
 </LinearLayout>

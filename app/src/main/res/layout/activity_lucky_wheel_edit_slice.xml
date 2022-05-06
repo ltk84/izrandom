@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/custom_background_dialog"
     android:layout_marginVertical="20dp"
+    android:paddingHorizontal="24dp"
     android:layout_gravity="center"
     android:layout_marginHorizontal="20dp"
     android:padding="10dp">
@@ -13,10 +14,11 @@
         android:id="@+id/tt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="Chỉnh sửa slice"
-        android:textSize="16dp"
+        android:textColor="@color/colorOnBackground"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +28,8 @@
         android:id="@+id/delete_slice_button"
         android:layout_width="50dp"
         android:layout_height="40dp"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
         app:layout_constraintBottom_toBottomOf="@+id/tt"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@null"
@@ -33,29 +37,28 @@
         app:layout_constraintTop_toTopOf="@+id/tt">
 
     </ImageButton>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:minWidth="150dp"
         android:minHeight="40dp"
-        android:layout_marginTop="20dp"
         app:cardBackgroundColor="#45CAF2"
         app:cardCornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tt"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/tt">
 
         <TextView
             android:id="@+id/text_in_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:layout_gravity="center"
-            android:text="Ăn cức"
-            android:textSize="16dp"
             android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.cardview.widget.CardView>
@@ -64,62 +67,70 @@
         android:id="@+id/slice_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:drawableRight="@drawable/ic_clarity_pencil_solid"
+        android:hint="Nội dung"
+        android:textSize="16sp"
+        android:maxLength="20"
         android:minHeight="40dp"
+        android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        android:hint="Nội dung"
-        android:maxLength="20"
-        android:drawableRight="@drawable/ic_clarity_pencil_solid"
-       />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
     <EditText
         android:id="@+id/slice_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:minHeight="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slice_content"
-        android:text="Màu nền"
+        android:layout_marginEnd="16dp"
+        android:cursorVisible="false"
+        android:drawableRight="@drawable/ic_circle_color"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:cursorVisible="false"
-        android:textColor="@color/randomElementBlack"
         android:maxLength="20"
-        android:drawableRight="@drawable/ic_circle_color"
-        />
+        android:minHeight="40dp"
+        android:textSize="16sp"
+        android:paddingBottom="16dp"
+        android:text="Màu nền"
+        android:textColor="@color/randomElementBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slice_content" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:orientation="horizontal"
+        android:paddingBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:paddingBottom="20dp"
         app:layout_constraintTop_toBottomOf="@+id/slice_color">
+
         <ImageButton
             android:id="@+id/cancel_button"
-            android:layout_width="160dp"
+            android:layout_width="140dp"
             android:layout_height="40dp"
             android:background="@drawable/custom_cancel_button"
-            android:src="@drawable/ic_cancel"
-            >
-        </ImageButton>
+            android:src="@drawable/ic_cancel" />
+
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" >
-        </Space>
+            android:layout_weight="1" />
+
         <ImageButton
             android:id="@+id/oke_button"
-            android:layout_width="160dp"
+            android:layout_width="140dp"
             android:layout_height="40dp"
             android:background="@drawable/custom_accept_button"
             android:src="@drawable/ic_check_button"
-            >
-        </ImageButton>
+            android:tint="@color/colorOnPrimary" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

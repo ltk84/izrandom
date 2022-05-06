@@ -38,7 +38,6 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
     List<WheelItem> wheelItems = new ArrayList<WheelItem>();
     TextSwitcher titleTextView;
     TextView description;
-    TextView description2;
     ConstraintLayout constrainedLayout;
     ImageButton backButton;
     ImageButton customButton;
@@ -63,7 +62,6 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         backButton = findViewById(R.id.bb_back);
         customButton = findViewById(R.id.bt_cus);
         description = findViewById(R.id.description);
-        description2 = findViewById(R.id.description2);
         titleTextView = findViewById(R.id.random_result);
         titleTextView.setFactory(() -> {
             textView = new TextView(
@@ -124,7 +122,6 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         result = wheelItems.get(selectedSliceIndex).text;
         lkWheel.rotateWheelTo(selectedSliceIndex + 1);
         description.setVisibility(View.INVISIBLE);
-        description2.setVisibility(View.INVISIBLE);
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -199,7 +196,6 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
             backButton.setBackgroundColor(wheelItems.get(selectedSliceIndex).color);
             customButton.setBackgroundColor(wheelItems.get(selectedSliceIndex).color);
             description.setVisibility(View.VISIBLE);
-            description2.setVisibility(View.VISIBLE);
             spin = false;
         });
     }

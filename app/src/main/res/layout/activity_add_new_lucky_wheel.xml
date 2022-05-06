@@ -48,7 +48,7 @@
             android:scaleX="1"
             android:scaleY="1"
             android:src="@drawable/ic_check_button"
-            app:tint="@color/colorOnBackground" />
+            app:tint="@color/colorGreen" />
     </Toolbar>
 
     <com.bluehomestudio.luckywheel.LuckyWheel
@@ -57,7 +57,7 @@
         android:layout_height="200dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
-        LuckyWheel:background_color="@color/gold"
+        LuckyWheel:background_color="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@+id/wheel_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -72,7 +72,7 @@
         android:layout_gravity="center"
         android:text="Làm gì bây giờ?"
         android:minWidth="100dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
@@ -101,9 +101,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="start"
-                android:text="Decoration"
+                android:text="Tùy chỉnh"
                 android:textColor="#000000"
-                android:textSize="16dp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <View
@@ -122,14 +122,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Text size"
+                    android:text="Cỡ chữ"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"></Space>
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/text_size_add_lucky_wheel"
@@ -137,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:text="16"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <com.google.android.material.slider.Slider
@@ -147,7 +147,7 @@
                 android:value="16"
                 android:stepSize="1"
                 android:valueFrom="0"
-                android:valueTo="32"></com.google.android.material.slider.Slider>
+                android:valueTo="32" />
 
             <LinearLayout
                 android:layout_width="160dp"
@@ -157,14 +157,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Slice repeat"
+                    android:text="Lặp slice"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"></Space>
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/slide_repeat_add_lucky_wheel"
@@ -172,7 +172,7 @@
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <com.google.android.material.slider.Slider
@@ -182,7 +182,7 @@
                 android:value="1"
                 android:valueFrom="1"
                 android:stepSize="1"
-                android:valueTo="4"></com.google.android.material.slider.Slider>
+                android:valueTo="4" />
 
             <LinearLayout
                 android:layout_width="160dp"
@@ -192,14 +192,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Spin time"
+                    android:text="Số lần quay"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"></Space>
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/spin_time_add_lucky_wheel"
@@ -207,7 +207,7 @@
                     android:layout_height="wrap_content"
                     android:text="5"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <com.google.android.material.slider.Slider
@@ -217,7 +217,7 @@
                 android:value="5"
                 android:valueFrom="3"
                 android:valueTo="20"
-                android:stepSize="1"></com.google.android.material.slider.Slider>
+                android:stepSize="1" />
 
             <LinearLayout
                 android:layout_width="160dp"
@@ -229,18 +229,18 @@
                     android:layout_height="wrap_content"
                     android:text="Fair mode"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"></Space>
+                    android:layout_weight="1" />
 
                 <Switch
                     android:id="@+id/fair_mode_add_lucky_wheel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    LuckyWheel:ignore="UseSwitchCompatOrMaterialXml"></Switch>
+                    LuckyWheel:ignore="UseSwitchCompatOrMaterialXml" />
             </LinearLayout>
         </LinearLayout>
 
@@ -262,12 +262,12 @@
                     android:text="Slice"
                     android:textStyle="bold"
                     android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"></Space>
+                    android:layout_weight="1" />
 
                 <ImageButton
                     android:id="@+id/add_wheel_mix_button"
@@ -275,6 +275,8 @@
                     android:layout_height="wrap_content"
                     android:minWidth="30dp"
                     android:minHeight="30dp"
+                    android:scaleX="1.4"
+                    android:scaleY="1.4"
                     android:background="@null"
                     android:src="@drawable/ic_mix">
 
@@ -287,6 +289,8 @@
                     android:background="@null"
                     android:minWidth="30dp"
                     android:minHeight="30dp"
+                    android:scaleX="1.4"
+                    android:scaleY="1.4"
                     android:src="@drawable/ic_add">
 
                 </ImageButton>
@@ -328,7 +332,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:text="Horizontal Line"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:gravity="center_horizontal" />
             </androidx.cardview.widget.CardView>
 
@@ -345,7 +349,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:text="Horizontal Line"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:gravity="center_horizontal" />
             </androidx.cardview.widget.CardView>
 
@@ -362,7 +366,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:text="Horizontal Line"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:gravity="center_horizontal" />
             </androidx.cardview.widget.CardView>
 
@@ -379,7 +383,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:text="Horizontal Line"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:gravity="center_horizontal" />
             </androidx.cardview.widget.CardView>
 
@@ -396,7 +400,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:text="Horizontal Line"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:gravity="center_horizontal" />
             </androidx.cardview.widget.CardView>
 
@@ -413,7 +417,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:text="Horizontal Line"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:gravity="center_horizontal" />
             </androidx.cardview.widget.CardView>
 
@@ -430,7 +434,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:text="Horizontal Line"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:gravity="center_horizontal" />
             </androidx.cardview.widget.CardView>
 
@@ -447,7 +451,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:text="Horizontal Line"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:gravity="center_horizontal" />
             </androidx.cardview.widget.CardView>
 
@@ -464,7 +468,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:text="Horizontal Line"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:gravity="center_horizontal" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
