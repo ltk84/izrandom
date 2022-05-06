@@ -27,4 +27,7 @@ public interface WheelDAO {
 
     @Query("SELECT * FROM luckyWheel")
     public LiveData<List<LuckyWheelData>> getAllWheels();
+
+    @Query("SELECT COUNT(*) FROM luckyWheel")
+    public int countWheel();
 }

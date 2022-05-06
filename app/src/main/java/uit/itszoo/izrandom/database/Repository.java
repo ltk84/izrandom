@@ -138,6 +138,20 @@ public class Repository {
         AppDatabase.dbExecutor.execute(() -> wheelDAO.updateWheel(wheelData));
     }
 
+    public void deleteWheel(LuckyWheelData wheelData) {
+        AppDatabase.dbExecutor.execute(() -> wheelDAO.deleteWheel(wheelData));
+    }
+
+    public int countWheel() {
+        int numberOfWheel = 0;
+        try {
+            numberOfWheel = AppDatabase.dbExecutor.submit(() -> wheelDAO.countWheel()).get();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return numberOfWheel;
+    }
+
     public LiveData<UserConfiguration> getUserConfiguration() {
         return userConfig;
     }

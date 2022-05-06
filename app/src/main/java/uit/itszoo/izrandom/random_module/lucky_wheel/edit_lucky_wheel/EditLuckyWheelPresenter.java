@@ -47,4 +47,14 @@ public class EditLuckyWheelPresenter implements EditLuckyWheelContract.Presenter
     public void updateWheel(LuckyWheelData wheelData) {
         repository.updateWheel(wheelData);
     }
+
+    @Override
+    public int getNumberOfWheel() {
+        return repository.countWheel();
+    }
+
+    @Override
+    public void deleteWheel(LuckyWheelData wheelData) {
+        repository.deleteWheel(wheelData);
+    }
 }

@@ -19,6 +19,10 @@ public interface EditLuckyWheelContract {
         void addSlice(LuckyWheelSlice slice);
 
         void updateWheel(LuckyWheelData wheelData);
+
+        int getNumberOfWheel();
+
+        void deleteWheel(LuckyWheelData wheelData);
     }
 
     interface View extends BaseView<Presenter> {

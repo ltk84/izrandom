@@ -1,9 +1,7 @@
 package uit.itszoo.izrandom.random_module.lucky_wheel.edit_lucky_wheel;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -44,17 +42,22 @@ import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
 import uit.itszoo.izrandom.random_module.lucky_wheel.lucky_wheel_custom.LuckyWheelCustomActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
-import uit.itszoo.izrandom.random_module.lucky_wheel.source.LuckyWheelSource;
 
 public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuckyWheelContract.View {
+    final int MAX_NUMBER_SLICE = 10;
+    final int MIN_NUMBER_SLICE = 2;
+    final int MIN_NUMBER_WHEEL = 1;
+    final int DEFAULT_SELECTED_WHEEL_ITEM = 1;
+    final int DEFAULT_SLICE_COLOR = -4955036;
+
     LuckyWheel luckyWheel;
     ArrayList<WheelItem> wheelItems = new ArrayList<>();
     ArrayList<WheelItem> originWheelItems = new ArrayList<>();
 
     EditLuckyWheelContract.Presenter presenter;
 
-    CardView[] listCardView = new CardView[12];
-    TextView[] listTextInCard = new TextView[12];
+    CardView[] listCardView = new CardView[MAX_NUMBER_SLICE];
+    TextView[] listTextInCard = new TextView[MAX_NUMBER_SLICE];
     ImageButton backButton;
     ImageButton deleteButton;
     ImageButton checkButton;
@@ -76,7 +79,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
     boolean fairMode = false;
 
     int changeColor;
-    int defaultSliceColor = -4955036;
+    int defaultSliceColor = DEFAULT_SLICE_COLOR;
 
     LuckyWheelData currentWheelData;
     List<LuckyWheelSlice> currentWheelSlices;
@@ -117,7 +120,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
 
     void initView() {
         luckyWheel = findViewById(R.id.edit_lucky_wheel);
-        luckyWheel.setTarget(1);
+        luckyWheel.setTarget(DEFAULT_SELECTED_WHEEL_ITEM);
         luckyWheel.addWheelItems(wheelItems);
 
         backButton = findViewById(R.id.bb_lucky_wheel_edit);
@@ -131,6 +134,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         sliceRepeatSlider = findViewById(R.id.slice_repeat_slider);
         fairModeSwitch = findViewById(R.id.fair_mode);
         ttText = findViewById(R.id.wheel_title);
+
         ttText.setText(title);
         textSizeView.setText(String.valueOf(currentWheelData.getTextSize()));
         sliceRepeatView.setText(String.valueOf(currentWheelData.getSliceRepeat()));
@@ -151,8 +155,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         listCardView[7] = findViewById(R.id.cardView8);
         listCardView[8] = findViewById(R.id.cardView9);
         listCardView[9] = findViewById(R.id.cardView10);
-        listCardView[10] = findViewById(R.id.cardView11);
-        listCardView[11] = findViewById(R.id.cardView12);
+
         listTextInCard[0] = findViewById(R.id.textcard1);
         listTextInCard[1] = findViewById(R.id.textcard2);
         listTextInCard[2] = findViewById(R.id.textcard3);
@@ -163,8 +166,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         listTextInCard[7] = findViewById(R.id.textcard8);
         listTextInCard[8] = findViewById(R.id.textcard9);
         listTextInCard[9] = findViewById(R.id.textcard10);
-        listTextInCard[10] = findViewById(R.id.textcard11);
-        listTextInCard[11] = findViewById(R.id.textcard12);
+
 
         createSliceCard();
     }
@@ -308,7 +310,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
 
         addSliceButton.setOnClickListener(
                 view -> {
-                    if (wheelItems.size() < 12) {
+                    if (wheelItems.size() < MAX_NUMBER_SLICE) {
                         openAddSliceDialog();
                     } else {
                         Toast.makeText(EditLuckyWheelActivity.this, "Số lượng Slice đã lớn nhất", Toast.LENGTH_LONG).show();
@@ -318,17 +320,13 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
 
         deleteButton.setOnClickListener(
                 view -> {
-                    if (LuckyWheelSource.listTitle.size() <= 1) {
+                    if (presenter.getNumberOfWheel() <= MIN_NUMBER_WHEEL) {
                         Toast.makeText(EditLuckyWheelActivity.this, "Đây là vòng quay duy nhất", Toast.LENGTH_LONG).show();
                         return;
                     }
 
-                    // TODO: xóa khỏi db
-                    // Hiện tại xóa khỏi source demo trước
-                    LuckyWheelSource.luckyWheelList.remove(currentWheelData);
+                    presenter.deleteWheel(currentWheelData);
 
-                    Intent intentBack = new Intent();
-                    setResult(Activity.RESULT_OK, intentBack);
                     finish();
                 }
         );
@@ -414,7 +412,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
 
         deleteButton.setOnClickListener(
                 view -> {
-                    if (wheelItems.size() <= 2) {
+                    if (wheelItems.size() <= MIN_NUMBER_SLICE) {
                         Toast.makeText(EditLuckyWheelActivity.this, "Số SLice đã đạt mức nhỏ nhất", Toast.LENGTH_LONG).show();
                         return;
                     }

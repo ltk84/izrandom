@@ -48,8 +48,8 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
 
     AddLuckyWheelContract.Present present;
 
-    CardView[] listCardView = new CardView[12];
-    TextView[] listTextInCard = new TextView[12];
+    CardView[] listCardView = new CardView[10];
+    TextView[] listTextInCard = new TextView[10];
     ImageButton backButton;
     ImageButton checkButton;
     ImageButton addButton;
@@ -119,8 +119,6 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
         listCardView[7] = findViewById(R.id.add_wheel_cardView8);
         listCardView[8] = findViewById(R.id.add_wheel_cardView9);
         listCardView[9] = findViewById(R.id.add_wheel_cardView10);
-        listCardView[10] = findViewById(R.id.add_wheel_cardView11);
-        listCardView[11] = findViewById(R.id.add_wheel_cardView12);
         listTextInCard[0] = findViewById(R.id.add_wheel_textcard1);
         listTextInCard[1] = findViewById(R.id.add_wheel_textcard2);
         listTextInCard[2] = findViewById(R.id.add_wheel_textcard3);
@@ -131,8 +129,6 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
         listTextInCard[7] = findViewById(R.id.add_wheel_textcard8);
         listTextInCard[8] = findViewById(R.id.add_wheel_textcard9);
         listTextInCard[9] = findViewById(R.id.add_wheel_textcard10);
-        listTextInCard[10] = findViewById(R.id.add_wheel_textcard11);
-        listTextInCard[11] = findViewById(R.id.add_wheel_textcard12);
 
         createSliceCard();
     }
@@ -228,7 +224,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
 
         addButton.setOnClickListener(
                 view -> {
-                    if (wheelItems.size() <= 12) {
+                    if (wheelItems.size() <= 10) {
                         openAddSliceDialog();
                     } else {
                         Toast.makeText(AddNewLuckyWheelActivity.this, "Số lượng Slice đã lớn nhất", Toast.LENGTH_LONG).show();
