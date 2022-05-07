@@ -42,14 +42,19 @@ import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
 
 public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLuckyWheelContract.View {
+    final int MAX_NUMBER_SLICE = 10;
+    final int MIN_NUMBER_SLICE = 2;
+    final int DEFAULT_SELECTED_WHEEL_ITEM = 1;
+    final int DEFAULT_SLICE_COLOR = -4955036;
+
     LuckyWheel luckyWheel;
     ArrayList<WheelItem> wheelItems = new ArrayList<>();
     ArrayList<WheelItem> originWheelItems = new ArrayList<>();
 
     AddLuckyWheelContract.Present present;
 
-    CardView[] listCardView = new CardView[10];
-    TextView[] listTextInCard = new TextView[10];
+    CardView[] listCardView = new CardView[MAX_NUMBER_SLICE];
+    TextView[] listTextInCard = new TextView[MAX_NUMBER_SLICE];
     ImageButton backButton;
     ImageButton checkButton;
     ImageButton addButton;
@@ -70,7 +75,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
     boolean fairMode = false;
 
     int changeColor;
-    int defaultSliceColor = -4955036;
+    int defaultSliceColor = DEFAULT_SLICE_COLOR;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,7 +92,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
 
     void initView() {
         luckyWheel = findViewById(R.id.lw_add_wheel);
-        luckyWheel.setTarget(1);
+        luckyWheel.setTarget(DEFAULT_SELECTED_WHEEL_ITEM);
         luckyWheel.addWheelItems(wheelItems);
 
         backButton = findViewById(R.id.bb_add_wheel);
@@ -224,7 +229,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
 
         addButton.setOnClickListener(
                 view -> {
-                    if (wheelItems.size() <= 10) {
+                    if (wheelItems.size() < MAX_NUMBER_SLICE) {
                         openAddSliceDialog();
                     } else {
                         Toast.makeText(AddNewLuckyWheelActivity.this, "Số lượng Slice đã lớn nhất", Toast.LENGTH_LONG).show();
@@ -357,7 +362,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
 
         deleteButton.setOnClickListener(
                 view -> {
-                    if (wheelItems.size() <= 2) {
+                    if (wheelItems.size() <= MIN_NUMBER_SLICE) {
                         Toast.makeText(AddNewLuckyWheelActivity.this, "Số SLice đã đạt mức nhỏ nhất", Toast.LENGTH_LONG).show();
                         return;
                     }
@@ -374,19 +379,21 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
         acceptButton.setOnClickListener(
                 view -> {
                     String contentValue = content.getText().toString();
-                    if (contentValue.equals("")) {
+                    if (contentValue.isEmpty()) {
                         return;
                     }
 
+                    String beforeUpdateSliceText = uiSlice.text;
+
                     for (int i = 0; i < originWheelItems.size(); i++) {
-                        if (originWheelItems.get(i).text.equals(uiSlice.text)) {
+                        if (originWheelItems.get(i).text.equals(beforeUpdateSliceText)) {
                             originWheelItems.get(i).setText(content.getText().toString());
                             originWheelItems.get(i).setColor(changeColor);
                         }
                     }
 
                     for (int i = 0; i < wheelItems.size(); i++) {
-                        if (wheelItems.get(i).text.equals(uiSlice.text)) {
+                        if (wheelItems.get(i).text.equals(beforeUpdateSliceText)) {
                             wheelItems.get(i).setColor(changeColor);
                             wheelItems.get(i).setText(contentValue);
                         }
@@ -479,8 +486,9 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                             R.drawable.small_nails_icons), content.getText().toString());
                     originWheelItems.add(newSlice);
 
+                    wheelItems.clear();
                     for (int i = 0; i < repeat; i++) {
-                        wheelItems.add(newSlice);
+                        wheelItems.addAll(originWheelItems);
                     }
 
                     createSliceCard();
