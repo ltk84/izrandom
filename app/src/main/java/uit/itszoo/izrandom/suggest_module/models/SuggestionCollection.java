@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SuggestionCollection {
-    String title;
-    int icon;
-    List<String> categories;
-    List<Suggestion> suggestions;
+    public String title;
+    public int icon;
+    public List<String> categories;
+    public List<Suggestion> suggestions;
     public SuggestionCollection(String title, int icon, List<String> categories, List<Suggestion> suggestions)
     {
         this.categories = new ArrayList<>();

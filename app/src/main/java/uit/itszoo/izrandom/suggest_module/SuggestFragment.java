@@ -4,10 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.suggest_module.source.SuggestionSource;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +28,8 @@ public class SuggestFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private Spinner spinner;
+    private ImageButton dropMenu;
     public SuggestFragment() {
         // Required empty public constructor
     }
@@ -60,6 +65,32 @@ public class SuggestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_suggest, container, false);
+        View layout =  inflater.inflate(R.layout.fragment_suggest, container, false);
+        spinner = (Spinner)layout.findViewById(R.id.spinner);
+        CustomSuggestionCollectionAdapter mCustomAdapter = new CustomSuggestionCollectionAdapter(container.getContext(), SuggestionSource.listCollection);
+        spinner.setAdapter(mCustomAdapter);
+        spinner.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                }
+        );
+        dropMenu = layout.findViewById(R.id.dropdown_menu);
+        dropMenu.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        spinner.performClick();
+                    }
+                }
+        );
+        return layout;
     }
 }

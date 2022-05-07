@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Java/izrandom/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.188" />
         <entry key="..\:/Java/izrandom/app/src/main/res/drawable/custom_backgroud_dialog.xml" value="0.154" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/drawable/ic_bowling.xml" value="0.18" />
         <entry key="..\:/Java/izrandom/app/src/main/res/drawable/ic_film.xml" value="0.188" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/activity_divide_team.xml" value="0.2630208333333333" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/activity_tournament_bracket.xml" value="0.2630208333333333" />
@@ -14,7 +15,8 @@
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/fragment_fullscreen.xml" value="0.24739583333333334" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/fragment_play.xml" value="0.2630208333333333" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/fragment_random.xml" value="0.2630208333333333" />
-        <entry key="..\:/Java/izrandom/app/src/main/res/layout/fragment_suggest.xml" value="0.14945652173913043" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/fragment_suggest.xml" value="0.264" />
+        <entry key="..\:/Java/izrandom/app/src/main/res/layout/item_drop_menu.xml" value="0.2630208333333333" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/layout_cell_bracket.xml" value="0.24739583333333334" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/layout_cell_brackets.xml" value="0.24739583333333334" />
         <entry key="..\:/Java/izrandom/app/src/main/res/layout/layout_cell_single_bracket.xml" value="0.2630208333333333" />

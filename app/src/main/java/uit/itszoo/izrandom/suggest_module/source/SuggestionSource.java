@@ -9,7 +9,7 @@ import uit.itszoo.izrandom.suggest_module.models.Suggestion;
 import uit.itszoo.izrandom.suggest_module.models.SuggestionCollection;
 
 public class SuggestionSource {
-    SuggestionCollection suggestionCollection1 = new SuggestionCollection(
+    public static  SuggestionCollection suggestionCollection1 = new SuggestionCollection(
             "Ăn gì bây giờ?", R.drawable.ic_food,
             Arrays.asList(
                     "Món nước", "Món khô", "Tất cả"
@@ -29,8 +29,8 @@ public class SuggestionSource {
                     new Suggestion("Sushi" , R.drawable.pho, "Món khô")
             )
     );
-    SuggestionCollection suggestionCollection2 = new SuggestionCollection(
-            "Uống gì bây giờ?", R.drawable.ic_food,
+    public static  SuggestionCollection suggestionCollection2 = new SuggestionCollection(
+            "Uống gì bây giờ?", R.drawable.ic_drink,
             Arrays.asList(
                     "Có cồn", "Có ga", "Không ga, không cồn", "Tất cả"
             ),
@@ -46,8 +46,8 @@ public class SuggestionSource {
                     new Suggestion("Cafe" , R.drawable.pho, "Không ga, không cồn")
             )
     );
-    SuggestionCollection suggestionCollection3 = new SuggestionCollection(
-            "Chơi gì bây giờ?", R.drawable.ic_food,
+    static SuggestionCollection suggestionCollection3 = new SuggestionCollection(
+            "Chơi gì bây giờ?", R.drawable.ic_bowling,
             Arrays.asList(
                     "Đồng đội", "Cá nhân", "Tất cả"
             ),
@@ -66,8 +66,8 @@ public class SuggestionSource {
                     new Suggestion("Golf" , R.drawable.pho, "Cá nhân")
             )
     );
-    SuggestionCollection suggestionCollection4 = new SuggestionCollection(
-            "Ăn gì bây giờ?", R.drawable.ic_food,
+    static SuggestionCollection suggestionCollection4 = new SuggestionCollection(
+            "Làm gì bây giờ?", R.drawable.ic_do_some_thing,
             Arrays.asList(
                     "Món nước", "Món khô", "Tất cả"
             ),
@@ -86,8 +86,8 @@ public class SuggestionSource {
                     new Suggestion("Sushi" , R.drawable.pho, "Món khô")
             )
     );
-    SuggestionCollection suggestionCollection5 = new SuggestionCollection(
-            "Ăn gì bây giờ?", R.drawable.ic_food,
+    static SuggestionCollection suggestionCollection5 = new SuggestionCollection(
+            "Xem gì bây giờ?", R.drawable.ic_film,
             Arrays.asList(
                     "Món nước", "Món khô", "Tất cả"
             ),
@@ -106,8 +106,8 @@ public class SuggestionSource {
                     new Suggestion("Sushi" , R.drawable.pho, "Món khô")
             )
     );
-    SuggestionCollection suggestionCollection6 = new SuggestionCollection(
-            "Ăn gì bây giờ?", R.drawable.ic_food,
+    public static  SuggestionCollection suggestionCollection6 = new SuggestionCollection(
+            "Đọc sách gì nhỉ?", R.drawable.ic_book,
             Arrays.asList(
                     "Món nước", "Món khô", "Tất cả"
             ),
@@ -126,7 +126,7 @@ public class SuggestionSource {
                     new Suggestion("Sushi" , R.drawable.pho, "Món khô")
             )
     );
-    List<SuggestionCollection> listCollection = new ArrayList<>(
+     public static ArrayList<SuggestionCollection> listCollection = new ArrayList<>(
             Arrays.asList(
                     suggestionCollection1,
                     suggestionCollection2,
