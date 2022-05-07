@@ -157,9 +157,9 @@
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:value="16"
-                android:valueFrom="10"
+                android:valueFrom="0"
                 android:stepSize="1"
-                android:valueTo="50" />
+                android:valueTo="64" />
 
             <LinearLayout
                 android:layout_width="160dp"

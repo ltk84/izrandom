@@ -33,14 +33,10 @@
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_new_lucky_wheel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_new_lucky_wheel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_add_slice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_add_slice.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_custom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_custom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_edit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_edit.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_edit_slice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_edit_slice.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/lucky_wheel_carousel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/lucky_wheel_carousel.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +118,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="settings.saveactions" />
@@ -263,9 +259,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="239" y="208" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1650857596920" />
-    <state x="286" y="154" key="#PSD" timestamp="1647770718692">
+    <state x="286" y="154" key="#PSD" timestamp="1651886817173">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
+    <state x="286" y="154" key="#PSD/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651886817173" />
     <state x="286" y="154" key="#PSD/0.0.1536.816@0.0.1536.816" timestamp="1647770718692" />
     <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser" timestamp="1651737666144">
       <screen x="0" y="0" width="1366" height="768" />
@@ -320,39 +317,39 @@
     </state>
     <state width="559" height="439" key="DebuggerActiveHint/0.0.1366.768@0.0.1366.768" timestamp="1651671821387" />
     <state width="492" height="466" key="DebuggerActiveHint/0.0.1536.816@0.0.1536.816" timestamp="1649499603296" />
-    <state x="812" y="155" key="FileChooserDialogImpl" timestamp="1648791403129">
+    <state x="812" y="155" key="FileChooserDialogImpl" timestamp="1651848360773">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="722" y="146" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1647390358707" />
-    <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648535614543" />
+    <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651848360773" />
     <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1648710855651" />
     <state x="311" y="286" key="Github.CreateGistDialog" timestamp="1650101713617">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1650101713617" />
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom" timestamp="1651845507410">
+    <state width="1493" height="201" key="GridCell.Tab.0.bottom" timestamp="1651887205466">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1321" height="188" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1651821708773" />
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651845507410" />
+    <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651887205466" />
     <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1651827026133" />
-    <state width="1493" height="201" key="GridCell.Tab.0.center" timestamp="1651845507410">
+    <state width="1493" height="201" key="GridCell.Tab.0.center" timestamp="1651887205466">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1321" height="188" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1651821708773" />
-    <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651845507410" />
+    <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651887205466" />
     <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1651827026133" />
-    <state width="1493" height="201" key="GridCell.Tab.0.left" timestamp="1651845507410">
+    <state width="1493" height="201" key="GridCell.Tab.0.left" timestamp="1651887205466">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1321" height="188" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1651821708773" />
-    <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651845507410" />
+    <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651887205466" />
     <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1651827026133" />
-    <state width="1493" height="201" key="GridCell.Tab.0.right" timestamp="1651845507410">
+    <state width="1493" height="201" key="GridCell.Tab.0.right" timestamp="1651887205466">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1321" height="188" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1651821708773" />
-    <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651845507410" />
+    <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651887205466" />
     <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1651827026133" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
       <screen x="0" y="0" width="1536" height="816" />
