@@ -14,6 +14,7 @@ import com.jama.carouselview.CarouselViewListener;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card.FlipCardActivity;
+import uit.itszoo.izrandom.random_module.flip_card.flip_card_add.FlipCardAddActivity;
 
 public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardMenuContract.View {
 
@@ -21,7 +22,7 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
     CarouselView carouselView;
     TextView cardNameTextView;
     ImageButton backButton;
-    ImageButton addButton;
+    ImageButton toAddScreenButton;
     Button startButton;
 
     @Override
@@ -40,7 +41,7 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
 
     private void initView() {
         backButton = findViewById(R.id.bb_flip_card_menu);
-        addButton = findViewById(R.id.flip_card_add);
+        toAddScreenButton = findViewById(R.id.flip_card_add);
         startButton = findViewById(R.id.btn_flip_card_menu_start);
     }
 
@@ -53,14 +54,15 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
             }
         });
 
-//        toCustomScreenButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intentToCustom = new Intent(getApplicationContext(), RandomDirectionCustomActivity.class);
-//                intentToCustom.putExtra(RandomDirectionActivity.CURRENT_ARROW, presenter.getCurrentArrow());
-//                intentLauncher.launch(intentToCustom);
-//            }
-//        });
+        toAddScreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToFlipCardAdd = new Intent(getApplicationContext(), FlipCardAddActivity.class);
+//                intentToFlipCard.putExtra(RandomDirectionActivity.CURRENT_ARROW, presenter.getCurrentArrow());
+//                intentLauncher.launch(intentToFlipCard);
+                startActivity(intentToFlipCardAdd);
+            }
+        });
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override

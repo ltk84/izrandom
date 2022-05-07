@@ -48,7 +48,7 @@ public class CardItemAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return Integer.parseInt(cardContextArrayList.get(position));
+        return position;
     }
 
     @Override

@@ -27,6 +27,7 @@
         <activity android:name=".random_module.lucky_wheel.lucky_wheel_custom.EditLuckyWheelActivity" />
         <activity android:name=".random_module.flip_card.flip_card_menu.FlipCardMenuActivity" />
         <activity android:name=".random_module.flip_card.flip_card.FlipCardActivity" />
+        <activity android:name=".random_module.flip_card.flip_card_add.FlipCardAddActivity" />
         <activity
             android:name=".home.HomeActivity"
             android:exported="true">

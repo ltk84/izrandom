@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".random_module.flip_card.flip_card_menu.FlipCardMenuActivity">
 
-    <Toolbar
-        android:id="@+id/tb_random_integer"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_flip_card_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentInsetStart="0dp"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/lb_flip_card"
+            android:id="@+id/lb_flip_card_menu"
             style="@style/AppBarTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             app:tint="@color/colorOnBackground"
             tools:layout_editor_absoluteX="351dp">
         </ImageButton>
-    </Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <com.jama.carouselview.CarouselView
         android:id="@+id/flip_card_carouselView"
@@ -71,7 +71,7 @@
         app:indicatorUnselectedColor="@color/colorOnBackgroundDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_random_integer"
+        app:layout_constraintTop_toBottomOf="@+id/tb_flip_card_menu"
         app:scaleOnScroll="false"
         app:setAutoPlay="false"
         app:spacing="200" />

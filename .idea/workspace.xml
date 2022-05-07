@@ -31,24 +31,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/CardContentDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_view_content_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_view_grid_item_back_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_view_grid_item_front_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/CardAddContentDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/CardAddItemAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddContract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/OnCardItemClick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_flip_card_add.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_view_add_content_dialog.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_view_custom_grid_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/CardItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/CardItemAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/FlipCardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/FlipCardActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/card_gradient_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/card_gradient_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_flip_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_flip_card.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/card_view_carousel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_view_carousel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/card_view_grid_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_view_grid_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_flip_card_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_flip_card_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,11 +92,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="Interface" />
         <option value="resourceFile" />
         <option value="layoutResourceFile_vertical" />
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -108,6 +107,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="26NJNCAOSD55n5wdvgaTVUYjAjD" />
   <component name="ProjectViewState">
@@ -132,7 +139,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -143,17 +150,12 @@
     <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
   </component>
   <component name="RecentsManager">
+    <key name="android.template.1654443001">
+      <recent name="uit.itszoo.izrandom" />
+      <recent name="uit.itszoo.izrandom.random_module.chooser.chooser_custom" />
+    </key>
     <key name="android.template.1365772263">
       <recent name="uit.itszoo.izrandom.random_module.chooser" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Projects\izrandom\app\src\main\res\font" />
-    </key>
-    <key name="android.template.-131202538">
-      <recent name="uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom" />
-    </key>
-    <key name="android.template.1835396654">
-      <recent name="uit.itszoo.izrandom.random_module.flip_coin.flip_coin_custom" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="uit.itszoo.izrandom.utilities" />
@@ -161,15 +163,20 @@
     <key name="android.template.-1249923655">
       <recent name="uit.itszoo.izrandom.random_module.divide_team.divide_team_guide" />
     </key>
+    <key name="android.template.-1239303258">
+      <recent name="uit.itszoo.izrandom.random_module.raffle.raffle_guide" />
+    </key>
+    <key name="android.template.289755750">
+      <recent name="uit.itszoo.izrandom.random_module.raffle" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\izrandom\app\src\main\res\font" />
+    </key>
+    <key name="android.template.1835396654">
+      <recent name="uit.itszoo.izrandom.random_module.flip_coin.flip_coin_custom" />
+    </key>
     <key name="android.template.-144290685">
       <recent name="uit.itszoo.izrandom.random_module.flip_coin" />
-    </key>
-    <key name="android.template.-113329716">
-      <recent name="uit.itszoo.izrandom.random_module.divide_team" />
-    </key>
-    <key name="android.template.1654443001">
-      <recent name="uit.itszoo.izrandom" />
-      <recent name="uit.itszoo.izrandom.random_module.chooser.chooser_custom" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Projects\izrandom\app\src\main\res\font" />
@@ -182,11 +189,11 @@
       <recent name="uit.itszoo.izrandom.random_direction_custom" />
       <recent name="uit.itszoo.izrandom.random_direction_change_appearance" />
     </key>
-    <key name="android.template.289755750">
-      <recent name="uit.itszoo.izrandom.random_module.raffle" />
+    <key name="android.template.-131202538">
+      <recent name="uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom" />
     </key>
-    <key name="android.template.-1239303258">
-      <recent name="uit.itszoo.izrandom.random_module.raffle.raffle_guide" />
+    <key name="android.template.-113329716">
+      <recent name="uit.itszoo.izrandom.random_module.divide_team" />
     </key>
   </component>
   <component name="RunManager">

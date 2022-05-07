@@ -73,6 +73,8 @@
 
     <color name="cancelButton">#8E8E8E</color>
     <color name="addButton">#00C734</color>
+
+    <color name="buttonBackgroundCardDialog">#77c97eda</color>
     <!--    Blue Light Theme Over-->
 
 </resources>

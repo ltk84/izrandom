@@ -81,4 +81,6 @@
     <string name="flip_card_menu_guide">Lướt sang phải hoặc trái để thay đổi bộ thẻ bài</string>
     <string name="flip_card_back_to_menu_button">Quay lại</string>
     <string name="flip_card_guide">Chạm vào thẻ bài để lật thẻ bài</string>
+    <string name="flip_card_add_label">Thêm bộ thẻ bài</string>
+    <string name="flip_card_confirm_button_description">Lưu bộ thẻ bài</string>
 </resources>
