@@ -16,17 +16,17 @@ public class SuggestionSource {
             ),
             Arrays.asList(
                     new Suggestion("Phở" , R.drawable.pho, "Món nước"),
-                    new Suggestion("Hủ tiếu" , R.drawable.pho, "Món nước"),
-                    new Suggestion("Bún bò" , R.drawable.pho, "Món nước"),
-                    new Suggestion("Bò khô" , R.drawable.pho, "Món nước"),
-                    new Suggestion("Bánh canh" , R.drawable.pho, "Món nước"),
-                    new Suggestion("Cháo" , R.drawable.pho, "Món nước"),
-                    new Suggestion("Bánh mì" , R.drawable.pho, "Món khô"),
-                    new Suggestion("Cơm" , R.drawable.pho, "Món khô"),
-                    new Suggestion("Hamburger" , R.drawable.pho, "Món khô"),
-                    new Suggestion("Pizza" , R.drawable.pho, "Món khô"),
-                    new Suggestion("Mì Ý" , R.drawable.pho, "Món khô"),
-                    new Suggestion("Sushi" , R.drawable.pho, "Món khô")
+                    new Suggestion("Hủ tiếu" , R.drawable.hu_tieu, "Món nước"),
+                    new Suggestion("Bún bò" , R.drawable.bun_bo, "Món nước"),
+                    new Suggestion("Bún măng gà" , R.drawable.bun_mang_ga, "Món nước"),
+                    new Suggestion("Bánh canh" , R.drawable.banh_canh, "Món nước"),
+                    new Suggestion("Cháo" , R.drawable.chao, "Món nước"),
+                    new Suggestion("Bánh mì" , R.drawable.banh_mi, "Món khô"),
+                    new Suggestion("Cơm" , R.drawable.com, "Món khô"),
+                    new Suggestion("Hamburger" , R.drawable.hamburger, "Món khô"),
+                    new Suggestion("Pizza" , R.drawable.pizza, "Món khô"),
+                    new Suggestion("Mì Ý" , R.drawable.mi_y, "Món khô"),
+                    new Suggestion("Sushi" , R.drawable.sushi, "Món khô")
             )
     );
     public static  SuggestionCollection suggestionCollection2 = new SuggestionCollection(
