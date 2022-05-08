@@ -5,12 +5,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.suggest_module.models.Suggestion;
 import uit.itszoo.izrandom.suggest_module.source.SuggestionSource;
 
 /**
@@ -28,8 +37,13 @@ public class SuggestFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private int indexOfCollection = 0;
     private Spinner spinner;
     private ImageButton dropMenu;
+    private AutoCompleteTextView autoCompleteTextView;
+    private TextView title;
+    private ImageView image;
+    private List<Suggestion> suggestions = new ArrayList<>();
     public SuggestFragment() {
         // Required empty public constructor
     }
@@ -67,18 +81,26 @@ public class SuggestFragment extends Fragment {
         // Inflate the layout for this fragment
         View layout =  inflater.inflate(R.layout.fragment_suggest, container, false);
         spinner = (Spinner)layout.findViewById(R.id.spinner);
-        CustomSuggestionCollectionAdapter mCustomAdapter = new CustomSuggestionCollectionAdapter(container.getContext(), SuggestionSource.listCollection);
+        title = layout.findViewById(R.id.title);
+        image = layout.findViewById(R.id.image);
+        autoCompleteTextView = (AutoCompleteTextView) layout.findViewById(R.id.category_spinner);
+        CustomSuggestionCollectionAdapter mCustomAdapter =
+                new CustomSuggestionCollectionAdapter(container.getContext(), SuggestionSource.listCollection);
         spinner.setAdapter(mCustomAdapter);
         spinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                        indexOfCollection = i;
+                        suggestions.clear();
+                        suggestions.addAll(SuggestionSource.listCollection.get(i).suggestions);
+                        autoCompleteTextView.setText(SuggestionSource.listCollection.get(i).categories.get(0));
+                        title.setText(SuggestionSource.listCollection.get(i).suggestions.get(0).title);
+                        image.setImageResource(SuggestionSource.listCollection.get(i).suggestions.get(0).image);
+                        createCategorySpinner();
                     }
-
                     @Override
                     public void onNothingSelected(AdapterView<?> adapterView) {
-
                     }
                 }
         );
@@ -91,6 +113,56 @@ public class SuggestFragment extends Fragment {
                     }
                 }
         );
+
+        //set listener for layout
+        layout.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        int max = suggestions.size();
+                        System.out.println(max);
+                        Random random = new Random();
+                        int result = random.nextInt(max);
+                        image.setImageResource(suggestions.get(result).image);
+                        title.setText(suggestions.get(result).title);
+                    }
+                }
+        );
         return layout;
     }
+    void createCategorySpinner()
+    {
+        List<String> list = SuggestionSource.listCollection.get(indexOfCollection).categories;
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), R.layout.item_drop_menu_category , list);
+        autoCompleteTextView.setAdapter(arrayAdapter);
+        autoCompleteTextView.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        autoCompleteTextView.getOnItemSelectedListener();
+                    }
+                }
+        );
+        autoCompleteTextView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        if(list.get(i).equals("Tất cả"))
+                        {
+                            suggestions.clear();
+                            suggestions.addAll(SuggestionSource.listCollection.get(indexOfCollection).suggestions);
+                        }
+                        else{
+                            suggestions.clear();
+                            suggestions.addAll(SuggestionSource.listCollection.get(indexOfCollection).suggestions);
+                            suggestions.removeIf(suggestion -> !suggestion.category.equals(list.get(i))
+                            );
+                        }
+                        image.setImageResource(suggestions.get(0).image);
+                        title.setText(suggestions.get(0).title);
+                    }
+                }
+        );
+    }
+
 }

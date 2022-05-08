@@ -76,4 +76,6 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="hint_input_for_tournament_bracket">Nhập người hoặc đội tham gia</string>
+    <string name="filter_label">Bộ lọc</string>
+    <string name="default_value_category">Tất cả</string>
 </resources>

@@ -12,7 +12,7 @@ public class SuggestionSource {
     public static  SuggestionCollection suggestionCollection1 = new SuggestionCollection(
             "Ăn gì bây giờ?", R.drawable.ic_food,
             Arrays.asList(
-                    "Món nước", "Món khô", "Tất cả"
+                    "Tất cả","Món nước", "Món khô"
             ),
             Arrays.asList(
                     new Suggestion("Phở" , R.drawable.pho, "Món nước"),
@@ -32,7 +32,7 @@ public class SuggestionSource {
     public static  SuggestionCollection suggestionCollection2 = new SuggestionCollection(
             "Uống gì bây giờ?", R.drawable.ic_drink,
             Arrays.asList(
-                    "Có cồn", "Có ga", "Không ga, không cồn", "Tất cả"
+                    "Tất cả","Có cồn", "Có ga", "Không ga, không cồn"
             ),
             Arrays.asList(
                     new Suggestion("Rượu" , R.drawable.pho, "Có cồn"),
@@ -49,7 +49,7 @@ public class SuggestionSource {
     static SuggestionCollection suggestionCollection3 = new SuggestionCollection(
             "Chơi gì bây giờ?", R.drawable.ic_bowling,
             Arrays.asList(
-                    "Đồng đội", "Cá nhân", "Tất cả"
+                    "Tất cả","Đồng đội", "Cá nhân"
             ),
             Arrays.asList(
                     new Suggestion("Bóng đá" , R.drawable.pho, "Đồng đội"),
@@ -69,7 +69,7 @@ public class SuggestionSource {
     static SuggestionCollection suggestionCollection4 = new SuggestionCollection(
             "Làm gì bây giờ?", R.drawable.ic_do_some_thing,
             Arrays.asList(
-                    "Món nước", "Món khô", "Tất cả"
+                     "Tất cả","Món nước", "Món khô"
             ),
             Arrays.asList(
                     new Suggestion("Phở" , R.drawable.pho, "Món nước"),
@@ -89,7 +89,7 @@ public class SuggestionSource {
     static SuggestionCollection suggestionCollection5 = new SuggestionCollection(
             "Xem gì bây giờ?", R.drawable.ic_film,
             Arrays.asList(
-                    "Món nước", "Món khô", "Tất cả"
+                    "Tất cả","Món nước", "Món khô"
             ),
             Arrays.asList(
                     new Suggestion("Phở" , R.drawable.pho, "Món nước"),
@@ -109,7 +109,7 @@ public class SuggestionSource {
     public static  SuggestionCollection suggestionCollection6 = new SuggestionCollection(
             "Đọc sách gì nhỉ?", R.drawable.ic_book,
             Arrays.asList(
-                    "Món nước", "Món khô", "Tất cả"
+                    "Tất cả","Món nước", "Món khô"
             ),
             Arrays.asList(
                     new Suggestion("Phở" , R.drawable.pho, "Món nước"),
