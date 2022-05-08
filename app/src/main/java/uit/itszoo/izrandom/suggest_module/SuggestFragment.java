@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import kotlinx.coroutines.Delay;
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.suggest_module.models.Suggestion;
 import uit.itszoo.izrandom.suggest_module.source.SuggestionSource;
@@ -122,9 +123,28 @@ public class SuggestFragment extends Fragment {
                         int max = suggestions.size();
                         System.out.println(max);
                         Random random = new Random();
-                        int result = random.nextInt(max);
-                        image.setImageResource(suggestions.get(result).image);
-                        title.setText(suggestions.get(result).title);
+                        Thread timer = new Thread() {
+                            public void run() {
+                                try {
+                                    sleep(100);
+                                    for (int i = 0; i < 50; i++) {
+                                        sleep(100);
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            public void run() {
+                                                int result = random.nextInt(max);
+                                                image.setImageResource(suggestions.get(result).image);
+                                                title.setText(suggestions.get(result).title);
+                                            }
+                                        });
+                                    }
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                } finally {
+                                    System.out.println("finally");
+                                }
+                            }
+                        };
+                        timer.start();
                     }
                 }
         );
