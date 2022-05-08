@@ -1,6 +1,8 @@
 package uit.itszoo.izrandom.random_module.flip_card.flip_card_add;
 
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -28,10 +30,16 @@ import uit.itszoo.izrandom.random_module.flip_card.flip_card.CardItemAdapter;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card.FlipCardActivity;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuActivity;
 import uit.itszoo.izrandom.random_module.random_integer.RandomIntegerActivity;
+import uit.itszoo.izrandom.random_module.random_integer.random_integer_custom.RandomIntegerCustomActivity;
 
 public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAddContract.View, OnCardItemClick {
+    public static final String NEW_CARD_NAME = "NEW_CARD_NAME";
+    public static final String IS_ADD_OR_EDIT = "IS_ADD_OR_EDIT";
+    public static final String EDITED_CARD_POSITION = "EDITED_CARD_POSITION";
+
     String isAddOrEdit;
     String cardName;
+    int editedCardPosition;
 
     ArrayList<String> listCardContents = new ArrayList<>();
     CardAddItemAdapter cardAddItemAdapter;
@@ -51,9 +59,15 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
         isAddOrEdit = getIntent().getExtras().getString(FlipCardMenuActivity.IS_ADD_OR_EDIT);
         cardName = getIntent().getExtras().getString(FlipCardMenuActivity.CARD_NAME_TO_EDIT);
 
+        if (isAddOrEdit.equals("EDIT")) {
+            editedCardPosition = getIntent().getExtras().getInt(FlipCardMenuActivity.CARD_POSITION_TO_EDIT);
+        }
+
         initView();
         setListenerForView();
-        setUpGridView();
+
+        cardAddItemAdapter = new CardAddItemAdapter(this, FlipCardAddActivity.this, listCardContents, this);
+        gridView.setAdapter(cardAddItemAdapter);
 
         presenter = new FlipCardAddPresenter(getApplicationContext(), this);
         setPresenter(presenter);
@@ -73,6 +87,7 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
 
             editTextCardName.setText(cardName);
 
+            //TODO get list card contents from database
             for (int i = 0; i < 12; i++) {
                 listCardContents.add("What did you want to be when you grew up?");
             }
@@ -85,7 +100,9 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
             @Override
             public void onClick(View view) {
                 if (listCardContents.size() == 0 && editTextCardName.getText().toString().equals("")) {
-                    onBackPressed();
+                    Intent intentBack = new Intent();
+                    setResult(Activity.RESULT_CANCELED, intentBack);
+                    finish();
                 }
                 else {
                     new AlertDialog.Builder(FlipCardAddActivity.this)
@@ -94,7 +111,9 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
-                                    onBackPressed();
+                                    Intent intentBack = new Intent();
+                                    setResult(Activity.RESULT_CANCELED, intentBack);
+                                    finish();
                                 }})
                             .setNegativeButton("Hủy", null).show();
                 }
@@ -104,11 +123,38 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (listCardContents.size() == 0 && editTextCardName.getText().toString().equals("")) {
-                    onBackPressed();
+                if (isAddOrEdit.equals("ADD")) {
+                    if (listCardContents.size() == 0 && editTextCardName.getText().toString().equals("")) {
+                        Intent intentBack = new Intent();
+                        setResult(Activity.RESULT_CANCELED, intentBack);
+                        finish();
+                    }
+                    else {
+                        //TODO insert card name and list card contents to database
+
+                        Intent intentBack = new Intent();
+                        intentBack.putExtra(FlipCardAddActivity.NEW_CARD_NAME, editTextCardName.getText().toString());
+                        intentBack.putExtra(FlipCardAddActivity.IS_ADD_OR_EDIT, "ADD");
+                        setResult(Activity.RESULT_OK, intentBack);
+                        finish();
+                    }
                 }
-                else {
-                    onBackPressed();
+                else if (isAddOrEdit.equals("EDIT")) {
+                    if (listCardContents.size() == 0 && editTextCardName.getText().toString().equals("")) {
+                        Intent intentBack = new Intent();
+                        setResult(Activity.RESULT_CANCELED, intentBack);
+                        finish();
+                    }
+                    else {
+                        //TODO update card name and list card contents to database
+
+                        Intent intentBack = new Intent();
+                        intentBack.putExtra(FlipCardAddActivity.NEW_CARD_NAME, editTextCardName.getText().toString());
+                        intentBack.putExtra(FlipCardAddActivity.IS_ADD_OR_EDIT, "EDIT");
+                        intentBack.putExtra(FlipCardAddActivity.EDITED_CARD_POSITION, editedCardPosition);
+                        setResult(Activity.RESULT_OK, intentBack);
+                        finish();
+                    }
                 }
             }
         });
@@ -163,17 +209,6 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
     public void setPresenter(FlipCardAddContract.Presenter presenter) {
         this.presenter = presenter;
     }
-
-    private void setUpGridView() {
-//        for (int i = 0; i < 12; i++) {
-//            listCardContents.add("What did you want to be when you grew up?");
-//        }
-
-        cardAddItemAdapter = new CardAddItemAdapter(this, FlipCardAddActivity.this, listCardContents, this);
-        gridView.setAdapter(cardAddItemAdapter);
-
-    }
-
 
     @Override
     public void onClickConfirmButton(int position, String newCardContent) {

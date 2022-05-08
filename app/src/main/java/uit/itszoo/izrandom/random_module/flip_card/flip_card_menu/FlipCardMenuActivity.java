@@ -3,6 +3,7 @@ package uit.itszoo.izrandom.random_module.flip_card.flip_card_menu;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -17,6 +18,7 @@ import androidx.cardview.widget.CardView;
 
 import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
+import com.jama.carouselview.enums.OffsetType;
 
 import java.util.ArrayList;
 
@@ -28,6 +30,9 @@ import uit.itszoo.izrandom.random_module.random_integer.random_integer_custom.Ra
 public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardMenuContract.View {
     public static final String IS_ADD_OR_EDIT = "IS_ADD_OR_EDIT";
     public static final String CARD_NAME_TO_EDIT = "CARD_NAME_TO_EDIT";
+    public static final String CARD_POSITION_TO_EDIT = "CARD_POSITION_TO_EDIT";
+
+    ArrayList<String> listCardName = new ArrayList<>();
 
     FlipCardMenuContract.Presenter presenter;
     CarouselView carouselView;
@@ -53,6 +58,11 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
         backButton = findViewById(R.id.bb_flip_card_menu);
         toAddScreenButton = findViewById(R.id.flip_card_add);
         startButton = findViewById(R.id.btn_flip_card_menu_start);
+
+        //TODO get list card names from database
+        for(int i = 0; i < 5; i++) {
+            listCardName.add("Hâm nóng tình yêu " + String.valueOf(i));
+        }
     }
 
 
@@ -103,6 +113,23 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
 //                            ranNumPresenter.setListCusNum(newListCusNum);
 //                        }
 
+                        Log.i("FlipCardMenuActivity", "intent onActivityResult RESULT_OK called");
+
+                        Intent data = result.getData();
+                        String isAddOrEdit = data.getStringExtra(FlipCardAddActivity.IS_ADD_OR_EDIT);
+                        String newCardName = data.getStringExtra(FlipCardAddActivity.NEW_CARD_NAME);
+
+                        if (isAddOrEdit.equals("ADD")) {
+                            listCardName.add(0, newCardName);
+                            setupCarouselView();
+                        }
+                        else if (isAddOrEdit.equals("EDIT")) {
+                            int editedCardPosition = data.getIntExtra(FlipCardAddActivity.EDITED_CARD_POSITION, 0);
+                            listCardName.set(editedCardPosition, newCardName);
+                            setupCarouselView();
+                            carouselView.setCurrentItem(editedCardPosition);
+                        }
+
                     }
                 }
             });
@@ -110,14 +137,14 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
     private void setupCarouselView() {
         carouselView = findViewById(R.id.flip_card_carouselView);
 
-        carouselView.setSize(5);
+        carouselView.setSize(listCardName.size());
         carouselView.setResource(R.layout.card_view_carousel);
 
         carouselView.setCarouselViewListener(new CarouselViewListener() {
             @Override
             public void onBindView(View view, int position) {
                 // Example here is setting up a full image carousel
-                String cardName = "Hâm nóng tình yêu";
+                String cardName = listCardName.get(position);
 
                 CardView cardViewCarouselItem;
                 TextView cardNameTextView;
@@ -132,6 +159,7 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
                         Intent intentToFlipCardAdd = new Intent(getApplicationContext(), FlipCardAddActivity.class);
                         intentToFlipCardAdd.putExtra(FlipCardMenuActivity.IS_ADD_OR_EDIT, "EDIT");
                         intentToFlipCardAdd.putExtra(FlipCardMenuActivity.CARD_NAME_TO_EDIT, cardName);
+                        intentToFlipCardAdd.putExtra(FlipCardMenuActivity.CARD_POSITION_TO_EDIT, position);
                         intentLauncher.launch(intentToFlipCardAdd);
 
                     }
