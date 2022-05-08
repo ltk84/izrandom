@@ -31,22 +31,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/CardAddContentDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/CardAddItemAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddContract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/OnCardItemClick.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_flip_card_add.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_view_add_content_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_view_custom_grid_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/CardItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/CardItemAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_flip_card_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_flip_card_menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/card_view_carousel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/card_view_carousel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

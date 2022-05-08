@@ -26,8 +26,13 @@ import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card.CardContentDialog;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card.CardItemAdapter;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card.FlipCardActivity;
+import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuActivity;
+import uit.itszoo.izrandom.random_module.random_integer.RandomIntegerActivity;
 
 public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAddContract.View, OnCardItemClick {
+    String isAddOrEdit;
+    String cardName;
+
     ArrayList<String> listCardContents = new ArrayList<>();
     CardAddItemAdapter cardAddItemAdapter;
 
@@ -42,6 +47,9 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flip_card_add);
+
+        isAddOrEdit = getIntent().getExtras().getString(FlipCardMenuActivity.IS_ADD_OR_EDIT);
+        cardName = getIntent().getExtras().getString(FlipCardMenuActivity.CARD_NAME_TO_EDIT);
 
         initView();
         setListenerForView();
@@ -58,6 +66,17 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
         addCardButton = findViewById(R.id.btn_flip_card_add);
         gridView = findViewById(R.id.flip_card_add_grid_view);
         editTextCardName = findViewById(R.id.edit_text_card_name);
+
+        if (isAddOrEdit.equals("EDIT")) {
+            TextView appBarLabelTextView = findViewById(R.id.lb_flip_card_add);
+            appBarLabelTextView.setText(R.string.flip_card_edit_label);
+
+            editTextCardName.setText(cardName);
+
+            for (int i = 0; i < 12; i++) {
+                listCardContents.add("What did you want to be when you grew up?");
+            }
+        }
     }
 
 
