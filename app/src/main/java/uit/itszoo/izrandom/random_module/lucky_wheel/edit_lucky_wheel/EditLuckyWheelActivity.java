@@ -429,12 +429,14 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
 
         acceptButton.setOnClickListener(
                 view -> {
-                    if (content.getText().toString().equals("")) {
+                    if (content.getText().toString().isEmpty()) {
                         return;
                     }
 
+                    String beforeUpdateSliceText = uiSlice.text;
+
                     for (int i = 0; i < originWheelItems.size(); i++) {
-                        if (originWheelItems.get(i).text.equals(uiSlice.text)) {
+                        if (originWheelItems.get(i).text.equals(beforeUpdateSliceText)) {
                             originWheelItems.get(i).setText(content.getText().toString());
                             originWheelItems.get(i).setColor(changeColor);
                         }
@@ -448,7 +450,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                     });
 
                     for (int i = 0; i < wheelItems.size(); i++) {
-                        if (wheelItems.get(i).text.equals(uiSlice.text)) {
+                        if (wheelItems.get(i).text.equals(beforeUpdateSliceText)) {
                             wheelItems.get(i).setColor(changeColor);
                             wheelItems.get(i).setText(content.getText().toString());
                         }
@@ -459,6 +461,23 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                     editDialog.cancel();
                 }
         );
+
+        content.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                textInCard.setText(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -488,7 +507,6 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         EditText color = addDialog.findViewById(R.id.slice_color);
         Drawable mDrawable = getResources().getDrawable(R.drawable.ic_circle_color);
         mDrawable.setColorFilter(new PorterDuffColorFilter(defaultSliceColor, PorterDuff.Mode.SRC_IN));
-
         color.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable, null);
         cardView.setCardBackgroundColor(defaultSliceColor);
 
@@ -540,8 +558,9 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                             R.drawable.small_nails_icons), content.getText().toString());
                     originWheelItems.add(newSlice);
 
+                    wheelItems.clear();
                     for (int i = 0; i < repeat; i++) {
-                        wheelItems.add(newSlice);
+                        wheelItems.addAll(originWheelItems);
                     }
 
                     // Thêm slice vào list slices

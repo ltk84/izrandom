@@ -56,10 +56,6 @@ public class LuckyWheelCustomActivity extends AppCompatActivity implements Lucky
         currentWheelID = getIntent().getStringExtra(LuckyWheelActivity.CURRENT_WHEEL);
 
         presenter.getAllWheelList().observe(this, luckyWheelData -> {
-            //  f2b77749-a103-48a9-ac48-065853559636
-            //  18257e72-878a-4b6e-8d40-def6a478cec9
-            //  8d8d15aa-9257-4d3a-a368-0f63d2b0d097
-            //  e7e999ab-8419-4fd7-90a5-cf3f1f612254
             wheelList = luckyWheelData;
             setupCarouselView();
         });
