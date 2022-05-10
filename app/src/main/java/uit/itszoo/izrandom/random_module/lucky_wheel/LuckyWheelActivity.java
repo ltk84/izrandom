@@ -43,6 +43,8 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
     ImageButton customButton;
     LuckyWheelContract.Presenter presenter;
     TextView textView;
+    TextView tvLayoutTitle;
+
 
     Random random = new Random();
     private String result = "";
@@ -61,6 +63,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
         constrainedLayout = findViewById(R.id.layout);
         backButton = findViewById(R.id.bb_back);
         customButton = findViewById(R.id.bt_cus);
+        tvLayoutTitle = findViewById(R.id.lb_rand_integer);
         description = findViewById(R.id.description);
         titleTextView = findViewById(R.id.random_result);
         titleTextView.setFactory(() -> {
@@ -187,14 +190,27 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
 
         lkWheel.addWheelItems(wheelItems);
         lkWheel.setLuckyWheelReachTheTarget(() -> {
+
+            int bgEffectColor = wheelItems.get(selectedSliceIndex).color;
+            int fgEffectColor = wheelItems.get(selectedSliceIndex).textColor;
             Toast.makeText(LuckyWheelActivity.this, "Target Reached", Toast.LENGTH_LONG).show();
             titleTextView.setText(result);
             if (presenter.getWheelData().isFairMode()) {
                 lastResult = result;
             }
-            constrainedLayout.setBackgroundColor(wheelItems.get(selectedSliceIndex).color);
-            backButton.setBackgroundColor(wheelItems.get(selectedSliceIndex).color);
-            customButton.setBackgroundColor(wheelItems.get(selectedSliceIndex).color);
+
+            constrainedLayout.setBackgroundColor(bgEffectColor);
+            backButton.setBackgroundColor(bgEffectColor);
+            customButton.setBackgroundColor(bgEffectColor);
+
+            backButton.setColorFilter(fgEffectColor);
+            customButton.setColorFilter(fgEffectColor);
+            description.setTextColor(fgEffectColor);
+            tvLayoutTitle.setTextColor(fgEffectColor);
+            for (int i = 0; i < titleTextView.getChildCount(); i++) {
+                ((TextView) titleTextView.getChildAt(i)).setTextColor(fgEffectColor);
+            }
+
             description.setVisibility(View.VISIBLE);
             spin = false;
         });
