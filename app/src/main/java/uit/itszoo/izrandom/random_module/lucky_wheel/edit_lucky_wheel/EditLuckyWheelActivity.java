@@ -2,6 +2,7 @@ package uit.itszoo.izrandom.random_module.lucky_wheel.edit_lucky_wheel;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -11,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +20,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,7 +47,6 @@ import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
 
 public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuckyWheelContract.View {
-    final int MAX_NUMBER_SLICE = 10;
     final int MIN_NUMBER_SLICE = 2;
     final int MIN_NUMBER_WHEEL = 1;
     final int DEFAULT_SELECTED_WHEEL_ITEM = 1;
@@ -55,9 +57,6 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
     ArrayList<WheelItem> originWheelItems = new ArrayList<>();
 
     EditLuckyWheelContract.Presenter presenter;
-
-    CardView[] listCardView = new CardView[MAX_NUMBER_SLICE];
-    TextView[] listTextInCard = new TextView[MAX_NUMBER_SLICE];
     ImageButton backButton;
     ImageButton deleteButton;
     ImageButton checkButton;
@@ -71,6 +70,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
     TextView sliceRepeatView;
     TextView spinTimeView;
     EditText ttText;
+    LinearLayout sliceHolder;
 
     int textSize = 1;
     int repeat = 1;
@@ -134,6 +134,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         sliceRepeatSlider = findViewById(R.id.slice_repeat_slider);
         fairModeSwitch = findViewById(R.id.fair_mode);
         ttText = findViewById(R.id.wheel_title);
+        sliceHolder = findViewById(R.id.slice_holder);
 
         ttText.setText(title);
         textSizeView.setText(String.valueOf(currentWheelData.getTextSize()));
@@ -145,50 +146,57 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         textSizeSlider.setValue(currentWheelData.getTextSize());
         mixButton = findViewById(R.id.mix_button);
         addSliceButton = findViewById(R.id.add_slice_button);
-        listCardView[0] = findViewById(R.id.cardView1);
-        listCardView[1] = findViewById(R.id.cardView2);
-        listCardView[2] = findViewById(R.id.cardView3);
-        listCardView[3] = findViewById(R.id.cardView4);
-        listCardView[4] = findViewById(R.id.cardView5);
-        listCardView[5] = findViewById(R.id.cardView6);
-        listCardView[6] = findViewById(R.id.cardView7);
-        listCardView[7] = findViewById(R.id.cardView8);
-        listCardView[8] = findViewById(R.id.cardView9);
-        listCardView[9] = findViewById(R.id.cardView10);
-
-        listTextInCard[0] = findViewById(R.id.textcard1);
-        listTextInCard[1] = findViewById(R.id.textcard2);
-        listTextInCard[2] = findViewById(R.id.textcard3);
-        listTextInCard[3] = findViewById(R.id.textcard4);
-        listTextInCard[4] = findViewById(R.id.textcard5);
-        listTextInCard[5] = findViewById(R.id.textcard6);
-        listTextInCard[6] = findViewById(R.id.textcard7);
-        listTextInCard[7] = findViewById(R.id.textcard8);
-        listTextInCard[8] = findViewById(R.id.textcard9);
-        listTextInCard[9] = findViewById(R.id.textcard10);
-
 
         createSliceCard();
     }
 
     void createSliceCard() {
-        for (int i = 0; i < listCardView.length; i++) {
-            listCardView[i].setVisibility(View.INVISIBLE);
-            listTextInCard[i].setVisibility(View.INVISIBLE);
-        }
-
-        for (int index = 0; index < originWheelItems.size(); index++) {
-            listCardView[index].setVisibility(View.VISIBLE);
-            listTextInCard[index].setVisibility(View.VISIBLE);
-
-            listCardView[index].setCardBackgroundColor(originWheelItems.get(index).color);
-            listTextInCard[index].setText(originWheelItems.get(index).text);
-
-            final int finalIndex = index;
-            final WheelItem uiSlice = originWheelItems.get(finalIndex);
-            listCardView[index].setOnClickListener(
-                    view -> openEditSliceDialog(currentWheelSlices.get(finalIndex).getId(), uiSlice)
+        if (originWheelItems != null) {
+            if (sliceHolder != null) {
+                sliceHolder.removeAllViews();
+            }
+            Resources r = getApplicationContext().getResources();
+            int marginBottomPx = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    7,
+                    r.getDisplayMetrics()
             );
+            int cvRadiusPx = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    5,
+                    r.getDisplayMetrics()
+            );
+
+            for (int i = 0; i < originWheelItems.size(); i++) {
+                CardView cardView = new CardView(getApplicationContext());
+                LinearLayout.LayoutParams cvParams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                );
+                cvParams.setMargins(0, 0, 0, marginBottomPx);
+                cardView.setLayoutParams(cvParams);
+                cardView.setRadius(cvRadiusPx);
+
+                TextView textView = new TextView(getApplicationContext());
+                LinearLayout.LayoutParams tvParams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                );
+                textView.setLayoutParams(tvParams);
+                textView.setTextSize(18);
+                textView.setPadding(36, 16,16,16);
+                cardView.addView(textView);
+
+                cardView.setCardBackgroundColor(originWheelItems.get(i).color);
+                textView.setText(originWheelItems.get(i).text);
+
+                final int finalIndex = i;
+                final WheelItem uiSlice = originWheelItems.get(finalIndex);
+                cardView.setOnClickListener(
+                        view -> openEditSliceDialog(currentWheelSlices.get(finalIndex).getId(), uiSlice)
+                );
+                sliceHolder.addView(cardView);
+            }
         }
     }
 
@@ -310,11 +318,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
 
         addSliceButton.setOnClickListener(
                 view -> {
-                    if (wheelItems.size() < MAX_NUMBER_SLICE) {
-                        openAddSliceDialog();
-                    } else {
-                        Toast.makeText(EditLuckyWheelActivity.this, "Số lượng Slice đã lớn nhất", Toast.LENGTH_LONG).show();
-                    }
+                    openAddSliceDialog();
                 }
         );
 

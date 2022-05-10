@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:LuckyWheel="http://schemas.android.com/tools">
 
@@ -9,10 +10,7 @@
         android:id="@+id/tb_lucky_wheel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentInsetStart="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:contentInsetStart="0dp">
 
         <TextView
             android:id="@+id/lb_rand_integer"
@@ -65,426 +63,274 @@
             app:tint="@color/colorOnBackground" />
     </Toolbar>
 
-    <com.bluehomestudio.luckywheel.LuckyWheel
-        android:id="@+id/edit_lucky_wheel"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"
-        LuckyWheel:background_color="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toTopOf="@+id/wheel_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
+    <com.xw.repo.widget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/wheel_title"
-        style="@style/AppBarTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text=""
-        android:minWidth="100dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
-        app:layout_constraintStart_toStartOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:minHeight="100dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="20dp">
+            <com.bluehomestudio.luckywheel.LuckyWheel
+                android:id="@+id/edit_lucky_wheel"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                LuckyWheel:background_color="@color/colorPrimaryDark"
+                app:layout_constraintBottom_toTopOf="@+id/wheel_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginEnd="10dp"
-            LuckyWheel:ignore="UselessParent">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="start"
-                android:text="Tùy chỉnh"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#C4C4C4"
-                android:layout_marginTop="-20dp" />
+            <EditText
+                android:id="@+id/wheel_title"
+                style="@style/AppBarTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:minWidth="100dp"
+                android:text=""
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_lucky_wheel" />
 
             <LinearLayout
-                android:layout_width="160dp"
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="20dp"
+                android:minHeight="100dp"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wheel_title">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cỡ chữ"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical"
+                    LuckyWheel:ignore="UselessParent">
 
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="start"
+                        android:text="Tùy chỉnh"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/text_size_edit_lucky_wheel"
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="-20dp"
+                        android:background="#C4C4C4" />
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cỡ chữ"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/text_size_edit_lucky_wheel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="16"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/text_size_slider"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:stepSize="1"
+                        android:value="16"
+                        android:valueFrom="0"
+                        android:valueTo="64" />
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lặp slice"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/slide_repeat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/slice_repeat_slider"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:stepSize="1"
+                        android:value="1"
+                        android:valueFrom="1"
+                        android:valueTo="10" />
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Số lần quay"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/spin_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/spin_time_slide"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:stepSize="1"
+                        android:value="9"
+                        android:valueFrom="3"
+                        android:valueTo="20" />
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fair mode"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <Switch
+                            android:id="@+id/fair_mode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            LuckyWheel:ignore="UseSwitchCompatOrMaterialXml" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/list_slice"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="16"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Slice"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <ImageButton
+                            android:id="@+id/mix_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:minWidth="30dp"
+                            android:minHeight="30dp"
+                            android:scaleX="1.4"
+                            android:scaleY="1.4"
+                            android:src="@drawable/ic_mix">
+
+                        </ImageButton>
+
+                        <ImageButton
+                            android:id="@+id/add_slice_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:minWidth="30dp"
+                            android:minHeight="30dp"
+                            android:scaleX="1.4"
+                            android:scaleY="1.4"
+                            android:src="@drawable/ic_add">
+
+                        </ImageButton>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="#C4C4C4" />
+
+                    <LinearLayout
+                        android:id="@+id/slice_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+
+                </LinearLayout>
             </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.xw.repo.widget.BounceScrollView>
 
-            <com.google.android.material.slider.Slider
-                android:id="@+id/text_size_slider"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:value="16"
-                android:valueFrom="0"
-                android:stepSize="1"
-                android:valueTo="64" />
-
-            <LinearLayout
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lặp slice"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/slide_repeat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <com.google.android.material.slider.Slider
-                android:id="@+id/slice_repeat_slider"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:value="1"
-                android:valueFrom="1"
-                android:valueTo="10"
-                android:stepSize="1" />
-
-            <LinearLayout
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Số lần quay"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/spin_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="9"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <com.google.android.material.slider.Slider
-                android:id="@+id/spin_time_slide"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:value="9"
-                android:valueFrom="3"
-                android:valueTo="20"
-                android:stepSize="1" />
-
-            <LinearLayout
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fair mode"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1" />
-
-                <Switch
-                    android:id="@+id/fair_mode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    LuckyWheel:ignore="UseSwitchCompatOrMaterialXml" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/list_slice"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Slice"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1" />
-
-                <ImageButton
-                    android:id="@+id/mix_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minWidth="30dp"
-                    android:minHeight="30dp"
-                    android:scaleX="1.4"
-                    android:scaleY="1.4"
-                    android:background="@null"
-                    android:src="@drawable/ic_mix">
-
-                </ImageButton>
-
-                <ImageButton
-                    android:id="@+id/add_slice_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:minWidth="30dp"
-                    android:minHeight="30dp"
-                    android:scaleX="1.4"
-                    android:scaleY="1.4"
-                    android:src="@drawable/ic_add">
-
-                </ImageButton>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#C4C4C4"
-                android:layout_marginBottom="15dp" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#45CAF2"
-                android:layout_marginBottom="7dp"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:id="@+id/textcard1"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="Horizontal Line"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#45CAF2"
-                android:layout_marginBottom="7dp"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:id="@+id/textcard2"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="Horizontal Line"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#45CAF2"
-                android:layout_marginBottom="7dp"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:id="@+id/textcard3"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="Horizontal Line"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#45CAF2"
-                android:layout_marginBottom="7dp"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:id="@+id/textcard4"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="Horizontal Line"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#45CAF2"
-                android:layout_marginBottom="7dp"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:id="@+id/textcard5"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="Horizontal Line"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#45CAF2"
-                android:layout_marginBottom="7dp"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:id="@+id/textcard6"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="Horizontal Line"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#45CAF2"
-                android:layout_marginBottom="7dp"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:id="@+id/textcard7"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="Horizontal Line"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#45CAF2"
-                android:layout_marginBottom="7dp"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:id="@+id/textcard8"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="Horizontal Line"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#45CAF2"
-                android:layout_marginBottom="7dp"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:id="@+id/textcard9"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="Horizontal Line"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#45CAF2"
-                android:layout_marginBottom="7dp"
-                app:cardCornerRadius="5dp">
-
-                <TextView
-                    android:id="@+id/textcard10"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:text="Horizontal Line"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal" />
-            </androidx.cardview.widget.CardView>
-
-
-        </LinearLayout>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
