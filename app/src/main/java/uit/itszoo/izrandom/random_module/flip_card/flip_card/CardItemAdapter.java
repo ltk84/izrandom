@@ -76,19 +76,6 @@ public class CardItemAdapter extends BaseAdapter {
         flip_card_cardView = convertView.findViewById(R.id.flip_card_item_cardview);
         textViewCardContent = convertView.findViewById(R.id.txt_card_item);
 
-//        easyFlipView.setOnFlipListener(new EasyFlipView.OnFlipAnimationListener() {
-//            @Override
-//            public void onViewFlipCompleted(EasyFlipView flipView, EasyFlipView.FlipState newCurrentSide)
-//            {
-//
-//                if (easyFlipView.getCurrentFlipState().toString().equals("BACK_SIDE")) {
-//                    CardContentDialog cardContentDialog = new CardContentDialog(activity, cardContent);
-//                    cardContentDialog.show();
-//                }
-//            }
-//        });
-
-
         easyFlipView.setOnFlipListener(new EasyFlipView.OnFlipAnimationListener() {
             @Override
             public void onViewFlipCompleted(EasyFlipView easyFlipView, EasyFlipView.FlipState newCurrentSide) {
@@ -119,6 +106,34 @@ public class CardItemAdapter extends BaseAdapter {
                     isCardFlipping = true;
                     easyFlipView.flipTheView();
                 }
+            }
+        });
+
+        easyFlipView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if (easyFlipView.getCurrentFlipState().toString().equals("BACK_SIDE")) {
+                    if (!isCardFlipping) {
+                        isCardFlipping = true;
+                        CardContentDialog cardContentDialog = new CardContentDialog(activity, cardContent);
+                        cardContentDialog.show();
+                        cardContentDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialogInterface) {
+                                isCardFlipping = false;
+                                Log.i("CardItemAdapter", "easyFlipView cardContentDialog onDismiss called");
+                            }
+                        });
+                        return true;
+                    }
+
+
+                }
+                else if (easyFlipView.getCurrentFlipState().toString().equals("FRONT_SIDE")) {
+                    easyFlipView.performClick();
+                    return true;
+                }
+                return false;
             }
         });
 
