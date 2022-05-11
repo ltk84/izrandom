@@ -3,6 +3,7 @@ package uit.itszoo.izrandom.random_module.flip_card.flip_card;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,8 @@ import java.util.ArrayList;
 import uit.itszoo.izrandom.R;
 
 public class CardItemAdapter extends BaseAdapter {
+    public static boolean isCardFlipping = false;
+
     Context context;
     Activity activity;
     private ArrayList<String> cardContextArrayList;
@@ -73,16 +76,53 @@ public class CardItemAdapter extends BaseAdapter {
         flip_card_cardView = convertView.findViewById(R.id.flip_card_item_cardview);
         textViewCardContent = convertView.findViewById(R.id.txt_card_item);
 
+//        easyFlipView.setOnFlipListener(new EasyFlipView.OnFlipAnimationListener() {
+//            @Override
+//            public void onViewFlipCompleted(EasyFlipView flipView, EasyFlipView.FlipState newCurrentSide)
+//            {
+//
+//                if (easyFlipView.getCurrentFlipState().toString().equals("BACK_SIDE")) {
+//                    CardContentDialog cardContentDialog = new CardContentDialog(activity, cardContent);
+//                    cardContentDialog.show();
+//                }
+//            }
+//        });
+
+
         easyFlipView.setOnFlipListener(new EasyFlipView.OnFlipAnimationListener() {
             @Override
-            public void onViewFlipCompleted(EasyFlipView flipView, EasyFlipView.FlipState newCurrentSide)
-            {
+            public void onViewFlipCompleted(EasyFlipView easyFlipView, EasyFlipView.FlipState newCurrentSide) {
+                Log.i("CardItemAdapter", "easyFlipView easyFlipView onViewFlipCompleted called");
                 if (easyFlipView.getCurrentFlipState().toString().equals("BACK_SIDE")) {
                     CardContentDialog cardContentDialog = new CardContentDialog(activity, cardContent);
                     cardContentDialog.show();
+                    cardContentDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialogInterface) {
+                            isCardFlipping = false;
+                            Log.i("CardItemAdapter", "easyFlipView cardContentDialog onDismiss called");
+                        }
+                    });
+                }
+                else if (easyFlipView.getCurrentFlipState().toString().equals("FRONT_SIDE")) {
+                    isCardFlipping = false;
                 }
             }
         });
+
+        easyFlipView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("CardItemAdapter", "easyFlipView onCLick called with isCardFlipping = " + String.valueOf(isCardFlipping));
+
+                if (!isCardFlipping) {
+                    isCardFlipping = true;
+                    easyFlipView.flipTheView();
+                }
+            }
+        });
+
+
 
         // for some reason, the setLayoutParams does not show view in the right size as dp so I have to multiply by 2.5
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);

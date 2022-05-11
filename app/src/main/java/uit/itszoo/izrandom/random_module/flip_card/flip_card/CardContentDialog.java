@@ -9,9 +9,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+
 import uit.itszoo.izrandom.R;
 
 public class CardContentDialog extends Dialog{
+    public CardView cardView;
     public TextView tvCardContent;
     public String cardContent;
 
@@ -30,9 +33,17 @@ public class CardContentDialog extends Dialog{
         this.setCanceledOnTouchOutside(true);
         this.getWindow().setAttributes(params);
 
+        cardView = findViewById(R.id.cardView_card_content_dialog);
         tvCardContent = findViewById(R.id.txt_flip_card_content);
 
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
         tvCardContent.setText(cardContent);
+
     }
 
 }

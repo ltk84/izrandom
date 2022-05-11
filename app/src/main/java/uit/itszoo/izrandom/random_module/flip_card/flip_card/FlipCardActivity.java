@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jama.carouselview.CarouselViewListener;
+import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
 
@@ -19,6 +20,7 @@ import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuCo
 import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuPresenter;
 
 public class FlipCardActivity extends AppCompatActivity implements FlipCardContract.View {
+    ArrayList<String> listCardContents = new ArrayList<>();
 
     FlipCardContract.Presenter presenter;
     ImageButton backButton;
@@ -32,6 +34,7 @@ public class FlipCardActivity extends AppCompatActivity implements FlipCardContr
 
         initView();
         setListenerForView();
+        getListCardContentsFromDatabase();
         setUpGridView();
 
         presenter = new FlipCardPresenter(getApplicationContext(), this);
@@ -68,27 +71,23 @@ public class FlipCardActivity extends AppCompatActivity implements FlipCardContr
         this.presenter = presenter;
     }
 
-    public void setUpGridView() {
-        ArrayList<String> listString = new ArrayList<>();
-
+    public void getListCardContentsFromDatabase() {
         for (int i = 0; i < 16; i++) {
 //            listString.add("card context " + i + "context1 context2 context3 context4 context5 context6");
-            listString.add("What did you want to be when you grew up?");
+            listCardContents.add("What did you want to be when you grew up?");
         }
-
-        setUpGridView(listString);
 
     }
 
-    private void setUpGridView(ArrayList<String> listString) {
-        int numberOfColumns = calNumColumnGridView(listString.size());
+    private void setUpGridView() {
+        int numberOfColumns = calNumColumnGridView(listCardContents.size());
         int cardWidth = calCardWidthGridView(numberOfColumns);
         float cardContentTextSize = calCardContentTextSize(numberOfColumns);
         int verticalSpacing = calGridViewVerticalSpacing(numberOfColumns);
 
         gridView.setNumColumns(numberOfColumns);
         gridView.setVerticalSpacing(verticalSpacing);
-        CardItemAdapter cardItemAdapter = new CardItemAdapter(this, FlipCardActivity.this, listString, cardWidth, cardContentTextSize);
+        CardItemAdapter cardItemAdapter = new CardItemAdapter(this, FlipCardActivity.this, listCardContents, cardWidth, cardContentTextSize);
         gridView.setAdapter(cardItemAdapter);
 
     }

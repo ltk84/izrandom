@@ -5,7 +5,7 @@
     android:id="@+id/flip_card_item_cardview"
     android:layout_width="130dp"
     android:layout_height="170dp"
-    android:foreground="?android:attr/selectableItemBackground"
+    android:foreground="@null"
     app:autoFlipBack="false"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
@@ -13,7 +13,7 @@
     app:flipDuration="400"
     app:flipEnabled="true"
     app:flipFrom="right"
-    app:flipOnTouch="true"
+    app:flipOnTouch="false"
     app:flipType="horizontal">
 
     <!-- Back Layout Goes Here -->
