@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView_flip_card_carousel"
-    android:layout_width="280dp"
-    android:layout_height="380dp"
+    android:layout_width="240dp"
+    android:layout_height="342dp"
     android:contentDescription="@string/flip_card_object_description"
     app:cardCornerRadius="5dp">
 

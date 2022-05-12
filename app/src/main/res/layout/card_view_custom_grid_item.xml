@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view_custom_grid_item"
-    android:layout_width="106dp"
-    android:layout_height="138dp"
+    android:layout_width="92dp"
+    android:layout_height="124dp"
     app:cardCornerRadius="5dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
@@ -32,13 +32,13 @@
 
         <TextView
             android:id="@+id/tvCardViewAddContent"
-            android:layout_width="80dp"
+            android:layout_width="68dp"
             android:layout_height="wrap_content"
             android:text="Card content"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
-            android:textSize="10sp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

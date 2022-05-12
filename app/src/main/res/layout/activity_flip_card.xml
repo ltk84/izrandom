@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/tb_flip_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
 
         </ImageButton>
 
-    </Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <Button
         android:id="@+id/btn_flip_card_back_to_menu"
@@ -75,11 +75,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
-        android:layout_width="336dp"
-        android:layout_height="420dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:foreground="@null"
         android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btn_flip_card_back_to_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_flip_card">
@@ -88,15 +93,14 @@
             android:id="@+id/flip_card_grid_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:foreground="@null"
+            android:background="@null"
             android:clipToPadding="false"
             android:gravity="center"
-            android:horizontalSpacing="6dp"
             android:numColumns="3"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="6dp" />
+            android:stretchMode="columnWidth" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

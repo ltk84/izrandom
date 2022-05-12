@@ -3,6 +3,7 @@ package uit.itszoo.izrandom.random_module.flip_card.flip_card;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
@@ -72,7 +73,7 @@ public class FlipCardActivity extends AppCompatActivity implements FlipCardContr
     }
 
     public void getListCardContentsFromDatabase() {
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 4; i++) {
 //            listString.add("card context " + i + "context1 context2 context3 context4 context5 context6");
             listCardContents.add("What did you want to be when you grew up?");
         }
@@ -102,30 +103,30 @@ public class FlipCardActivity extends AppCompatActivity implements FlipCardContr
     }
 
     private int calCardWidthGridView(int numberOfColumns) {
-        if (numberOfColumns == 1) return 300;
-        else if (numberOfColumns == 2) return 144;
-        else if (numberOfColumns == 3) return 96;
-        else if (numberOfColumns == 4) return 74;
-        else if (numberOfColumns == 5) return 60;
-        return 0;
+        if (numberOfColumns == 1) return 240;
+        else if (numberOfColumns == 2) return 120;
+        else if (numberOfColumns == 3) return 80;
+        else if (numberOfColumns == 4) return 60;
+        else if (numberOfColumns == 5) return 52;
+        return 52;
     }
 
     private float calCardContentTextSize(int numberOfColumns) {
-        if (numberOfColumns == 1) return 24;
-        else if (numberOfColumns == 2) return 13;
-        else if (numberOfColumns == 3) return 9;
-        else if (numberOfColumns == 4) return 6;
-        else if (numberOfColumns == 5) return 5;
-        return 10;
+        if (numberOfColumns == 1) return 17;
+        else if (numberOfColumns == 2) return 10;
+        else if (numberOfColumns == 3) return 6;
+        else if (numberOfColumns == 4) return 5;
+        else if (numberOfColumns == 5) return 4;
+        return 4;
     }
 
     private int calGridViewVerticalSpacing(int numberOfColumns) {
-        if (numberOfColumns == 1) return 6;
-        else if (numberOfColumns == 2) return 56;
-        else if (numberOfColumns == 3) return 32;
-        else if (numberOfColumns == 4) return 24;
-        else if (numberOfColumns == 5) return 16;
-        return 6;
+        if (numberOfColumns == 1) return 8;
+        else if (numberOfColumns == 2) return 48;
+        else if (numberOfColumns == 3) return 24;
+        else if (numberOfColumns == 4) return 12;
+        else if (numberOfColumns == 5) return 0;
+        return 0;
     }
 
 }

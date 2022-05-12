@@ -5,6 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <GridView
+            android:id="@+id/flip_card_add_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_columnWeight="1"
+            android:numColumns="3"
+            android:paddingHorizontal="4dp"
+            android:stretchMode="columnWidth" />
+
+    </LinearLayout>
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tb_flip_card_add"
         android:layout_width="match_parent"
@@ -21,7 +44,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/be_vietnam_pro"
-            android:text="@string/flip_card_add_label" />
+            android:text="@string/flip_card_add_label"
+            android:textAlignment="center"
+            tools:layout_editor_absoluteX="134dp"
+            tools:layout_editor_absoluteY="17dp" />
 
         <ImageButton
             android:id="@+id/bb_flip_card_add"
@@ -35,8 +61,7 @@
             android:scaleX="1.2"
             android:scaleY="1.2"
             android:src="@drawable/ic_back_button"
-            app:tint="@color/colorOnBackground">
-        </ImageButton>
+            app:tint="@color/colorOnBackground"></ImageButton>
 
         <ImageButton
             android:id="@+id/btn_confirm_flip_card_add"
@@ -51,87 +76,67 @@
             android:scaleY="1"
             android:src="@drawable/ic_check_button"
             app:tint="@color/colorGreen"
-            tools:layout_editor_absoluteX="351dp">
-        </ImageButton>
+            tools:layout_editor_absoluteX="351dp"></ImageButton>
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/edit_text_card_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:orientation="vertical"
+        android:drawableEnd="@drawable/ic_clarity_pencil_solid"
+        android:fontFamily="@font/be_vietnam_pro"
+        android:hint="Tên bộ thẻ bài"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions"
+        android:minHeight="40dp"
+        android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_flip_card_add">
+        app:layout_constraintTop_toBottomOf="@+id/tb_flip_card_add" />
 
-        <EditText
-            android:id="@+id/edit_text_card_name"
-            android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_card_name">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:drawableEnd="@drawable/ic_clarity_pencil_solid"
-            android:fontFamily="@font/be_vietnam_pro"
-            android:hint="Tên bộ thẻ bài"
-            android:imeOptions="actionDone"
-            android:singleLine="true"
-            android:inputType="textNoSuggestions"
-            android:minHeight="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_gravity="start"
+            android:fontFamily="@font/be_vietnam_pro_bold"
+            android:text="Danh sách thẻ bài"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp">
+        <ImageButton
+            android:id="@+id/btn_flip_card_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/flip_card_confirm_button_description"
+            android:minWidth="40dp"
+            android:minHeight="40dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@android:drawable/ic_input_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorOnBackgroundDark"></ImageButton>
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:fontFamily="@font/be_vietnam_pro_bold"
-                android:text="Danh sách thẻ bài"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/btn_flip_card_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorBackground"
-                android:contentDescription="@string/flip_card_confirm_button_description"
-                android:minWidth="40dp"
-                android:minHeight="40dp"
-                android:scaleX="1"
-                android:scaleY="1"
-                android:src="@android:drawable/ic_input_add"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/colorOnBackgroundDark">
-            </ImageButton>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <GridView
-            android:id="@+id/flip_card_add_grid_view"
-            android:layout_width="match_parent"
-            android:layout_height="420dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:numColumns="3"
-            android:paddingHorizontal="8dp"
-            android:stretchMode="columnWidth" />
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

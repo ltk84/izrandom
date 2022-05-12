@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/abcsda"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".random_module.flip_card.flip_card_menu.FlipCardMenuActivity">
@@ -25,6 +26,7 @@
             android:text="@string/flip_card_label"
             tools:layout_editor_absoluteX="158dp"
             tools:layout_editor_absoluteY="17dp" />
+
         <ImageButton
             android:id="@+id/bb_flip_card_menu"
             android:layout_width="wrap_content"
@@ -32,13 +34,12 @@
             android:layout_gravity="start"
             android:backgroundTint="@color/colorBackground"
             android:contentDescription="@string/back_button"
-            android:minHeight="48dp"
             android:minWidth="48dp"
+            android:minHeight="48dp"
             android:scaleX="1.2"
             android:scaleY="1.2"
             android:src="@drawable/ic_back_button"
-            app:tint="@color/colorOnBackground">
-        </ImageButton>
+            app:tint="@color/colorOnBackground"></ImageButton>
 
         <ImageButton
             android:id="@+id/flip_card_add"
@@ -53,15 +54,15 @@
             android:scaleY="1"
             android:src="@android:drawable/ic_input_add"
             app:tint="@color/colorOnBackground"
-            tools:layout_editor_absoluteX="351dp">
-        </ImageButton>
+            tools:layout_editor_absoluteX="351dp"></ImageButton>
     </androidx.appcompat.widget.Toolbar>
 
     <com.jama.carouselview.CarouselView
         android:id="@+id/flip_card_carouselView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         app:carouselOffset="center"
         app:enableSnapping="true"
         app:indicatorAnimationType="worm"
@@ -69,6 +70,7 @@
         app:indicatorRadius="5"
         app:indicatorSelectedColor="@color/colorOnBackground"
         app:indicatorUnselectedColor="@color/colorOnBackgroundDark"
+        app:layout_constraintBottom_toTopOf="@+id/btn_flip_card_menu_start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_flip_card_menu"

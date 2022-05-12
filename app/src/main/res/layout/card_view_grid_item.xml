@@ -6,6 +6,7 @@
     android:layout_width="130dp"
     android:layout_height="170dp"
     android:foreground="@null"
+    android:background="@android:color/transparent"
     app:autoFlipBack="false"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"

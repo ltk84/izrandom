@@ -15,6 +15,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.jama.carouselview.CarouselView;
 import com.jama.carouselview.CarouselViewListener;
@@ -40,6 +41,8 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
     ImageButton toAddScreenButton;
     Button startButton;
 
+    ConstraintLayout ads;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +61,9 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
         backButton = findViewById(R.id.bb_flip_card_menu);
         toAddScreenButton = findViewById(R.id.flip_card_add);
         startButton = findViewById(R.id.btn_flip_card_menu_start);
+        carouselView = findViewById(R.id.flip_card_carouselView);
+
+        ads = findViewById(R.id.abcsda);
 
         //TODO get list card names from database
         for(int i = 0; i < 5; i++) {
@@ -113,8 +119,6 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
 //                            ranNumPresenter.setListCusNum(newListCusNum);
 //                        }
 
-                        Log.i("FlipCardMenuActivity", "intent onActivityResult RESULT_OK called");
-
                         Intent data = result.getData();
                         String isAddOrEdit = data.getStringExtra(FlipCardAddActivity.IS_ADD_OR_EDIT);
                         String newCardName = data.getStringExtra(FlipCardAddActivity.NEW_CARD_NAME);
@@ -135,10 +139,15 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
             });
 
     private void setupCarouselView() {
-        carouselView = findViewById(R.id.flip_card_carouselView);
-
         carouselView.setSize(listCardName.size());
         carouselView.setResource(R.layout.card_view_carousel);
+
+        carouselView.measure(View.MeasureSpec.makeMeasureSpec(ads.getWidth(),
+                View.MeasureSpec.EXACTLY),
+                View.MeasureSpec.makeMeasureSpec(0,
+                        View.MeasureSpec.UNSPECIFIED));
+
+        Log.i("FlipCardMenuActivity", "carouselView getMeasuredHeight: " + String.valueOf(carouselView.getMeasuredHeight()));
 
         carouselView.setCarouselViewListener(new CarouselViewListener() {
             @Override
@@ -170,4 +179,5 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
         // After you finish setting up, show the CarouselView
         carouselView.show();
     }
+
 }

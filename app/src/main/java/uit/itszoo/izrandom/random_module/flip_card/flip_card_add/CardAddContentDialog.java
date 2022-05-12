@@ -2,6 +2,8 @@ package uit.itszoo.izrandom.random_module.flip_card.flip_card_add;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -43,6 +45,7 @@ public class CardAddContentDialog extends Dialog {
         WindowManager.LayoutParams params = this.getWindow().getAttributes();
         this.setCanceledOnTouchOutside(true);
         this.getWindow().setAttributes(params);
+        this.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         initView();
         setListenerForView();
