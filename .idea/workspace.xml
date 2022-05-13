@@ -31,26 +31,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/CardCollectionDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/CardDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/model/CardCollectionModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/model/CardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/AppDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/AppDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/database/Repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/CardItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/CardItemAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/FlipCardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/FlipCardActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/FlipCardContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/FlipCardContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/FlipCardPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/FlipCardPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card/OnCardClick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/CardAddItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/CardAddItemAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_add/FlipCardAddPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_card/flip_card_menu/FlipCardMenuPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_flip_card_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_flip_card_menu.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

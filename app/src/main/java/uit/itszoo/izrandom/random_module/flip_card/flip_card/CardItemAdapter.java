@@ -115,30 +115,30 @@ public class CardItemAdapter extends BaseAdapter {
             }
         });
 
-//        easyFlipView.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View view) {
-//                if (easyFlipView.getCurrentFlipState().toString().equals("BACK_SIDE")) {
-//                    if (!isCardFlipping) {
-//                        isCardFlipping = true;
-//                        CardContentDialog cardContentDialog = new CardContentDialog(activity, cardContent);
-//                        cardContentDialog.show();
-//                        cardContentDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-//                            @Override
-//                            public void onDismiss(DialogInterface dialogInterface) {
-//                                isCardFlipping = false;
-//                            }
-//                        });
-//                        return true;
-//                    }
-//                }
-//                else if (easyFlipView.getCurrentFlipState().toString().equals("FRONT_SIDE")) {
-//                    easyFlipView.performClick();
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
+        easyFlipView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if (easyFlipView.getCurrentFlipState().toString().equals("BACK_SIDE")) {
+                    if (!isCardFlipping) {
+                        isCardFlipping = true;
+                        CardContentDialog cardContentDialog = new CardContentDialog(activity, cardContent);
+                        cardContentDialog.show();
+                        cardContentDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialogInterface) {
+                                isCardFlipping = false;
+                            }
+                        });
+                        return true;
+                    }
+                }
+                else if (easyFlipView.getCurrentFlipState().toString().equals("FRONT_SIDE")) {
+                    easyFlipView.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         final float scale = context.getResources().getDisplayMetrics().density;
         int pixels = (int) (cardWidth * scale + 0.5f);
