@@ -15,7 +15,6 @@ import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -43,7 +42,6 @@ import java.util.stream.Collectors;
 import top.defaults.colorpicker.ColorPickerPopup;
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
-import uit.itszoo.izrandom.random_module.lucky_wheel.add_lucky_wheel.AddNewLuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.lucky_wheel_custom.LuckyWheelCustomActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
@@ -190,7 +188,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                 textView.setLayoutParams(tvParams);
                 textView.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.be_vietnam_pro));
                 textView.setTextSize(16);
-                textView.setPadding(36, 16,16,16);
+                textView.setPadding(36, 16, 16, 16);
                 textView.setTextColor(originWheelItems.get(i).textColor);
                 cardView.addView(textView);
 
@@ -367,7 +365,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         ImageButton acceptButton = editDialog.findViewById(R.id.oke_button);
         CardView cardView = editDialog.findViewById(R.id.cardView);
         TextView textInCard = editDialog.findViewById(R.id.text_in_card);
-        textInCard.setPadding(36, 16,36,16);
+        textInCard.setPadding(36, 16, 36, 16);
         EditText content = editDialog.findViewById(R.id.slice_content);
         EditText color = editDialog.findViewById(R.id.slice_color);
         EditText textColor = editDialog.findViewById(R.id.text_color);
@@ -503,6 +501,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                     currentWheelSlices.forEach(slice -> {
                         if (slice.getId().equals(sliceID)) {
                             slice.setColor(String.format("#%06X", (0xFFFFFF & changeColor)));
+                            slice.setTextColor(String.format("#%06X", (0xFFFFFF & changeTextColor)));
                             slice.setName(content.getText().toString());
                         }
                     });
@@ -562,7 +561,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         ImageButton acceptButton = addDialog.findViewById(R.id.oke_button);
         CardView cardView = addDialog.findViewById(R.id.cardView);
         TextView textInCard = addDialog.findViewById(R.id.text_in_card);
-        textInCard.setPadding(36, 16,36,16);
+        textInCard.setPadding(36, 16, 36, 16);
         EditText content = addDialog.findViewById(R.id.slice_content);
         EditText color = addDialog.findViewById(R.id.slice_color);
         EditText textColor = addDialog.findViewById(R.id.text_color);
