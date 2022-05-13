@@ -159,11 +159,14 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
                     executeBlinkEffect(2);
                 } else if (arrowRotation >= 90 && arrowRotation < 180) {
                     executeBlinkEffect(3);
-                } else if (arrowRotation >= 180 && arrowRotation < 225) {
+                } else if (arrowRotation >= 180 && arrowRotation < 270) {
                     executeBlinkEffect(4);
-                } else {
+                } else if  (arrowRotation >= 270 && arrowRotation < 360) {
                     executeBlinkEffect(1);
+                } else {
+                    executeBlinkEffect(2);
                 }
+                System.out.println(arrowRotation);
             }
 
             @Override

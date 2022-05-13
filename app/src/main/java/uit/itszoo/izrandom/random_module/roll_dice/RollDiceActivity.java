@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -34,6 +35,7 @@ import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import com.iigo.library.DiceLoadingView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -71,6 +73,10 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
     boolean isDiceFlying = false;
     Handler handlerHoldEvent;
     Runnable executeHoldEvent;
+
+    // Audio
+    MediaPlayer mediaPlayer1;
+    MediaPlayer mediaPlayer2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,10 +143,14 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
 
         switch (action) {
             case (MotionEvent.ACTION_DOWN):
+                mediaPlayer1 = MediaPlayer.create(getApplicationContext(), R.raw.dice_rolling);
+                mediaPlayer1.setLooping(true);
+                mediaPlayer1.start();
                 executeOnlyRoll(diceViewList);
                 handlerHoldEvent.postDelayed(executeHoldEvent, 1000);
                 return true;
             case (MotionEvent.ACTION_UP):
+                mediaPlayer1.pause();
                 handlerHoldEvent.removeCallbacks(executeHoldEvent);
                 if (!isDiceFlying) {
                     executeRollInOne(diceViewList);
@@ -417,6 +427,28 @@ public class RollDiceActivity extends AppCompatActivity implements RollDiceContr
             public void onAnimationRepeat(Animation animation) {
             }
         });
+
+        if (moveDownAnimation != null) {
+            moveDownAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    mediaPlayer2 = MediaPlayer.create(getApplicationContext(), R.raw.dice_finish);
+                    Handler handler = new Handler();
+                    handler.postDelayed(() -> mediaPlayer2.start(), 350);
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+        }
+
     }
 
     private void addNewDice() {

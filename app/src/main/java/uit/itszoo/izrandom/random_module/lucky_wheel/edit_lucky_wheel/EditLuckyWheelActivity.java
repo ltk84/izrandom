@@ -641,7 +641,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                                     .show(view, new ColorPickerPopup.ColorPickerObserver() {
                                         @Override
                                         public void onColorPicked(int cl) {
-                                            textInCard.setBackgroundColor(cl);
+                                            textInCard.setTextColor(cl);
                                             @SuppressLint("UseCompatLoadingForDrawables")
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color_2);
                                             mDrawable1.setColorFilter(new
@@ -660,7 +660,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         acceptButton.setOnClickListener(
                 view -> {
                     WheelItem newSlice = new WheelItem(defaultSliceColor, BitmapFactory.decodeResource(getResources(),
-                            R.drawable.small_nails_icons), content.getText().toString());
+                            R.drawable.small_nails_icons), content.getText().toString(), defaultTextColor);
                     originWheelItems.add(newSlice);
 
                     wheelItems.clear();
@@ -675,7 +675,8 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                     createSliceCard();
                     luckyWheel.addWheelItems(wheelItems);
                     addDialog.cancel();
-                    defaultSliceColor = -4955036;
+                    defaultSliceColor = DEFAULT_SLICE_COLOR;
+                    defaultTextColor = DEFAULT_TEXT_COLOR;
                 }
         );
 

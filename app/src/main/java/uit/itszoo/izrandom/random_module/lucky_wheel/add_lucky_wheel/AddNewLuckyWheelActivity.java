@@ -610,7 +610,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
         acceptButton.setOnClickListener(
                 view -> {
                     WheelItem newSlice = new WheelItem(defaultSliceColor, BitmapFactory.decodeResource(getResources(),
-                            R.drawable.small_nails_icons), content.getText().toString());
+                            R.drawable.small_nails_icons), content.getText().toString(), defaultTextColor);
                     originWheelItems.add(newSlice);
 
                     wheelItems.clear();
@@ -621,7 +621,8 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                     createSliceCard();
                     luckyWheel.addWheelItems(wheelItems);
                     addDialog.cancel();
-                    defaultSliceColor = -4955036;
+                    defaultSliceColor = DEFAULT_SLICE_COLOR;
+                    defaultTextColor = DEFAULT_TEXT_COLOR;
                 }
         );
 

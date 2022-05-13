@@ -32,7 +32,11 @@
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelActivity.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_direction/RandomDirectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_direction/RandomDirectionActivity.java" afterDir="false" />
+>>>>>>> bugfix/random-direction
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,10 +81,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
+<<<<<<< HEAD
         <option value="layoutResourceFile" />
+=======
+>>>>>>> bugfix/random-direction
         <option value="Interface" />
         <option value="Class" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -99,22 +108,33 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="SerialNumber@00cc99090904" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2022-04-06T03:11:39.559681600Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2022-04-18T03:52:48.438873100Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+<<<<<<< HEAD
     <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
     <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.github.jama5262/CarouselView/1.2.2/8673a5251ef29da253b5529a8d85d4bd12379ec6/CarouselView-1.2.2-sources.jar!/com/jama/carouselview/CarouselView.java_SELECTED" value="CarouselView" />
     <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.github.troqphuc147/LuckyWheel_Android/0.4.1/f9ce1e9700d4ae23a2f7910c2d73d453248349ef/LuckyWheel_Android-0.4.1-sources.jar!/com/bluehomestudio/luckywheel/LuckyWheel.java_SELECTED" value="LuckyWheel" />
     <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.github.troqphuc147/LuckyWheel_Android/0.4.1/f9ce1e9700d4ae23a2f7910c2d73d453248349ef/LuckyWheel_Android-0.4.1-sources.jar!/com/bluehomestudio/luckywheel/WheelView.java_SELECTED" value="WheelView" />
+=======
+    <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.github.jama5262/CarouselView/1.2.2/8673a5251ef29da253b5529a8d85d4bd12379ec6/CarouselView-1.2.2-sources.jar!/com/jama/carouselview/CarouselView.java_SELECTED" value="CarouselView" />
+    <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.6.0-alpha03/8c62c296efe35e282f6a589701662f5f026765df/material-1.6.0-alpha03-sources.jar!/com/google/android/material/navigation/NavigationBarView.java_SELECTED" value="NavigationBarView" />
+>>>>>>> bugfix/random-direction
     <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.jama5262/CarouselView/1.2.2/8673a5251ef29da253b5529a8d85d4bd12379ec6/CarouselView-1.2.2-sources.jar!/com/jama/carouselview/CarouselView.java_SELECTED" value="CarouselView" />
+    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.ltk84/DiceLoadingView/1.5/81e2c0f497b6c12b2aeeaf7fdb8b1a391a91e787/DiceLoadingView-1.5-sources.jar!/com/iigo/library/DiceLoadingView.java_SELECTED" value="DiceLoadingView" />
+    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.ltk84/DiceLoadingView/1.5/81e2c0f497b6c12b2aeeaf7fdb8b1a391a91e787/DiceLoadingView-1.5-sources.jar!/com/iigo/library/DiceView.java_SELECTED" value="DiceView" />
+    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.ltk84/DiceLoadingView/master-SNAPSHOT/e6c1345324a0a2503f433d7c892fc3759deef3bf/DiceLoadingView-master-SNAPSHOT-sources.jar!/com/iigo/library/DiceLoadingView.java_SELECTED" value="DiceLoadingView" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="cidr.known.project.marker" value="true" />
+    <property name="com.android.tools.idea.sqlite.queryhistory" value="SELECT  * FROM userConfig" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Dependencies" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DiceLoadingView" />
+    <property name="project.structure.last.edited" value="Modules" />
+>>>>>>> bugfix/random-direction
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="settings.saveactions" />
@@ -124,24 +144,6 @@
     <key name="android.template.1365772263">
       <recent name="uit.itszoo.izrandom.random_module.chooser" />
     </key>
-    <key name="android.template.1654443001">
-      <recent name="uit.itszoo.izrandom" />
-      <recent name="uit.itszoo.izrandom.random_module.chooser.chooser_custom" />
-    </key>
-    <key name="android.template.-1672636025">
-      <recent name="uit.itszoo.izrandom.random_direction" />
-    </key>
-    <key name="android.template.1287149108">
-      <recent name="uit.itszoo.izrandom.random_direction_custom" />
-      <recent name="uit.itszoo.izrandom.random_direction_change_appearance" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Projects\izrandom\app\src\main\res\font" />
-      <recent name="D:\Projects\izrandom\app\src\main\res\drawable" />
-    </key>
-    <key name="android.template.-144290685">
-      <recent name="uit.itszoo.izrandom.random_module.flip_coin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\izrandom\app\src\main\res\font" />
     </key>
@@ -150,6 +152,40 @@
     </key>
     <key name="android.template.1835396654">
       <recent name="uit.itszoo.izrandom.random_module.flip_coin.flip_coin_custom" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="uit.itszoo.izrandom.utilities" />
+    </key>
+    <key name="android.template.-1249923655">
+      <recent name="uit.itszoo.izrandom.random_module.divide_team.divide_team_guide" />
+    </key>
+    <key name="android.template.-144290685">
+      <recent name="uit.itszoo.izrandom.random_module.flip_coin" />
+    </key>
+    <key name="android.template.-113329716">
+      <recent name="uit.itszoo.izrandom.random_module.divide_team" />
+    </key>
+    <key name="android.template.1654443001">
+      <recent name="uit.itszoo.izrandom" />
+      <recent name="uit.itszoo.izrandom.random_module.chooser.chooser_custom" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\izrandom\app\src\main\res\raw" />
+      <recent name="D:\Projects\izrandom\app\src\main\res\font" />
+      <recent name="D:\Projects\izrandom\app\src\main\res\drawable" />
+    </key>
+    <key name="android.template.-1672636025">
+      <recent name="uit.itszoo.izrandom.random_direction" />
+    </key>
+    <key name="android.template.1287149108">
+      <recent name="uit.itszoo.izrandom.random_direction_custom" />
+      <recent name="uit.itszoo.izrandom.random_direction_change_appearance" />
+    </key>
+    <key name="android.template.289755750">
+      <recent name="uit.itszoo.izrandom.random_module.raffle" />
+    </key>
+    <key name="android.template.-1239303258">
+      <recent name="uit.itszoo.izrandom.random_module.raffle.raffle_guide" />
     </key>
   </component>
   <component name="RunManager">
@@ -251,11 +287,15 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="275" y="39" width="816" height="729" key="#Intentions/0.0.1366.768@0.0.1366.768" timestamp="1647739066866" />
+<<<<<<< HEAD
     <state x="239" y="208" key="#Notifications" timestamp="1650857596920">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="239" y="208" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1650857596920" />
     <state x="286" y="154" key="#PSD" timestamp="1651886817173">
+=======
+    <state x="286" y="154" key="#PSD" timestamp="1647770718692">
+>>>>>>> bugfix/random-direction
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="286" y="154" key="#PSD/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651886817173" />
@@ -266,6 +306,10 @@
     <state x="333" y="101" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1651737666144" />
     <state x="374" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649301903370" />
     <state x="374" y="107" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1649210327574" />
+    <state x="300" y="196" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1650715509420">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="300" y="196" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650715509420" />
     <state x="412" y="174" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1647742931826">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -273,56 +317,94 @@
     <state x="233" y="327" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1652190291125">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
+<<<<<<< HEAD
     <state x="207" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1651386162916" />
     <state x="233" y="327" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1652190291125" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1651457273692">
+=======
+    <state x="207" y="308" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1648114591115" />
+    <state x="334" y="287" width="506" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1650715510598">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="334" y="287" width="506" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650715510598" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1648735607362">
+>>>>>>> bugfix/random-direction
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1651457273692" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1648696986351" />
+<<<<<<< HEAD
     <state x="258" y="142" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1651580804537">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="258" y="142" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1651580804537" />
+=======
+    <state x="290" y="151" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1650716311140">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="258" y="142" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1647738634864" />
+    <state x="290" y="151" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650716311140" />
+>>>>>>> bugfix/random-direction
     <state x="290" y="151" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.816@0.0.1536.816" timestamp="1648791361185" />
     <state x="96" y="111" width="857" height="568" key="AVDManager" timestamp="1647336180374">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="96" y="111" width="857" height="568" key="AVDManager/0.0.1366.768@0.0.1366.768" timestamp="1647336180374" />
-    <state x="349" y="163" key="AndroidCreateResourceDirectoryDialog" timestamp="1647768950050">
+    <state x="349" y="163" key="AndroidCreateResourceDirectoryDialog" timestamp="1651153233188">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="310" y="153" key="AndroidCreateResourceDirectoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1647389374139" />
-    <state x="349" y="163" key="AndroidCreateResourceDirectoryDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647756609789" />
+    <state x="349" y="163" key="AndroidCreateResourceDirectoryDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651153233188" />
     <state x="349" y="163" key="AndroidCreateResourceDirectoryDialog/0.0.1536.816@0.0.1536.816" timestamp="1647768950050" />
+<<<<<<< HEAD
     <state x="502" y="286" key="AndroidCreateResourceFileDialog" timestamp="1652190865490">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="502" y="286" key="AndroidCreateResourceFileDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1652190865490" />
-    <state x="698" y="238" key="AndroidCreateResourceFileDialog/0.0.1536.816@0.0.1536.816" timestamp="1647769088426" />
-    <state x="614" y="198" key="AndroidCreateXmlResourceDialog" timestamp="1649908014535">
+=======
+    <state x="411" y="240" key="AndroidCreateResourceFileDialog" timestamp="1651153224483">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="614" y="198" key="AndroidCreateXmlResourceDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1649908014535" />
+    <state x="411" y="240" key="AndroidCreateResourceFileDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651153224483" />
+>>>>>>> bugfix/random-direction
+    <state x="698" y="238" key="AndroidCreateResourceFileDialog/0.0.1536.816@0.0.1536.816" timestamp="1647769088426" />
+    <state x="1097" y="247" key="AndroidCreateXmlResourceDialog" timestamp="1650721825624">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="1097" y="247" key="AndroidCreateXmlResourceDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650721825624" />
     <state x="614" y="198" key="AndroidCreateXmlResourceDialog/0.0.1536.816@0.0.1536.816" timestamp="1648711829743" />
+<<<<<<< HEAD
     <state x="279" y="130" key="AndroidProcessChooserDialog" timestamp="1651475298314">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="279" y="130" key="AndroidProcessChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1651475298314" />
     <state width="559" height="439" key="DebuggerActiveHint" timestamp="1651671821387">
       <screen x="0" y="0" width="1366" height="768" />
+=======
+    <state width="492" height="466" key="DebuggerActiveHint" timestamp="1649499603296">
+      <screen x="0" y="0" width="1536" height="816" />
+>>>>>>> bugfix/random-direction
     </state>
     <state width="559" height="439" key="DebuggerActiveHint/0.0.1366.768@0.0.1366.768" timestamp="1651671821387" />
     <state width="492" height="466" key="DebuggerActiveHint/0.0.1536.816@0.0.1536.816" timestamp="1649499603296" />
+<<<<<<< HEAD
     <state x="812" y="155" key="FileChooserDialogImpl" timestamp="1651848360773">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="722" y="146" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1647390358707" />
     <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651848360773" />
+=======
+    <state x="812" y="155" key="FileChooserDialogImpl" timestamp="1650685266685">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="722" y="146" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1647390358707" />
+    <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650685266685" />
+>>>>>>> bugfix/random-direction
     <state x="812" y="155" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1648710855651" />
-    <state x="311" y="286" key="Github.CreateGistDialog" timestamp="1650101713617">
+    <state x="311" y="286" key="Github.CreateGistDialog" timestamp="1649761939847">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
+<<<<<<< HEAD
     <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1650101713617" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1652196129502">
       <screen x="0" y="0" width="1536" height="816" />
@@ -348,22 +430,53 @@
     <state width="1321" height="188" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1651821708773" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1652196129502" />
     <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1652148538106" />
+=======
+    <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1649761939847" />
+    <state width="1493" height="201" key="GridCell.Tab.0.bottom" timestamp="1651226244479">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="914" height="220" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
+    <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651219971065" />
+    <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1651226244479" />
+    <state width="1493" height="201" key="GridCell.Tab.0.center" timestamp="1651226244479">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="914" height="220" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
+    <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651219971064" />
+    <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1651226244479" />
+    <state width="1493" height="201" key="GridCell.Tab.0.left" timestamp="1651226244479">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="914" height="220" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
+    <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651219971064" />
+    <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1651226244479" />
+    <state width="1493" height="201" key="GridCell.Tab.0.right" timestamp="1651226244479">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="914" height="220" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
+    <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651219971065" />
+    <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1651226244479" />
+>>>>>>> bugfix/random-direction
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="29" y="40" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1647486414658" />
     <state x="33" y="43" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1647770642862" />
+<<<<<<< HEAD
     <state x="208" y="129" width="570" height="524" key="StructurePopup" timestamp="1651386992109">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="208" y="129" width="570" height="524" key="StructurePopup/0.0.1366.768@0.0.1366.768" timestamp="1651386992109" />
+=======
+>>>>>>> bugfix/random-direction
     <state x="584" y="186" key="chooseDestDirectoryDialog" timestamp="1647307361368">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="584" y="186" key="chooseDestDirectoryDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647307361368" />
-    <state x="478" y="141" width="579" height="534" key="find.popup" timestamp="1650018350872">
+    <state x="478" y="141" width="629" height="534" key="find.popup" timestamp="1650130462845">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
+<<<<<<< HEAD
     <state x="478" y="141" width="579" height="534" key="find.popup/0.0.1536.816@0.0.1536.816" timestamp="1650018350872" />
     <state width="503" height="214" key="javadoc.popup.new" timestamp="1651671583747">
       <screen x="0" y="0" width="1366" height="768" />
@@ -375,9 +488,19 @@
     <state x="383" y="141" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1651391857755" />
     <state x="378" y="174" width="672" height="677" key="run.anything.popup" timestamp="1651477594845">
       <screen x="0" y="0" width="1366" height="768" />
+=======
+    <state x="478" y="141" width="629" height="534" key="find.popup/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650130462845" />
+    <state x="383" y="141" key="refactoring.ChangeSignatureDialog" timestamp="1647741633517">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="383" y="141" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1647741633517" />
+    <state x="425" y="185" key="run.anything.popup" timestamp="1649489365414">
+      <screen x="0" y="0" width="1536" height="816" />
+>>>>>>> bugfix/random-direction
     </state>
     <state x="378" y="174" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1651477594845" />
     <state x="425" y="185" key="run.anything.popup/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1647623008650" />
+<<<<<<< HEAD
     <state x="425" y="185" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1650016860189" />
     <state x="383" y="129" width="672" height="639" key="search.everywhere.popup" timestamp="1651565448763">
       <screen x="0" y="0" width="1366" height="768" />
@@ -406,6 +529,20 @@
         <watch expression="originWheelItems.get(2)" language="JAVA" />
         <watch expression="uiSlice" language="JAVA" />
         <watch expression="content.getText().toString()" language="JAVA" />
+=======
+    <state x="425" y="185" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1649489365414" />
+    <state x="430" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1650723961385">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="383" y="129" width="672" height="639" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1647484149709" />
+    <state x="430" y="137" width="672" height="678" key="search.everywhere.popup/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650723961385" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="coinList.get(0)" />
+        <watch expression="((ChooserActivity)this).chooserRingList" custom="uit.itszoo.izrandom.random_module.chooser.ChooserActivity" />
+>>>>>>> bugfix/random-direction
       </configuration>
     </watches-manager>
   </component>

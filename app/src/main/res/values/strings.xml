@@ -50,6 +50,27 @@
     <string name="number_chooser">Số lượng người được chọn</string>
     <string name="chooser_guide">Chạm các ngón tay vào màn hình và giữ để thực hiện chọn ngẫu nhiên</string>
     <string name="custom_chooser_guide">Lướt sang trái hoặc phải để thay đổi màu nền</string>
+    <string name="raffle_description">raffle description</string>
+    <string name="raffle_label">Xổ số</string>
+    <string name="participants_label">Người tham gia</string>
+    <string name="input_participants_hint">Nhập người tham gia</string>
+    <string name="awards_label">Giải thưởng</string>
+    <string name="input_awards_hint">Nhập giải thưởng</string>
+    <string name="get_started_label">Bắt đầu</string>
+    <string name="back_button_label">Quay lại</string>
+    <string name="length_hint">Tên của người hoặc giải thưởng phải nhỏ hơn 27 ký tự</string>
+    <string name="start_hint">Hãy đảm bảo số người tham gia lớn hơn hoặc bằng số giải thưởng để bắt đầu</string>
+    <string name="divide_team_label">Chia đội nhóm</string>
+    <string name="get_result">Tạo kết quả</string>
+    <string name="person_per_team_count_label">Theo số người mỗi nhóm</string>
+    <string name="team_count_label">Theo số nhóm</string>
+    <string name="default_value_divide_team">1</string>
+    <string name="start_divide_team_hint">Số người tham gia phải lớn hơn hoặc bằng số người mỗi nhóm/số nhóm để bắt đầu</string>
+    <string name="count_hint">Số nhóm/số người mỗi nhóm phải lớn hơn 0</string>
+    <string name="guide_label">Hướng dẫn</string>
+    <string name="close_label">Đóng</string>
+    <string name="divide_team_result_guide">Lướt sang phải hoặc trái để xem các đội nhóm khác</string>
+    <string name="result_label">Kết quả</string>
     <string name="wheel_custom_appbar_title">Thay đổi vòng quay</string>
     <string name="lucky_wheel_edit_title">Tùy chỉnh vòng quay</string>
 </resources>

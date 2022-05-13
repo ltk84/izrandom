@@ -63,6 +63,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions|text"
         android:hint="Nội dung"
         android:maxLength="20"
         android:drawableRight="@drawable/ic_clarity_pencil_solid"

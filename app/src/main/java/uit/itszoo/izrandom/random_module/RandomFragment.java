@@ -27,9 +27,11 @@ import java.util.Random;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.chooser.ChooserActivity;
+import uit.itszoo.izrandom.random_module.divide_team.DivideTeamActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.FlipCoinActivity;
 import uit.itszoo.izrandom.random_module.flip_coin.model.Coin;
 import uit.itszoo.izrandom.random_module.lucky_wheel.LuckyWheelActivity;
+import uit.itszoo.izrandom.random_module.raffle.RaffleActivity;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
 import uit.itszoo.izrandom.random_module.random_integer.RandomIntegerActivity;
 import uit.itszoo.izrandom.random_module.roll_dice.RollDiceActivity;
@@ -57,6 +59,8 @@ public class RandomFragment extends Fragment {
     CardView randomNumberCardView;
     CardView randomListCardView;
     CardView chooserCardView;
+    CardView raffleCardView;
+    CardView divideTeamCardView;
 
     ImageView ivDirection;
     Animation rotateAnimation;
@@ -140,6 +144,8 @@ public class RandomFragment extends Fragment {
         randomNumberCardView = view.findViewById(R.id.cv_random_number);
         randomListCardView = view.findViewById(R.id.cv_random_list);
         chooserCardView = view.findViewById(R.id.cv_chooser);
+        raffleCardView = view.findViewById(R.id.cv_raffle);
+        divideTeamCardView = view.findViewById(R.id.cv_divide_team);
         ivDirection = view.findViewById(R.id.ic_random_direction);
         dlvRollDice = view.findViewById(R.id.ic_roll_dice);
         dlvRollDice.setDuration(0);
@@ -197,6 +203,22 @@ public class RandomFragment extends Fragment {
             public void onClick(View view) {
                 Intent intentToChooser = new Intent(getContext(), ChooserActivity.class);
                 startActivity(intentToChooser);
+            }
+        });
+
+        raffleCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToRaffle = new Intent(getContext(), RaffleActivity.class);
+                startActivity(intentToRaffle);
+            }
+        });
+
+        divideTeamCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToDivideTeam = new Intent(getContext(), DivideTeamActivity.class);
+                startActivity(intentToDivideTeam);
             }
         });
 
