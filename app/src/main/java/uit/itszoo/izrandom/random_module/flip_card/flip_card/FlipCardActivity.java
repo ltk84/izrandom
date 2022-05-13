@@ -15,13 +15,19 @@ import com.jama.carouselview.CarouselViewListener;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuActivity;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuContract;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuPresenter;
+import uit.itszoo.izrandom.random_module.flip_card.model.CardCollectionModel;
+import uit.itszoo.izrandom.random_module.flip_card.model.CardModel;
 
 public class FlipCardActivity extends AppCompatActivity implements FlipCardContract.View {
-    ArrayList<String> listCardContents = new ArrayList<>();
+    CardCollectionModel cardCollectionModel;
+    List<CardModel> listCardModels = new ArrayList<>();
 
     FlipCardContract.Presenter presenter;
     ImageButton backButton;
@@ -33,13 +39,16 @@ public class FlipCardActivity extends AppCompatActivity implements FlipCardContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flip_card);
 
-        initView();
-        setListenerForView();
-        getListCardContentsFromDatabase();
-        setUpGridView();
-
         presenter = new FlipCardPresenter(getApplicationContext(), this);
         setPresenter(presenter);
+
+        cardCollectionModel = (CardCollectionModel) getIntent().getSerializableExtra(FlipCardMenuActivity.CARD_COLLECTION_TO_FLIP);
+        listCardModels = presenter.getListCardModelByCollectionId(cardCollectionModel.getId());
+        Collections.shuffle(listCardModels);
+
+        initView();
+        setListenerForView();
+        setUpGridView();
 
     }
 
@@ -72,23 +81,15 @@ public class FlipCardActivity extends AppCompatActivity implements FlipCardContr
         this.presenter = presenter;
     }
 
-    public void getListCardContentsFromDatabase() {
-        for (int i = 0; i < 4; i++) {
-//            listString.add("card context " + i + "context1 context2 context3 context4 context5 context6");
-            listCardContents.add("What did you want to be when you grew up?");
-        }
-
-    }
-
     private void setUpGridView() {
-        int numberOfColumns = calNumColumnGridView(listCardContents.size());
+        int numberOfColumns = calNumColumnGridView(listCardModels.size());
         int cardWidth = calCardWidthGridView(numberOfColumns);
         float cardContentTextSize = calCardContentTextSize(numberOfColumns);
         int verticalSpacing = calGridViewVerticalSpacing(numberOfColumns);
 
         gridView.setNumColumns(numberOfColumns);
         gridView.setVerticalSpacing(verticalSpacing);
-        CardItemAdapter cardItemAdapter = new CardItemAdapter(this, FlipCardActivity.this, listCardContents, cardWidth, cardContentTextSize);
+        CardItemAdapter cardItemAdapter = new CardItemAdapter(this, FlipCardActivity.this, listCardModels, cardWidth, cardContentTextSize);
         gridView.setAdapter(cardItemAdapter);
 
     }

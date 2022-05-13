@@ -11,16 +11,23 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import uit.itszoo.izrandom.random_module.chooser.source.ChooserSource;
+import uit.itszoo.izrandom.random_module.flip_card.model.CardCollectionModel;
+import uit.itszoo.izrandom.random_module.flip_card.model.CardModel;
 import uit.itszoo.izrandom.random_module.flip_coin.source.CoinSource;
 import uit.itszoo.izrandom.random_module.random_direction.source.ArrowSource;
 import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
 
 
-@Database(entities = {UserConfiguration.class}, version = 1)
+@Database(entities = {UserConfiguration.class, CardCollectionModel.class, CardModel.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String DB_NAME = "userConfig.db";
@@ -58,6 +65,8 @@ public abstract class AppDatabase extends RoomDatabase {
                 userConfiguration.chooserThemeId = ChooserSource.themes.get(0).getId();
 
                 instance.userConfigDAO().insertUserConfig(userConfiguration);
+
+                initCardCollection();
             });
 
         }
@@ -69,5 +78,37 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     };
 
+    private static void initCardCollection() {
+        CardCollectionModel cardCollectionModel = new CardCollectionModel(UUID.randomUUID().toString(), "Bộ câu hỏi vui để hiểu bản thân", System.currentTimeMillis());
+        ArrayList<CardModel> listCardModels = new ArrayList<>(
+                Arrays.asList(
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Mùi yêu thích của bạn là gì?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Bạn cảm thấy biết ơn vì điều gì trong cuộc sống?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Ký ức đáng quý nhất của bạn là gì", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Điều thành công nhất bạn đã đạt được là gì?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Bạn thấy điều gì đáng quý nhất trong tình bạn?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Theo bạn, một ngày hoàn hảo là như thế nào?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Ước mơ thời ấu thơ của bạn là gì?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Bạn tự nhận xét bản thân là người như thế nào?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Bạn muốn trở thành mẫu người như thế nào?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Đâu là nỗi sợ lớn nhất của bạn?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Mục tiêu ngắn hạn, dài hạn của bạn là gì?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Nếu có một điều ước, bạn sẽ ước điều gì?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Bạn thích và muốn thử hoạt động mới nào?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Bạn thích và không thích nhất điều gì ở bản thân?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Ai là người quan trọng nhất với bạn ở hiện tại?", System.currentTimeMillis()),
+                        new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), "Bạn thích làm điều gì trong thời gian rảnh?", System.currentTimeMillis())
+                )
+        );
+        instance.cardCollectionDAO().insertCardCollection(cardCollectionModel);
+        for (CardModel cardModel : listCardModels) {
+            instance.cardDAO().insertCard(cardModel);
+        }
+    }
+
     abstract UserConfigDAO userConfigDAO();
+
+    abstract CardCollectionDAO cardCollectionDAO();
+
+    abstract CardDAO cardDAO();
 }

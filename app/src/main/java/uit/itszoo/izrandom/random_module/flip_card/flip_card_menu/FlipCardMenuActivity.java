@@ -22,18 +22,23 @@ import com.jama.carouselview.CarouselViewListener;
 import com.jama.carouselview.enums.OffsetType;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card.FlipCardActivity;
 import uit.itszoo.izrandom.random_module.flip_card.flip_card_add.FlipCardAddActivity;
+import uit.itszoo.izrandom.random_module.flip_card.model.CardCollectionModel;
+import uit.itszoo.izrandom.random_module.flip_card.model.CardModel;
 import uit.itszoo.izrandom.random_module.random_integer.random_integer_custom.RandomIntegerCustomActivity;
 
 public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardMenuContract.View {
     public static final String IS_ADD_OR_EDIT = "IS_ADD_OR_EDIT";
-    public static final String CARD_NAME_TO_EDIT = "CARD_NAME_TO_EDIT";
+    public static final String CARD_COLLECTION_TO_EDIT = "CARD_NAME_TO_EDIT";
     public static final String CARD_POSITION_TO_EDIT = "CARD_POSITION_TO_EDIT";
+    public static final String CARD_COLLECTION_TO_FLIP = "CARD_COLLECTION_TO_FLIP";
 
-    ArrayList<String> listCardName = new ArrayList<>();
+    List<CardCollectionModel> listCardCollections = new ArrayList<>();
 
     FlipCardMenuContract.Presenter presenter;
     CarouselView carouselView;
@@ -41,19 +46,20 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
     ImageButton toAddScreenButton;
     Button startButton;
 
-    ConstraintLayout ads;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flip_card_menu);
 
+        presenter = new FlipCardMenuPresenter(getApplicationContext(), this);
+        setPresenter(presenter);
+
+        listCardCollections = presenter.getListCardCollections();
+        Log.i("FlipCardMenuActivity", "listCardCollections size: " + String.valueOf(listCardCollections.size()));
+
         initView();
         setListenerForView();
         setupCarouselView();
-
-        presenter = new FlipCardMenuPresenter(getApplicationContext(), this);
-        setPresenter(presenter);
 
     }
 
@@ -62,13 +68,6 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
         toAddScreenButton = findViewById(R.id.flip_card_add);
         startButton = findViewById(R.id.btn_flip_card_menu_start);
         carouselView = findViewById(R.id.flip_card_carouselView);
-
-        ads = findViewById(R.id.abcsda);
-
-        //TODO get list card names from database
-        for(int i = 0; i < 5; i++) {
-            listCardName.add("Hâm nóng tình yêu " + String.valueOf(i));
-        }
     }
 
 
@@ -85,7 +84,7 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
             public void onClick(View view) {
                 Intent intentToFlipCardAdd = new Intent(getApplicationContext(), FlipCardAddActivity.class);
                 intentToFlipCardAdd.putExtra(FlipCardMenuActivity.IS_ADD_OR_EDIT, "ADD");
-                intentToFlipCardAdd.putExtra(FlipCardMenuActivity.CARD_NAME_TO_EDIT, "");
+                intentToFlipCardAdd.putExtra(FlipCardMenuActivity.CARD_COLLECTION_TO_EDIT, new CardCollectionModel(UUID.randomUUID().toString(), "", System.currentTimeMillis()));
                 intentLauncher.launch(intentToFlipCardAdd);
             }
         });
@@ -94,8 +93,7 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
             @Override
             public void onClick(View view) {
                 Intent intentToFlipCard = new Intent(getApplicationContext(), FlipCardActivity.class);
-//                intentToFlipCard.putExtra(RandomDirectionActivity.CURRENT_ARROW, presenter.getCurrentArrow());
-//                intentLauncher.launch(intentToFlipCard);
+                intentToFlipCard.putExtra(FlipCardMenuActivity.CARD_COLLECTION_TO_FLIP, listCardCollections.get(carouselView.getCurrentItem()));
                 startActivity(intentToFlipCard);
             }
         });
@@ -113,23 +111,17 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK) {
-//                        Intent data = result.getData();
-//                        ArrayList<String> newListCusNum = data.getIntegerArrayListExtra(RandomIntegerCustomActivity.NEW_CUS_NUM);
-//                        if (newListCusNum != null) {
-//                            ranNumPresenter.setListCusNum(newListCusNum);
-//                        }
-
                         Intent data = result.getData();
                         String isAddOrEdit = data.getStringExtra(FlipCardAddActivity.IS_ADD_OR_EDIT);
-                        String newCardName = data.getStringExtra(FlipCardAddActivity.NEW_CARD_NAME);
+                        CardCollectionModel cardCollectionModel = (CardCollectionModel) data.getSerializableExtra(FlipCardAddActivity.EDITED_CARD_COLLECTION);
 
                         if (isAddOrEdit.equals("ADD")) {
-                            listCardName.add(0, newCardName);
+                            listCardCollections.add(0, cardCollectionModel);
                             setupCarouselView();
                         }
                         else if (isAddOrEdit.equals("EDIT")) {
                             int editedCardPosition = data.getIntExtra(FlipCardAddActivity.EDITED_CARD_POSITION, 0);
-                            listCardName.set(editedCardPosition, newCardName);
+                            listCardCollections.set(editedCardPosition, cardCollectionModel);
                             setupCarouselView();
                             carouselView.setCurrentItem(editedCardPosition);
                         }
@@ -139,21 +131,14 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
             });
 
     private void setupCarouselView() {
-        carouselView.setSize(listCardName.size());
+        carouselView.setSize(listCardCollections.size());
         carouselView.setResource(R.layout.card_view_carousel);
-
-        carouselView.measure(View.MeasureSpec.makeMeasureSpec(ads.getWidth(),
-                View.MeasureSpec.EXACTLY),
-                View.MeasureSpec.makeMeasureSpec(0,
-                        View.MeasureSpec.UNSPECIFIED));
-
-        Log.i("FlipCardMenuActivity", "carouselView getMeasuredHeight: " + String.valueOf(carouselView.getMeasuredHeight()));
 
         carouselView.setCarouselViewListener(new CarouselViewListener() {
             @Override
             public void onBindView(View view, int position) {
                 // Example here is setting up a full image carousel
-                String cardName = listCardName.get(position);
+                String cardName = listCardCollections.get(position).getCardName().toString();
 
                 CardView cardViewCarouselItem;
                 TextView cardNameTextView;
@@ -167,7 +152,7 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
                     public void onClick(View view) {
                         Intent intentToFlipCardAdd = new Intent(getApplicationContext(), FlipCardAddActivity.class);
                         intentToFlipCardAdd.putExtra(FlipCardMenuActivity.IS_ADD_OR_EDIT, "EDIT");
-                        intentToFlipCardAdd.putExtra(FlipCardMenuActivity.CARD_NAME_TO_EDIT, cardName);
+                        intentToFlipCardAdd.putExtra(FlipCardMenuActivity.CARD_COLLECTION_TO_EDIT, listCardCollections.get(position));
                         intentToFlipCardAdd.putExtra(FlipCardMenuActivity.CARD_POSITION_TO_EDIT, position);
                         intentLauncher.launch(intentToFlipCardAdd);
 

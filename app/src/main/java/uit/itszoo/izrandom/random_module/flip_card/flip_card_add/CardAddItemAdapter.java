@@ -17,32 +17,34 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.flip_card.model.CardModel;
 
 public class CardAddItemAdapter extends BaseAdapter {
     Context context;
     Activity activity;
-    private ArrayList<String> cardContextArrayList;
+    private List<CardModel> listCardModels;
     private LayoutInflater mLayoutInflater;
     private OnCardItemClick mCallBack;
 
-    public CardAddItemAdapter(@NonNull Context context, Activity activity, ArrayList<String> cardContentArrayList, OnCardItemClick mCallBack) {
+    public CardAddItemAdapter(@NonNull Context context, Activity activity, List<CardModel> listCardModels, OnCardItemClick mCallBack) {
         this.context = context;
         this.activity = activity;
-        this.cardContextArrayList = cardContentArrayList;
+        this.listCardModels = listCardModels;
         this.mCallBack = mCallBack;
     }
 
     @Override
     public int getCount() {
         // quy định số lượng hiển thị
-        return cardContextArrayList == null ? 0 : cardContextArrayList.size();
+        return listCardModels == null ? 0 : listCardModels.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return cardContextArrayList.get(position);
+        return listCardModels.get(position);
     }
 
     @Override
@@ -52,7 +54,7 @@ public class CardAddItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        String cardContent = cardContextArrayList.get(position);
+        String cardContent = listCardModels.get(position).getCardContent();
 
 
         if (mLayoutInflater == null) {

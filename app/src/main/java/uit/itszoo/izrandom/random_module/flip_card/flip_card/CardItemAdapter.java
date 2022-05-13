@@ -19,23 +19,25 @@ import androidx.core.content.ContextCompat;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.flip_card.model.CardModel;
 
 public class CardItemAdapter extends BaseAdapter {
     public static boolean isCardFlipping = false;
 
     Context context;
     Activity activity;
-    private ArrayList<String> cardContextArrayList;
+    private List<CardModel> listCardModels;
     private LayoutInflater mLayoutInflater;
     private int cardWidth;
     private float textSize;
 
-    public CardItemAdapter(@NonNull Context context, Activity activity, ArrayList<String> cardContentArrayList, int columnWidth, float textSize) {
+    public CardItemAdapter(@NonNull Context context, Activity activity, List<CardModel> listCardModels, int columnWidth, float textSize) {
         this.context = context;
         this.activity = activity;
-        this.cardContextArrayList = cardContentArrayList;
+        this.listCardModels = listCardModels;
         this.cardWidth = columnWidth;
         this.textSize = textSize;
     }
@@ -43,12 +45,12 @@ public class CardItemAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // quy định số lượng hiển thị
-        return cardContextArrayList == null ? 0 : cardContextArrayList.size();
+        return listCardModels == null ? 0 : listCardModels.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return cardContextArrayList.get(position);
+        return listCardModels.get(position);
     }
 
     @Override
@@ -58,7 +60,7 @@ public class CardItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        String cardContent = cardContextArrayList.get(position);
+        String cardContent = listCardModels.get(position).getCardContent();
 
 
         if (mLayoutInflater == null) {
