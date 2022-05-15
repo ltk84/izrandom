@@ -73,4 +73,9 @@
     <string name="result_label">Kết quả</string>
     <string name="wheel_custom_appbar_title">Thay đổi vòng quay</string>
     <string name="lucky_wheel_edit_title">Tùy chỉnh vòng quay</string>
+    <string name="truth_dare_label">Sự thật và Thử thách</string>
+    <string name="card_label">Thẻ bài</string>
+    <string name="truth_dare_start_guide">Người chơi sẽ chọn ngẫu nhiên các thẻ bài để thực hiện những thử thách. Trò chơi phù hợp từ hai người trở lên.</string>
+    <string name="truth_dare_cards_label">Thẻ bài</string>
+    <string name="question_for_fun_label">Bộ câu hỏi vui</string>
 </resources>
