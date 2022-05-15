@@ -30,6 +30,16 @@ public class FlipCardMenuPresenter implements FlipCardMenuContract.Presenter {
     }
 
     @Override
+    public void deleteCardCollection(CardCollectionModel cardCollectionModel) {
+        repository.deleteCardCollection(cardCollectionModel);
+    }
+
+    @Override
+    public void deleteAllCardsInCollection(String collectionId) {
+        repository.deleteAllCardsInCollection(collectionId);
+    }
+
+    @Override
     public void start() {
 
     }

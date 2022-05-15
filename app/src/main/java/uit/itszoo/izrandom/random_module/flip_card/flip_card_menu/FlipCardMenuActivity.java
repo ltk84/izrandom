@@ -1,6 +1,7 @@
 package uit.itszoo.izrandom.random_module.flip_card.flip_card_menu;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,11 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -142,9 +145,11 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
 
                 CardView cardViewCarouselItem;
                 TextView cardNameTextView;
+                ImageButton deleteImageButton;
 
                 cardViewCarouselItem = view.findViewById(R.id.cardView_flip_card_carousel);
                 cardNameTextView = view.findViewById(R.id.txt_flip_card_name);
+                deleteImageButton = view.findViewById(R.id.btn_flip_card_delete);
                 cardNameTextView.setText(cardName);
 
                 cardViewCarouselItem.setOnClickListener(new View.OnClickListener() {
@@ -156,6 +161,27 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
                         intentToFlipCardAdd.putExtra(FlipCardMenuActivity.CARD_POSITION_TO_EDIT, position);
                         intentLauncher.launch(intentToFlipCardAdd);
 
+                    }
+                });
+
+                deleteImageButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        new AlertDialog.Builder(FlipCardMenuActivity.this)
+                                .setTitle("Hộp thư xác nhận")
+                                .setMessage("Bạn có chắc muốn xóa thẻ bài \"" + cardName + "\"?")
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        presenter.deleteAllCardsInCollection(listCardCollections.get(position).getId());
+                                        presenter.deleteCardCollection(listCardCollections.get(position));
+
+                                        listCardCollections.remove(position);
+                                        setupCarouselView();
+                                        Toast.makeText(FlipCardMenuActivity.this, "Đã xóa thẻ bài", Toast.LENGTH_SHORT).show();
+                                    }})
+                                .setNegativeButton("Hủy", null).show();
                     }
                 });
             }

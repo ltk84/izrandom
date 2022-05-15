@@ -48,12 +48,11 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:background="@null"
-        android:backgroundTint="#14333333"
+        android:backgroundTint="@color/colorBackgroundLight"
         android:fontFamily="@font/be_vietnam_pro"
         android:text="@string/flip_card_back_to_menu_button"
         android:textAlignment="center"
-        android:textColor="#73333333"
+        android:textColor="@color/cancelButton"
         android:textSize="13sp"
         android:textStyle="bold"
         app:cornerRadius="24dp"
@@ -75,6 +74,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
@@ -93,9 +93,9 @@
             android:id="@+id/flip_card_grid_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="@null"
             android:background="@null"
             android:clipToPadding="false"
+            android:foreground="@null"
             android:gravity="center"
             android:numColumns="3"
             android:paddingLeft="8dp"

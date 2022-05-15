@@ -11,6 +11,8 @@ public interface FlipCardMenuContract {
     interface Presenter extends BasePresenter {
 
         List<CardCollectionModel> getListCardCollections();
+        void deleteCardCollection(CardCollectionModel cardCollectionModel);
+        void deleteAllCardsInCollection(String collectionId);
 
     }
 
