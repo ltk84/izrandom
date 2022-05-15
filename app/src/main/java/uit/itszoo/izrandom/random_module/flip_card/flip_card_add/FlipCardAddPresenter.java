@@ -39,13 +39,23 @@ public class FlipCardAddPresenter implements FlipCardAddContract.Presenter {
     }
 
     @Override
-    public void deleteAllCardsInCollection(String collectionId) {
-        repository.deleteAllCardsInCollection(collectionId);
+    public void insertCard(CardModel cardModel) {
+        repository.insertCard(cardModel);
     }
 
     @Override
-    public void insertCard(CardModel cardModel) {
-        repository.insertCard(cardModel);
+    public void updateCard(CardModel cardModel) {
+        repository.updateCard(cardModel);
+    }
+
+    @Override
+    public void deleteCard(CardModel cardModel) {
+        repository.deleteCard(cardModel);
+    }
+
+    @Override
+    public void deleteAllCardsInCollection(String collectionId) {
+        repository.deleteAllCardsInCollection(collectionId);
     }
 
 

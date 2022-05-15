@@ -1,6 +1,7 @@
 package uit.itszoo.izrandom.database;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -17,6 +18,9 @@ public interface CardDAO {
 
     @Update
     public void updateCard(CardModel cardModel);
+
+    @Delete
+    public void deleteCard(CardModel cardModel);
 
     @Query("SELECT * FROM card WHERE cardCollectionId =:cardCollectionId ORDER BY createdAtInMs DESC")
     public List<CardModel> getCardsByCollectionId(String cardCollectionId);

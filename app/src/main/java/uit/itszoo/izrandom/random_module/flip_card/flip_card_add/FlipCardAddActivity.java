@@ -42,6 +42,9 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
     public static final String IS_ADD_OR_EDIT = "IS_ADD_OR_EDIT";
     public static final String EDITED_CARD_POSITION = "EDITED_CARD_POSITION";
 
+    // List to store actions for IS_ADD_OR_EDIT = EDIT
+    List<CardActionDataHelper> listCardActionHistory = new ArrayList<>();
+
     String isAddOrEdit;
     CardCollectionModel cardCollectionModel;
     int editedCardPosition;
@@ -153,9 +156,16 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
                     else {
                         cardCollectionModel.setCardName(editTextCardName.getText().toString());
                         presenter.updateCardCollection(cardCollectionModel);
-                        presenter.deleteAllCardsInCollection(cardCollectionModel.getId());
-                        for (CardModel cardModel : listCardModels) {
-                            presenter.insertCard(cardModel);
+                        for (CardActionDataHelper cardActionDataHelper : listCardActionHistory) {
+                            if (cardActionDataHelper.action.equals("Insert")) {
+                                presenter.insertCard(cardActionDataHelper.cardModel);
+                            }
+                            else if (cardActionDataHelper.action.equals("Update")) {
+                                presenter.updateCard(cardActionDataHelper.cardModel);
+                            }
+                            else if (cardActionDataHelper.action.equals("Delete")) {
+                                presenter.deleteCard(cardActionDataHelper.cardModel);
+                            }
                         }
 
                         Intent intentBack = new Intent();
@@ -197,6 +207,12 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
                         else {
                             CardModel newCardModel = new CardModel(UUID.randomUUID().toString(), cardCollectionModel.getId(), cardAddContentDialog.editTextCardContent.getText().toString(), System.currentTimeMillis());
                             listCardModels.add(0, newCardModel);
+                            try {
+                                listCardActionHistory.add(new CardActionDataHelper("Insert", newCardModel.clone()));
+                            }
+                            catch (CloneNotSupportedException e) {
+                                e.printStackTrace();
+                            }
                             cardAddItemAdapter.notifyDataSetChanged();
                             gridView.invalidateViews();
                             cardAddContentDialog.dismiss();
@@ -221,15 +237,67 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
         this.presenter = presenter;
     }
 
+    // card add content dialog on confirm button click
     @Override
     public void onClickConfirmButton(int position, String newCardContent) {
         listCardModels.get(position).setCardContent(newCardContent);
+        try {
+            // Check if edited card is in list
+            // if true than update list item card model
+            // if false add to list
+            boolean isCardInList = false;
+            int cardIndexInList = -1;
+            String cardIdToFind = listCardModels.get(position).getId();
+            for (int i = 0; i < listCardActionHistory.size(); i++) {
+                if (listCardActionHistory.get(i).cardModel.getId().equals(cardIdToFind)) {
+                    isCardInList = true;
+                    cardIndexInList = i;
+                    break;
+                }
+            }
+            if (isCardInList) {
+                listCardActionHistory.get(cardIndexInList).setCardModel(listCardModels.get(position).clone());
+            }
+            else {
+                listCardActionHistory.add(new CardActionDataHelper("Update", listCardModels.get(position).clone()));
+            }
+        }
+        catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
         cardAddItemAdapter.notifyDataSetChanged();
         gridView.invalidateViews();
     }
 
+    // gridView card delete button onclick
     @Override
     public void onClickDeleteButton(int position) {
+        try {
+            // Check if deleted card is in list
+            // if true than update list item action to delete
+            // if false add to list
+            boolean isCardInList = false;
+            int cardIndexInList = -1;
+            String cardIdToFind = listCardModels.get(position).getId();
+            for (int i = 0; i < listCardActionHistory.size(); i++) {
+                if (listCardActionHistory.get(i).cardModel.getId().equals(cardIdToFind)) {
+                    isCardInList = true;
+                    cardIndexInList = i;
+                    break;
+                }
+            }
+            if (isCardInList) {
+                listCardActionHistory.get(cardIndexInList).action = "Delete";
+            }
+            else {
+                listCardActionHistory.add(new CardActionDataHelper("Delete", listCardModels.get(position).clone()));
+            }
+
+
+        }
+        catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
         listCardModels.remove(position);
         cardAddItemAdapter.notifyDataSetChanged();
         gridView.invalidateViews();

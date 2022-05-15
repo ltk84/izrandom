@@ -13,8 +13,10 @@ public interface FlipCardAddContract {
         List<CardModel> getListCardModelByCollectionId(String collectionId);
         void insertCardCollection(CardCollectionModel cardCollectionModel);
         void updateCardCollection(CardCollectionModel cardCollectionModel);
-        void deleteAllCardsInCollection(String collectionId);
         void insertCard(CardModel cardModel);
+        void updateCard(CardModel cardModel);
+        void deleteCard(CardModel cardModel);
+        void deleteAllCardsInCollection(String collectionId);
 
     }
 

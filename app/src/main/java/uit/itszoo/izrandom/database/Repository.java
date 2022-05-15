@@ -100,6 +100,17 @@ public class Repository {
         }
     }
 
+    public void deleteCardCollection(CardCollectionModel cardCollectionModel) {
+        try {
+            AppDatabase.dbExecutor.execute(() -> {
+                cardCollectionDAO.deleteCardCollection(cardCollectionModel);
+            });
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public List<CardModel> getCardModelsByCollectionId(String collectionId) {
         List<CardModel> listCardModel = new ArrayList<>();
         try {
@@ -124,6 +135,28 @@ public class Repository {
         try {
             AppDatabase.dbExecutor.execute(() -> {
                 cardDAO.insertCard(cardModel);
+            });
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateCard(CardModel cardModel) {
+        try {
+            AppDatabase.dbExecutor.execute(() -> {
+                cardDAO.updateCard(cardModel);
+            });
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteCard(CardModel cardModel) {
+        try {
+            AppDatabase.dbExecutor.execute(() -> {
+                cardDAO.deleteCard(cardModel);
             });
         }
         catch (Exception e) {

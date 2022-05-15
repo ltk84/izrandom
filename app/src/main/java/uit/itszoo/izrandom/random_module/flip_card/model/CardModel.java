@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 @Entity (tableName = "card")
-public class CardModel implements Serializable {
+public class CardModel implements Serializable, Cloneable {
     @PrimaryKey
     @NonNull
     private String id;
@@ -28,5 +28,9 @@ public class CardModel implements Serializable {
     public void setCardContent(String cardContent) { this.cardContent = cardContent; }
     public long getCreatedAtInMs() { return this.createdAtInMs; }
     public void setCreatedAtInMs(long createdAtInMs) { this.createdAtInMs = createdAtInMs; }
+
+    public CardModel clone() throws CloneNotSupportedException {
+        return (CardModel) super.clone();
+    }
 
 }
