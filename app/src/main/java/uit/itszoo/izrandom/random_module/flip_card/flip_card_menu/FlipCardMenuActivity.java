@@ -121,6 +121,7 @@ public class FlipCardMenuActivity extends AppCompatActivity implements FlipCardM
                         if (isAddOrEdit.equals("ADD")) {
                             listCardCollections.add(0, cardCollectionModel);
                             setupCarouselView();
+                            carouselView.setCurrentItem(0);
                         }
                         else if (isAddOrEdit.equals("EDIT")) {
                             int editedCardPosition = data.getIntExtra(FlipCardAddActivity.EDITED_CARD_POSITION, 0);

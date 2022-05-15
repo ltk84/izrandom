@@ -133,6 +133,14 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
                         setResult(Activity.RESULT_CANCELED, intentBack);
                         finish();
                     }
+                    else if (listCardModels.size() == 0 && !editTextCardName.getText().toString().equals("")) {
+                        Toast.makeText(getApplicationContext(),
+                                "Vui lòng tạo thẻ bài", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (editTextCardName.getText().toString().equals("")) {
+                        Toast.makeText(getApplicationContext(),
+                                "Vui lòng nhập tên thẻ bài", Toast.LENGTH_SHORT).show();
+                    }
                     else {
                         cardCollectionModel.setCardName(editTextCardName.getText().toString());
                         presenter.insertCardCollection(cardCollectionModel);
@@ -148,10 +156,13 @@ public class FlipCardAddActivity extends AppCompatActivity implements FlipCardAd
                     }
                 }
                 else if (isAddOrEdit.equals("EDIT")) {
-                    if (listCardModels.size() == 0 && editTextCardName.getText().toString().equals("")) {
-                        Intent intentBack = new Intent();
-                        setResult(Activity.RESULT_CANCELED, intentBack);
-                        finish();
+                    if (listCardModels.size() == 0) {
+                        Toast.makeText(getApplicationContext(),
+                                "Vui lòng tạo thẻ bài", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (editTextCardName.getText().toString().equals("")) {
+                        Toast.makeText(getApplicationContext(),
+                                "Vui lòng nhập tên thẻ bài", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         cardCollectionModel.setCardName(editTextCardName.getText().toString());
