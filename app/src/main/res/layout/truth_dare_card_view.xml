@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
     app:cardCornerRadius="10dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,7 +37,6 @@
             android:drawableTint="@color/colorOnPrimary"
             android:foregroundTint="@color/colorOnPrimary"
             android:imeOptions="actionDone"
-            android:inputType="textNoSuggestions|text"
             android:text="Tên thẻ bài"
             android:textColor="@color/colorOnPrimary"
             android:textSize="18sp"
