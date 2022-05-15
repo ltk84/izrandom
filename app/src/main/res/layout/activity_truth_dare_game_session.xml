@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/truth_dare_game_session_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".play_module.truth_dare.game_session.TruthDareGameSessionActivity">
+    <RelativeLayout
+        android:id="@+id/chooser_holder_layout"
+        android:layout_width="match_parent"
+        android:background="@drawable/truth_dare_background_selector"
+        android:layout_height="match_parent"/>
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/AppBarTextStyle"
+            android:textColor="@color/colorOnPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/chooser_truth_dare_game_session_label" />
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/back_button"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            android:tint="@color/colorOnPrimary" />
+    </Toolbar>
+
+    <TextView
+        android:id="@+id/txt_guide"
+        style="@style/GuideTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="56dp"
+        android:text="@string/chooser_truth_dare_game_session_guide"
+        android:textAlignment="center"
+        android:textColor="@color/colorOnPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IZRandom">
-        <activity android:name=".play_module.truth_dare.truth_dare_cards.TruthDareCardsActivity"></activity>
-        <activity android:name=".play_module.truth_dare.add_card.AddCardActivity"></activity>
+        <activity android:name=".play_module.truth_dare.game_session.TruthDareGameSessionActivity"></activity>
+        <activity android:name=".play_module.truth_dare.truth_dare_cards.TruthDareCardsActivity" />
+        <activity android:name=".play_module.truth_dare.add_card.AddCardActivity" />
         <activity android:name=".play_module.truth_dare.TruthDareActivity" />
         <activity android:name=".random_module.divide_team.DivideTeamActivity" />
         <activity android:name=".random_module.raffle.RaffleActivity" />

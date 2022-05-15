@@ -1,7 +1,10 @@
 package uit.itszoo.izrandom.play_module.truth_dare.truth_dare_cards;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -10,6 +13,7 @@ import android.widget.LinearLayout;
 import com.google.android.material.button.MaterialButton;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.play_module.truth_dare.game_session.TruthDareGameSessionActivity;
 import uit.itszoo.izrandom.play_module.truth_dare.models.TruthDareCardView;
 
 public class TruthDareCardsActivity extends AppCompatActivity {
@@ -19,6 +23,11 @@ public class TruthDareCardsActivity extends AppCompatActivity {
     LinearLayout cardHolder;
 
     MaterialButton startButton;
+
+    ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +51,9 @@ public class TruthDareCardsActivity extends AppCompatActivity {
             cardHolder.addView(card);
         });
         backButton.setOnClickListener(view -> onBackPressed());
+        startButton.setOnClickListener(view -> {
+            Intent intentToGameSession = new Intent(getApplicationContext(), TruthDareGameSessionActivity.class);
+            intentLauncher.launch(intentToGameSession);
+        });
     }
 }
