@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -25,9 +24,6 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 import uit.itszoo.izrandom.R;
-import uit.itszoo.izrandom.random_module.chooser.ChooserActivity;
-import uit.itszoo.izrandom.random_module.chooser.ChooserContract;
-import uit.itszoo.izrandom.random_module.chooser.chooser_custom.ChooserCustomActivity;
 import uit.itszoo.izrandom.random_module.chooser.model.ChooserRing;
 
 public class TruthDareGameSessionActivity extends AppCompatActivity {
@@ -49,6 +45,10 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
     Handler handlerCancelEvent;
     Handler handlerEvent;
 
+    ArrayList<String> cards;
+    boolean cardTurn = false;
+    boolean doneChooser = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +56,8 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
 
         initView();
         setListenerForView();
+
+        cards = getIntent().getStringArrayListExtra("cards");
     }
 
 
@@ -73,15 +75,17 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
         chooserLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                int countPointer = motionEvent.getPointerCount();
+                if (!cardTurn) {
+                    int countPointer = motionEvent.getPointerCount();
 
-                actionWithComponents(motionEvent);
+                    actionWithComponents(motionEvent);
 
-                initRings(motionEvent);
-                moveRings(motionEvent);
-                cancelChooseRings(motionEvent, countPointer);
-                cancelRings(motionEvent);
-                chooseRing(motionEvent);
+                    initRings(motionEvent);
+                    moveRings(motionEvent);
+                    cancelChooseRings(motionEvent, countPointer);
+                    cancelRings(motionEvent);
+                    chooseRing(motionEvent);
+                }
                 return true;
             }
         });
@@ -93,6 +97,22 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    public void handleCardTurn() {
+
+        // Xử lý hiện thị bộ thẻ bài ở đây. Bộ thẻ bài ở đây là ArrayList<String> có tên biến là cards (đã được xáo trộn và truyền vào activity này rồi).
+
+        // Các thẻ bài ở đây có thể ấn để lật.
+
+        // Tạo thêm 1 Button hiện cùng với bộ thẻ bài. -> Ấn vào nút đó thì sẽ ẩn bộ thẻ bài và ẩn cái button này lun, và sau đó chạy hàm backToChooser.
+        backToChooser();
+    }
+
+    public void backToChooser() {
+        cardTurn = false;
+        doneChooser = false;
+        guideTextView.setVisibility(View.VISIBLE);
     }
 
     private void actionWithComponents(MotionEvent motionEvent) {
@@ -273,6 +293,11 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
                 @Override
                 public void onAnimationEnd(Animation animation) {
                     chooserHolderLayout.removeView(finalRing.getCircle());
+                    if (doneChooser) {
+                        cardTurn = true;
+                        guideTextView.setVisibility(View.INVISIBLE);
+                        handleCardTurn();
+                    }
                 }
 
                 @Override
@@ -376,6 +401,7 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
                 }
                 isChoosing = false;
                 isFinished = true;
+                doneChooser = true;
             }
 
             @Override

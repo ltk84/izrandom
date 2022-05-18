@@ -47,6 +47,10 @@ public class TruthDareCardView extends CardView {
         initView();
     }
 
+    public TruthDareCard getCardInfo() {
+        return new TruthDareCard(cardLabelEditText.getText().toString(), Integer.parseInt(cardAmountText.getText().toString()));
+    }
+
     private void initView() {
         inflate(getContext(), R.layout.truth_dare_card_view, this);
         removeCardButton = this.findViewById(R.id.remove_card);

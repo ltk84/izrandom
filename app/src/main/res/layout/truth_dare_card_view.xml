@@ -37,6 +37,7 @@
             android:drawableTint="@color/colorOnPrimary"
             android:foregroundTint="@color/colorOnPrimary"
             android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions"
             android:text="Tên thẻ bài"
             android:textColor="@color/colorOnPrimary"
             android:textSize="18sp"

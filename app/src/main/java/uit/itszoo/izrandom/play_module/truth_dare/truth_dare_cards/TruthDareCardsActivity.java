@@ -12,8 +12,13 @@ import android.widget.LinearLayout;
 
 import com.google.android.material.button.MaterialButton;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.play_module.truth_dare.game_session.TruthDareGameSessionActivity;
+import uit.itszoo.izrandom.play_module.truth_dare.models.TruthDareCard;
 import uit.itszoo.izrandom.play_module.truth_dare.models.TruthDareCardView;
 
 public class TruthDareCardsActivity extends AppCompatActivity {
@@ -52,7 +57,19 @@ public class TruthDareCardsActivity extends AppCompatActivity {
         });
         backButton.setOnClickListener(view -> onBackPressed());
         startButton.setOnClickListener(view -> {
+            ArrayList<String> cards = new ArrayList<>();
+            int cardHolderCount = cardHolder.getChildCount();
+            for (int i = 0; i < cardHolderCount; i++) {
+                TruthDareCard cardInfo = ((TruthDareCardView) cardHolder.getChildAt(i)).getCardInfo();
+                int cardInfoCount = cardInfo.getCount();
+                for (int j = 0; j <= cardInfoCount; j++) {
+                    cards.add(cardInfo.getContent());
+                }
+            }
+            Collections.shuffle(cards);
+
             Intent intentToGameSession = new Intent(getApplicationContext(), TruthDareGameSessionActivity.class);
+            intentToGameSession.putStringArrayListExtra("cards", cards);
             intentLauncher.launch(intentToGameSession);
         });
     }
