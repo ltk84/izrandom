@@ -44,6 +44,7 @@ public class SuggestFragment extends Fragment {
     private AutoCompleteTextView autoCompleteTextView;
     private TextView title;
     private ImageView image;
+    private TextView guide;
     private List<Suggestion> suggestions = new ArrayList<>();
     public SuggestFragment() {
         // Required empty public constructor
@@ -79,12 +80,12 @@ public class SuggestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View layout =  inflater.inflate(R.layout.fragment_suggest, container, false);
+
+        //binding and create data for spinner
         spinner = (Spinner)layout.findViewById(R.id.spinner);
-        title = layout.findViewById(R.id.title);
-        image = layout.findViewById(R.id.image);
-        autoCompleteTextView = (AutoCompleteTextView) layout.findViewById(R.id.category_spinner);
         CustomSuggestionCollectionAdapter mCustomAdapter =
                 new CustomSuggestionCollectionAdapter(container.getContext(), SuggestionSource.listCollection);
         spinner.setAdapter(mCustomAdapter);
@@ -105,6 +106,12 @@ public class SuggestFragment extends Fragment {
                     }
                 }
         );
+
+        title = layout.findViewById(R.id.title);
+        image = layout.findViewById(R.id.image);
+        autoCompleteTextView = (AutoCompleteTextView) layout.findViewById(R.id.category_spinner);
+        guide = layout.findViewById(R.id.guideline);
+
         dropMenu = layout.findViewById(R.id.dropdown_menu);
         dropMenu.setOnClickListener(
                 new View.OnClickListener() {
