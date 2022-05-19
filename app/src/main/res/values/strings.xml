@@ -80,4 +80,8 @@
     <string name="question_for_fun_label">Bộ câu hỏi vui</string>
     <string name="chooser_truth_dare_game_session_label">Người chơi lượt này</string>
     <string name="chooser_truth_dare_game_session_guide">Chạm các ngón tay vào màn hình và giữ để thực hiện chọn người chơi ở lượt này</string>
+    <string name="sound_label">Âm thanh</string>
+    <string name="vibrate_label">Rung</string>
+    <string name="dark_mode_label">Chế độ tối màu</string>
+    <string name="shared_preferences">app prefs</string>
 </resources>

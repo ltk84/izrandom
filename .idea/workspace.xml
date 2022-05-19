@@ -32,7 +32,14 @@
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_direction/RandomDirectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/random_direction/RandomDirectionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/play_module/truth_dare/game_session/TruthDareGameSessionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/play_module/truth_dare/game_session/TruthDareGameSessionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/chooser/ChooserActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/setting_module/SettingFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/setting_module/SettingFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_truth_dare.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_truth_dare.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,12 +83,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="valueResourceFile" />
         <option value="Interface" />
         <option value="Class" />
         <option value="resourceFile" />
         <option value="layoutResourceFile_vertical" />
         <option value="layoutResourceFile" />
+        <option value="valueResourceFile" />
       </list>
     </option>
   </component>
@@ -314,15 +321,15 @@
     <state x="310" y="153" key="AndroidCreateResourceDirectoryDialog/0.0.1366.768@0.0.1366.768" timestamp="1647389374139" />
     <state x="349" y="163" key="AndroidCreateResourceDirectoryDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651153233188" />
     <state x="349" y="163" key="AndroidCreateResourceDirectoryDialog/0.0.1536.816@0.0.1536.816" timestamp="1647768950050" />
-    <state x="411" y="240" key="AndroidCreateResourceFileDialog" timestamp="1651153224483">
+    <state x="411" y="240" key="AndroidCreateResourceFileDialog" timestamp="1652971701946">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="411" y="240" key="AndroidCreateResourceFileDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651153224483" />
+    <state x="411" y="240" key="AndroidCreateResourceFileDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1652971701946" />
     <state x="698" y="238" key="AndroidCreateResourceFileDialog/0.0.1536.816@0.0.1536.816" timestamp="1647769088426" />
-    <state x="1097" y="247" key="AndroidCreateXmlResourceDialog" timestamp="1650721825624">
+    <state x="1097" y="247" key="AndroidCreateXmlResourceDialog" timestamp="1652968120497">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="1097" y="247" key="AndroidCreateXmlResourceDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1650721825624" />
+    <state x="1097" y="247" key="AndroidCreateXmlResourceDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1652968120497" />
     <state x="614" y="198" key="AndroidCreateXmlResourceDialog/0.0.1536.816@0.0.1536.816" timestamp="1648711829743" />
     <state width="492" height="466" key="DebuggerActiveHint" timestamp="1649499603296">
       <screen x="0" y="0" width="1536" height="816" />
@@ -338,29 +345,29 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="311" y="286" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1649761939847" />
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom" timestamp="1651231058742">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1652973423283">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651219971065" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1652973423283" />
     <state width="1493" height="201" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1651231058742" />
-    <state width="1493" height="201" key="GridCell.Tab.0.center" timestamp="1651231058742">
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1652973423282">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651219971064" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1652973423282" />
     <state width="1493" height="201" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1651231058742" />
-    <state width="1493" height="201" key="GridCell.Tab.0.left" timestamp="1651231058742">
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1652973423282">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651219971064" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1652973423282" />
     <state width="1493" height="201" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1651231058742" />
-    <state width="1493" height="201" key="GridCell.Tab.0.right" timestamp="1651231058742">
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1652973423282">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="914" height="220" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1649774381609" />
-    <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1651219971065" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1652973423282" />
     <state width="1493" height="201" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1651231058742" />
     <state x="33" y="43" key="SettingsEditor" timestamp="1647770642862">
       <screen x="0" y="0" width="1536" height="816" />

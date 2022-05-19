@@ -41,6 +41,11 @@
         <item name="android:textColor">@color/colorOnBackground</item>
     </style>
 
+    <style name="SwitchStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorSwitchThumbNormal">@color/colorOnPrimary</item>
+    </style>
+
     <!-- Others. -->
     <style name="Theme.IZRandom.NoActionBar">
         <item name="windowActionBar">false</item>

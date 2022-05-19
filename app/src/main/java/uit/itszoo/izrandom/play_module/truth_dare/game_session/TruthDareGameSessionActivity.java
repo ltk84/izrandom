@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +49,11 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
     Handler handlerCancelEvent;
     Handler handlerEvent;
 
+    SharedPreferences prefs;
+    Vibrator vibrator;
+    private boolean defaultVibrationOn;
+    private boolean vibrationOn;
+
     ArrayList<String> cards;
     boolean cardTurn = false;
     boolean doneChooser = false;
@@ -53,6 +62,8 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_truth_dare_game_session);
+
+        initUtilities();
 
         initView();
         setListenerForView();
@@ -90,6 +101,18 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void initUtilities() {
+        prefs = getSharedPreferences(getString(R.string.shared_preferences), Context.MODE_PRIVATE);
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        defaultVibrationOn = getResources().getBoolean(R.bool.defaultVibrationOn);
+        vibrationOn = prefs.getBoolean("vibrationOn", defaultVibrationOn);
+    }
+
+    private void runVibration() {
+        vibrator.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+    }
+
     public void setListenerForView() {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -402,6 +425,10 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
                 isChoosing = false;
                 isFinished = true;
                 doneChooser = true;
+
+                if (vibrationOn) {
+                    runVibration();
+                }
             }
 
             @Override
