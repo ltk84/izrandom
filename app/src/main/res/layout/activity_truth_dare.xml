@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".play_module.truth_dare.TruthDareActivity">
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/bb_truth_dare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            android:tint="@color/colorOnBackground" />
+
+        <ImageButton
+            android:id="@+id/guide_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/action_button_description"
+            android:minHeight="60dp"
+            android:minWidth="60dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_guide_icon"
+            android:tint="@color/colorOnBackground" />
+    </Toolbar>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:paddingHorizontal="36dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp">
+            <ImageView
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:src="@drawable/truth_dare"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            style="@style/AppBarTextStyle"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/truth_dare_label"/>
+
+        <TextView
+            style="@style/GuideTextStyle"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/truth_dare_start_guide"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="24dp"
+            android:id="@+id/start_button"
+            android:layout_width="252dp"
+            android:layout_height="56dp"
+            app:cornerRadius="24dp"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:text="@string/get_started_label"
+            android:textSize="16sp"
+            android:textAllCaps="false"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card_button"
+            android:layout_marginTop="4dp"
+            android:layout_width="252dp"
+            android:layout_height="56dp"
+            app:cornerRadius="24dp"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:backgroundTint="@color/colorBackgroundLight"
+            android:textColor="@color/colorOnBackgroundDark"
+            android:text="@string/card_label"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
