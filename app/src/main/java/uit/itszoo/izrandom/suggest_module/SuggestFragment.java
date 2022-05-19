@@ -127,18 +127,18 @@ public class SuggestFragment extends Fragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        int max = suggestions.size();
-                        System.out.println(max);
                         Random random = new Random();
                         Thread timer = new Thread() {
                             public void run() {
                                 try {
                                     sleep(100);
                                     for (int i = 0; i < 50; i++) {
+
                                         sleep(100);
+                                        if(getActivity() != null)
                                         getActivity().runOnUiThread(new Runnable() {
                                             public void run() {
-                                                int result = random.nextInt(max);
+                                                int result = random.nextInt(suggestions.size());
                                                 image.setImageResource(suggestions.get(result).image);
                                                 title.setText(suggestions.get(result).title);
                                             }
@@ -152,6 +152,7 @@ public class SuggestFragment extends Fragment {
                             }
                         };
                         timer.start();
+
                     }
                 }
         );

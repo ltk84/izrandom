@@ -68,27 +68,27 @@ public class SuggestionSource {
     static SuggestionCollection suggestionCollection4 = new SuggestionCollection(
             "Làm gì bây giờ?", R.drawable.ic_do_some_thing,
             Arrays.asList(
-                     "Tất cả","Hoạt dộng trong nhà", "Hoạt động ngoài trời"
+                     "Tất cả","Ngoài trời", "Trong nhà"
             ),
             Arrays.asList(
-                    new Suggestion("Cắm trại" , R.drawable.cam_trai, "Hoạt động ngoài trời"),
-                    new Suggestion("Đọc sách" , R.drawable.doc_sach, "Hoạt dộng trong nhà"),
-                    new Suggestion("Chơi game" , R.drawable.choi_game, "Hoạt dộng trong nhà"),
-                    new Suggestion("Đi du lịch" , R.drawable.di_du_lich, "Hoạt động ngoài trời"),
-                    new Suggestion("Ngủ thôi" , R.drawable.di_ngu, "Hoạt dộng trong nhà"),
-                    new Suggestion("Đi dạo" , R.drawable.di_dao, "Hoạt động ngoài trời"),
-                    new Suggestion("Thả diều" , R.drawable.tha_dieu, "Hoạt dộng trong nhà"),
-                    new Suggestion("Đi phượt" , R.drawable.di_phuot, "Hoạt động ngoài trời"),
-                    new Suggestion("Tập yoga" , R.drawable.tap_yoga, "Hoạt dộng trong nhà"),
-                    new Suggestion("Nấu ăn" , R.drawable.nau_an, "Hoạt dộng trong nhà"),
-                    new Suggestion("Câu cá" , R.drawable.cau_ca, "Hoạt động ngoài trời"),
-                    new Suggestion("Chạy bộ" , R.drawable.chay_bo, "Hoạt động ngoài trời")
+                    new Suggestion("Cắm trại" , R.drawable.cam_trai, "Ngoài trời"),
+                    new Suggestion("Đọc sách" , R.drawable.doc_sach, "Trong nhà"),
+                    new Suggestion("Chơi game" , R.drawable.choi_game, "Trong nhà"),
+                    new Suggestion("Đi du lịch" , R.drawable.di_du_lich, "Ngoài trời"),
+                    new Suggestion("Ngủ thôi" , R.drawable.di_ngu, "Trong nhà"),
+                    new Suggestion("Đi dạo" , R.drawable.di_dao, "Ngoài trời"),
+                    new Suggestion("Thả diều" , R.drawable.tha_dieu, "Trong nhà"),
+                    new Suggestion("Đi phượt" , R.drawable.di_phuot, "Ngoài trời"),
+                    new Suggestion("Tập yoga" , R.drawable.tap_yoga, "Trong nhà"),
+                    new Suggestion("Nấu ăn" , R.drawable.nau_an, "Trong nhà"),
+                    new Suggestion("Câu cá" , R.drawable.cau_ca, "Ngoài trời"),
+                    new Suggestion("Chạy bộ" , R.drawable.chay_bo, "Ngoài trời")
             )
     );
     static SuggestionCollection suggestionCollection5 = new SuggestionCollection(
             "Xem gì bây giờ?", R.drawable.ic_film,
             Arrays.asList(
-                    "Tất cả","Âm nhạc", "Tin tức", "Thể thao", "Phim" , "Chia sẻ trải nghiệm"
+                    "Tất cả","Âm nhạc", "Tin tức", "Thể thao", "Phim" , "Cuộc sống"
             ),
             Arrays.asList(
                     new Suggestion("MV nhạc Âu Mĩ" , R.drawable.mv_au_mi, "Âm nhạc"),
