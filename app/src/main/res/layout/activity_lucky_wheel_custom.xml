@@ -90,6 +90,7 @@
         android:layout_height="48dp"
         android:text="Tùy chỉnh vòng quay"
         android:textSize="13dp"
+        android:textColor="@color/colorOnPrimary"
         android:layout_marginEnd="100dp"
         android:layout_marginStart="36dp"
         android:layout_marginBottom="24dp"

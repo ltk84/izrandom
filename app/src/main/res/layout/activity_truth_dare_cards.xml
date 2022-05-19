@@ -75,6 +75,8 @@
         android:layout_width="252dp"
         android:layout_height="56dp"
         app:cornerRadius="24dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorOnPrimary"
         android:layout_gravity="center_horizontal"
         android:textStyle="bold"
         android:text="@string/get_started_label"

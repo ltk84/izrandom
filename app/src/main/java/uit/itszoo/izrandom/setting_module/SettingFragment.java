@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.switchmaterial.SwitchMaterial;
@@ -114,8 +115,18 @@ public class SettingFragment extends Fragment {
                 editor.putBoolean("vibrationOn", false);
             }
             editor.apply();
-            boolean defaultVibrationOn = getResources().getBoolean(R.bool.defaultVibrationOn);
-            System.out.println(prefs.getBoolean("vibrationOn", defaultVibrationOn));
+        });
+
+        darkModeSwitcher.setOnCheckedChangeListener((compoundButton, b) -> {
+            SharedPreferences.Editor editor = prefs.edit();
+            if (b) {
+                editor.putBoolean("darkModeOn", true);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                editor.putBoolean("darkModeOn", false);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+            editor.apply();
         });
     }
 
@@ -141,5 +152,13 @@ public class SettingFragment extends Fragment {
         }
 
         darkModeSwitcher = view.findViewById(R.id.dark_mode_switcher);
+        boolean defaultDarkModeOn = getResources().getBoolean(R.bool.defaultDarkModeOn);
+        boolean darkModeOn = prefs.getBoolean("darkModeOn", defaultDarkModeOn);
+
+        if (darkModeOn) {
+            darkModeSwitcher.setChecked(true);
+        } else {
+            darkModeSwitcher.setChecked(false);
+        }
     }
 }
