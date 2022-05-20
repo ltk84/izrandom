@@ -13,6 +13,7 @@
     <string name="random_number_label">Số ngẫu nhiên</string>
     <string name="random_list_label">Danh sách</string>
     <string name="flip_card_label">Lật thẻ bài</string>
+    <string name="question_for_fun">Bộ câu hỏi vui</string>
     <string name="random_direction_description">Random Direction</string>
     <string name="roll_a_dice_description">Roll A Dice</string>
     <string name="toss_a_dice_description">Toss A Dice</string>
@@ -84,4 +85,9 @@
     <string name="flip_card_add_label">Thêm bộ thẻ bài</string>
     <string name="flip_card_edit_label">Chỉnh sửa bộ thẻ bài</string>
     <string name="flip_card_confirm_button_description">Lưu bộ thẻ bài</string>
+
+    <string name="truth_dare_label">Sự thật và Thử thách</string>
+    <string name="truth_dare_start_guide">Người chơi sẽ chọn ngẫu nhiên các thẻ bài để thực hiện những thử thách. Trò chơi phù hợp từ hai người trở lên.</string>
+    <string name="question_for_fun_label">Bộ câu hỏi vui</string>
+    <string name="question_for_fun_guide">Chạm vào thẻ bài để lật thẻ bài. Vuốt sang trái để sang thẻ bài tiếp theo. Vuốt sang phải để quay lại thẻ bài trước</string>
 </resources>

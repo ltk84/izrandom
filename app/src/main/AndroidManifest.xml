@@ -28,6 +28,7 @@
         <activity android:name=".random_module.flip_card.flip_card_menu.FlipCardMenuActivity" />
         <activity android:name=".random_module.flip_card.flip_card.FlipCardActivity" />
         <activity android:name=".random_module.flip_card.flip_card_add.FlipCardAddActivity" />
+        <activity android:name=".play_module.question_for_fun.QuestionForFunActivity" />
         <activity
             android:name=".home.HomeActivity"
             android:exported="true">

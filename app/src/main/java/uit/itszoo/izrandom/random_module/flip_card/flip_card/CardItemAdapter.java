@@ -80,10 +80,8 @@ public class CardItemAdapter extends BaseAdapter {
 
         EasyFlipView easyFlipView;
         TextView textViewCardContent;
-        EasyFlipView flip_card_cardView;
 
         easyFlipView = (EasyFlipView) convertView.findViewById(R.id.flip_card_item_cardview);
-        flip_card_cardView = convertView.findViewById(R.id.flip_card_item_cardview);
         textViewCardContent = convertView.findViewById(R.id.txt_card_item);
 
         easyFlipView.setOnFlipListener(new EasyFlipView.OnFlipAnimationListener() {
@@ -151,7 +149,7 @@ public class CardItemAdapter extends BaseAdapter {
         textViewCardContent.setLayoutParams(params);
         textViewCardContent.setTextSize(textSize);
 
-        flip_card_cardView.setLayoutParams(new CardView.LayoutParams(pixels, (int) Math.round(pixels / 13.0 * 17.0)));
+        easyFlipView.setLayoutParams(new CardView.LayoutParams(pixels, (int) Math.round(pixels / 13.0 * 17.0)));
         textViewCardContent.setText(cardContent);
 
         return convertView;

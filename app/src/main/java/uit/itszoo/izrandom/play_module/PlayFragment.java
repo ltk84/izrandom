@@ -1,13 +1,20 @@
 package uit.itszoo.izrandom.play_module;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.jetbrains.annotations.NotNull;
+
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.play_module.question_for_fun.QuestionForFunActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +31,8 @@ public class PlayFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    LinearLayout questionForFunHolder;
 
     public PlayFragment() {
         // Required empty public constructor
@@ -61,5 +70,23 @@ public class PlayFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_play, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
+        setListenerForView();
+    }
+
+    public void initView(@NonNull @NotNull View view) {
+        questionForFunHolder = view.findViewById(R.id.question_for_fun_holder);
+    }
+
+    public void setListenerForView() {
+        questionForFunHolder.setOnClickListener(view -> {
+            Intent intentToQuestionForFun = new Intent(getContext(), QuestionForFunActivity.class);
+            startActivity(intentToQuestionForFun);
+        });
     }
 }
