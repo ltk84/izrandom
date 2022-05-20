@@ -62,7 +62,7 @@ public class TruthDareCardsActivity extends AppCompatActivity {
             for (int i = 0; i < cardHolderCount; i++) {
                 TruthDareCard cardInfo = ((TruthDareCardView) cardHolder.getChildAt(i)).getCardInfo();
                 int cardInfoCount = cardInfo.getCount();
-                for (int j = 0; j <= cardInfoCount; j++) {
+                for (int j = 0; j < cardInfoCount; j++) {
                     cards.add(cardInfo.getContent());
                 }
             }

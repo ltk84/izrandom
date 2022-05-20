@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.ScaleAnimation;
+import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -25,12 +27,18 @@ import java.util.stream.Collectors;
 
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.chooser.model.ChooserRing;
+import uit.itszoo.izrandom.random_module.flip_card.flip_card.CardItemAdapter;
+import uit.itszoo.izrandom.random_module.flip_card.flip_card.FlipCardActivity;
 
 public class TruthDareGameSessionActivity extends AppCompatActivity {
     ImageButton backButton;
     ViewGroup chooserLayout;
     ViewGroup chooserHolderLayout;
     TextView guideTextView;
+
+    ConstraintLayout flipCardHolderLayout;
+    GridView flipCardGridView;
+    Button btnToChooser;
 
 
     boolean isChoosing = false;
@@ -54,10 +62,11 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_truth_dare_game_session);
 
+        cards = getIntent().getStringArrayListExtra("cards");
+
         initView();
         setListenerForView();
 
-        cards = getIntent().getStringArrayListExtra("cards");
     }
 
 
@@ -89,6 +98,16 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        flipCardHolderLayout = findViewById(R.id.flip_card_holder_layout);
+        flipCardGridView = findViewById(R.id.flip_card_grid_view);
+        btnToChooser = findViewById(R.id.btn_to_chooser);
+
+        setUpGridView();
+        flipCardHolderLayout.setVisibility(View.INVISIBLE);
+
+
+
     }
     public void setListenerForView() {
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -97,22 +116,33 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        btnToChooser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                backToChooser();
+            }
+        });
     }
 
     public void handleCardTurn() {
 
         // Xử lý hiện thị bộ thẻ bài ở đây. Bộ thẻ bài ở đây là ArrayList<String> có tên biến là cards (đã được xáo trộn và truyền vào activity này rồi).
-
         // Các thẻ bài ở đây có thể ấn để lật.
-
         // Tạo thêm 1 Button hiện cùng với bộ thẻ bài. -> Ấn vào nút đó thì sẽ ẩn bộ thẻ bài và ẩn cái button này lun, và sau đó chạy hàm backToChooser.
-        backToChooser();
+
+        flipCardHolderLayout.setVisibility(View.VISIBLE);
+
+
+//        backToChooser();
     }
 
     public void backToChooser() {
         cardTurn = false;
         doneChooser = false;
         guideTextView.setVisibility(View.VISIBLE);
+
+        flipCardHolderLayout.setVisibility(View.INVISIBLE);
     }
 
     private void actionWithComponents(MotionEvent motionEvent) {
@@ -434,6 +464,55 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    private void setUpGridView() {
+        int numberOfColumns = calNumColumnGridView(cards.size());
+        int cardWidth = calCardWidthGridView(numberOfColumns);
+        float cardContentTextSize = calCardContentTextSize(numberOfColumns);
+        int verticalSpacing = calGridViewVerticalSpacing(numberOfColumns);
+
+        flipCardGridView.setNumColumns(numberOfColumns);
+        flipCardGridView.setVerticalSpacing(verticalSpacing);
+        GridViewCardItemAdapter cardItemAdapter = new GridViewCardItemAdapter(this, TruthDareGameSessionActivity.this, cards, cardWidth, cardContentTextSize);
+        flipCardGridView.setAdapter(cardItemAdapter);
+
+    }
+
+    private int calNumColumnGridView(int numberOfItems) {
+        if (numberOfItems == 1) return 1;
+        else if (numberOfItems == 2 || numberOfItems == 4) return 2;
+        else if (numberOfItems == 3 || numberOfItems == 5 || numberOfItems == 6 || numberOfItems == 9) return 3;
+        else if (numberOfItems == 7 || numberOfItems == 8 || (numberOfItems >= 10 && numberOfItems <= 16)) return 4;
+        else if (numberOfItems >= 17) return 5;
+        return 5;
+    }
+
+    private int calCardWidthGridView(int numberOfColumns) {
+        if (numberOfColumns == 1) return 240;
+        else if (numberOfColumns == 2) return 120;
+        else if (numberOfColumns == 3) return 80;
+        else if (numberOfColumns == 4) return 60;
+        else if (numberOfColumns == 5) return 52;
+        return 52;
+    }
+
+    private float calCardContentTextSize(int numberOfColumns) {
+        if (numberOfColumns == 1) return 17;
+        else if (numberOfColumns == 2) return 10;
+        else if (numberOfColumns == 3) return 6;
+        else if (numberOfColumns == 4) return 5;
+        else if (numberOfColumns == 5) return 4;
+        return 4;
+    }
+
+    private int calGridViewVerticalSpacing(int numberOfColumns) {
+        if (numberOfColumns == 1) return 8;
+        else if (numberOfColumns == 2) return 48;
+        else if (numberOfColumns == 3) return 24;
+        else if (numberOfColumns == 4) return 12;
+        else if (numberOfColumns == 5) return 0;
+        return 0;
     }
 
 }
