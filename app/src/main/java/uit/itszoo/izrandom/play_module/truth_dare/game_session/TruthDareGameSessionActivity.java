@@ -126,15 +126,7 @@ public class TruthDareGameSessionActivity extends AppCompatActivity {
     }
 
     public void handleCardTurn() {
-
-        // Xử lý hiện thị bộ thẻ bài ở đây. Bộ thẻ bài ở đây là ArrayList<String> có tên biến là cards (đã được xáo trộn và truyền vào activity này rồi).
-        // Các thẻ bài ở đây có thể ấn để lật.
-        // Tạo thêm 1 Button hiện cùng với bộ thẻ bài. -> Ấn vào nút đó thì sẽ ẩn bộ thẻ bài và ẩn cái button này lun, và sau đó chạy hàm backToChooser.
-
         flipCardHolderLayout.setVisibility(View.VISIBLE);
-
-
-//        backToChooser();
     }
 
     public void backToChooser() {
