@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -66,6 +67,10 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
     boolean isCoinFlying;
     Handler handlerHoldEvent;
     Runnable executeHoldEvent;
+
+    // Audio
+    MediaPlayer mediaPlayer1;
+    MediaPlayer mediaPlayer2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,7 +154,6 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
-                    System.out.println(result.getResultCode());
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
                         Coin selectedCoin = (Coin) data.getSerializableExtra(FlipCoinCustomActivity.SELECTED_COIN);
@@ -167,7 +171,6 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
             Intent intentToCustom = new Intent(getApplicationContext(), FlipCoinCustomActivity.class);
             intentToCustom.putExtra(FlipCoinActivity.CURRENT_COIN, presenter.getCoinAppearance());
             intentLauncher.launch(intentToCustom);
-            System.out.println("ALo");
         });
 
         increaseButton.setOnClickListener(view -> {
@@ -279,11 +282,50 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
         moveUpAnimation.setFillAfter(true);
         moveUpAnimation.setInterpolator(new FastOutSlowInInterpolator());
 
+        moveUpAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                mediaPlayer1 = MediaPlayer.create(getApplicationContext(), R.raw.coin_flip);
+                mediaPlayer1.start();
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
         // Set Move Down Animation
         TranslateAnimation moveDownAnimation = new TranslateAnimation(0, 0, 0, 800);
         moveDownAnimation.setDuration(1500);
         moveDownAnimation.setFillAfter(true);
         moveDownAnimation.setInterpolator(new BounceInterpolator());
+
+        moveDownAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                Handler handler = new Handler();
+                handler.postDelayed(() -> {
+                    mediaPlayer2 = MediaPlayer.create(getApplicationContext(), R.raw.coin_finish);
+                    mediaPlayer2.start();
+                }, 400);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
 
         // Combine animations
         AnimationSet animationSet = new AnimationSet(false);
@@ -309,6 +351,24 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
         moveUpAnimation.setFillAfter(true);
         moveUpAnimation.setInterpolator(new FastOutSlowInInterpolator());
 
+        moveUpAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                mediaPlayer1 = MediaPlayer.create(getApplicationContext(), R.raw.coin_flip);
+                mediaPlayer1.start();
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
         // Combine animations
         AnimationSet animationSet = new AnimationSet(false);
         animationSet.addAnimation(scaleAnimation);
@@ -330,6 +390,27 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
         moveDownAnimation.setDuration(1500);
         moveDownAnimation.setFillAfter(true);
         moveDownAnimation.setInterpolator(new BounceInterpolator());
+
+        moveDownAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                Handler handler = new Handler();
+                handler.postDelayed(() -> {
+                    mediaPlayer2 = MediaPlayer.create(getApplicationContext(), R.raw.coin_finish);
+                    mediaPlayer2.start();
+                }, 400);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
 
         // Combine animations
         AnimationSet animationSet = new AnimationSet(false);
@@ -410,7 +491,6 @@ public class FlipCoinActivity extends AppCompatActivity implements FlipCoinContr
         for (int i = 0; i < coinViewList.size(); i++) {
             Coin thisCoin = presenter.getCoinFromViewId(coinViewList.get(i).getId());
             boolean isHead = random.nextBoolean();
-            System.out.println(i + " " + isHead);
 
             if (isHead) {
                 coinViewList.get(i).setImageResource(thisCoin.getDrawableHead());

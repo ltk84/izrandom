@@ -8,11 +8,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
 
+import java.util.List;
+
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.database.Repository;
 import uit.itszoo.izrandom.database.UserConfiguration;
 import uit.itszoo.izrandom.play_module.PlayFragment;
 import uit.itszoo.izrandom.random_module.RandomFragment;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
+import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
 import uit.itszoo.izrandom.setting_module.SettingFragment;
 import uit.itszoo.izrandom.suggest_module.SuggestFragment;
 
@@ -24,14 +28,16 @@ public class HomePresenter implements HomeContract.Presenter {
 
     private LiveData<UserConfiguration> userConfiguration;
 
+    public LiveData<List<LuckyWheelSlice>> sliceList;
+
+    public LiveData<List<LuckyWheelData>> wheelList;
+
     public HomePresenter(Context context, HomeContract.View view) {
         this.view = view;
         repository = Repository.getInstance(context);
         userConfiguration = repository.getUserConfiguration();
-    }
-
-    public void showUserConfiguration() {
-        System.out.println(userConfiguration);
+        sliceList = repository.getAllSlices();
+        wheelList = repository.getAllWheels();
     }
 
     @Override
@@ -45,7 +51,6 @@ public class HomePresenter implements HomeContract.Presenter {
             case R.id.navigation_random:
                 fragment = new RandomFragment();
                 loadFragment(fragmentManager, fragment);
-                showUserConfiguration();
                 return true;
             case R.id.navigation_suggest:
                 fragment = new SuggestFragment();

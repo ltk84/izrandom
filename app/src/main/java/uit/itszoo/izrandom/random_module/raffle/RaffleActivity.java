@@ -77,14 +77,12 @@ public class RaffleActivity extends AppCompatActivity {
         backFromRaffleButton = findViewById(R.id.back_button);
         participantEditText = findViewById(R.id.participant_edit_text);
         participantEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-        participantEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
 
 
         awardEditText = findViewById(R.id.award_edit_text);
         awardEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        awardEditText.setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-        awardEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        awardEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
 
         tvGuide = findViewById(R.id.txt_guide);
 

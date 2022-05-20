@@ -32,12 +32,6 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-//        presenter.start();
-    }
-
-    @Override
     public void setPresenter(HomeContract.Presenter presenter) {
         this.presenter = presenter;
     }

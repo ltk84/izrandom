@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".random_module.random_integer.random_integer_custom.RandomIntegerCustomActivity">
     <Toolbar
-        android:id="@+id/tb_lucky_wheel"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentInsetStart="0dp"
@@ -40,13 +40,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:backgroundTint="@color/colorBackground"
-            android:contentDescription="@string/back_button"
+            android:contentDescription="@string/action_button_description"
             android:minHeight="60dp"
             android:minWidth="60dp"
-            android:scaleX="1"
-            android:scaleY="1"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
             android:src="@drawable/ic_check_button"
-            app:tint="@color/colorOnBackground">
+            android:tint="@color/colorGreen">
         </ImageButton>
         <ImageButton
             android:id="@+id/ran_num_cus_clean"
@@ -54,11 +54,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:backgroundTint="@color/colorBackground"
-            android:contentDescription="@string/back_button"
+            android:contentDescription="@string/action_button_description"
             android:minHeight="60dp"
             android:minWidth="60dp"
-            android:scaleX="1"
-            android:scaleY="1"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
             android:src="@drawable/ic_clean"
             app:tint="@color/colorOnBackground">
         </ImageButton>
@@ -66,6 +66,7 @@
 
     <TextView
         android:id="@+id/ran_num_cus_description"
+        style="@style/GuideTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đây là những số sẽ không \n xuất hiện khi ngẫu nhiên."
@@ -73,17 +74,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="150dp"
+        android:textAlignment="center"
         />
-
-    <TextView
-        android:id="@+id/nums_list"
+    <LinearLayout
+        android:id="@+id/title_holder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Danh sách các số ngoại lệ: "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nums_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DANH SÁCH CÁC SỐ NGOẠI LỆ"
+            android:textStyle="bold"
+            style="@style/GuideTextStyle"
+            android:textSize="16sp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/num_cus_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/GuideTextStyle"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="Nhâp các số cách nhau bằng dấu phẩy  ' , '"/>
+    </LinearLayout>
 
     <EditText
         android:id="@+id/list"
@@ -101,21 +122,10 @@
         android:minHeight="48dp"
         android:text=""
         android:textAlignment="center"
-        android:textSize="11dp"
+        android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/colorOnBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nums_list" />
-
-    <TextView
-        android:id="@+id/num_cus_constraint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="(Nhâp các số cách nhau bằng dấu phẩy  ' , ')"
-        android:textSize="11dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list" />
+        app:layout_constraintTop_toBottomOf="@+id/title_holder" />
 </androidx.constraintlayout.widget.ConstraintLayout>

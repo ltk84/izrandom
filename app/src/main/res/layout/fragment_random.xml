@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -307,7 +307,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="206dp"
-                android:layout_marginBottom="@dimen/navigation_bar_height"
                 android:orientation="horizontal">
 
 

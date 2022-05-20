@@ -69,7 +69,7 @@
 
     <com.bluehomestudio.luckywheel.LuckyWheel
         android:id="@+id/lwv"
-        LuckyWheel:background_color="@color/gold"
+        LuckyWheel:background_color="@color/colorPrimaryDark"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerInParent="true"
@@ -80,24 +80,16 @@
 
     <TextView
         android:id="@+id/description"
-        style="@style/AppBarTextStyle"
+        style="@style/GuideTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Chạm vào màn hình hoặc xoay vòng quay"
+        android:paddingStart="36dp"
+        android:paddingEnd="36dp"
+        android:text="Chạm vào màn hình hoặc xoay vòng quay theo hướng kim đồng hồ để random"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lwv" />
-
-    <TextView
-        android:id="@+id/description2"
-        style="@style/AppBarTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text=" theo hướng kim đồng hồ để random"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
 </androidx.constraintlayout.widget.ConstraintLayout>

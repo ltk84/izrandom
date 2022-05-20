@@ -15,4 +15,6 @@ public class UserConfiguration {
     public String coinId;
 
     public String chooserThemeId;
+
+    public String wheelID;
 }

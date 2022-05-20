@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".play_module.truth_dare.truth_dare_cards.TruthDareCardsActivity">
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/bb_truth_dare_cards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            android:tint="@color/colorOnBackground" />
+
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/AppBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/truth_dare_cards_label" />
+
+        <ImageButton
+            android:id="@+id/add_card_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/action_button_description"
+            android:minHeight="60dp"
+            android:minWidth="60dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_add"
+            android:tint="@color/colorOnBackground" />
+    </Toolbar>
+
+    <com.xw.repo.widget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/start_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingHorizontal="36dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/card_holder"
+            android:orientation="vertical" />
+    </com.xw.repo.widget.BounceScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginBottom="24dp"
+        android:id="@+id/start_button"
+        android:layout_width="252dp"
+        android:layout_height="56dp"
+        app:cornerRadius="24dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:text="@string/get_started_label"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
