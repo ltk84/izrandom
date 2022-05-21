@@ -73,21 +73,6 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <com.yuyakaido.android.cardstackview.CardStackView
-        android:id="@+id/question_for_fun_cardStackView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_swipe_question_for_fun"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_question_for_fun"
-        android:clickable="false"
-        android:longClickable="false"
-        android:linksClickable="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false">
 
-    </com.yuyakaido.android.cardstackview.CardStackView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
