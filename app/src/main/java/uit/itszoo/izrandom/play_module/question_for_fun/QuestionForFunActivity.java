@@ -23,6 +23,7 @@ import com.yuyakaido.android.cardstackview.SwipeAnimationSetting;
 import com.yuyakaido.android.cardstackview.SwipeableMethod;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import uit.itszoo.izrandom.R;
@@ -48,15 +49,66 @@ public class QuestionForFunActivity extends AppCompatActivity implements Questio
         presenter = new QuestionForFunPresenter(getApplicationContext(), this);
         setPresenter(presenter);
 
-        //TODO get listCardContents from database
-        for (int i = 0; i < 5; i++) {
-            listCardContents.add("What did you want to be when you grew up? " + String.valueOf(i));
-        }
-
+        initListCardContents();
         initView();
         setListenerForView();
         setUpCardStackView();
 
+    }
+
+    private void initListCardContents() {
+        listCardContents.add("Có điều gì đó bạn đã mơ ước từ lâu không? Điều gì đã ngăn cản bạn khỏi nó?");
+        listCardContents.add("Nếu thú cưng của bạn có thể trả lời một câu hỏi, bạn sẽ hỏi chúng điều gì?");
+        listCardContents.add("Bộ phim hoạt hình yêu thích của bạn khi còn nhỏ là gì?");
+        listCardContents.add("Cuốn sách cuối cùng bạn đọc là gì? Bạn muốn đề xuất nó cho một người khác không?");
+        listCardContents.add("Bạn có sưu tầm thứ gì không?");
+        listCardContents.add("Nếu bạn có thể có bất kỳ sức mạnh ma thuật nào, đó sẽ là gì?");
+        listCardContents.add("Mô tả bữa tiệc lý tưởng của bạn.");
+        listCardContents.add("Bộ phim buồn nhất bạn đã xem là gì?");
+        listCardContents.add("Điều gì bạn ước bạn thực sự giỏi?");
+        listCardContents.add("Điều gì bạn yêu thích về quê hương của bạn?");
+        listCardContents.add("Trò chơi boardgame yêu thích của bạn là gì?");
+        listCardContents.add("Kỳ nghỉ đáng nhớ nhất của bạn đã diễn ra như thế nào?");
+        listCardContents.add("Bạn có một tài năng tiềm ẩn nào không? Đó là gì?");
+        listCardContents.add("Điều gì khiến bạn cảm thấy tự tin?");
+        listCardContents.add("Người nổi tiếng nhất mà bạn từng gặp là ai?");
+        listCardContents.add("Có dự án nào bạn đã bắt đầu nhưng chưa kết thúc?");
+        listCardContents.add("Bài hát yêu thích của bạn là gì?");
+        listCardContents.add("Bạn ghét món ăn nào nhất? Tại sao?");
+        listCardContents.add("Bạn thích món ăn nào nhất? Tại sao?");
+        listCardContents.add("Cách ngu ngốc nhất mà bạn từng tự làm mình bị thương là gì?");
+        listCardContents.add("Bạn sẽ cưỡi con vật nào, nếu có cơ hội?");
+        listCardContents.add("Bạn có một mùi hương yêu thích không? Đó là gì?");
+        listCardContents.add("Bạn muốn nuôi con vật gì làm thú cưng?");
+        listCardContents.add("Ước mơ thời thơ ấu của bạn là gì?");
+        listCardContents.add("Công việc đầu tiên của bạn là gì?");
+        listCardContents.add("Môn thể thao yêu thích của bạn là gì?");
+        listCardContents.add("Bạn đã bao giờ giành được bất cứ điều gì trong một cuộc thi chưa? Đó là cái gì vậy?");
+        listCardContents.add("Hãy nói về một điều mà mọi người đều thích còn bạn thì không?");
+        listCardContents.add("Bạn có thói quen nào muốn thay đổi không?");
+        listCardContents.add("Điều xấu hổ nhất đã xảy ra với bạn là gì?");
+        listCardContents.add("Mô tả thói quen buổi sáng lý tưởng của bạn?");
+        listCardContents.add("Bạn thích làm gì khi có thời gian ở một mình?");
+        listCardContents.add("Bạn có muốn nổi tiếng không? Nổi tiếng theo cách nào?");
+        listCardContents.add("Theo bạn, một ngày hoàn hảo là như thế nào?");
+        listCardContents.add("Bạn cảm thấy biết ơn vì điều gì trong cuộc sống của mình?");
+        listCardContents.add("Sự kiện nào ấn tượng nhất bạn từng tham gia?");
+        listCardContents.add("Từ yêu thích của bạn là gì?");
+        listCardContents.add("Điều ngu ngốc nhất bạn sẽ làm nếu chỉ còn một tuần để sống là gì?");
+        listCardContents.add("Bạn có bao giờ ước mình được sinh ra ở một thế kỷ khác chưa?");
+        listCardContents.add("Bạn tự mô tả bản thân là người như thế nào?");
+        listCardContents.add("Ai là người quan trọng nhất trong cuộc đời bạn?");
+        listCardContents.add("Điều kỳ lạ nhất bạn đã làm trong một ngày?");
+        listCardContents.add("Bạn thích gì nhất ở bản thân?");
+        listCardContents.add("Điều đầu tiên bạn làm khi thức dậy vào buổi sáng là gì?");
+        listCardContents.add("Điều gì làm bạn sợ nhất?");
+        listCardContents.add("Điều gì làm bạn phấn khích nhất?");
+        listCardContents.add("Kiểu thời trang mà bạn thích là gì?");
+        listCardContents.add("Màu yêu thích của bạn là gì?");
+        listCardContents.add("Một món quá quý giá nhất mà bạn đã nhận được là gì?");
+        listCardContents.add("Nếu có một điều ước, bạn sẽ ước điều gì?");
+
+        Collections.shuffle(listCardContents);
     }
 
     private void initView() {
