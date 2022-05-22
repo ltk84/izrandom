@@ -3,43 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/transparent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:gravity="center|top"
+    android:orientation="horizontal">
 
-    <LinearLayout
+    <com.wajahatkarim3.easyflipview.EasyFlipView
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/card_stack_item"
+        android:layout_width="280dp"
+        android:layout_height="396dp"
         android:background="@android:color/transparent"
-        android:gravity="center|top"
-        android:orientation="horizontal">
+        android:foreground="@null"
+        app:autoFlipBack="false"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="28dp"
+        app:flipDuration="400"
+        app:flipEnabled="true"
+        app:flipFrom="right"
+        app:flipOnTouch="false"
+        app:flipType="horizontal">
 
-        <com.wajahatkarim3.easyflipview.EasyFlipView
+        <!-- Back Layout Goes Here -->
+        <include layout="@layout/card_stack_item_back_layout" />
 
-            android:id="@+id/card_stack_item"
-            android:layout_width="280dp"
-            android:layout_height="396dp"
-            android:background="@android:color/transparent"
-            android:foreground="@null"
-            app:autoFlipBack="false"
-            app:cardElevation="4dp"
-            app:cardUseCompatPadding="true"
-            app:contentPadding="28dp"
-            app:flipDuration="400"
-            app:flipEnabled="true"
-            app:flipFrom="right"
-            app:flipOnTouch="false"
-            app:flipType="horizontal">
+        <!-- Front Layout Goes Here -->
+        <include layout="@layout/card_stack_item_front_layout" />
 
-            <!-- Back Layout Goes Here -->
-            <include layout="@layout/card_stack_item_back_layout" />
+    </com.wajahatkarim3.easyflipview.EasyFlipView>
 
-            <!-- Front Layout Goes Here -->
-            <include layout="@layout/card_stack_item_front_layout" />
-
-        </com.wajahatkarim3.easyflipview.EasyFlipView>
-
-    </LinearLayout>
 </LinearLayout>

@@ -5,27 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_swipe_question_for_fun"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/colorBackgroundLight"
-        android:fontFamily="@font/be_vietnam_pro"
-        android:text="Swipe"
-        android:textAlignment="center"
-        android:textColor="@color/cancelButton"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:cornerRadius="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_question_for_fun_guide"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/txt_question_for_fun_guide"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/be_vietnam_pro"
         android:text="@string/question_for_fun_guide"
         android:textAlignment="center"
@@ -33,6 +17,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.yuyakaido.android.cardstackview.CardStackView
+        android:id="@+id/question_for_fun_cardStackView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:linksClickable="false"
+        android:longClickable="false"
+        android:paddingTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_question_for_fun">
+
+    </com.yuyakaido.android.cardstackview.CardStackView>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tb_question_for_fun"
@@ -72,7 +73,5 @@
         </ImageButton>
 
     </androidx.appcompat.widget.Toolbar>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
