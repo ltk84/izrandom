@@ -10,6 +10,7 @@
         <item name="toolbarStyle">@style/ToolBarStyle</item>
         <item name="fontFamily">@font/be_vietnam_pro</item>
     </style>
+
     <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
     </style>
@@ -34,7 +35,6 @@
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/colorOnBackground</item>
     </style>
-
     <style name="SwitchStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorControlActivated">@color/colorPrimary</item>
         <item name="colorSwitchThumbNormal">@color/colorOnPrimary</item>
@@ -49,4 +49,8 @@
     <style name="Theme.IZRandom.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.IZRandom.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="ThemeOverlay.IZRandom.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
+        <item name="fullscreenTextColor">@color/light_blue_A400</item>
+    </style>
 </resources>

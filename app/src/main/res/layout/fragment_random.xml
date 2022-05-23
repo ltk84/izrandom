@@ -239,7 +239,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="12dp"
-                    android:id="@+id/cv_random_list"
+                    android:id="@+id/cv_tournament_bracket"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="48dp"
                     android:layout_marginBottom="12dp"
@@ -254,7 +254,9 @@
                             android:id="@+id/imageView6"
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
-                            android:src="@drawable/ic_random_list"
+                            android:src="@drawable/ic_tournament"
+                            android:scaleX="1.5"
+                            android:scaleY="1.5"
                             app:tint="@color/randomElementBlue"
                             android:contentDescription="@string/random_list_description" />
 
@@ -263,7 +265,7 @@
                             android:layout_height="match_parent"
                             android:gravity="bottom|center_horizontal"
                             android:textColor="@color/colorOnBackground"
-                            android:text="@string/random_list_label" />
+                            android:text="Giải đấu" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -308,9 +310,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="206dp"
                 android:orientation="horizontal">
-
-
-
                 <LinearLayout
                     android:layout_width="146dp"
                     android:layout_height="match_parent"
@@ -362,7 +361,7 @@
 
                         app:contentPadding="8dp"
                         android:layout_width="match_parent"
-                        android:layout_height="73dp"
+                        android:layout_height="84dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp"
                         app:cardElevation="2dp">

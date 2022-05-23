@@ -36,6 +36,7 @@ import uit.itszoo.izrandom.random_module.raffle.RaffleActivity;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
 import uit.itszoo.izrandom.random_module.random_integer.RandomIntegerActivity;
 import uit.itszoo.izrandom.random_module.roll_dice.RollDiceActivity;
+import uit.itszoo.izrandom.random_module.tournament_bracket.TournamentBracketActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,10 +59,10 @@ public class RandomFragment extends Fragment {
     CardView flipCoinCardView;
     CardView luckyWheelCardView;
     CardView randomNumberCardView;
-    CardView randomListCardView;
     CardView chooserCardView;
     CardView raffleCardView;
     CardView divideTeamCardView;
+    CardView tournamentBracketCardView;
 
     ImageView ivDirection;
     CardView flipCardCardView;
@@ -144,7 +145,6 @@ public class RandomFragment extends Fragment {
         flipCoinCardView = view.findViewById(R.id.cv_flip_coin);
         luckyWheelCardView = view.findViewById(R.id.cv_lucky_wheel);
         randomNumberCardView = view.findViewById(R.id.cv_random_number);
-        randomListCardView = view.findViewById(R.id.cv_random_list);
         chooserCardView = view.findViewById(R.id.cv_chooser);
         raffleCardView = view.findViewById(R.id.cv_raffle);
         divideTeamCardView = view.findViewById(R.id.cv_divide_team);
@@ -156,6 +156,7 @@ public class RandomFragment extends Fragment {
         ivCoin = view.findViewById(R.id.ic_flip_coin);
 
         initCoinAnimation();
+        tournamentBracketCardView = view.findViewById(R.id.cv_tournament_bracket);
         rotateAnimation = new RotateAnimation(0f, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
     }
@@ -232,7 +233,15 @@ public class RandomFragment extends Fragment {
                 startActivity(intentToDivideTeam);
             }
         });
-
+        tournamentBracketCardView.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intentToDivideTeam = new Intent(getContext(), TournamentBracketActivity.class);
+                        startActivity(intentToDivideTeam);
+                    }
+                }
+        );
     }
 
     public void initCoinAnimation() {
