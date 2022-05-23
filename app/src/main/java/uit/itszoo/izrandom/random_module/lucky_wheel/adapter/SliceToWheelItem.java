@@ -17,7 +17,7 @@ public class SliceToWheelItem {
         // TODO: đổi thành lấy icon
         // Hiện tại là lấy icon default
         return new WheelItem(Color.parseColor(slice.getColor()),
-                BitmapFactory.decodeResource(resources, R.drawable.small_nails_icons), slice.getName());
+                BitmapFactory.decodeResource(resources, R.drawable.small_nails_icons), slice.getName(), Color.parseColor(slice.getTextColor()));
     }
 
     public static ArrayList<WheelItem> convertSlicesToWheelItems(Resources resources, List<LuckyWheelSlice> slices) {
@@ -31,7 +31,7 @@ public class SliceToWheelItem {
 
     public static LuckyWheelSlice convertWheelItemToSlice(String id, WheelItem wi, String wheelID, int numberOrder) {
         // TODO: Icon đang fake
-        return new LuckyWheelSlice(id, wi.text, String.format("#%06X", (0xFFFFFF & wi.color)), 12, wheelID, numberOrder);
+        return new LuckyWheelSlice(id, wi.text, String.format("#%06X", (0xFFFFFF & wi.color)), String.format("#%06X", (0xFFFFFF & wi.textColor)), 12, wheelID, numberOrder);
     }
 
     public static ArrayList<LuckyWheelSlice> convertWheelItemsToSlices(ArrayList<String> ids, ArrayList<WheelItem> wis, String wheelID) {

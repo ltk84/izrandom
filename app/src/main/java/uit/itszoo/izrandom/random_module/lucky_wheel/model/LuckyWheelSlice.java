@@ -17,6 +17,7 @@ public class LuckyWheelSlice implements Serializable {
     private String id;
     private String name;
     private String color;
+    private String textColor;
     private int icon;
     private String wheelID;
     private int numberOrder;
@@ -31,20 +32,21 @@ public class LuckyWheelSlice implements Serializable {
         numberOrder = -1;
     }
 
-    public LuckyWheelSlice(String id, String name, String color, int icon, String wheelID, int numberOrder) {
+    public LuckyWheelSlice(String id, String name, String color, String textColor, int icon, String wheelID, int numberOrder) {
         this.id = id;
         this.name = name;
         this.color = color;
         this.icon = icon;
         this.wheelID = wheelID;
         this.numberOrder = numberOrder;
+        this.textColor = textColor;
     }
 
     @NonNull
     @NotNull
     @Override
     public Object clone() throws CloneNotSupportedException {
-        return new LuckyWheelSlice(id, name, color, icon, wheelID, numberOrder);
+        return new LuckyWheelSlice(id, name, color, textColor, icon, wheelID, numberOrder);
     }
 
     public String getId() {
@@ -91,13 +93,21 @@ public class LuckyWheelSlice implements Serializable {
         this.numberOrder = numberOrder;
     }
 
-    public boolean isBelongToWheel() {
-        return !getWheelID().equals("");
+    public String getTextColor() {
+        return textColor;
     }
 
-    public boolean hasNumberOrder() {
-        return getNumberOrder() >= 0;
+    public void setTextColor(String textColor) {
+        this.textColor = textColor;
     }
+
+    //    public boolean isBelongToWheel() {
+//        return !getWheelID().equals("");
+//    }
+
+//    public boolean hasNumberOrder() {
+//        return getNumberOrder() >= 0;
+//    }
 
     @Override
     public boolean equals(Object o) {
