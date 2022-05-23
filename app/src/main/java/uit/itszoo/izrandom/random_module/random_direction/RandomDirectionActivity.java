@@ -2,6 +2,7 @@ package uit.itszoo.izrandom.random_module.random_direction;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.MotionEventCompat;
 
+import java.io.IOException;
 import java.util.Random;
 
 import uit.itszoo.izrandom.R;
@@ -43,6 +45,10 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
     View blinkView;
     Animation blinkAnimation;
     float lastPosition = 0f;
+
+    // Audio
+    MediaPlayer mediaPlayer1;
+    MediaPlayer mediaPlayer2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +88,31 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         int action = MotionEventCompat.getActionMasked(event);
         switch (action) {
             case (MotionEvent.ACTION_DOWN):
+                if (!mediaPlayer1.isPlaying()) {
+                    if (mediaPlayer2.isPlaying()) {
+                        mediaPlayer2.stop();
+                        try {
+                            mediaPlayer2.prepare();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    mediaPlayer1.start();
+                }
                 executeSpinForever();
                 return true;
             case (MotionEvent.ACTION_UP):
+                if (!mediaPlayer2.isPlaying()) {
+                    if (mediaPlayer1.isLooping()) {
+                        mediaPlayer1.stop();
+                        try {
+                            mediaPlayer1.prepare();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    mediaPlayer2.start();
+                }
                 executeSpin();
                 return true;
             default:
@@ -98,6 +126,9 @@ public class RandomDirectionActivity extends AppCompatActivity implements Random
         arrowView = findViewById(R.id.im_arrow);
         textGuide = findViewById(R.id.txt_guide);
         toCustomScreenButton = findViewById(R.id.custom_button);
+        mediaPlayer1 = MediaPlayer.create(getApplicationContext(), R.raw.arrow_spin_forever);
+        mediaPlayer1.setLooping(true);
+        mediaPlayer2 = MediaPlayer.create(getApplicationContext(), R.raw.arrow_spin);
     }
 
 

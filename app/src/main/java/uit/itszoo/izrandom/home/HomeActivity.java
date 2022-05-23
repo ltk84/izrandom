@@ -1,8 +1,10 @@
 package uit.itszoo.izrandom.home;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -29,6 +31,14 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
             presenter.loadFragment(getSupportFragmentManager(), new RandomFragment());
         }
 
+        SharedPreferences prefs = getSharedPreferences(getString(R.string.shared_preferences), MODE_PRIVATE);
+        boolean defaultDarkModeOn = getResources().getBoolean(R.bool.defaultDarkModeOn);
+        boolean darkModeOn = prefs.getBoolean("darkModeOn", defaultDarkModeOn);
+        if (darkModeOn) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     @Override

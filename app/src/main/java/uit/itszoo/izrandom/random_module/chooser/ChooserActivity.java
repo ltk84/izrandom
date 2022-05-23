@@ -1,9 +1,13 @@
 package uit.itszoo.izrandom.random_module.chooser;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +69,11 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
     Handler handlerCancelEvent;
     Handler handlerEvent;
 
+    SharedPreferences prefs;
+    Vibrator vibrator;
+    private boolean defaultVibrationOn;
+    private boolean vibrationOn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +81,8 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
 
         presenter = new ChooserPresenter(getApplicationContext(), this);
         setPresenter(presenter);
+
+        initUtilities();
 
         initView();
         setListenerForView();
@@ -101,6 +112,17 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                     }
                 }
             });
+
+    private void initUtilities() {
+        prefs = getSharedPreferences(getString(R.string.shared_preferences),Context.MODE_PRIVATE);
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        defaultVibrationOn = getResources().getBoolean(R.bool.defaultVibrationOn);
+        vibrationOn = prefs.getBoolean("vibrationOn", defaultVibrationOn);
+    }
+
+    private void runVibration() {
+        vibrator.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+    }
 
     public void setListenerForView() {
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -459,6 +481,10 @@ public class ChooserActivity extends AppCompatActivity implements ChooserContrac
                 }
                 isChoosing = false;
                 isFinished = true;
+
+                if (vibrationOn) {
+                    runVibration();
+                }
             }
 
             @Override

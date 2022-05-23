@@ -108,7 +108,7 @@
                         android:layout_height="50dp"
                         android:gravity="start"
                         android:text="Tùy chỉnh"
-                        android:textColor="#000000"
+                        android:textColor="@color/colorOnBackground"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -128,7 +128,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Cỡ chữ"
-                            android:textColor="#000000"
+                            android:textColor="@color/colorOnBackground"
                             android:textSize="16sp" />
 
                         <Space
@@ -141,7 +141,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="16"
-                            android:textColor="#000000"
+                            android:textColor="@color/colorOnBackground"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -163,7 +163,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Lặp slice"
-                            android:textColor="#000000"
+                            android:textColor="@color/colorOnBackground"
                             android:textSize="16sp" />
 
                         <Space
@@ -176,7 +176,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:textColor="#000000"
+                            android:textColor="@color/colorOnBackground"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -198,7 +198,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Số lần quay"
-                            android:textColor="#000000"
+                            android:textColor="@color/colorOnBackground"
                             android:textSize="16sp" />
 
                         <Space
@@ -211,7 +211,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="5"
-                            android:textColor="#000000"
+                            android:textColor="@color/colorOnBackground"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -233,7 +233,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Fair mode"
-                            android:textColor="#000000"
+                            android:textColor="@color/colorOnBackground"
                             android:textSize="16sp" />
 
                         <Space
@@ -266,7 +266,7 @@
                             android:layout_height="wrap_content"
                             android:text="Slice"
                             android:textStyle="bold"
-                            android:textColor="#000000"
+                            android:textColor="@color/colorOnBackground"
                             android:textSize="18sp" />
 
                         <Space
@@ -275,6 +275,7 @@
                             android:layout_weight="1" />
 
                         <ImageButton
+                            android:tint="@color/colorOnBackground"
                             android:id="@+id/add_wheel_mix_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -296,6 +297,7 @@
                             android:minHeight="30dp"
                             android:scaleX="1.4"
                             android:scaleY="1.4"
+                            android:tint="@color/colorOnBackground"
                             android:src="@drawable/ic_add">
 
                         </ImageButton>
