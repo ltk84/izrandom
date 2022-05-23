@@ -173,25 +173,41 @@ public class RandomIntegerActivity extends AppCompatActivity implements RandomIn
 
     @Override
     public void executeRandom() {
-        int minNum = parseInt(min.getText().toString());
-        int maxNum = parseInt(max.getText().toString());
-        int time = 0;
-
-        while (time < 50)
+        Thread randomThread = new Thread()
         {
-            long start = System.currentTimeMillis();
-            for(int i = 0 ; i < listNumsResult.size(); i++)
-            {
-                Integer randomResult = (int)(Math.random()*(maxNum-minNum+1)+minNum);
-                if (!ranNumPresenter.getListCusNum().contains(randomResult)) {
-                    listNumsResult.set(i, randomResult);
+            @Override
+            public void run() {
+                final int[] time = {0};
+                while (time[0] < 25)
+                {
+                    try {
+                        int minNum = parseInt(min.getText().toString());
+                        int maxNum = parseInt(max.getText().toString());
+                        sleep(100);
+                        runOnUiThread(
+                                new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        for(int i = 0 ; i < listNumsResult.size(); i++)
+                                        {
+                                            Integer randomResult = (int)(Math.random()*(maxNum-minNum+1)+minNum);
+                                            if (!ranNumPresenter.getListCusNum().contains(randomResult)) {
+                                                listNumsResult.set(i, randomResult);
+                                            }
+
+                                        }
+                                        listMutableLiveData.setValue(listNumsResult);
+                                        time[0] += 1;
+                                    }
+                                }
+                        );
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-
-            }
-            listMutableLiveData.setValue(listNumsResult);
-            time += 1;
-        }
-
+            };
+        };
+        randomThread.start();
     }
 
 }
