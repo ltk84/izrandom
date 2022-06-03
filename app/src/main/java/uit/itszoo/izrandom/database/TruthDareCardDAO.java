@@ -2,7 +2,6 @@ package uit.itszoo.izrandom.database;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -19,8 +18,9 @@ public interface TruthDareCardDAO {
     @Update
     public void updateCard(TruthDareCard card);
 
-    @Delete
-    public void deleteCard(TruthDareCard card);
+    @Query("DELETE FROM truthDareCard WHERE id = :id")
+    public void deleteCard(String id);
+
 
     @Query("SELECT * FROM truthDareCard")
     public LiveData<List<TruthDareCard>> getAllCards();

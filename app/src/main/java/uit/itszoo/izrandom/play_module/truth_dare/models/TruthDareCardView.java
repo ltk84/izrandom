@@ -1,11 +1,15 @@
 package uit.itszoo.izrandom.play_module.truth_dare.models;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -21,6 +25,7 @@ import uit.itszoo.izrandom.R;
 public class TruthDareCardView extends CardView {
     final int MAXIMUM_CARD_COUNT = 10;
     final int MINIMUM_CARD_COUNT = 1;
+    final String DEFAULT_CARD_CONTENT = "Tên của thẻ bài";
 
     ImageButton removeCardButton;
     ImageButton increaseButton;
@@ -31,7 +36,18 @@ public class TruthDareCardView extends CardView {
     Drawable defaultBackgroundIncreaseButton;
 
     int cardCount = MINIMUM_CARD_COUNT;
+    String cardContent = DEFAULT_CARD_CONTENT;
     String cardID;
+
+    boolean isInit = false;
+
+    public interface MyCallBackInterface {
+        void editCard(TruthDareCard editedCard);
+
+        void deleteCard(String id);
+    }
+
+    MyCallBackInterface callBack;
 
     public TruthDareCardView(@NonNull @NotNull Context context) {
         super(context);
@@ -49,9 +65,18 @@ public class TruthDareCardView extends CardView {
     }
 
     public void setData(TruthDareCard card) {
+        isInit = true;
         this.cardID = card.getId();
-        cardLabelEditText.setText(card.getContent());
-        cardAmountText.setText(String.valueOf(card.getCount()));
+        this.cardContent = card.getContent();
+        this.cardCount = card.getCount();
+
+        cardLabelEditText.setText(cardContent);
+        cardAmountText.setText(String.valueOf(cardCount));
+        isInit = false;
+    }
+
+    public void setCallBack(MyCallBackInterface callBack) {
+        this.callBack = callBack;
     }
 
     public TruthDareCard getCardInfo() {
@@ -70,6 +95,7 @@ public class TruthDareCardView extends CardView {
         decreaseButton.setBackground(null);
 
         cardLabelEditText = this.findViewById(R.id.card_edit_text);
+        cardLabelEditText.setText(cardContent);
         cardAmountText = this.findViewById(R.id.text_card_amount);
         cardAmountText.setText(String.valueOf(cardCount));
         setListeners();
@@ -77,13 +103,15 @@ public class TruthDareCardView extends CardView {
 
     private void setListeners() {
         removeCardButton.setOnClickListener(view -> {
-            ((ViewGroup) this.getParent()).removeView(this);
+            callBack.deleteCard(cardID);
         });
+
 
         increaseButton.setOnClickListener(view -> {
             if (cardCount < MAXIMUM_CARD_COUNT) {
                 cardCount++;
                 cardAmountText.setText(String.valueOf(cardCount));
+                callBack.editCard(getCardInfo());
             }
         });
 
@@ -91,6 +119,7 @@ public class TruthDareCardView extends CardView {
             if (cardCount > MINIMUM_CARD_COUNT) {
                 cardCount--;
                 cardAmountText.setText(String.valueOf(cardCount));
+                callBack.editCard(getCardInfo());
             }
         });
 
@@ -122,5 +151,27 @@ public class TruthDareCardView extends CardView {
             }
         });
 
+        cardLabelEditText.setOnFocusChangeListener(new OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b) {
+                    callBack.editCard(getCardInfo());
+                }
+            }
+        });
+
+        cardLabelEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    cardLabelEditText.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    //Find the currently focused view, so we can grab the correct window token from it.
+
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+                return false;
+            }
+        });
     }
 }

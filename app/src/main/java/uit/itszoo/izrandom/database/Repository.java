@@ -263,4 +263,19 @@ public class Repository {
     public LiveData<List<TruthDareCard>> getTdCardList() {
         return tdCardList;
     }
+
+    public void addTDCard(TruthDareCard card) {
+        AppDatabase.dbExecutor.execute(() -> {
+            tdCardDAO.insertCard(card);
+        });
+
+    }
+
+    public void updateTDCard(TruthDareCard card) {
+        AppDatabase.dbExecutor.execute(() -> tdCardDAO.updateCard(card));
+    }
+
+    public void deleteTDCard(String id) {
+        AppDatabase.dbExecutor.execute(() -> tdCardDAO.deleteCard(id));
+    }
 }

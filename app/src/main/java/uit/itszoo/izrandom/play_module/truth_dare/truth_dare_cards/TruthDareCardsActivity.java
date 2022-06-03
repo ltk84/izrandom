@@ -59,8 +59,9 @@ public class TruthDareCardsActivity extends AppCompatActivity implements TruthDa
 
     public void setListenerForView() {
         addCardButton.setOnClickListener(view -> {
-            TruthDareCardView card = new TruthDareCardView(this);
-            cardHolder.addView(card);
+//            TruthDareCardView card = new TruthDareCardView(this);
+//            cardHolder.addView(card);
+            presenter.addCard();
         });
         backButton.setOnClickListener(view -> onBackPressed());
         startButton.setOnClickListener(view -> {
@@ -87,10 +88,22 @@ public class TruthDareCardsActivity extends AppCompatActivity implements TruthDa
     }
 
     void initList(List<TruthDareCard> cards) {
+        cardHolder.removeAllViews();
         for (TruthDareCard card :
                 cards) {
             TruthDareCardView cardView = new TruthDareCardView(this);
             cardView.setData(card);
+            cardView.setCallBack(new TruthDareCardView.MyCallBackInterface() {
+                @Override
+                public void editCard(TruthDareCard editedCard) {
+                    presenter.editCard(editedCard);
+                }
+
+                @Override
+                public void deleteCard(String id) {
+                    presenter.deleteCard(id);
+                }
+            });
             cardHolder.addView(cardView);
         }
     }

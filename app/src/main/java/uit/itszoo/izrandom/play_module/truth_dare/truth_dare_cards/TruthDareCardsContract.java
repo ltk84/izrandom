@@ -11,6 +11,12 @@ import uit.itszoo.izrandom.play_module.truth_dare.models.TruthDareCard;
 public interface TruthDareCardsContract {
     interface Presenter extends BasePresenter {
         LiveData<List<TruthDareCard>> getCards();
+
+        void addCard();
+
+        void editCard(TruthDareCard card);
+
+        void deleteCard(String id);
     }
 
     interface View extends BaseView<TruthDareCardsContract.Presenter> {
