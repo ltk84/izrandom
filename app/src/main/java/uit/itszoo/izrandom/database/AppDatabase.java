@@ -11,14 +11,13 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import uit.itszoo.izrandom.play_module.truth_dare.models.TruthDareCard;
 import uit.itszoo.izrandom.random_module.chooser.source.ChooserSource;
 import uit.itszoo.izrandom.random_module.flip_card.model.CardCollectionModel;
 import uit.itszoo.izrandom.random_module.flip_card.model.CardModel;
@@ -30,7 +29,7 @@ import uit.itszoo.izrandom.random_module.random_direction.source.ArrowSource;
 import uit.itszoo.izrandom.random_module.roll_dice.source.DiceSource;
 
 
-@Database(entities = {UserConfiguration.class, LuckyWheelSlice.class, LuckyWheelData.class, CardCollectionModel.class, CardModel.class}, version = 1)
+@Database(entities = {UserConfiguration.class, LuckyWheelSlice.class, LuckyWheelData.class, CardCollectionModel.class, CardModel.class, TruthDareCard.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String DB_NAME = "userConfig.db";
@@ -65,6 +64,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 initLuckyWheelSlice();
                 initLuckyWheel();
                 initUserConfig();
+                initTruthDareCards();
             });
 
         }
@@ -75,6 +75,11 @@ public abstract class AppDatabase extends RoomDatabase {
             Log.d("ONOPEN", "Database has been opened.");
         }
     };
+
+    private static void initTruthDareCards() {
+        TruthDareCard card = new TruthDareCard(UUID.randomUUID().toString(), "Chut vi cua say me", 1);
+        instance.tdCardDAO().insertCard(card);
+    }
 
     private static void initCardCollection() {
         CardCollectionModel cardCollectionModel1 = new CardCollectionModel(UUID.randomUUID().toString(), "Bộ câu hỏi vui để hiểu bản thân", System.currentTimeMillis());
@@ -162,4 +167,6 @@ public abstract class AppDatabase extends RoomDatabase {
     abstract SliceDAO sliceDAO();
 
     abstract WheelDAO wheelDAO();
+
+    abstract TruthDareCardDAO tdCardDAO();
 }

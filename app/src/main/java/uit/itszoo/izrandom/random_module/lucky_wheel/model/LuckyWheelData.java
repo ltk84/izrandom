@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -29,6 +31,7 @@ public class LuckyWheelData implements Serializable {
         this.isFairMode = isFairMode;
     }
 
+    @NotNull
     public String getId() {
         return id;
     }
@@ -76,7 +79,6 @@ public class LuckyWheelData implements Serializable {
 
     public ArrayList<LuckyWheelSlice> getSlices() {
         // TODO: Lấy từ db
-        // Tạm thời lấy từ source
         ArrayList<LuckyWheelSlice> sliceList = new ArrayList<>();
         LuckyWheelSource.slices.forEach(slice -> {
             if (slice.getWheelID().equals(getId())) {
@@ -90,14 +92,5 @@ public class LuckyWheelData implements Serializable {
             }
         });
         return sliceList;
-    }
-
-    // TODO: khoong lay nua
-    public ArrayList<LuckyWheelSlice> getSlicesWithRepeat() {
-        ArrayList<LuckyWheelSlice> list = new ArrayList<>();
-        for (int i = 0; i < getSliceRepeat(); i++) {
-            list.addAll(getSlices());
-        }
-        return list;
     }
 }

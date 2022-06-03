@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import uit.itszoo.izrandom.play_module.truth_dare.models.TruthDareCard;
 import uit.itszoo.izrandom.random_module.flip_card.model.CardCollectionModel;
 import uit.itszoo.izrandom.random_module.flip_card.model.CardModel;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
@@ -24,6 +25,9 @@ public class Repository {
 
     private WheelDAO wheelDAO;
     private LiveData<List<LuckyWheelData>> wheelList;
+
+    private TruthDareCardDAO tdCardDAO;
+    private LiveData<List<TruthDareCard>> tdCardList;
 
     private static volatile Repository instance;
 
@@ -48,6 +52,9 @@ public class Repository {
 
         wheelDAO = appDatabase.wheelDAO();
         wheelList = wheelDAO.getAllWheels();
+
+        tdCardDAO = appDatabase.tdCardDAO();
+        tdCardList = tdCardDAO.getAllCards();
 
         // trigger để mở database => tránh việc lỗi khi sử dụng LiveData khi db chưa được open
         appDatabase.query("SELECT 1", null);
@@ -178,8 +185,7 @@ public class Repository {
             AppDatabase.dbExecutor.execute(() -> {
                 cardCollectionDAO.insertCardCollection(cardCollectionModel);
             });
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -189,8 +195,7 @@ public class Repository {
             AppDatabase.dbExecutor.execute(() -> {
                 cardCollectionDAO.updateCardCollection(cardCollectionModel);
             });
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -200,8 +205,7 @@ public class Repository {
             AppDatabase.dbExecutor.execute(() -> {
                 cardCollectionDAO.deleteCardCollection(cardCollectionModel);
             });
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -231,8 +235,7 @@ public class Repository {
             AppDatabase.dbExecutor.execute(() -> {
                 cardDAO.insertCard(cardModel);
             });
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -242,8 +245,7 @@ public class Repository {
             AppDatabase.dbExecutor.execute(() -> {
                 cardDAO.updateCard(cardModel);
             });
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -253,9 +255,12 @@ public class Repository {
             AppDatabase.dbExecutor.execute(() -> {
                 cardDAO.deleteCard(cardModel);
             });
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public LiveData<List<TruthDareCard>> getTdCardList() {
+        return tdCardList;
     }
 }

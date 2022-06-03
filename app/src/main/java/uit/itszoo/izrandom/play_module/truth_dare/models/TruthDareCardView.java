@@ -31,6 +31,7 @@ public class TruthDareCardView extends CardView {
     Drawable defaultBackgroundIncreaseButton;
 
     int cardCount = MINIMUM_CARD_COUNT;
+    String cardID;
 
     public TruthDareCardView(@NonNull @NotNull Context context) {
         super(context);
@@ -47,8 +48,14 @@ public class TruthDareCardView extends CardView {
         initView();
     }
 
+    public void setData(TruthDareCard card) {
+        this.cardID = card.getId();
+        cardLabelEditText.setText(card.getContent());
+        cardAmountText.setText(String.valueOf(card.getCount()));
+    }
+
     public TruthDareCard getCardInfo() {
-        return new TruthDareCard(cardLabelEditText.getText().toString(), Integer.parseInt(cardAmountText.getText().toString()));
+        return new TruthDareCard(cardID, cardLabelEditText.getText().toString(), Integer.parseInt(cardAmountText.getText().toString()));
     }
 
     private void initView() {
@@ -70,7 +77,7 @@ public class TruthDareCardView extends CardView {
 
     private void setListeners() {
         removeCardButton.setOnClickListener(view -> {
-            ((ViewGroup)this.getParent()).removeView(this);
+            ((ViewGroup) this.getParent()).removeView(this);
         });
 
         increaseButton.setOnClickListener(view -> {

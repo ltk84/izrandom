@@ -1,14 +1,13 @@
 package uit.itszoo.izrandom.play_module.truth_dare.truth_dare_cards;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -21,8 +20,8 @@ import uit.itszoo.izrandom.play_module.truth_dare.game_session.TruthDareGameSess
 import uit.itszoo.izrandom.play_module.truth_dare.models.TruthDareCard;
 import uit.itszoo.izrandom.play_module.truth_dare.models.TruthDareCardView;
 
-public class TruthDareCardsActivity extends AppCompatActivity {
-
+public class TruthDareCardsActivity extends AppCompatActivity implements TruthDareCardsContract.View {
+    TruthDareCardsContract.Presenter presenter;
     ImageButton addCardButton;
     ImageButton backButton;
     LinearLayout cardHolder;
@@ -39,8 +38,16 @@ public class TruthDareCardsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_truth_dare_cards);
 
+        presenter = new TruthDareCardsPresenter(getApplicationContext(), this);
+        setPresenter(presenter);
+
         initView();
         setListenerForView();
+
+        presenter.getCards().observe(this, truthDareCards -> {
+            System.out.println(truthDareCards.size());
+            initList(truthDareCards);
+        });
     }
 
     public void initView() {
@@ -72,5 +79,19 @@ public class TruthDareCardsActivity extends AppCompatActivity {
             intentToGameSession.putStringArrayListExtra("cards", cards);
             intentLauncher.launch(intentToGameSession);
         });
+    }
+
+    @Override
+    public void setPresenter(TruthDareCardsContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
+
+    void initList(List<TruthDareCard> cards) {
+        for (TruthDareCard card :
+                cards) {
+            TruthDareCardView cardView = new TruthDareCardView(this);
+            cardView.setData(card);
+            cardHolder.addView(cardView);
+        }
     }
 }
