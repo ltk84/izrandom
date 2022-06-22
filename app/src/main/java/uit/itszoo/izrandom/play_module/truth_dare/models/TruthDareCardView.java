@@ -2,6 +2,7 @@ package uit.itszoo.izrandom.play_module.truth_dare.models;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,14 +14,18 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 
 import org.jetbrains.annotations.NotNull;
 
 import uit.itszoo.izrandom.R;
+import uit.itszoo.izrandom.random_module.flip_card.flip_card.CardContentDialog;
+import uit.itszoo.izrandom.random_module.flip_card.flip_card_menu.FlipCardMenuActivity;
 
 public class TruthDareCardView extends CardView {
     final int MAXIMUM_CARD_COUNT = 10;
@@ -103,7 +108,17 @@ public class TruthDareCardView extends CardView {
 
     private void setListeners() {
         removeCardButton.setOnClickListener(view -> {
-            callBack.deleteCard(cardID);
+            new AlertDialog.Builder(getContext())
+                    .setTitle("Hộp thư xác nhận")
+                    .setMessage("Bạn có chắc muốn xóa thẻ \"" + cardContent + "\"?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            callBack.deleteCard(cardID);
+                            Toast.makeText(getContext(), "Đã xóa thẻ", Toast.LENGTH_SHORT).show();
+                        }})
+                    .setNegativeButton("Hủy", null).show();
         });
 
 

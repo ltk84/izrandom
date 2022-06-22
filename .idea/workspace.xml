@@ -10,13 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96e133ca-d405-47c5-a187-729a8d794b0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/play_module/truth_dare/TruthDareActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/play_module/truth_dare/TruthDareActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_truth_dare.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_truth_dare.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_truth_dare_cards.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_truth_dare_cards.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/play_module/truth_dare/models/TruthDareCardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/play_module/truth_dare/models/TruthDareCardView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="android-custom-viewD:/Projects/izrandom/app/src/main/java/uit/itszoo/izrandom/play_module/truth_dare/models/TruthDareCardView.java_SELECTED" value="TruthDareCardView" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="show.migrate.to.gradle.popup" value="false" />
@@ -147,21 +146,21 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="605" y="198" key="AndroidCreateXmlResourceDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1655888921898" />
-    <state width="1478" height="474" key="GridCell.Tab.0.bottom" timestamp="1655889558038">
+    <state width="1478" height="205" key="GridCell.Tab.0.bottom" timestamp="1655890512919">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1478" height="474" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1655889558038" />
-    <state width="1478" height="474" key="GridCell.Tab.0.center" timestamp="1655889558038">
+    <state width="1478" height="205" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1655890512919" />
+    <state width="1478" height="205" key="GridCell.Tab.0.center" timestamp="1655890512919">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1478" height="474" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1655889558038" />
-    <state width="1478" height="474" key="GridCell.Tab.0.left" timestamp="1655889558038">
+    <state width="1478" height="205" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1655890512919" />
+    <state width="1478" height="205" key="GridCell.Tab.0.left" timestamp="1655890512919">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1478" height="474" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1655889558038" />
-    <state width="1478" height="474" key="GridCell.Tab.0.right" timestamp="1655889558038">
+    <state width="1478" height="205" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1655890512919" />
+    <state width="1478" height="205" key="GridCell.Tab.0.right" timestamp="1655890512919">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1478" height="474" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1655889558038" />
+    <state width="1478" height="205" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1655890512919" />
   </component>
 </project>
