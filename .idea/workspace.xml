@@ -10,9 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96e133ca-d405-47c5-a187-729a8d794b0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddNewLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddNewLuckyWheelActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

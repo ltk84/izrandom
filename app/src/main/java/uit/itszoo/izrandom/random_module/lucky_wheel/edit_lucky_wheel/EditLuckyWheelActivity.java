@@ -333,7 +333,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                 view -> {
                     new AlertDialog.Builder(this)
                             .setTitle("Hộp thư xác nhận")
-                            .setMessage("Bạn có chắc muốn vòng quay này không?")
+                            .setMessage("Bạn có chắc muốn xóa vòng quay này không?")
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
@@ -475,18 +475,27 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
 
         deleteButton.setOnClickListener(
                 view -> {
-                    if (wheelItems.size() <= MIN_NUMBER_SLICE) {
-                        Toast.makeText(EditLuckyWheelActivity.this, "Số SLice đã đạt mức nhỏ nhất", Toast.LENGTH_LONG).show();
-                        return;
-                    }
+                    new AlertDialog.Builder(this)
+                            .setTitle("Hộp thư xác nhận")
+                            .setMessage("Bạn có chắc muốn xóa slice này không?")
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    if (wheelItems.size() <= MIN_NUMBER_SLICE) {
+                                        Toast.makeText(EditLuckyWheelActivity.this, "Số SLice đã đạt mức nhỏ nhất", Toast.LENGTH_LONG).show();
+                                        return;
+                                    }
 
-                    wheelItems.removeIf(wheelItem -> wheelItem.text.equals(uiSlice.text) && wheelItem.color == uiSlice.color);
-                    originWheelItems.removeIf(wheelItem -> wheelItem.text.equals(uiSlice.text) && wheelItem.color == uiSlice.color);
-                    currentWheelSlices.removeIf(slice -> slice.getId().equals(sliceID));
+                                    wheelItems.removeIf(wheelItem -> wheelItem.text.equals(uiSlice.text) && wheelItem.color == uiSlice.color);
+                                    originWheelItems.removeIf(wheelItem -> wheelItem.text.equals(uiSlice.text) && wheelItem.color == uiSlice.color);
+                                    currentWheelSlices.removeIf(slice -> slice.getId().equals(sliceID));
 
-                    createSliceCard();
-                    luckyWheel.addWheelItems(wheelItems);
-                    editDialog.cancel();
+                                    createSliceCard();
+                                    luckyWheel.addWheelItems(wheelItems);
+                                    editDialog.cancel();
+                                }})
+                            .setNegativeButton("Hủy", null).show();
+
                 }
         );
 

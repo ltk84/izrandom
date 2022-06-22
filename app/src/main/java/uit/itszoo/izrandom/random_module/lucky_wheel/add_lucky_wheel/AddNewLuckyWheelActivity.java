@@ -2,6 +2,7 @@ package uit.itszoo.izrandom.random_module.lucky_wheel.add_lucky_wheel;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
@@ -43,6 +45,7 @@ import java.util.UUID;
 import top.defaults.colorpicker.ColorPickerPopup;
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.random_module.lucky_wheel.adapter.SliceToWheelItem;
+import uit.itszoo.izrandom.random_module.lucky_wheel.edit_lucky_wheel.EditLuckyWheelActivity;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelData;
 import uit.itszoo.izrandom.random_module.lucky_wheel.model.LuckyWheelSlice;
 
@@ -423,17 +426,26 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
 
         deleteButton.setOnClickListener(
                 view -> {
-                    if (wheelItems.size() <= MIN_NUMBER_SLICE) {
-                        Toast.makeText(AddNewLuckyWheelActivity.this, "Số SLice đã đạt mức nhỏ nhất", Toast.LENGTH_LONG).show();
-                        return;
-                    }
+                    new AlertDialog.Builder(this)
+                            .setTitle("Hộp thư xác nhận")
+                            .setMessage("Bạn có chắc muốn xóa slice này không?")
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    if (wheelItems.size() <= MIN_NUMBER_SLICE) {
+                                        Toast.makeText(AddNewLuckyWheelActivity.this, "Số SLice đã đạt mức nhỏ nhất", Toast.LENGTH_LONG).show();
+                                        return;
+                                    }
 
-                    wheelItems.removeIf(wheelItem -> wheelItem.text.equals(uiSlice.text) && wheelItem.color == uiSlice.color);
-                    originWheelItems.removeIf(wheelItem -> wheelItem.text.equals(uiSlice.text) && wheelItem.color == uiSlice.color);
+                                    wheelItems.removeIf(wheelItem -> wheelItem.text.equals(uiSlice.text) && wheelItem.color == uiSlice.color);
+                                    originWheelItems.removeIf(wheelItem -> wheelItem.text.equals(uiSlice.text) && wheelItem.color == uiSlice.color);
 
-                    createSliceCard();
-                    luckyWheel.addWheelItems(wheelItems);
-                    editDialog.cancel();
+                                    createSliceCard();
+                                    luckyWheel.addWheelItems(wheelItems);
+                                    editDialog.cancel();
+                                }})
+                            .setNegativeButton("Hủy", null).show();
+
                 }
         );
 
