@@ -17,7 +17,6 @@ import uit.itszoo.izrandom.play_module.truth_dare.truth_dare_cards.TruthDareCard
 
 public class TruthDareActivity extends AppCompatActivity {
     MaterialButton startButton;
-    MaterialButton cardButton;
 
     ImageButton backButton;
 
@@ -37,17 +36,12 @@ public class TruthDareActivity extends AppCompatActivity {
 
     public void initView() {
         startButton = findViewById(R.id.start_button);
-        cardButton = findViewById(R.id.card_button);
         backButton = findViewById(R.id.bb_truth_dare);
     }
 
 
     public void setListenerForView() {
         startButton.setOnClickListener(view -> {
-            Intent intentToCard = new Intent(getApplicationContext(), TruthDareCardsActivity.class);
-            intentLauncher.launch(intentToCard);
-        });
-        cardButton.setOnClickListener(view -> {
             Intent intentToCard = new Intent(getApplicationContext(), TruthDareCardsActivity.class);
             intentLauncher.launch(intentToCard);
         });

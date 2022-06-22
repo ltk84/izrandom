@@ -79,7 +79,7 @@
         android:textColor="@color/colorOnPrimary"
         android:layout_gravity="center_horizontal"
         android:textStyle="bold"
-        android:text="@string/get_started_label"
+        android:text="@string/confirm_label"
         android:textSize="16sp"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"

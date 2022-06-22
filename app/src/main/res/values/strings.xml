@@ -105,4 +105,5 @@
     <string name="filter_label">Bộ lọc</string>
     <string name="default_value_category">Tất cả</string>
     <string name="suggestion_guide">Chạm vào màn hình để thực hiện đề xuất</string>
+    <string name="confirm_label">Xác nhận</string>
 </resources>

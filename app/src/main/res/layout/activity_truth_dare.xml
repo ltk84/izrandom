@@ -96,19 +96,5 @@
             android:textSize="16sp"
             android:textAllCaps="false"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/card_button"
-            android:layout_marginTop="4dp"
-            android:layout_width="252dp"
-            android:layout_height="56dp"
-            app:cornerRadius="24dp"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="bold"
-            android:backgroundTint="@color/colorBackgroundLight"
-            android:textColor="@color/colorOnBackgroundDark"
-            android:text="@string/card_label"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
