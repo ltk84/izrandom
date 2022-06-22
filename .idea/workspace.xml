@@ -52,7 +52,11 @@
   <component name="ChangeListManager">
     <list default="true" id="db1decee-139d-41dd-952f-b0366ba8f004" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_coin/model/Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/flip_coin/model/Coin.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/play_module/question_for_fun/QuestionForFunActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/play_module/question_for_fun/QuestionForFunActivity.java" afterDir="false" />
+>>>>>>> feature/question-for-fun
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +72,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="valueResourceFile" />
+        <option value="resourceFile" />
+        <option value="layoutResourceFile_vertical" />
+>>>>>>> feature/question-for-fun
         <option value="Interface" />
+        <option value="layoutResourceFile" />
         <option value="Class" />
       </list>
     </option>
@@ -86,14 +97,88 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2022-05-23T03:29:54.218126200Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+<<<<<<< HEAD
     <property name="android-custom-viewD:/UIT/HK6-2021-2022/NgonNguLapTrinhJava-SE330.M21/Project/app/src/main/java/uit/itszoo/izrandom/play_module/truth_dare/models/TruthDareCardView.java_SELECTED" value="TruthDareCardView" />
+=======
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.github.jama5262/CarouselView/1.2.2/8673a5251ef29da253b5529a8d85d4bd12379ec6/CarouselView-1.2.2-sources.jar!/com/jama/carouselview/CarouselView.java_SELECTED" value="CarouselView" />
+    <property name="android-custom-viewC:/Users/PC/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.6.0-alpha03/8c62c296efe35e282f6a589701662f5f026765df/material-1.6.0-alpha03-sources.jar!/com/google/android/material/navigation/NavigationBarView.java_SELECTED" value="NavigationBarView" />
+    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.jama5262/CarouselView/1.2.2/8673a5251ef29da253b5529a8d85d4bd12379ec6/CarouselView-1.2.2-sources.jar!/com/jama/carouselview/CarouselView.java_SELECTED" value="CarouselView" />
+    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.ltk84/DiceLoadingView/1.5/81e2c0f497b6c12b2aeeaf7fdb8b1a391a91e787/DiceLoadingView-1.5-sources.jar!/com/iigo/library/DiceLoadingView.java_SELECTED" value="DiceLoadingView" />
+    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.ltk84/DiceLoadingView/1.5/81e2c0f497b6c12b2aeeaf7fdb8b1a391a91e787/DiceLoadingView-1.5-sources.jar!/com/iigo/library/DiceView.java_SELECTED" value="DiceView" />
+    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.ltk84/DiceLoadingView/master-SNAPSHOT/e6c1345324a0a2503f433d7c892fc3759deef3bf/DiceLoadingView-master-SNAPSHOT-sources.jar!/com/iigo/library/DiceLoadingView.java_SELECTED" value="DiceLoadingView" />
+    <property name="android-custom-viewD:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/java/uit/itszoo/izrandom/play_module/question_for_fun/dsa.java_SELECTED" value="customCardStack" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+>>>>>>> feature/question-for-fun
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+<<<<<<< HEAD
     <property name="project.structure.last.edited" value="Project" />
+=======
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+>>>>>>> feature/question-for-fun
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Properties" />
+    <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
+  </component>
+  <component name="RecentsManager">
+    <key name="android.template.1654443001">
+      <recent name="uit.itszoo.izrandom" />
+      <recent name="uit.itszoo.izrandom.random_module.chooser.chooser_custom" />
+    </key>
+    <key name="android.template.1365772263">
+      <recent name="uit.itszoo.izrandom.random_module.chooser" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="uit.itszoo.izrandom.utilities" />
+    </key>
+    <key name="android.template.-1249923655">
+      <recent name="uit.itszoo.izrandom.random_module.divide_team.divide_team_guide" />
+    </key>
+    <key name="android.template.-1239303258">
+      <recent name="uit.itszoo.izrandom.random_module.raffle.raffle_guide" />
+    </key>
+    <key name="android.template.289755750">
+      <recent name="uit.itszoo.izrandom.random_module.raffle" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\izrandom\app\src\main\res\font" />
+    </key>
+    <key name="android.template.1835396654">
+      <recent name="uit.itszoo.izrandom.random_module.flip_coin.flip_coin_custom" />
+    </key>
+    <key name="android.template.-144290685">
+      <recent name="uit.itszoo.izrandom.random_module.flip_coin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\DA_Java\fun_question\izrandom\app\src\main\res\drawable" />
+      <recent name="D:\Projects\izrandom\app\src\main\res\font" />
+      <recent name="D:\Projects\izrandom\app\src\main\res\drawable" />
+    </key>
+    <key name="android.template.-1672636025">
+      <recent name="uit.itszoo.izrandom.random_direction" />
+    </key>
+    <key name="android.template.1287149108">
+      <recent name="uit.itszoo.izrandom.random_direction_custom" />
+      <recent name="uit.itszoo.izrandom.random_direction_change_appearance" />
+    </key>
+    <key name="android.template.-131202538">
+      <recent name="uit.itszoo.izrandom.random_module.roll_dice.roll_dice_custom" />
+    </key>
+    <key name="android.template.-113329716">
+      <recent name="uit.itszoo.izrandom.random_module.divide_team" />
+    </key>
+  </component>
+>>>>>>> feature/question-for-fun
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
@@ -183,6 +268,7 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="WindowStateProjectService">
     <state x="520" y="232" key="#Notifications" timestamp="1653049008026">
       <screen x="0" y="0" width="1536" height="816" />
@@ -236,5 +322,16 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="723" y="0" width="643" height="768" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1654246689664" />
+=======
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="coinList.get(0)" />
+        <watch expression="isCardFlipping" language="JAVA" />
+        <watch expression="isCcardFlipped" language="JAVA" />
+        <watch expression="((ChooserActivity)this).chooserRingList" custom="uit.itszoo.izrandom.random_module.chooser.ChooserActivity" />
+      </configuration>
+    </watches-manager>
+>>>>>>> feature/question-for-fun
   </component>
 </project>

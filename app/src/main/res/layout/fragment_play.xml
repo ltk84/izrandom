@@ -68,7 +68,7 @@
                     android:layout_gravity="center"
                     android:layout_width="136dp"
                     android:layout_height="136dp"
-                    android:src="@drawable/question_for_fun"/>
+                    android:src="@drawable/question_for_fun_front"/>
                 <LinearLayout
                     android:layout_gravity="start"
                     android:layout_marginHorizontal="24dp"

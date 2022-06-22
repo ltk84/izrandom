@@ -36,6 +36,24 @@
         <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/fragment_random.xml" value="0.19519927536231885" />
         <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/image_view_carousel.xml" value="0.1" />
         <entry key="..\:/JavaProject/DA_Java/flip_card/izrandom/app/src/main/res/layout/number_view_card.xml" value="0.1" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/drawable/blinking_rectangle.xml" value="0.191" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/drawable/card_gradient_background.xml" value="0.191" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/activity_flip_card.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/activity_flip_card_add.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/activity_flip_card_menu.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/activity_question_for_fun.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/card_stack_item.xml" value="0.152" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/card_stack_item_back_layout.xml" value="0.264" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/card_stack_item_front.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/card_stack_item_front_layout.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/card_view_add_content_dialog.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/card_view_content_dialog.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/card_view_custom_grid_item.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/card_view_grid_item.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/card_view_grid_item_back_layout.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/card_view_grid_item_front_layout.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/fragment_play.xml" value="0.25" />
+        <entry key="..\:/JavaProject/DA_Java/fun_question/izrandom/app/src/main/res/layout/fragment_random.xml" value="0.25" />
         <entry key="..\:/JavaProject/DA_Java/random_number/2/izrandom/app/src/main/res/layout/activity_random_integer_custom.xml" value="0.16458333333333333" />
         <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_direction.xml" value="0.11980749746707194" />
         <entry key="..\:/JavaProject/DA_Java/random_number/izrandom/app/src/main/res/layout/activity_random_direction_custom.xml" value="0.21739130434782608" />

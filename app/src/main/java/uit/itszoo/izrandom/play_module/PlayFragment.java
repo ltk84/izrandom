@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import uit.itszoo.izrandom.R;
 import uit.itszoo.izrandom.play_module.truth_dare.TruthDareActivity;
 import uit.itszoo.izrandom.random_module.random_direction.RandomDirectionActivity;
+import uit.itszoo.izrandom.play_module.question_for_fun.QuestionForFunActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,6 +88,7 @@ public class PlayFragment extends Fragment {
 
     public void initView(@NonNull @NotNull View view) {
         truthDareHolder = view.findViewById(R.id.truth_dare_holder);
+    
         questionForFunHolder = view.findViewById(R.id.question_for_fun_holder);
     }
 
@@ -95,7 +97,10 @@ public class PlayFragment extends Fragment {
             Intent intentToTruthDareGame = new Intent(getContext(), TruthDareActivity.class);
             startActivity(intentToTruthDareGame);
         });
+       
         questionForFunHolder.setOnClickListener(view -> {
+            Intent intentToQuestionForFun = new Intent(getContext(), QuestionForFunActivity.class);
+            startActivity(intentToQuestionForFun);
         });
     }
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uit.itszoo.izrandom">
-    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IZRandom">
-        <activity android:name=".play_module.truth_dare.game_session.TruthDareGameSessionActivity"></activity>
+        <activity android:name=".play_module.truth_dare.game_session.TruthDareGameSessionActivity" />
         <activity android:name=".play_module.truth_dare.truth_dare_cards.TruthDareCardsActivity" />
         <activity android:name=".play_module.truth_dare.TruthDareActivity" />
         <activity android:name=".random_module.divide_team.DivideTeamActivity" />
@@ -33,6 +34,7 @@
         <activity android:name=".random_module.lucky_wheel.edit_lucky_wheel.EditLuckyWheelActivity" />
         <activity android:name=".random_module.tournament_bracket.TournamentBracketActivity" />
         <activity android:name=".random_module.tournament_bracket.result.TournamentBracketResult" />
+        <activity android:name=".play_module.question_for_fun.QuestionForFunActivity" />
         <activity
             android:name=".home.HomeActivity"
             android:exported="true">
