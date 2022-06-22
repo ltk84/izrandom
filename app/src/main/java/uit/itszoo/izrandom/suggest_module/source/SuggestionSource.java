@@ -88,7 +88,7 @@ public class SuggestionSource {
     static SuggestionCollection suggestionCollection5 = new SuggestionCollection(
             "Xem gì bây giờ?", R.drawable.ic_film,
             Arrays.asList(
-                    "Tất cả","Âm nhạc", "Tin tức", "Thể thao", "Phim" , "Cuộc sống"
+                    "Tất cả","Âm nhạc", "Tin tức", "Thể thao", "Phim" , "Chia sẻ trải nghiệm"
             ),
             Arrays.asList(
                     new Suggestion("MV nhạc Âu Mĩ" , R.drawable.mv_au_mi, "Âm nhạc"),

@@ -134,7 +134,7 @@ public class SuggestFragment extends Fragment {
                                     sleep(100);
                                     for (int i = 0; i < 50; i++) {
 
-                                        sleep(100);
+                                        sleep(80);
                                         if(getActivity() != null)
                                         getActivity().runOnUiThread(new Runnable() {
                                             public void run() {
