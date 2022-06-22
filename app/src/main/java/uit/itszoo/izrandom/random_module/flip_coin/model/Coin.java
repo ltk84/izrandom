@@ -7,7 +7,6 @@ public class Coin implements Serializable {
     private int viewID;
     private int drawableHead;
     private int drawableTail;
-
     public boolean isHead;
 
     public Coin(String id, int viewID, int drawableHead, int drawableTail, boolean isHead) {
