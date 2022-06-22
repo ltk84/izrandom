@@ -2,6 +2,7 @@ package uit.itszoo.izrandom.random_module.lucky_wheel.edit_lucky_wheel;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -25,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
@@ -329,14 +331,20 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
 
         deleteButton.setOnClickListener(
                 view -> {
-                    if (presenter.getNumberOfWheel() <= MIN_NUMBER_WHEEL) {
-                        Toast.makeText(EditLuckyWheelActivity.this, "Đây là vòng quay duy nhất", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    presenter.deleteWheel(currentWheelData);
-
-                    finish();
+                    new AlertDialog.Builder(this)
+                            .setTitle("Hộp thư xác nhận")
+                            .setMessage("Bạn có chắc muốn vòng quay này không?")
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    if (presenter.getNumberOfWheel() <= MIN_NUMBER_WHEEL) {
+                                        Toast.makeText(EditLuckyWheelActivity.this, "Đây là vòng quay duy nhất", Toast.LENGTH_LONG).show();
+                                        return;
+                                    }
+                                    presenter.deleteWheel(currentWheelData);
+                                    finish();
+                                }})
+                            .setNegativeButton("Hủy", null).show();
                 }
         );
     }
