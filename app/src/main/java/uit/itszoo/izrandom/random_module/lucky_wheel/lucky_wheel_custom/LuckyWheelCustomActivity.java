@@ -146,6 +146,8 @@ public class LuckyWheelCustomActivity extends AppCompatActivity implements Lucky
             luckyWheel.setTarget(1);
 
             LuckyWheelData currentWheel = wheelList.get(position);
+
+            luckyWheel.setTextSize(currentWheel.getTextSize());
             int repeat = currentWheel.getSliceRepeat();
             List<LuckyWheelSlice> slicesOfWheel = presenter.getSlicesByWheelID(currentWheel.getId());
 

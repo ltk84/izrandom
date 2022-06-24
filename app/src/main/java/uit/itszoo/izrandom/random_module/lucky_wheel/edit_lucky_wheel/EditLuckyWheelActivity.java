@@ -127,6 +127,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         luckyWheel = findViewById(R.id.edit_lucky_wheel);
         luckyWheel.setTarget(DEFAULT_SELECTED_WHEEL_ITEM);
         luckyWheel.addWheelItems(wheelItems);
+        luckyWheel.setTextSize(currentWheelData.getTextSize());
 
         backButton = findViewById(R.id.bb_lucky_wheel_edit);
         deleteButton = findViewById(R.id.bt_delete_lucky_wheel_edit);
@@ -391,8 +392,9 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                 PorterDuffColorFilter(uiSlice.textColor, PorterDuff.Mode.SRC_IN));
         changeTextColor = uiSlice.textColor;
 
-        color.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable, null);
-        textColor.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+        Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+        color.setCompoundDrawablesWithIntrinsicBounds(mDrawable, null, mDrawable2, null);
+        textColor.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
         textInCard.setText(uiSlice.text);
         textInCard.setTextColor(uiSlice.textColor);
         cardView.setCardBackgroundColor(uiSlice.color);
@@ -410,7 +412,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                     final int DRAWABLE_BOTTOM = 3;
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (event.getRawX() >= (color.getRight() - color.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (event.getRawX() >= (color.getLeft() - color.getCompoundDrawables()[DRAWABLE_LEFT].getBounds().width())) {
                             new ColorPickerPopup
                                     .Builder(EditLuckyWheelActivity.this)
                                     .initialColor(uiSlice.color)
@@ -424,11 +426,12 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                                     .show(view, new ColorPickerPopup.ColorPickerObserver() {
                                         @Override
                                         public void onColorPicked(int cl) {
-                                            cardView.setBackgroundColor(cl);
+                                            cardView.setCardBackgroundColor(cl);
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color);
                                             mDrawable1.setColorFilter(new
                                                     PorterDuffColorFilter(cl, PorterDuff.Mode.SRC_IN));
-                                            color.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+                                            Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+                                            color.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
                                             changeColor = cl;
                                         }
                                     });
@@ -447,7 +450,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                     final int DRAWABLE_BOTTOM = 3;
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (event.getRawX() >= (textColor.getRight() - textColor.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (event.getRawX() >= (textColor.getLeft() - textColor.getCompoundDrawables()[DRAWABLE_LEFT].getBounds().width())) {
                             new ColorPickerPopup
                                     .Builder(EditLuckyWheelActivity.this)
                                     .initialColor(uiSlice.color)
@@ -465,7 +468,8 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color_2);
                                             mDrawable1.setColorFilter(new
                                                     PorterDuffColorFilter(cl, PorterDuff.Mode.SRC_IN));
-                                            textColor.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+                                            Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+                                            textColor.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
                                             changeTextColor = cl;
                                         }
                                     });
@@ -589,13 +593,14 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         EditText textColor = addDialog.findViewById(R.id.text_color);
         Drawable mDrawable = getResources().getDrawable(R.drawable.ic_circle_color);
         mDrawable.setColorFilter(new PorterDuffColorFilter(defaultSliceColor, PorterDuff.Mode.SRC_IN));
-        color.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable, null);
+        Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+        color.setCompoundDrawablesWithIntrinsicBounds(mDrawable, null, mDrawable2, null);
         cardView.setCardBackgroundColor(defaultSliceColor);
 
         Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color_2);
         mDrawable1.setColorFilter(new
                 PorterDuffColorFilter(defaultTextColor, PorterDuff.Mode.SRC_IN));
-        textColor.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+        textColor.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
         textInCard.setTextColor(defaultTextColor);
 
         cancelButton.setOnClickListener(
@@ -610,7 +615,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                     final int DRAWABLE_BOTTOM = 3;
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (event.getRawX() >= (color.getRight() - color.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (event.getRawX() >= (color.getLeft() - color.getCompoundDrawables()[DRAWABLE_LEFT].getBounds().width())) {
                             new ColorPickerPopup
                                     .Builder(EditLuckyWheelActivity.this)
                                     .initialColor(defaultSliceColor)
@@ -624,12 +629,14 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                                     .show(view, new ColorPickerPopup.ColorPickerObserver() {
                                         @Override
                                         public void onColorPicked(int cl) {
-                                            cardView.setBackgroundColor(cl);
+                                            System.out.println("alo");
+                                            cardView.setCardBackgroundColor(cl);
                                             @SuppressLint("UseCompatLoadingForDrawables")
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color);
                                             mDrawable1.setColorFilter(new
                                                     PorterDuffColorFilter(cl, PorterDuff.Mode.SRC_IN));
-                                            color.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+                                            Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+                                            color.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
                                             defaultSliceColor = cl;
                                         }
                                     });
@@ -648,7 +655,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                     final int DRAWABLE_BOTTOM = 3;
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (event.getRawX() >= (textColor.getRight() - textColor.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (event.getRawX() >= (textColor.getLeft() - textColor.getCompoundDrawables()[DRAWABLE_LEFT].getBounds().width())) {
                             new ColorPickerPopup
                                     .Builder(EditLuckyWheelActivity.this)
                                     .initialColor(defaultTextColor)
@@ -667,7 +674,8 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color_2);
                                             mDrawable1.setColorFilter(new
                                                     PorterDuffColorFilter(cl, PorterDuff.Mode.SRC_IN));
-                                            textColor.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+                                            Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+                                            textColor.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
                                             defaultTextColor = cl;
                                         }
                                     });

@@ -1,25 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLayouts">
-    <shared>
-      <config />
-    </shared>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96e133ca-d405-47c5-a187-729a8d794b0e" name="Changes" comment="">
+    <list default="true" id="c382b384-ad6c-42cf-b2fc-15d3c98b2f4e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_basic_touch.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/45.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/52.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/53.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/54.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/55.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/56.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/57.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/58.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/59.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/60.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/61.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/62.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/63.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/65.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/66.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/ui/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddNewLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddNewLuckyWheelActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/LuckyWheelCustomActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/LuckyWheelCustomActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/source/LuckyWheelSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/source/LuckyWheelSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_clarity_pencil_solid.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_clarity_pencil_solid.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_add_slice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_add_slice.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_edit_slice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_edit_slice.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[00cc99090904]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\PC\.android\avd\Pixel_2_API_28.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -28,15 +100,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="2B083Px1vmdzaLltkVk4VSgCwP7" />
+  <component name="ProjectId" id="2B1Vhy5xTQrUXmWmOMzqfTqOu73" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,7 +114,7 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="IZRandom.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -111,35 +175,15 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="96e133ca-d405-47c5-a187-729a8d794b0e" name="Changes" comment="" />
-      <created>1656031442534</created>
+      <changelist id="c382b384-ad6c-42cf-b2fc-15d3c98b2f4e" name="Changes" comment="" />
+      <created>1656073701381</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1656031442534</updated>
+      <updated>1656073701381</updated>
     </task>
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java</url>
-          <line>288</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
