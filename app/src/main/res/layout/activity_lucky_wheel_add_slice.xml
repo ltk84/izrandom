@@ -82,14 +82,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slice_content"
-        android:text="Màu nền"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:cursorVisible="false"
         android:textColor="@color/randomElementBlack"
         android:maxLength="20"
-        android:drawableRight="@drawable/ic_circle_color"
-        />
+        android:drawableStart="@drawable/ic_circle_color"
+        android:hint="   Màu nền"
+        android:drawableEnd="@drawable/ic_basic_touch"/>
     <EditText
         android:id="@+id/text_color"
         android:layout_width="match_parent"
@@ -103,13 +103,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slice_color"
-        android:text="Màu chữ"
+        android:hint="   Màu chữ"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:cursorVisible="false"
         android:textColor="@color/randomElementBlack"
         android:maxLength="20"
-        android:drawableRight="@drawable/ic_circle_color_2"
+        android:drawableStart="@drawable/ic_circle_color_2"
+        android:drawableEnd="@drawable/ic_basic_touch"
         />
     <LinearLayout
         android:layout_width="match_parent"

@@ -79,9 +79,11 @@
   <component name="ChangeListManager">
     <list default="true" id="96e133ca-d405-47c5-a187-729a8d794b0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/source/LuckyWheelSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/source/LuckyWheelSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_circle_color.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_circle_color.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_circle_color_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_circle_color_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddNewLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddNewLuckyWheelActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_clarity_pencil_solid.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_clarity_pencil_solid.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_add_slice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_add_slice.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_edit_slice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_wheel_edit_slice.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,25 +222,25 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="349" y="163" key="AndroidCreateResourceFileDialog/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656062158685" />
-    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1656062173363">
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1656070137863">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656062173363" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1656067149374">
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656070137863" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1656069831989">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656067149374" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1656067149374">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656069831989" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1656069831989">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656067149374" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1656067149374">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656069831989" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1656069831988">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656067149374" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1656067149374">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656069831988" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1656069831989">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656067149374" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656069831989" />
   </component>
 </project>

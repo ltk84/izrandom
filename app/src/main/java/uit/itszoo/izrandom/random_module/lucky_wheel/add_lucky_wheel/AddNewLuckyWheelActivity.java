@@ -339,8 +339,10 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                 PorterDuffColorFilter(uiSlice.textColor, PorterDuff.Mode.SRC_IN));
         changeTextColor = uiSlice.textColor;
 
-        color.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable, null);
-        textColor.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+        Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+
+        color.setCompoundDrawablesWithIntrinsicBounds(mDrawable, null, mDrawable2, null);
+        textColor.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
         textInCard.setText(uiSlice.text);
         textInCard.setTextColor(uiSlice.textColor);
         cardView.setCardBackgroundColor(uiSlice.color);
@@ -358,7 +360,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                     final int DRAWABLE_BOTTOM = 3;
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (event.getRawX() >= (color.getRight() - color.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (event.getRawX() >= (color.getLeft() - color.getCompoundDrawables()[DRAWABLE_LEFT].getBounds().width())) {
                             new ColorPickerPopup
                                     .Builder(AddNewLuckyWheelActivity.this)
                                     .initialColor(uiSlice.color)
@@ -376,7 +378,8 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color);
                                             mDrawable1.setColorFilter(new
                                                     PorterDuffColorFilter(cl, PorterDuff.Mode.SRC_IN));
-                                            color.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+                                            Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+                                            color.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
                                             changeColor = cl;
                                         }
                                     });
@@ -395,7 +398,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                     final int DRAWABLE_BOTTOM = 3;
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (event.getRawX() >= (textColor.getRight() - textColor.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (event.getRawX() >= (textColor.getLeft() - textColor.getCompoundDrawables()[DRAWABLE_LEFT].getBounds().width())) {
                             new ColorPickerPopup
                                     .Builder(AddNewLuckyWheelActivity.this)
                                     .initialColor(uiSlice.textColor)
@@ -413,7 +416,8 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color_2);
                                             mDrawable1.setColorFilter(new
                                                     PorterDuffColorFilter(cl, PorterDuff.Mode.SRC_IN));
-                                            textColor.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+                                            Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+                                            textColor.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
                                             changeTextColor = cl;
                                         }
                                     });
@@ -529,14 +533,15 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
         mDrawable.setColorFilter(new
                 PorterDuffColorFilter(defaultSliceColor, PorterDuff.Mode.SRC_IN));
 
-        color.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable, null);
+        Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+        color.setCompoundDrawablesWithIntrinsicBounds(mDrawable, null, mDrawable2, null);
         cardView.setCardBackgroundColor(defaultSliceColor);
 
 
         Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color_2);
         mDrawable1.setColorFilter(new
                 PorterDuffColorFilter(defaultTextColor, PorterDuff.Mode.SRC_IN));
-        textColor.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+        textColor.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
         textInCard.setTextColor(defaultTextColor);
 
         cancelButton.setOnClickListener(
@@ -551,7 +556,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                     final int DRAWABLE_BOTTOM = 3;
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (event.getRawX() >= (color.getRight() - color.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (event.getRawX() >= (color.getLeft() - color.getCompoundDrawables()[DRAWABLE_LEFT].getBounds().width())) {
                             new ColorPickerPopup
                                     .Builder(AddNewLuckyWheelActivity.this)
                                     .initialColor(defaultSliceColor)
@@ -570,7 +575,8 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color);
                                             mDrawable1.setColorFilter(new
                                                     PorterDuffColorFilter(cl, PorterDuff.Mode.SRC_IN));
-                                            color.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+                                            Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+                                            color.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
                                             defaultSliceColor = cl;
                                         }
                                     });
@@ -589,7 +595,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                     final int DRAWABLE_BOTTOM = 3;
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (event.getRawX() >= (textColor.getRight() - textColor.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (event.getRawX() >= (textColor.getLeft() - textColor.getCompoundDrawables()[DRAWABLE_LEFT].getBounds().width())) {
                             new ColorPickerPopup
                                     .Builder(AddNewLuckyWheelActivity.this)
                                     .initialColor(defaultTextColor)
@@ -608,7 +614,8 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color_2);
                                             mDrawable1.setColorFilter(new
                                                     PorterDuffColorFilter(cl, PorterDuff.Mode.SRC_IN));
-                                            textColor.setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable1, null);
+                                            Drawable mDrawable2 = getResources().getDrawable(R.drawable.ic_basic_touch);
+                                            textColor.setCompoundDrawablesWithIntrinsicBounds(mDrawable1, null, mDrawable2, null);
                                             defaultTextColor = cl;
                                         }
                                     });
