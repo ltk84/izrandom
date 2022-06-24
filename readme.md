@@ -29,13 +29,19 @@
 	- [Cài đặt](#cài-đặt)
 - [Giao diện](#giao-diện)
 - [Tính năng](#tính-năng)
-    - [Xác thực người dùng](#xác-thực-người-dùng)
-    - [Đề xuất lộ trình](#đề-xuất-lộ-trình)
-    - [Kế hoạch mỗi ngày](#kế-hoạch-mỗi-ngày)
-    - [Luyện tập](#luyện-tập)
-    - [Thư viện](#thư-viện)
-    - [Thống kê](#thống-kê)
-    - [Hình ảnh quá trình](#hình-ảnh-quá-trình)
+    - [Ngẫu nhiên số nguyên](#ngẫu-nhiên-số-nguyên)
+    - [Vòng quay](#vòng-quay)
+    - [Người được chọn](#người-được-chọn)
+    - [Tung đồng xu](#tung-đồng-xu)
+    - [Tung xí ngầu](#tung-xí-ngầu)
+    - [Lật thẻ bài](#lật-thẻ-bài)
+    - [Hướng ngẫu nhiên](#hướng-ngẫu-nhiên)
+    - [Chia đội nhóm](#chia-đội-nhóm)
+    - [Lập bảng thi đấu](#lập-bảng-thi-đấu)
+    - [Xổ số](#xổ-số)
+    - [Gợi ý sự lựa chọn](#gợi-ý-sự-lựa-chọn)
+    - [Sự thật và thử thách](#sự-thật-và-thử-thách)
+    - [Những câu hỏi cho cuộc vui](#những-câu-hỏi-cho-cuộc-vui)
     - [Cài đặt](#cài-đặt)
 - [Công nghệ](#công-nghệ)
 - [Nhóm](#nhóm)
@@ -52,8 +58,11 @@ Ngoài việc đưa ra những đề xuất, gợi ý về sự lựa chọn th�
 ## Bắt đầu
 
 ### Điều kiện tiên quyết
+**Hệ điều hành:** từ Android 8.0 trở lên.
 
-Android 4.1 (API Level 16) trở lên.
+**RAM:** từ 2GB trở lên.
+
+**ROM:** từ 50MB trở lên.
 
 ### Cài đặt
 
@@ -116,6 +125,25 @@ Sau đó mở project IZRandom với Android Studio và chạy ứng dụng trê
  <img width="200" src=".\info\ui\45.png"></a>
  <img width="200" src=".\info\ui\46.png"></a>
  <img width="200" src=".\info\ui\47.png"></a>
+ <img width="200" src=".\info\ui\48.png"></a>
+ <img width="200" src=".\info\ui\49.png"></a>
+ <img width="200" src=".\info\ui\50.png"></a>
+ <img width="200" src=".\info\ui\51.png"></a>
+ <img width="200" src=".\info\ui\52.png"></a>
+ <img width="200" src=".\info\ui\53.png"></a>
+ <img width="200" src=".\info\ui\54.png"></a>
+ <img width="200" src=".\info\ui\55.png"></a>
+ <img width="200" src=".\info\ui\56.png"></a>
+ <img width="200" src=".\info\ui\57.png"></a>
+ <img width="200" src=".\info\ui\58.png"></a>
+ <img width="200" src=".\info\ui\59.png"></a>
+ <img width="200" src=".\info\ui\60.png"></a>
+ <img width="200" src=".\info\ui\61.png"></a>
+ <img width="200" src=".\info\ui\62.png"></a>
+ <img width="200" src=".\info\ui\63.png"></a>
+ <img width="200" src=".\info\ui\64.png"></a>
+ <img width="200" src=".\info\ui\65.png"></a>
+ <img width="200" src=".\info\ui\66.png"></a>
 
 ## Tính năng
 
@@ -156,7 +184,10 @@ Sau đó mở project IZRandom với Android Studio và chạy ứng dụng trê
 * Thay đổi số lượng xí ngầu.
 
 ### Lật thẻ bài
-
+* Quản lý bộ thẻ bài
+    * Tùy chỉnh tên bộ thẻ bài.
+    * Thêm/Sửa/Xóa thẻ bài trong bộ thẻ bài.
+* Lật ngẫu nhiên thẻ bài.
 
 ### Hướng ngẫu nhiên
 * Xoay mũi tên.
@@ -167,12 +198,15 @@ Sau đó mở project IZRandom với Android Studio và chạy ứng dụng trê
 * Chia đội nhóm ngẫu nhiên theo số lượng nhóm.
 
 ### Lập bảng thi đấu
+* Lập bảng thi đấu dựa trên danh sách người/đội thi.
 
 ### Xổ số
 * Tạo kết quả trúng thưởng dựa trên danh sách người và giải thưởng.
 
 ### Gợi ý sự lựa chọn
-
+* Tùy chọn chủ đề.
+* Tạo kết quả ngẫu nhiên theo chủ đề.
+* Lọc kết quả ngẫu nhiên theo danh mục.
 
 ### Sự thật và thử thách
 * Quản lý thẻ bài Sự thật và Thử thách.
@@ -181,6 +215,7 @@ Sau đó mở project IZRandom với Android Studio và chạy ứng dụng trê
 * Bắt đầu trò chơi từ bộ thẻ bài tự chọn.
 
 ### Những câu hỏi cho cuộc vui
+* Gợi ý ngẫu nhiên câu hỏi từ bộ câu hỏi.
 
 ### Cài đặt
 * Bật/tắt âm thanh.
@@ -240,28 +275,23 @@ git push origin feature/super-feature
 
 ## Hướng phát triển
 
-### Xây dựng lộ trình tự chọn
-Tính năng này sẽ cho phép người dùng tùy chỉnh đề xuất lộ trình cho bản thân. Người dùng sẽ có thể tùy chọn những bài tập yêu thích của mình cũng như những món ăn yêu thích của mình. Từ sự tùy chỉnh đó của người dùng, hệ thống sẽ tự động đề xuất sao cho phù hợp với mục tiêu nhưng vẫn đảm bảo được tính khoa học của việc luyện tập và dinh dưỡng.
+### Tương tác trực tuyến
+Tính năng này cho phép người dùng ở những thiết bị di động khác nhau có thể tương tác với nhau thông qua Internet để có thể cùng tham gia trò chơi như là Sự thật và Thử thách, Những câu hỏi cho cuộc vui. Ngoài ra, điều này còn cho phép người dùng có thể chia sẻ những vòng quay, bộ thẻ bài do mình tạo và cũng có thể lưu cũng như sử dụng những vòng quay, bộ thẻ bài do người dùng khác tạo.
 
-### Chạy bộ
-Tính năng này sẽ hỗ trợ cho người dùng theo dõi việc chạy bộ của mình. Tại đây, người dùng có thể theo dõi khoảng cách, thời gian đã chạy/đi bộ cũng như có thể xem quãng đường đã chạy/đi bộ một cách trực quan với bản đồ được tích hợp bên trong ứng dụng.
+### Trình ngẫu nhiên Bóc thăm
+Cơ chế hoạt động của trình ngẫu nhiên này như sau:
+* Với số lượng người tham gia và số lượng thẻ bài được xác định từ đầu vào,
+trình ngẫu nhiên sau đó sẽ tạo ra các thẻ bài tương ứng. Trong mỗi thẻ bài sẽ có một hoặc nhiều những thẻ bài “trúng thưởng” (được đánh dấu) và những
+thẻ bài còn lại sẽ là những thẻ bài “không trúng thưởng” (được để trống).
+* Trình ngẫu nhiên sẽ hiển thị tất cả các thẻ bài ở mặt úp (không hiển thị nội dung của thẻ bài) lên giao diện màn hình. Lúc này, người dùng có thể nhấn chọn thẻ bài để lật thẻ và xem thẻ có “trúng thưởng” hay không. 
 
-### Thử thách
-Tính năng này cho phép người dùng bắt đầu tham gia những hoạt động thử thách và đạt được những thành tựu, thành tích có thể chia sẻ với bạn bè thông qua mạng xã hội. Tại đây, sau khi hoàn thành thử thách, người dùng nhận được một huy hiệu trong ứng dụng và có thể xem thành tích của riêng mình cũng như của những người tham gia khác để thi đua, cạnh tranh và phát triển.
+Trình ngẫu nhiên bóc thăm này cho phép người dùng có thể tùy chỉnh số lượng thẻ bài “trúng thưởng” cũng như số lượng thẻ bài và số người tham gia.
 
-### Thành tựu
-Tính năng này cung cấp đa dạng những loại huy hiệu mà người dùng có thể đạt được thông qua hoạt động luyện tập, ăn uống, đi bộ, chạy bộ, thực hiện thử thách, v.v.
+### Trình ngẫu nhiên Danh sách
+Trình ngẫu nhiên này sẽ tạo một danh sách mới từ một danh sách đầu vào. Tại đây, ta có thể tùy chỉnh số lượng kết quả đầu ra cũng như xác định cho phép việc trùng phần tử trong một danh sách hay không.
 
-### Âm thanh
-Với tính năng này, người dùng có thể tùy chỉnh những bài nhạc sẽ được bật trong phiên luyện tập của mình cũng như có thể tùy chỉnh bật/tắt/thay đổi giọng nói hướng dẫn của phiên tập.
-
-<details>
-<summary><b>Xem thêm</b></summary>
-
-Hiện tại, hệ thống đề xuất lộ trình của ứng dụng đang hoạt động ở mức đề xuất dựa trên mục tiêu cân nặng. Từ đó cùng với những thông tin từ phía người dùng, hệ thống sẽ gợi ý một mức calories mục tiêu mỗi ngày cho người dùng trong việc luyện tập và ăn uống (kèm theo đó là danh sách bài tập và món ăn theo ngày được gợi ý để đạt được mức calories đó). Tuy nhiên, hệ thống có thể mở rộng mức đề xuất hơn nữa, không chỉ đề xuất dựa trên mục tiêu cân nặng của người dùng, mà thêm vào đó là cả mục tiêu về tăng cơ, giảm mỡ, giữ vóc dáng, v.v. Khi đó, hệ thống sẽ đòi hỏi nhiều thông tin đầu vào hơn từ người dùng, nhưng đổi lại thì việc đề xuất sẽ chính xác hơn khi đầu ra của việc đề xuất sẽ không chỉ là calories mục tiêu mỗi ngày (kèm theo những cái đã kể trên), mà còn có thêm mục tiêu của khối lượng các thành phần dinh dưỡng chính mỗi ngày (protein, fat, carbs). Từ đó thì người dùng có thể linh hoạt hơn trong việc tùy chỉnh các mục tiêu cho việc đề xuất, điều này sẽ làm cho việc đề xuất của hệ thống trở nên phù hợp với từng người dùng khác nhau (đề xuất bài tập, món ăn mỗi ngày với lượng thời gian, thành phần chính xác hơn). 
-> *Việc cho phép người dùng có thể tùy chỉnh mục tiêu đề xuất một cách cụ thể là bởi vì đối với mỗi người, trên thực tế, sẽ có lượng calories mỗi ngày khác nhau, và sẽ có chênh lệch so với mức mà ứng dụng đề xuất. Cho nên khi người dùng có thể linh hoạt trong việc tùy chỉnh sẽ giúp cho hệ thống tạo lộ trình một cách chính xác hơn.*
-
-</details>
+### Hơn thế nữa
+Ngoài những tính năng mới thì ta còn có thể cải thiện những tính năng sẵn có để có thể hoàn thiện hơn. Một số tính năng có thể mở rộng thêm như là lưu lịch sử kết quả của trình ngẫu nhiên, tùy chỉnh nâng cao giao diện của trình ngẫu nhiên (thay vì chỉ cho người dùng chọn những hình dáng mũi tên, xí ngầu, đồng xu có sẵn thì ta có thể cho phép người dùng tùy biến sâu hơn như là tùy chỉnh màu, kích thước, chữ, màu chữ, cỡ chữ, icon, nền, v.v), nhạc nền ứng dụng, v.v.
 
 <br/>
 
