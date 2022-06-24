@@ -74,7 +74,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
     TextView spinTimeView;
     LinearLayout sliceHolder;
 
-    int textSize = 16;
+    int textSize = 36;
     int repeat = 1;
     int spinTime = 5;
     String title = "Làm gì bây giờ?";

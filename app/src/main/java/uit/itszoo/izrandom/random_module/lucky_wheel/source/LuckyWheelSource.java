@@ -12,13 +12,13 @@ public class LuckyWheelSource {
 
     public static ArrayList<LuckyWheelData> luckyWheelList = new ArrayList<>(
             Arrays.asList(
-                    new LuckyWheelData(UUID.randomUUID().toString(), "Ca sĩ yêu thích?", 16, 1, 3,
+                    new LuckyWheelData(UUID.randomUUID().toString(), "Ca sĩ yêu thích?", 36, 1, 3,
                             false),
-                    new LuckyWheelData(UUID.randomUUID().toString(), "Hôm nay làm gì?", 16, 1, 3,
+                    new LuckyWheelData(UUID.randomUUID().toString(), "Hôm nay làm gì?", 36, 1, 3,
                             false),
-                    new LuckyWheelData(UUID.randomUUID().toString(), "Hôm nay ăn gì?", 16, 1, 3,
+                    new LuckyWheelData(UUID.randomUUID().toString(), "Hôm nay ăn gì?", 36, 1, 3,
                             false),
-                    new LuckyWheelData(UUID.randomUUID().toString(), "Hôm nay chơi gì?", 16, 1, 3,
+                    new LuckyWheelData(UUID.randomUUID().toString(), "Hôm nay chơi gì?", 36, 1, 3,
                             false)
             )
     );

@@ -188,6 +188,7 @@ public class LuckyWheelActivity extends AppCompatActivity implements LuckyWheelC
 
         titleTextView.setText(presenter.getWheelData().getTitle());
 
+        lkWheel.setTextSize(luckyWheelData.getTextSize());
         lkWheel.addWheelItems(wheelItems);
         lkWheel.setLuckyWheelReachTheTarget(() -> {
 

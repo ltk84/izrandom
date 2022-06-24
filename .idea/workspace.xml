@@ -10,13 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96e133ca-d405-47c5-a187-729a8d794b0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IZRandom.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/LuckyWheelActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddNewLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/add_lucky_wheel/AddNewLuckyWheelActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/edit_lucky_wheel/EditLuckyWheelActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/LuckyWheelCustomActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/lucky_wheel_custom/LuckyWheelCustomActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/source/LuckyWheelSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/itszoo/izrandom/random_module/lucky_wheel/source/LuckyWheelSource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +48,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.troqphuc147/LuckyWheel_Android/0.4.2/e0969f3f71f9367ae6e8eae811ed6f684c78bda3/LuckyWheel_Android-0.4.2-sources.jar!/com/bluehomestudio/luckywheel/LuckyWheel.java_SELECTED" value="LuckyWheel" />
+    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.github.troqphuc147/LuckyWheel_Android/0.4.2/e0969f3f71f9367ae6e8eae811ed6f684c78bda3/LuckyWheel_Android-0.4.2-sources.jar!/com/bluehomestudio/luckywheel/WheelView.java_SELECTED" value="WheelView" />
+    <property name="android-custom-viewC:/Users/kiaco/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.6.0-alpha03/8c62c296efe35e282f6a589701662f5f026765df/material-1.6.0-alpha03-sources.jar!/com/google/android/material/slider/Slider.java_SELECTED" value="Slider" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="show.migrate.to.gradle.popup" value="false" />
@@ -148,21 +150,21 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="93" y="93" width="1350" height="630" key="AVDManager/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656056040456" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1656056074618">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1656058633443">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656056074618" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1656056074618">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656058633443" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1656058633443">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656056074618" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1656056074618">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656058633443" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1656058633443">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656056074618" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1656056074618">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656058633443" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1656058633443">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656056074618" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816/2400.0.1360.720@0.0.1536.816" timestamp="1656058633443" />
   </component>
 </project>

@@ -127,6 +127,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
         luckyWheel = findViewById(R.id.edit_lucky_wheel);
         luckyWheel.setTarget(DEFAULT_SELECTED_WHEEL_ITEM);
         luckyWheel.addWheelItems(wheelItems);
+        luckyWheel.setTextSize(currentWheelData.getTextSize());
 
         backButton = findViewById(R.id.bb_lucky_wheel_edit);
         deleteButton = findViewById(R.id.bt_delete_lucky_wheel_edit);
