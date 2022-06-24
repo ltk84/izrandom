@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wajahatkarim3.easyflipview.EasyFlipView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flip_card_item_cardview"
+    android:layout_width="130dp"
+    android:layout_height="170dp"
+    android:foreground="@null"
+    android:background="@android:color/transparent"
+    app:autoFlipBack="false"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="28dp"
+    app:flipDuration="400"
+    app:flipEnabled="true"
+    app:flipFrom="right"
+    app:flipOnTouch="false"
+    app:flipType="horizontal">
+
+    <!-- Back Layout Goes Here -->
+    <include layout="@layout/card_view_grid_item_back_layout" />
+
+    <!-- Front Layout Goes Here -->
+    <include layout="@layout/card_view_grid_item_front_layout" />
+
+</com.wajahatkarim3.easyflipview.EasyFlipView>

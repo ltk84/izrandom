@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="5dp">
+
+        <ImageView
+            android:id="@+id/imageView_card_stack_item_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/question_for_fun_back" />
+
+        <TextView
+            android:id="@+id/tv_card_stack_item_back"
+            android:layout_width="212dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/be_vietnam_pro"
+            android:text="Nội dung thẻ bài"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp" />
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

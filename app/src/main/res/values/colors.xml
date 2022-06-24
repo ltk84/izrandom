@@ -1,47 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <color name="purple_200">#FFBB86FC</color>-->
-<!--    <color name="purple_500">#FF6200EE</color>-->
-<!--    <color name="purple_700">#FF3700B3</color>-->
-<!--    <color name="teal_200">#FF03DAC5</color>-->
-<!--    <color name="teal_700">#FF018786</color>-->
-<!--    <color name="black">#FF000000</color>-->
-<!--    <color name="white">#FFFFFFFF</color>-->
+    <!--    <color name="purple_200">#FFBB86FC</color>-->
+    <!--    <color name="purple_500">#FF6200EE</color>-->
+    <!--    <color name="purple_700">#FF3700B3</color>-->
+    <!--    <color name="teal_200">#FF03DAC5</color>-->
+    <!--    <color name="teal_700">#FF018786</color>-->
+    <!--    <color name="black">#FF000000</color>-->
+    <!--    <color name="white">#FFFFFFFF</color>-->
+    <color name="randomElementRed">#C52222</color>
+    <color name="randomElementBlue">#2280C5</color>
+    <color name="randomElementBlack">#333333</color>
+    <color name="gold">#b89903</color>
+    <color name="regularColorDiceBorder">#333333</color>
+    <color name="regularColorDiceBackground">#FFFFFF</color>
+    <color name="regularColorDicePoint">#333333</color>
 
+    <color name="draculaColorDiceBorder">#282a36</color>
+    <color name="draculaColorDiceBackground">#44475a</color>
+    <color name="draculaColorDicePoint">#282a36</color>
 
-<!--    Blue Light Theme-->
-    <color name="blueLightColorPrimary">#001A72</color>
-    <color name="blueLightColorPrimaryLight">#3959BF</color>
-    <color name="blueLightColorPrimaryDark">#29408A</color>
-    <color name="blueLightColorOnPrimary">#FFFFFF</color>
-    <color name="blueLightColorOnPrimaryLight">#FFFFFF</color>
-    <color name="blueLightColorOnPrimaryDark">#FFFFFF</color>
+    <color name="poisonColorDiceBorder">#270082</color>
+    <color name="poisonColorDiceBackground">#1A1A40</color>
+    <color name="poisonColorDicePoint">#FA58B6</color>
 
-    <color name="blueLightColorSecondary">#682E96</color>
-    <color name="blueLightColorSecondaryLight">#BB8AE3</color>
-    <color name="blueLightColorSecondaryDark">#3C1B57</color>
-    <color name="blueLightColorOnSecondary">#FFFFFF</color>
-    <color name="blueLightColorOnSecondaryLight">#FFFFFF</color>
-    <color name="blueLightColorOnSecondaryDark">#FFFFFF</color>
+    <color name="chingChongColorDiceBorder">#780000</color>
+    <color name="chingChongColorDiceBackground">#fdf0d5</color>
+    <color name="chingChongColorDicePoint">#780000</color>
 
-    <color name="blueLightColorBackground">#FFFFFF</color>
-    <color name="blueLightColorBackgroundLight">#F0F0F0</color>
-    <color name="blueLightColorBackgroundDark">#E4e4E4</color>
-    <color name="blueLightColorOnBackground">#333333</color>
-    <color name="blueLightColorOnBackgroundLight">#BFBFBF</color>
-    <color name="blueLightColorOnBackgroundDark">#808080</color>
+    <color name="softColorDiceBorder">#ABC4FF</color>
+    <color name="softColorDiceBackground">#D7E3FC</color>
+    <color name="softColorDicePoint">#ABC4FF</color>
 
-    <color name="blueLightColorRed">#C52222</color>
-    <color name="blueLightColorRedLight">#CE6161</color>
-    <color name="blueLightColorRedDark">#450C0C</color>
+    <color name="lavenderColorDiceBorder">#bea4d2</color>
+    <color name="lavenderColorDiceBackground">#f0e2f8</color>
+    <color name="lavenderColorDicePoint">#bea4d2</color>
 
-    <color name="blueLightColorGreen">#00C734</color>
-    <color name="blueLightColorGreenLight">#3ED065</color>
-    <color name="blueLightColorGreenDark">#004713</color>
+    <!--    Blue Light Theme-->
+    <color name="colorPrimary">#001A72</color>
+    <color name="colorPrimaryLight">#3959BF</color>
+    <color name="colorPrimaryDark">#29408A</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorOnPrimaryLight">#FFFFFF</color>
+    <color name="colorOnPrimaryDark">#FFFFFF</color>
 
-    <color name="blueLightColorBlue">#2280C5</color>
-    <color name="blueLightColorBlueLight">#61A1CE</color>
-    <color name="blueLightColorBlueDark">#0C2D45</color>
-<!--    Blue Light Theme Over-->
+    <color name="colorSecondary">#682E96</color>
+    <color name="colorSecondaryLight">#BB8AE3</color>
+    <color name="colorSecondaryDark">#3C1B57</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorOnSecondaryLight">#FFFFFF</color>
+    <color name="colorOnSecondaryDark">#FFFFFF</color>
+
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorBackgroundLight">#F0F0F0</color>
+    <color name="colorBackgroundDark">#E4e4E4</color>
+    <color name="colorOnBackground">#333333</color>
+    <color name="colorOnBackgroundLight">#BFBFBF</color>
+    <color name="colorOnBackgroundDark">#808080</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="colorRed">#C52222</color>
+    <color name="colorRedLight">#CE6161</color>
+    <color name="colorRedDark">#450C0C</color>
+
+    <color name="colorGreen">#00C734</color>
+    <color name="colorGreenLight">#3ED065</color>
+    <color name="colorGreenDark">#004713</color>
+
+    <color name="colorBlue">#2280C5</color>
+    <color name="colorBlueLight">#61A1CE</color>
+    <color name="colorBlueDark">#0C2D45</color>
+    <color name="cancelButton">#8E8E8E</color>
+    <color name="addButton">#00C734</color>
+
+    <color name="buttonBackgroundCardDialog">#77c97eda</color>
+    <!--    Blue Light Theme Over-->
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
 
 </resources>

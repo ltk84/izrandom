@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    xmlns:LuckyWheel="http://schemas.android.com/apk/res-auto"
+    tools:context=".random_module.lucky_wheel.LuckyWheelActivity">
+
+    <Toolbar
+        android:id="@+id/tb_lucky_wheel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lb_rand_integer"
+            style="@style/AppBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Vòng quay may mắn" />
+
+        <ImageButton
+            android:id="@+id/bb_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:contentDescription="@string/back_button"
+            android:minWidth="48dp"
+            android:background="@null"
+            android:minHeight="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            app:tint="@color/colorOnBackground" />
+
+        <ImageButton
+            android:id="@+id/bt_cus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:contentDescription="@string/back_button"
+            android:minWidth="60dp"
+            android:minHeight="60dp"
+            android:scaleX="1"
+            android:background="@null"
+            android:scaleY="1"
+            android:src="@drawable/ic_bottom_nav_setting"
+            app:tint="@color/colorOnBackground" />
+    </Toolbar>
+
+    <TextSwitcher
+        android:id="@+id/random_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inAnimation="@android:anim/slide_in_left"
+        android:outAnimation="@android:anim/slide_out_right"
+        android:minWidth="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/lwv"
+        app:layout_constraintEnd_toEndOf="@+id/tb_lucky_wheel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
+
+    <com.bluehomestudio.luckywheel.LuckyWheel
+        android:id="@+id/lwv"
+        LuckyWheel:background_color="@color/colorPrimaryDark"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_lucky_wheel" />
+
+    <TextView
+        android:id="@+id/description"
+        style="@style/GuideTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingStart="36dp"
+        android:paddingEnd="36dp"
+        android:text="Chạm vào màn hình hoặc xoay vòng quay theo hướng kim đồng hồ để random"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lwv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

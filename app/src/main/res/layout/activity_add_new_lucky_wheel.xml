@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:LuckyWheel="http://schemas.android.com/tools">
+
+    <Toolbar
+        android:id="@+id/tb_lucky_wheel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp">
+
+        <TextView
+            android:id="@+id/lb_rand_integer"
+            style="@style/AppBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Thêm vòng quay" />
+
+        <ImageButton
+            android:id="@+id/bb_add_wheel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            app:tint="@color/colorOnBackground" />
+
+        <ImageButton
+            android:id="@+id/oke_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorBackground"
+            android:contentDescription="@string/back_button"
+            android:minWidth="60dp"
+            android:minHeight="60dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:src="@drawable/ic_check_button"
+            app:tint="@color/colorGreen" />
+    </Toolbar>
+
+    <com.xw.repo.widget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.bluehomestudio.luckywheel.LuckyWheel
+                android:id="@+id/lw_add_wheel"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                LuckyWheel:background_color="@color/colorPrimaryDark"
+                app:layout_constraintBottom_toTopOf="@+id/wheel_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/wheel_title"
+                style="@style/AppBarTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Làm gì bây giờ?"
+                android:minWidth="100dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lw_add_wheel" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:minHeight="100dp"
+                android:padding="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wheel_title">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="10dp"
+                    LuckyWheel:ignore="UselessParent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="start"
+                        android:text="Tùy chỉnh"
+                        android:textColor="@color/colorOnBackground"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#C4C4C4"
+                        android:layout_marginTop="-20dp" />
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cỡ chữ"
+                            android:textColor="@color/colorOnBackground"
+                            android:textSize="16sp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/text_size_add_lucky_wheel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="16"
+                            android:textColor="@color/colorOnBackground"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/text_size_slider_add_lucky_wheel"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:value="16"
+                        android:stepSize="1"
+                        android:valueFrom="0"
+                        android:valueTo="64" />
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lặp slice"
+                            android:textColor="@color/colorOnBackground"
+                            android:textSize="16sp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/slide_repeat_add_lucky_wheel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="@color/colorOnBackground"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/slice_repeat_slider_add_lucky_wheel"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:value="1"
+                        android:valueFrom="1"
+                        android:stepSize="1"
+                        android:valueTo="4" />
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Số lần quay"
+                            android:textColor="@color/colorOnBackground"
+                            android:textSize="16sp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/spin_time_add_lucky_wheel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5"
+                            android:textColor="@color/colorOnBackground"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/spin_time_slide_add_lucky_wheel"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:value="5"
+                        android:valueFrom="3"
+                        android:valueTo="20"
+                        android:stepSize="1" />
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fair mode"
+                            android:textColor="@color/colorOnBackground"
+                            android:textSize="16sp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <Switch
+                            android:id="@+id/fair_mode_add_lucky_wheel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            LuckyWheel:ignore="UseSwitchCompatOrMaterialXml" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/add_list_slice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Slice"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorOnBackground"
+                            android:textSize="18sp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <ImageButton
+                            android:tint="@color/colorOnBackground"
+                            android:id="@+id/add_wheel_mix_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="30dp"
+                            android:minHeight="30dp"
+                            android:scaleX="1.4"
+                            android:scaleY="1.4"
+                            android:background="@null"
+                            android:src="@drawable/ic_mix">
+
+                        </ImageButton>
+
+                        <ImageButton
+                            android:id="@+id/add_wheel_add_slice_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:minWidth="30dp"
+                            android:minHeight="30dp"
+                            android:scaleX="1.4"
+                            android:scaleY="1.4"
+                            android:tint="@color/colorOnBackground"
+                            android:src="@drawable/ic_add">
+
+                        </ImageButton>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#C4C4C4"
+                        android:layout_marginBottom="15dp" />
+
+                    <LinearLayout
+                        android:id="@+id/slice_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.xw.repo.widget.BounceScrollView>
+</LinearLayout>

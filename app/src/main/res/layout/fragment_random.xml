@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".random_module.RandomFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.xw.repo.widget.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:damping="1.8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="206dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="5dp"
+                    android:id="@+id/cv_random_direction"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+
+                    android:layout_width="146dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    app:contentPadding="28dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ic_random_direction"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:rotation="-45"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/ic_random_direction"
+                            app:tint="@color/randomElementBlack"
+                            android:contentDescription="@string/random_direction_description" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom|center_horizontal"
+                            android:textColor="@color/colorOnBackground"
+                            android:text="@string/random_direction_label" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="5dp"
+                        android:id="@+id/cv_roll_dice"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="73dp"
+                        app:contentPadding="8dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="48dp"
+                        android:layout_marginBottom="12dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <com.iigo.library.DiceLoadingView
+                                android:id="@+id/ic_roll_dice"
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:layout_gravity="center_horizontal"
+                                app:firstSideDiceBgColor="@android:color/white"
+                                app:firstSideDiceBorderColor="@android:color/black"
+                                app:firstSideDiceNumber="1"
+                                app:firstSideDicePointColor="@android:color/black"
+                                app:fourthSideDiceBgColor="@android:color/white"
+                                app:fourthSideDiceBorderColor="@android:color/black"
+                                app:fourthSideDiceNumber="4"
+                                app:fourthSideDicePointColor="@android:color/black"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                                app:secondSideDiceBgColor="@android:color/white"
+                                app:secondSideDiceBorderColor="@android:color/black"
+                                app:secondSideDiceNumber="2"
+                                app:secondSideDicePointColor="@android:color/black"
+                                app:thirdSideDiceBgColor="@android:color/white"
+                                app:thirdSideDiceBorderColor="@android:color/black"
+                                app:thirdSideDiceNumber="6"
+                                app:thirdSideDicePointColor="@android:color/black"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="bottom|center_horizontal"
+                                android:textColor="@color/colorOnBackground"
+                                android:text="@string/random_dice_label" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="5dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        app:contentPadding="8dp"
+                        android:id="@+id/cv_flip_coin"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="48dp"
+                        android:layout_marginBottom="12dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/ic_flip_coin"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/ic_coin_1_tail"
+                                android:contentDescription="@string/toss_a_dice_description" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="bottom|center_horizontal"
+                                android:textColor="@color/colorOnBackground"
+                                android:text="@string/random_coin_label" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="5dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/cv_lucky_wheel"
+                android:layout_marginHorizontal="48dp"
+                android:layout_marginVertical="12dp"
+                app:contentPadding="28dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/ic_random_wheel"
+                        android:contentDescription="@string/spin_a_wheel_description" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom|center_horizontal"
+                        android:textColor="@color/colorOnBackground"
+                        android:text="@string/random_wheel_label" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="111dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    app:contentPadding="12dp"
+                    android:layout_width="146dp"
+                    android:id="@+id/cv_random_number"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_random_number"
+                            app:tint="@color/randomElementRed"
+                            android:contentDescription="@string/random_numbers_description" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom|center_horizontal"
+                            android:textColor="@color/colorOnBackground"
+                            android:text="@string/random_number_label" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    app:contentPadding="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:id="@+id/cv_tournament_bracket"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_tournament"
+                            android:scaleX="1.5"
+                            android:scaleY="1.5"
+                            app:tint="@color/randomElementBlue"
+                            android:contentDescription="@string/random_list_description" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom|center_horizontal"
+                            android:textColor="@color/colorOnBackground"
+                            android:text="Giải đấu" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="5dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/cv_chooser"
+                android:layout_marginHorizontal="48dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:background="@drawable/purple_chooser_background_selector"
+                    android:padding="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/chooser_image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/chooser_shape"
+                        android:contentDescription="@string/spin_a_wheel_description" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom|center_horizontal"
+                        android:textColor="@color/colorOnPrimary"
+                        android:text="@string/chooser_label" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="206dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="146dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="48dp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="5dp"
+                        android:id="@+id/cv_raffle"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="73dp"
+                        app:contentPadding="8dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageViewRaffle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:scaleX="1.2"
+                                android:scaleY="1.2"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/ic_raffle"
+                                android:contentDescription="@string/raffle_description" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="bottom|center_horizontal"
+                                android:textColor="@color/colorOnBackground"
+                                android:text="@string/raffle_label" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_flip_card"
+                        app:cardCornerRadius="5dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+
+                        app:contentPadding="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="84dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        app:cardElevation="2dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageViewFlipCard"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:scaleX="1.2"
+                                android:scaleY="1.2"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/ic_flip_card"
+                                android:contentDescription="@string/flip_card_object_description" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="bottom|center_horizontal"
+                                android:textColor="@color/colorOnBackground"
+                                android:text="@string/flip_card_label" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_divide_team"
+                    app:cardCornerRadius="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginBottom="12dp"
+                    app:contentPadding="28dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="90dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/ic_divide_team"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="bottom|center_horizontal"
+                            android:text="@string/divide_team_label"
+                            android:textColor="@color/colorOnBackground"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.xw.repo.widget.BounceScrollView>
+
+</FrameLayout>

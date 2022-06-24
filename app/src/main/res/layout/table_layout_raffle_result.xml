@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/result_placeholder">
+
+    <TableRow>
+
+        <TextView android:layout_column="1"
+            android:text="Kết quả"
+            android:textSize="18sp"
+            android:textFontWeight="700"
+            android:textColor="@color/colorGreen"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="8dp"/>
+    </TableRow>
+    <TableRow
+        android:gravity="center"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:text="Người tham gia"
+            android:textSize="14sp"
+            android:textFontWeight="700"
+            android:textColor="@color/colorOnBackground"
+            android:layout_gravity="end"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="Giải thưởng   "
+            android:textSize="14sp"
+            android:textFontWeight="700"
+            android:textColor="@color/colorOnBackground"
+            android:layout_gravity="start"/>
+    </TableRow>
+    <TableRow
+        android:id="@+id/loading_placeholder"
+        android:layout_marginTop="24dp">
+        <com.iigo.library.DiceLoadingView
+            android:id="@+id/raffle_loading"
+            android:layout_gravity="center_horizontal"
+            android:layout_column="1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:firstSideDiceBgColor="@android:color/white"
+            app:firstSideDiceBorderColor="@color/colorOnBackground"
+            app:firstSideDiceNumber="1"
+            app:firstSideDicePointColor="@color/colorOnBackground"
+            app:fourthSideDiceBgColor="@android:color/white"
+            app:fourthSideDiceBorderColor="@color/colorOnBackground"
+            app:fourthSideDiceNumber="4"
+            app:fourthSideDicePointColor="@color/colorOnBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:secondSideDiceBgColor="@android:color/white"
+            app:secondSideDiceBorderColor="@color/colorOnBackground"
+            app:secondSideDiceNumber="2"
+            app:secondSideDicePointColor="@color/colorOnBackground"
+            app:thirdSideDiceBgColor="@android:color/white"
+            app:thirdSideDiceBorderColor="@color/colorOnBackground"
+            app:thirdSideDiceNumber="6"
+            app:thirdSideDicePointColor="@color/colorOnBackground" >
+
+        </com.iigo.library.DiceLoadingView>
+    </TableRow>
+</TableLayout>

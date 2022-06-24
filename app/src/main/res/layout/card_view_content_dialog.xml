@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView_card_content_dialog"
+    android:layout_width="280dp"
+    android:layout_height="380dp"
+    app:cardCornerRadius="5dp">
+
+    <TextView
+        android:id="@+id/txt_flip_card_content"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/be_vietnam_pro"
+        android:text="Card Content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    androidx.cardview.widget.CardView
+</androidx.cardview.widget.CardView>

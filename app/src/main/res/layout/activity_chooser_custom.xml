@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_custom_chooser"
+    tools:context=".random_module.chooser.chooser_custom.ChooserCustomActivity">
+
+    <!--    <RelativeLayout-->
+    <!--        android:id="@+id/chooser_holder_layout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:background="@drawable/purple_chooser_background_selector"-->
+    <!--        /> -->
+    <com.jama.carouselview.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:indicatorRadius="0"
+        app:carouselOffset="center"
+        app:enableSnapping="true"
+        app:scaleOnScroll="false"
+        app:setAutoPlay="false" />
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/AppBarTextStyle"
+            android:textColor="@color/colorOnPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/chooser_label" />
+
+        <ImageButton
+            android:id="@+id/bb_chooser_custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/back_button"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:src="@drawable/ic_back_button"
+            android:tint="@color/colorOnPrimary" />
+
+        <ImageButton
+            android:id="@+id/confirm_button_chooser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:contentDescription="@string/action_button_description"
+            android:minHeight="60dp"
+            android:minWidth="60dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/ic_check_button"
+            android:tint="@color/colorGreen" />
+    </Toolbar>
+
+    <TextView
+        android:id="@+id/txt_guide"
+        style="@style/GuideTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="56dp"
+        android:text="@string/custom_chooser_guide"
+        android:textAlignment="center"
+        android:textColor="@color/colorOnPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,14 +26,50 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
 
     // implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.0'
     implementation 'com.google.android.material:material:1.6.0-alpha03'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.github.woxingxiao:BounceScrollView:1.5'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation "androidx.lifecycle:lifecycle-livedata:2.5.0-alpha04"
+    implementation 'androidx.navigation:navigation-fragment:2.4.1'
+    implementation 'androidx.navigation:navigation-ui:2.4.1'
+    implementation 'com.github.jama5262:CarouselView:1.2.2'
+    implementation 'com.github.ltk84:DiceLoadingView:master-SNAPSHOT'
+    implementation 'com.github.troqphuc147:LuckyWheel_Android:0.4.2'
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+    implementation 'com.github.duanhong169:colorpicker:1.1.6'
+    implementation 'com.google.android.gms:play-services-tasks:18.0.1'
+    implementation 'androidx.core:core-animation:1.0.0-beta01'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+    implementation 'com.wajahatkarim:EasyFlipView:3.0.3'
+    implementation 'com.github.emil-ep:TournamentBracketLib:1.0.4'
+    implementation "com.yuyakaido.android:card-stack-view:2.3.4"
+
+
+
+    def room_version = "2.4.2"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    // optional - RxJava2 support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+
+    // optional - RxJava3 support for Room
+    implementation "androidx.room:room-rxjava3:$room_version"
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
 }

@@ -2,14 +2,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uit.itszoo.izrandom">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.IZRandom">
-        <activity android:name=".MainActivity" android:exported="true">
+        <activity android:name=".play_module.truth_dare.game_session.TruthDareGameSessionActivity" />
+        <activity android:name=".play_module.truth_dare.truth_dare_cards.TruthDareCardsActivity" />
+        <activity android:name=".play_module.truth_dare.TruthDareActivity" />
+        <activity android:name=".random_module.divide_team.DivideTeamActivity" />
+        <activity android:name=".random_module.raffle.RaffleActivity" />
+        <activity android:name=".random_module.chooser.chooser_custom.ChooserCustomActivity" />
+        <activity android:name=".random_module.chooser.ChooserActivity" />
+        <activity android:name=".random_module.flip_coin.flip_coin_custom.FlipCoinCustomActivity" />
+        <activity android:name=".random_module.flip_coin.FlipCoinActivity" />
+        <activity android:name=".random_module.roll_dice.roll_dice_custom.RollDiceCustomActivity" />
+        <activity android:name=".random_module.random_direction.random_direction_custom.RandomDirectionCustomActivity" />
+        <activity android:name=".random_module.random_integer.random_integer_custom.RandomIntegerCustomActivity" />
+        <activity android:name=".random_module.lucky_wheel.LuckyWheelActivity" />
+        <activity android:name=".random_module.random_integer.RandomIntegerActivity" />
+        <activity android:name=".random_module.roll_dice.RollDiceActivity" />
+        <activity android:name=".random_module.random_direction.RandomDirectionActivity" />
+        <activity android:name=".random_module.lucky_wheel.lucky_wheel_custom.LuckyWheelCustomActivity" />
+        <activity android:name=".random_module.flip_card.flip_card_menu.FlipCardMenuActivity" />
+        <activity android:name=".random_module.flip_card.flip_card.FlipCardActivity" />
+        <activity android:name=".random_module.flip_card.flip_card_add.FlipCardAddActivity" />
+        <activity android:name=".random_module.lucky_wheel.add_lucky_wheel.AddNewLuckyWheelActivity" />
+        <activity android:name=".random_module.lucky_wheel.edit_lucky_wheel.EditLuckyWheelActivity" />
+        <activity android:name=".random_module.tournament_bracket.TournamentBracketActivity" />
+        <activity android:name=".random_module.tournament_bracket.result.TournamentBracketResult" />
+        <activity android:name=".play_module.question_for_fun.QuestionForFunActivity" />
+        <activity
+            android:name=".home.HomeActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

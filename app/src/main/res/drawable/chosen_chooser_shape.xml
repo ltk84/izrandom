@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="oval">
+            <padding
+                android:bottom="1dp"
+                android:left="1dp"
+                android:right="1dp"
+                android:top="1dp" />
+            <stroke
+                android:width="12dp"
+                android:color="#103F3F3F"/>
+
+            <size
+                android:width="100dp"
+                android:height="100dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding
+                android:bottom="1dp"
+                android:left="1dp"
+                android:right="1dp"
+                android:top="1dp" />
+            <stroke
+                android:width="12dp"
+                android:color="#153F3F3F"/>
+
+            <size
+                android:width="100dp"
+                android:height="100dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding
+                android:bottom="1dp"
+                android:left="1dp"
+                android:right="1dp"
+                android:top="1dp" />
+            <stroke
+                android:width="12dp"
+                android:color="#203F3F3F"/>
+
+            <size
+                android:width="100dp"
+                android:height="100dp"/>
+        </shape>
+    </item>
+    <item
+        android:id="@+id/background_chooser_shape"
+        android:top="1dp"
+        android:bottom="1dp"
+        android:end="1dp"
+        android:start="1dp">
+        <shape android:shape="oval">
+            <solid
+                android:width="12dp"
+                android:color="@android:color/white"/>
+
+            <size
+                android:width="100dp"
+                android:height="100dp"/>
+        </shape>
+    </item>
+    <item android:top="1dp"
+        android:bottom="1dp"
+        android:end="1dp"
+        android:start="1dp">
+        <shape android:shape="oval">
+            <stroke
+                android:width="12dp"
+                android:color="@color/colorBackground"/>
+
+            <size
+                android:width="100dp"
+                android:height="100dp"/>
+        </shape>
+    </item>
+</layer-list>

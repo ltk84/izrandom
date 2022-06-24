@@ -2,18 +2,55 @@
     <!-- Base application theme. -->
     <style name="Theme.IZRandom" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blueLightColorPrimary</item>
-        <item name="colorPrimaryDark">@color/blueLightColorPrimaryDark</item>
-        <item name="colorAccent">@color/blueLightColorSecondary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorSecondary</item>
         <!-- Customize your theme here. -->
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+        <item name="toolbarStyle">@style/ToolBarStyle</item>
+        <item name="fontFamily">@font/be_vietnam_pro</item>
     </style>
+
     <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
     </style>
 
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
-        <item name="colorPrimary">@color/blueLightColorPrimary</item>
-        <item name="colorOnPrimary">@color/blueLightColorOnPrimary</item>
+        <item name="colorPrimary">@color/colorBackground</item>
+        <item name="colorOnPrimary">@color/colorOnBackground</item>
+    </style>
+    <!-- App Bar Style. -->
+    <style name="AppBarTextStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorOnBackground</item>
+    </style>
+
+    <style name="ToolBarStyle" parent="android:Widget.Toolbar">
+        <item name="backgroundColor">@color/colorBackground</item>
+        <item name="android:textViewStyle">@style/AppBarTextStyle</item>
+    </style>
+
+    <!-- Components Style. -->
+    <style name="GuideTextStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorOnBackground</item>
+    </style>
+    <style name="SwitchStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorSwitchThumbNormal">@color/colorOnPrimary</item>
+    </style>
+
+    <!-- Others. -->
+    <style name="Theme.IZRandom.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.IZRandom.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.IZRandom.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="ThemeOverlay.IZRandom.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
+        <item name="fullscreenTextColor">@color/light_blue_A400</item>
     </style>
 </resources>
