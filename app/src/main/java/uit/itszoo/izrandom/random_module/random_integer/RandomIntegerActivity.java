@@ -95,6 +95,15 @@ public class RandomIntegerActivity extends AppCompatActivity implements RandomIn
         });
         recyclerviewAdapter = new RecyclerviewAdapter(listNumsResult);
         recyclerView.setAdapter(recyclerviewAdapter);
+        recyclerView.setOnTouchListener(
+                new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        executeRandom();
+                        return true;
+                    }
+                }
+        );
     }
     ActivityResultLauncher<Intent> intentLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -178,12 +187,12 @@ public class RandomIntegerActivity extends AppCompatActivity implements RandomIn
             @Override
             public void run() {
                 final int[] time = {0};
-                while (time[0] < 25)
+                while (time[0] < 20)
                 {
                     try {
                         int minNum = parseInt(min.getText().toString());
                         int maxNum = parseInt(max.getText().toString());
-                        sleep(100);
+                        sleep(65);
                         runOnUiThread(
                                 new Runnable() {
                                     @Override

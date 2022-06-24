@@ -131,10 +131,10 @@ public class SuggestFragment extends Fragment {
                         Thread timer = new Thread() {
                             public void run() {
                                 try {
-                                    sleep(100);
-                                    for (int i = 0; i < 50; i++) {
+                                    sleep(60);
+                                    for (int i = 0; i < 40; i++) {
 
-                                        sleep(80);
+                                        sleep(60);
                                         if(getActivity() != null)
                                         getActivity().runOnUiThread(new Runnable() {
                                             public void run() {
