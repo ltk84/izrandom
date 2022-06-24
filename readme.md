@@ -66,7 +66,7 @@ Ngoài việc đưa ra những đề xuất, gợi ý về sự lựa chọn th�
 
 ### Cài đặt
 
-Tải file .apk tại [đây](https://github.com/ltk84/izrandom/releases/latest/download/app.apk) và cài đặt lên điện thoại (Android).
+Tải file .apk tại [đây](https://github.com/ltk84/izrandom/releases/latest/download/izrandom-1.0.apk) và cài đặt lên điện thoại (Android).
 ### **Dành cho việc phát triển ứng dụng:** 
 
 Tải về và cài đặt Android Studio tại [đây](https://developer.android.com/studio).
@@ -225,8 +225,7 @@ Sau đó mở project IZRandom với Android Studio và chạy ứng dụng trê
 ## Công nghệ
 
 - **Languages:** [Java]().
-- **Database:** 
-    * [SQLite]().
+- **Database:** [SQLite]().
 
 ## Nhóm
 
