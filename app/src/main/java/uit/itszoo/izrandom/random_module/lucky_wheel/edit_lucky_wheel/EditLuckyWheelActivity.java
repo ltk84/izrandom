@@ -289,8 +289,9 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                     List<LuckyWheelSlice> slicesSource = presenter.getSlicesByWheelID(currentWheelData.getId());
                     List<LuckyWheelSlice> removedSlices = new ArrayList<>();
 
+                    List<String> listID = currentWheelSlices.stream().map(LuckyWheelSlice::getId).collect(Collectors.toList());
                     for (LuckyWheelSlice slice : slicesSource) {
-                        if (!currentWheelSlices.contains(slice)) {
+                        if (!listID.contains(slice.getId())) {
                             try {
                                 LuckyWheelSlice s = (LuckyWheelSlice) slice.clone();
                                 removedSlices.add(s);
@@ -336,6 +337,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                             .setMessage("Bạn có chắc muốn xóa vòng quay này không?")
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                                @Override
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     if (presenter.getNumberOfWheel() <= MIN_NUMBER_WHEEL) {
                                         Toast.makeText(EditLuckyWheelActivity.this, "Đây là vòng quay duy nhất", Toast.LENGTH_LONG).show();
@@ -343,7 +345,8 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                                     }
                                     presenter.deleteWheel(currentWheelData);
                                     finish();
-                                }})
+                                }
+                            })
                             .setNegativeButton("Hủy", null).show();
                 }
         );
@@ -480,6 +483,7 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                             .setMessage("Bạn có chắc muốn xóa slice này không?")
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                                @Override
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     if (wheelItems.size() <= MIN_NUMBER_SLICE) {
                                         Toast.makeText(EditLuckyWheelActivity.this, "Số SLice đã đạt mức nhỏ nhất", Toast.LENGTH_LONG).show();
@@ -493,7 +497,8 @@ public class EditLuckyWheelActivity extends AppCompatActivity implements EditLuc
                                     createSliceCard();
                                     luckyWheel.addWheelItems(wheelItems);
                                     editDialog.cancel();
-                                }})
+                                }
+                            })
                             .setNegativeButton("Hủy", null).show();
 
                 }
