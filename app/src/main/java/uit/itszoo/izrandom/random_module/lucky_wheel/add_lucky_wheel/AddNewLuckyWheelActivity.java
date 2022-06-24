@@ -372,7 +372,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                                     .show(view, new ColorPickerPopup.ColorPickerObserver() {
                                         @Override
                                         public void onColorPicked(int cl) {
-                                            cardView.setBackgroundColor(cl);
+                                            cardView.setCardBackgroundColor(cl);
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color);
                                             mDrawable1.setColorFilter(new
                                                     PorterDuffColorFilter(cl, PorterDuff.Mode.SRC_IN));
@@ -565,7 +565,7 @@ public class AddNewLuckyWheelActivity extends AppCompatActivity implements AddLu
                                     .show(view, new ColorPickerPopup.ColorPickerObserver() {
                                         @Override
                                         public void onColorPicked(int cl) {
-                                            cardView.setBackgroundColor(cl);
+                                            cardView.setCardBackgroundColor(cl);
                                             @SuppressLint("UseCompatLoadingForDrawables")
                                             Drawable mDrawable1 = getResources().getDrawable(R.drawable.ic_circle_color);
                                             mDrawable1.setColorFilter(new
