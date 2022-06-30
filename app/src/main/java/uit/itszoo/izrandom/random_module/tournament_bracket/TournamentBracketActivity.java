@@ -70,7 +70,7 @@ public class TournamentBracketActivity extends AppCompatActivity implements Tour
         startDivideTournament = findViewById(R.id.start_button);
         participantEditText = findViewById(R.id.participant_edit_text);
         participantEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        participantEditText.setRawInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         textInputLayout = findViewById(R.id.participant_text_input);
         mainLayout = findViewById(R.id.main_tournament_layout);
         backButton = findViewById(R.id.bb_tb);
